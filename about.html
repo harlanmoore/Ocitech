@@ -505,39 +505,6 @@
   }, {threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
 
-  // quote form -> mailto
-  const quoteForm = document.getElementById('quote-form');
-  if (quoteForm) {
-  quoteForm.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const category = document.getElementById('category').value;
-    const details = document.getElementById('details').value.trim();
-
-    const subject = encodeURIComponent('Quote request: ' + category);
-    const bodyLines = [
-      'Name: ' + name,
-      company ? 'Company: ' + company : null,
-      'Email: ' + email,
-      phone ? 'Phone: ' + phone : null,
-      'Category: ' + category,
-      '',
-      'Details:',
-      details
-    ].filter(Boolean);
-    const body = encodeURIComponent(bodyLines.join('\n'));
-
-    window.location.href = 'mailto:harlan@ocitech.com?subject=' + subject + '&body=' + body;
-
-    const status = document.getElementById('form-status');
-    status.style.display = 'block';
-    status.textContent = 'Opening your email client to send this to harlan@ocitech.com…';
-  });
-  }
-
 </script>
 </body>
 </html>
