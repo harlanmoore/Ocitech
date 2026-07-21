@@ -362,14 +362,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   "name": "Ocitech Inc.",
   "description": "Ocitech Inc. buys used server memory (RAM) and data center GPUs in bulk.",
   "url": "https://ocitech.com/sell-ddr5-ram",
   "telephone": "+1-425-269-1221",
   "email": "harlan@ocitech.com",
   "image": "https://ocitech.com/ocitech_wordmark.gif",
-  "priceRange": "$$",
   "areaServed": "US"
 }
 </script>
@@ -378,7 +377,7 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocitech.com/index"},
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocitech.com/"},
     {"@type": "ListItem", "position": 2, "name": "DDR5 RAM", "item": "https://ocitech.com/sell-ddr5-ram"}
   ]
 }
@@ -388,6 +387,14 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why don't you list DDR5 prices on the site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "DDR5 prices move daily, so a printed price would be out of date immediately. The two main factors in your quote are whether the modules are new or pulled, and the market rate on the day we quote. Send part numbers and quantities and we'll reply with a current number, usually within one business day."
+      }
+    },
     {
       "@type": "Question",
       "name": "Do you buy DDR5 from brand-new, unopened stock?",
@@ -440,7 +447,7 @@
       <a href="index.html#why-now">Why Now</a>
       <a href="index.html#how-it-works">How It Works</a>
     </div>
-    <a href="zh/index.html" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a>
+    <a href="zh-cn/index.html" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a>
   </div>
 </nav>
 
@@ -485,13 +492,60 @@
   </div>
 </section>
 
-<section id="faq" class="section-alt">
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Part numbers</div>
+      <h2>DDR5 part numbers we buy every week.</h2>
+      <p>These are examples, not a complete list &mdash; if your part number isn't here, send it anyway.</p>
+    </div>
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px;">
+      <div>
+        <h3 style="margin-bottom:10px;">Samsung</h3>
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">M321R4GA3BB6-CQK</span><span class="v">32GB DDR5-4800 RDIMM</span></div>
+          <div class="spec-row"><span class="k">M321R8GA0BB0-CQK</span><span class="v">64GB DDR5-4800 RDIMM</span></div>
+          <div class="spec-row"><span class="k">M321 series</span><span class="v">DDR5 RDIMM, all speeds &amp; capacities</span></div>
+          <div class="spec-row"><span class="k">M324 series</span><span class="v">DDR5 ECC UDIMM</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px;">SK Hynix</h3>
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">HMCG88MEBRA</span><span class="v">32GB DDR5-4800 RDIMM</span></div>
+          <div class="spec-row"><span class="k">HMCG88AGBRA</span><span class="v">32GB DDR5-5600 RDIMM</span></div>
+          <div class="spec-row"><span class="k">HMCG94MEBQA</span><span class="v">64GB DDR5-4800 RDIMM</span></div>
+          <div class="spec-row"><span class="k">HMCG series</span><span class="v">DDR5 RDIMM &amp; UDIMM, all variants</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px;">Micron</h3>
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">MTC20F2085S1RC48B</span><span class="v">32GB DDR5-4800 RDIMM</span></div>
+          <div class="spec-row"><span class="k">MTC40F2046S1RC48B</span><span class="v">64GB DDR5-4800 RDIMM</span></div>
+          <div class="spec-row"><span class="k">MTC series</span><span class="v">DDR5 RDIMM, all speeds &amp; capacities</span></div>
+          <div class="spec-row"><span class="k">Desktop &amp; laptop DDR5</span><span class="v">Kingston, Crucial, Corsair, G.Skill &mdash; all brands</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-block reveal" style="margin-top:36px;">
+      <h3 style="margin-bottom:8px;">Why we don't publish prices</h3>
+      <p>DDR5 is the most actively traded memory on the market, and prices genuinely change daily &mdash; any figure printed on this page would be stale within the week. The two biggest factors in your quote are simple: <strong>are the modules new or are they pulls</strong>, and what the market is paying that day. Send your part numbers and quantities and we'll quote against the current market, usually within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Questions</div>
       <h2>Common questions about this category.</h2>
     </div>
     <div class="faq-list reveal">
+      <div class="faq-item">
+        <h3>Why don't you list DDR5 prices on the site?</h3>
+        <p>Because DDR5 prices move daily &mdash; a printed price would either shortchange you or mislead you. The two main things that set your quote are whether the modules are new or pulled, and the market rate the day we quote. Send part numbers and quantities for a current number.</p>
+      </div>
       <div class="faq-item">
         <h3>Do you buy DDR5 from brand-new, unopened stock?</h3>
         <p>Yes — new, sealed DDR5 is welcome alongside pulled and used modules.</p>
@@ -549,6 +603,7 @@
             <option>Data center GPUs (A100/H100/etc.)</option>
             <option>Workstation or gaming GPUs</option>
             <option>Mining rig / farm liquidation</option>
+            <option>SSDs / storage drives</option>
             <option>Other IT hardware</option>
           </select>
         </div>
@@ -598,6 +653,7 @@
         <ul>
           <li><a href="sell-decommissioned-servers.html">Decommissioned Servers</a></li>
           <li><a href="sell-decommissioned-laptops.html">Decommissioned Laptops</a></li>
+          <li><a href="sell-ssds-bulk.html">Sell SSDs in Bulk</a></li>
           <li><a href="bulk-it-asset-liquidation.html">Bulk IT Liquidation</a></li>
           <li><a href="about.html">About Ocitech</a></li>
         </ul>
@@ -608,6 +664,7 @@
           <li><a href="tel:14252691221">425-269-1221</a></li>
           <li><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></li>
           <li><a href="index.html#quote">Request a Quote</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
     </div>

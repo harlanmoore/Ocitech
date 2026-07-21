@@ -362,14 +362,13 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Organization",
   "name": "Ocitech Inc.",
   "description": "Ocitech Inc. buys used server memory (RAM) and data center GPUs in bulk.",
   "url": "https://ocitech.com/sell-decommissioned-servers",
   "telephone": "+1-425-269-1221",
   "email": "harlan@ocitech.com",
   "image": "https://ocitech.com/ocitech_wordmark.gif",
-  "priceRange": "$$",
   "areaServed": "US"
 }
 </script>
@@ -378,7 +377,7 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocitech.com/index"},
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocitech.com/"},
     {"@type": "ListItem", "position": 2, "name": "Decommissioned Servers", "item": "https://ocitech.com/sell-decommissioned-servers"}
   ]
 }
@@ -388,6 +387,14 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do we need to wipe or remove the drives first?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your choice. You can pull and retain the drives — empty bays don't affect your quote — or ship them installed and we'll sanitize every drive using NIST 800-88 aligned erasure, with physical destruction for failed drives and a certificate of sanitization available on request."
+      }
+    },
     {
       "@type": "Question",
       "name": "Do I need to remove the RAM and GPUs first?",
@@ -440,7 +447,7 @@
       <a href="index.html#why-now">Why Now</a>
       <a href="index.html#how-it-works">How It Works</a>
     </div>
-    <a href="zh/index.html" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a>
+    <a href="zh-cn/index.html" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a>
   </div>
 </nav>
 
@@ -481,17 +488,49 @@
       <a href="sell-data-center-gpus.html">Data Center GPUs &rarr;</a>
       <a href="bulk-it-asset-liquidation.html">Bulk IT Liquidation &rarr;</a>
       <a href="sell-mixed-ram-lots.html">Mixed / Untested Lots &rarr;</a>
+      <a href="sell-ssds-bulk.html">Sell SSDs &rarr;</a>
     </div>
   </div>
 </section>
 
-<section id="faq" class="section-alt">
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Data security</div>
+      <h2>What happens to the drives.</h2>
+      <p>Storage never leaves your control until you decide it does.</p>
+    </div>
+    <div class="split reveal" style="align-items:start;">
+      <div class="content-block">
+        <h3 style="margin-bottom:8px;">Option 1: Keep the drives</h3>
+        <p>Most enterprise sellers pull and retain their storage before shipping. We'll buy servers with the drives removed &mdash; drive bays empty is completely fine, and it doesn't hurt your quote for the compute hardware.</p>
+        <h3 style="margin-bottom:8px; margin-top:22px;">Option 2: Ship with drives &mdash; we sanitize them</h3>
+        <p>If pulling drives isn't practical, ship them installed and we'll sanitize every drive using NIST 800-88 aligned erasure. Drives that fail erasure or fail health checks are physically destroyed. A certificate of data sanitization or destruction is available for your records on request &mdash; just tell us you need one when we scope the lot.</p>
+        <p>Either way, nothing gets resold, redeployed, or parted out with your data on it.</p>
+      </div>
+      <div class="split-visual" style="align-self:start;">
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">Drives removed</span><span class="v">Accepted &mdash; empty bays are fine</span></div>
+          <div class="spec-row"><span class="k">Drives installed</span><span class="v">NIST 800-88 aligned erasure</span></div>
+          <div class="spec-row"><span class="k">Failed drives</span><span class="v">Physically destroyed</span></div>
+          <div class="spec-row"><span class="k">Documentation</span><span class="v">Sanitization certificate on request</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Questions</div>
       <h2>Common questions about this category.</h2>
     </div>
     <div class="faq-list reveal">
+      <div class="faq-item">
+        <h3>Do we need to wipe or remove the drives first?</h3>
+        <p>Your choice. Pull and keep the drives &mdash; empty bays don't hurt your quote &mdash; or ship them installed and we'll sanitize every drive with NIST 800-88 aligned erasure (physical destruction for failed drives), with a certificate available on request.</p>
+      </div>
       <div class="faq-item">
         <h3>Do I need to remove the RAM and GPUs first?</h3>
         <p>No — we'll buy servers with memory and GPUs still installed, or take pulled components separately, whichever is easier on your end.</p>
@@ -550,6 +589,7 @@
             <option>Data center GPUs (A100/H100/etc.)</option>
             <option>Workstation or gaming GPUs</option>
             <option>Mining rig / farm liquidation</option>
+            <option>SSDs / storage drives</option>
           </select>
         </div>
         <div>
@@ -598,6 +638,7 @@
         <ul>
           <li><a href="sell-decommissioned-servers.html">Decommissioned Servers</a></li>
           <li><a href="sell-decommissioned-laptops.html">Decommissioned Laptops</a></li>
+          <li><a href="sell-ssds-bulk.html">Sell SSDs in Bulk</a></li>
           <li><a href="bulk-it-asset-liquidation.html">Bulk IT Liquidation</a></li>
           <li><a href="about.html">About Ocitech</a></li>
         </ul>
@@ -608,6 +649,7 @@
           <li><a href="tel:14252691221">425-269-1221</a></li>
           <li><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></li>
           <li><a href="index.html#quote">Request a Quote</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
