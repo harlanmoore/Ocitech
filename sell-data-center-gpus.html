@@ -389,6 +389,30 @@
   "mainEntity": [
     {
       "@type": "Question",
+      "name": "Where can I sell used A100 and H100 GPUs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ocitech buys Nvidia A100, H100, H200, L40S, A40, and V100 accelerators in bulk, nationwide \u2014 from lease returns, cluster refreshes, and decommissions. Send models and quantities and we'll quote against the current market, usually within one business day, with 50% wired upfront on your first deal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who buys data center GPUs in bulk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We do \u2014 Nvidia data center accelerators (A100 40GB/80GB, H100, H200, L40S, A40, A30, V100), whether they're loose cards, still installed in servers, or full racks. Enterprise AI demand keeps these in especially high demand right now."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much is my A100 or H100 worth?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It comes down to the exact model, memory configuration (for example A100 40GB vs 80GB), form factor (SXM vs PCIe), condition, and the market rate the day we quote. Send model numbers and quantities for the most accurate number."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Do you buy A100 and H100 GPUs still installed in servers?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -397,10 +421,18 @@
     },
     {
       "@type": "Question",
-      "name": "Do you handle data destruction or decommissioning compliance?",
+      "name": "Do you buy data center GPUs in small quantities?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We focus on the hardware purchase itself. If your organization has separate data sanitization requirements for attached storage, we're glad to work around your existing process."
+        "text": "We compete hardest on full racks and larger lots, but we'll review smaller quantities too \u2014 even a handful of cards. Send us the details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do the GPUs hold any of our data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The accelerators themselves don't store your data \u2014 any customer data lives on attached drives, not the GPUs. If your decommission has separate data-sanitization requirements for storage, we're glad to work around your existing process and chain-of-custody."
       }
     },
     {
@@ -422,6 +454,13 @@
   gtag('js', new Date());
   gtag('config', 'G-3FJB2LL43N');
 </script>
+<!-- Reddit Pixel -->
+<script>
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+rdt('init','a2_jix1ch5pxlq1');
+rdt('track','PageVisit');
+</script>
+<!-- End Reddit Pixel -->
 </head>
 <body>
 
@@ -457,6 +496,18 @@
   </div>
 </section>
 
+<section style="padding:36px 0 0;">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;align-items:center;padding:16px 22px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-alt);font-size:14px;color:var(--text-secondary);text-align:center;">
+      <span><strong style="color:var(--text);">50% paid upfront</strong> on your first deal</span>
+      <span aria-hidden="true">&middot;</span>
+      <span><strong style="color:var(--text);">Quotes in one business day</strong></span>
+      <span aria-hidden="true">&middot;</span>
+      <span><strong style="color:var(--text);">WA-based, buying nationwide</strong></span>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="split reveal" style="align-items:start;">
@@ -485,7 +536,52 @@
   </div>
 </section>
 
-<section id="faq" class="section-alt">
+<section class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Models</div>
+      <h2>Accelerators we buy every week.</h2>
+      <p>These are examples, not a complete list &mdash; if your model isn't here, send it anyway.</p>
+    </div>
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px;">
+      <div>
+        <h3 style="margin-bottom:10px;">Nvidia &mdash; current</h3>
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">H200</span><span class="v">141GB HBM3e SXM</span></div>
+          <div class="spec-row"><span class="k">H100</span><span class="v">80GB SXM5 &amp; PCIe</span></div>
+          <div class="spec-row"><span class="k">A100</span><span class="v">80GB SXM4 &amp; PCIe</span></div>
+          <div class="spec-row"><span class="k">A100</span><span class="v">40GB SXM4 &amp; PCIe</span></div>
+          <div class="spec-row"><span class="k">L40S</span><span class="v">48GB PCIe</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px;">Nvidia &mdash; inference &amp; prior-gen</h3>
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">A40</span><span class="v">48GB PCIe</span></div>
+          <div class="spec-row"><span class="k">A30</span><span class="v">24GB PCIe</span></div>
+          <div class="spec-row"><span class="k">A10</span><span class="v">24GB PCIe</span></div>
+          <div class="spec-row"><span class="k">V100</span><span class="v">16GB &amp; 32GB SXM2 / PCIe</span></div>
+          <div class="spec-row"><span class="k">T4 / L4</span><span class="v">16GB &amp; 24GB PCIe</span></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:10px;">AMD Instinct &amp; systems</h3>
+        <div class="spec-list" style="width:100%;">
+          <div class="spec-row"><span class="k">MI300X</span><span class="v">192GB HBM3</span></div>
+          <div class="spec-row"><span class="k">MI250 / MI210</span><span class="v">128GB / 64GB HBM2e</span></div>
+          <div class="spec-row"><span class="k">DGX &amp; HGX systems</span><span class="v">Complete 8-GPU nodes</span></div>
+          <div class="spec-row"><span class="k">Other accelerators</span><span class="v">Send model &amp; quantity &mdash; we'll quote it</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="content-block reveal" style="margin-top:36px;">
+      <h3 style="margin-bottom:8px;">Why we don't publish prices</h3>
+      <p>Enterprise accelerator prices move with AI infrastructure demand and can shift week to week &mdash; any figure printed here would be stale quickly. The biggest factors in your quote are the exact model and memory configuration (for example A100 40GB vs 80GB, SXM vs PCIe), condition, and what the market is paying that day. Send your models and quantities and we'll quote against the current market, usually within one business day.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Questions</div>
@@ -493,12 +589,28 @@
     </div>
     <div class="faq-list reveal">
       <div class="faq-item">
+        <h3>Where can I sell used A100 and H100 GPUs?</h3>
+        <p>Ocitech buys Nvidia A100, H100, H200, L40S, A40, and V100 accelerators in bulk, nationwide &mdash; from lease returns, cluster refreshes, and decommissions. Send models and quantities and we'll quote against the current market, usually within one business day, with 50% wired upfront on your first deal.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Who buys data center GPUs in bulk?</h3>
+        <p>We do &mdash; Nvidia data center accelerators (A100 40GB/80GB, H100, H200, L40S, A40, A30, V100), whether they're loose cards, still installed in servers, or full racks. Enterprise AI demand keeps these in especially high demand right now.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How much is my A100 or H100 worth?</h3>
+        <p>It comes down to the exact model, memory configuration (for example A100 40GB vs 80GB), form factor (SXM vs PCIe), condition, and the market rate the day we quote. Send model numbers and quantities for the most accurate number.</p>
+      </div>
+      <div class="faq-item">
         <h3>Do you buy A100 and H100 GPUs still installed in servers?</h3>
         <p>Yes — let us know if the cards are installed and we can quote the complete systems or arrange removal.</p>
       </div>
       <div class="faq-item">
-        <h3>Do you handle data destruction or decommissioning compliance?</h3>
-        <p>We focus on the hardware purchase itself. If your organization has separate data sanitization requirements for attached storage, we're glad to work around your existing process.</p>
+        <h3>Do you buy data center GPUs in small quantities?</h3>
+        <p>We compete hardest on full racks and larger lots, but we'll review smaller quantities too &mdash; even a handful of cards. Send us the details.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do the GPUs hold any of our data?</h3>
+        <p>The accelerators themselves don't store your data &mdash; any customer data lives on attached drives, not the GPUs. If your decommission has separate data-sanitization requirements for storage, we're glad to work around your existing process and chain-of-custody.</p>
       </div>
       <div class="faq-item">
         <h3>What documentation do you provide for the sale?</h3>
