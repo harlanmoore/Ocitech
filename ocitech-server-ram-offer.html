@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sell DDR5 RAM in Bulk — Fast Quote &amp; Payment | Ocitech</title>
-<meta name="description" content="Sell surplus DDR5 server RAM in bulk. Quote in one business day, 50% paid upfront, certified data destruction. WA-based, buying nationwide.">
+<title>Sell Server RAM in Bulk — DDR4 &amp; DDR5 | Fast Quote | Ocitech</title>
+<meta name="description" content="Sell surplus DDR4 or DDR5 server RAM in bulk. Quote in one business day, 50% paid upfront, certified data destruction. WA-based, buying nationwide.">
 <style>
   :root{
     --ink:#0f172a;        /* slate-900 */
@@ -54,7 +54,7 @@
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:start}
   .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
   .hero h1{font-size:44px;line-height:1.08;margin:0 0 14px;font-weight:800;letter-spacing:-.02em}
-  .hero p.lead{font-size:18px;color:#dbe4f0;margin:0 0 22px;max-width:34ch}
+  .hero p.lead{font-size:18px;color:#dbe4f0;margin:0 0 22px;max-width:36ch}
   .trustbar{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 26px}
   .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);padding:9px 13px;border-radius:999px;font-size:13.5px;font-weight:600;color:#eef3fa}
   .chip svg{flex:0 0 auto}
@@ -147,9 +147,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow">Bulk DDR5 Server Memory Buyer</span>
-      <h1>Sell your surplus DDR5 RAM. Get paid fast.</h1>
-      <p class="lead">Have pulled or excess DDR5 server modules sitting on a shelf? Send us the details and we'll quote it — usually within one business day.</p>
+      <span class="eyebrow">Bulk DDR4 &amp; DDR5 Server Memory Buyer</span>
+      <h1>Sell your surplus server RAM. Get paid fast.</h1>
+      <p class="lead">DDR4 or DDR5, RDIMM or LRDIMM — if you've got pulled or excess server memory sitting on a shelf, send the details and we'll quote it, usually within one business day.</p>
 
       <div class="trustbar">
         <span class="chip">💵 Lightning-fast payment</span>
@@ -168,8 +168,8 @@
       <h2>Tell us what's moving</h2>
       <p class="sub">A few details is all we need to price it.</p>
       <!-- Netlify form: rename/route to match your existing handler -->
-      <form name="ddr5-offer" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
-        <input type="hidden" name="form-name" value="ddr5-offer">
+      <form name="serverram-offer" method="POST" action="/thanks" data-netlify="true" netlify-honeypot="company-website">
+        <input type="hidden" name="form-name" value="serverram-offer">
         <div class="hp"><label>Do not fill<input name="company-website" tabindex="-1" autocomplete="off"></label></div>
 
         <div class="row2">
@@ -197,7 +197,8 @@
         <div class="field">
           <label for="category">What are you selling?</label>
           <select id="category" name="category">
-            <option>DDR5 Server RAM (RDIMM / LRDIMM)</option>
+            <option>Server RAM — DDR4 or DDR5 (RDIMM / LRDIMM)</option>
+            <option>DDR5 Server RAM</option>
             <option>DDR4 Server RAM</option>
             <option>Desktop / Laptop RAM</option>
             <option>Enterprise SSDs</option>
@@ -209,7 +210,7 @@
 
         <div class="field">
           <label for="details">Part numbers, quantity &amp; condition</label>
-          <textarea id="details" name="details" placeholder="e.g. ~240× Samsung M321R 32GB RDIMM 4800, pulled from working servers"></textarea>
+          <textarea id="details" name="details" placeholder="e.g. ~200× Samsung 32GB RDIMM (DDR4 or DDR5), pulled from working servers"></textarea>
         </div>
 
         <button type="submit" class="btn btn-accent submit">Send to Ocitech</button>
@@ -230,7 +231,7 @@
     <div class="val">
       <div class="ic">📈</div>
       <h3>Live market pricing</h3>
-      <p>Quotes reflect today's DDR5 rate — not a lowball flat fee.</p>
+      <p>Quotes reflect today's DDR4 and DDR5 rates — not a lowball flat fee.</p>
     </div>
     <div class="val">
       <div class="ic">🛡️</div>
@@ -273,9 +274,9 @@
     <p class="sub">Not sure if your lot fits? Send it anyway — we'll tell you straight.</p>
     <div class="buy-grid">
       <div class="buy-item"><strong>DDR5 RDIMM &amp; LRDIMM</strong><span>32GB · 64GB · 128GB · all speeds, ECC</span></div>
-      <div class="buy-item"><strong>Samsung · SK Hynix · Micron</strong><span>M321 · HMCG · MTC series and more</span></div>
+      <div class="buy-item"><strong>DDR4 RDIMM &amp; LRDIMM</strong><span>8GB · 16GB · 32GB · 64GB · all speeds, ECC</span></div>
+      <div class="buy-item"><strong>Samsung · SK Hynix · Micron</strong><span>M393 · M321 · HMA · HMCG · MTA series</span></div>
       <div class="buy-item"><strong>New, pulled or excess</strong><span>Working modules from decommissioned servers</span></div>
-      <div class="buy-item"><strong>DDR4 server &amp; desktop RAM</strong><span>Still strong demand across capacities</span></div>
       <div class="buy-item"><strong>Enterprise SSDs</strong><span>Data-center &amp; server drives, bulk lots</span></div>
       <div class="buy-item"><strong>Data-center GPUs</strong><span>A100 · H100 and comparable accelerators</span></div>
     </div>
@@ -299,7 +300,7 @@
 <footer class="site">
   <div class="wrap frow">
     <div>© Ocitech · Tacoma, WA · When inventory has to move.</div>
-    <div><a href="/">Home</a> &nbsp;·&nbsp; <a href="/sell-ddr5-ram">Full DDR5 guide</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a></div>
+    <div><a href="/">Home</a> &nbsp;·&nbsp; <a href="/sell-ddr5-ram">DDR5 guide</a> &nbsp;·&nbsp; <a href="/sell-ddr4-ram">DDR4 guide</a> &nbsp;·&nbsp; <a href="/privacy">Privacy</a></div>
   </div>
 </footer>
 
