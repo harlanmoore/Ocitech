@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM | Ocitech</title>
+<meta name="description" content="A plain-English guide to identifying server memory — RDIMM vs LRDIMM vs UDIMM, ECC, reading the module label, decoding Samsung, Micron & SK Hynix part numbers, and telling DDR3/DDR4/DDR5 apart.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ocitech.com/how-to-identify-your-ram">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ocitech Inc.">
+<meta property="og:title" content="How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM | Ocitech">
+<meta property="og:description" content="Identify server memory the easy way — DIMM types, reading the label, and decoding Samsung, Micron & SK Hynix part numbers.">
+<meta property="og:image" content="https://ocitech.com/ocitech-logo.png">
+<meta property="og:url" content="https://ocitech.com/how-to-identify-your-ram">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM | Ocitech">
+<meta name="twitter:description" content="Identify server memory the easy way — DIMM types, reading the label, and decoding part numbers.">
+<link rel="icon" href="/favicon.png" type="image/png">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-alt:#F5F5F7;
+    --bg-dark:#1D1D1F;
+    --text:#1D1D1F;
+    --text-secondary:#6E6E73;
+    --text-tertiary:#86868B;
+    --accent:#0071E3;
+    --accent-hover:#0077ED;
+    --green:#0A8A4A;
+    --line:rgba(0,0,0,0.08);
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.47;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 22px;}
+  .wrap-wide{max-width:1180px; margin:0 auto; padding:0 22px;}
+  .wrap-xwide{max-width:1440px; margin:0 auto; padding:0 32px;}
+
+  h1,h2,h3{margin:0; font-weight:600; letter-spacing:-0.015em;}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  .nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:52px;}
+  .nav-brand{display:flex; align-items:center; gap:8px;}
+  .nav-brand img{height:22px; width:auto;}
+  .nav-brand span{font-size:14px; font-weight:600; color:var(--text); letter-spacing:-0.01em;}
+  .nav-links{display:none; align-items:center; gap:32px; font-size:12.5px; color:var(--text); font-weight:400;}
+  @media(min-width:760px){.nav-links{display:flex;}}
+  .nav-links a{color:var(--text-secondary); transition:color .15s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{font-size:12.5px; color:var(--accent); font-weight:400;}
+  .nav-cta:hover{color:var(--accent-hover);}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    font-size:17px; font-weight:400; padding:12px 22px; border-radius:980px;
+    cursor:pointer; border:1px solid transparent; transition:all .15s ease; white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-hover);}
+  .btn-link{color:var(--accent); font-size:17px; padding:12px 4px;}
+  .btn-link:hover{color:var(--accent-hover);}
+  .btn-link .chev{transition:transform .15s;}
+  .btn-link:hover .chev{transform:translateX(3px);}
+
+  section{padding:100px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
+  .section-head .eyebrow{font-size:15px; color:var(--text-secondary); font-weight:600; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(30px,4vw,44px); letter-spacing:-0.02em;}
+  .section-head p{font-size:19px; color:var(--text-secondary); margin-top:14px; font-weight:400;}
+
+  .spec-list{margin-top:26px; display:flex; flex-direction:column; gap:0;}
+  .spec-row{display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-top:1px solid var(--line); font-size:15px;}
+  .spec-row:last-child{border-bottom:1px solid var(--line);}
+  .spec-row .k{color:var(--text-secondary);}
+  .spec-row .v{color:var(--text); font-weight:500; text-align:right;}
+
+  .faq-list{max-width:760px; margin:0 auto;}
+  .faq-item{border-top:1px solid var(--line); padding:22px 0;}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item h3{font-size:17px; font-weight:600; letter-spacing:-0.01em;}
+  .faq-item p{font-size:15px; color:var(--text-secondary); margin-top:8px;}
+
+  .quote-card{max-width:640px; margin:0 auto; background:#fff; border-radius:var(--radius-lg); padding:44px; box-shadow:0 4px 40px rgba(0,0,0,0.08); border:1px solid var(--line);}
+  form{display:flex; flex-direction:column; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+  label{font-size:13px; color:var(--text-secondary); font-weight:500; margin-bottom:6px; display:block;}
+  input, select, textarea{width:100%; background:var(--bg-alt); border:1px solid transparent; color:var(--text); font-family:inherit; font-size:15px; padding:12px 14px; border-radius:var(--radius-sm); outline:none; transition:border-color .15s, background .15s;}
+  input:focus, select:focus, textarea:focus{background:#fff; border-color:var(--accent); box-shadow:0 0 0 4px rgba(0,113,227,0.12);}
+  textarea{resize:vertical; min-height:96px;}
+  .form-submit{display:flex; align-items:center; gap:16px; margin-top:2px; flex-wrap:wrap;}
+  .form-note{font-size:12.5px; color:var(--text-tertiary);}
+  #form-status{font-size:13px; color:var(--green); display:none;}
+  .contact-line{text-align:center; margin-top:28px; font-size:15px; color:var(--text-secondary);}
+  .contact-line a{color:var(--accent);}
+  .contact-line a:hover{color:var(--accent-hover);}
+
+  footer{background:var(--bg-alt); padding:40px 0 28px; border-top:1px solid var(--line);}
+  .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .footer-brand{display:flex; align-items:center; gap:8px;}
+  .footer-brand img{height:20px;}
+  .footer-brand span{font-size:13px; color:var(--text-secondary); font-weight:500;}
+  .footer-links{display:flex; gap:24px; font-size:13px; color:var(--text-secondary);}
+  .footer-links a:hover{color:var(--text);}
+  .footer-bottom{padding-top:20px; font-size:12px; color:var(--text-tertiary);}
+  .footer-sitemap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; padding:28px 0; border-bottom:1px solid var(--line);}
+  @media(max-width:760px){.footer-sitemap{grid-template-columns:1fr 1fr;}}
+  .footer-sitemap h4{font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-tertiary); font-weight:600; margin-bottom:12px;}
+  .footer-sitemap ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+  .footer-sitemap a{font-size:13.5px; color:var(--text-secondary);}
+  .footer-sitemap a:hover{color:var(--accent);}
+
+  ::selection{background:var(--accent); color:#fff;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .breadcrumb{font-size:13px; color:var(--text-tertiary); padding:18px 0 0;}
+  .breadcrumb a{color:var(--text-secondary);}
+  .breadcrumb a:hover{color:var(--accent);}
+  .page-hero{padding:36px 0 56px; background:linear-gradient(180deg, #FBFBFD 0%, #FFFFFF 60%);}
+  .page-hero .eyebrow{font-size:15px; color:var(--text-secondary); font-weight:600; margin-bottom:14px;}
+  .page-hero h1{font-size:clamp(34px,5.5vw,58px); line-height:1.05; letter-spacing:-0.03em; max-width:820px;}
+  .page-hero p.sub{font-size:19px; color:var(--text-secondary); max-width:640px; margin-top:16px; font-weight:400;}
+  .page-hero .hero-ctas{margin-top:26px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+
+  .content-block{max-width:760px;}
+  .content-block h2{font-size:clamp(24px,3vw,32px); margin-top:52px; margin-bottom:16px;}
+  .content-block h2:first-child{margin-top:0;}
+  .content-block h3{font-size:19px; margin-top:30px; margin-bottom:8px;}
+  .content-block p{font-size:16.5px; color:var(--text-secondary); margin:0 0 14px;}
+  .content-block ul.plain{margin:0 0 14px; padding-left:20px; color:var(--text-secondary); font-size:16px;}
+  .content-block ul.plain li{margin-bottom:6px;}
+  .callout{background:var(--bg-alt); border-radius:var(--radius-md); padding:22px 24px; margin:22px 0; font-size:15.5px; color:var(--text-secondary);}
+  .callout strong{color:var(--text);}
+
+  .related-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .related-links a{font-size:13.5px; color:var(--text-secondary); background:var(--bg-alt); padding:8px 14px; border-radius:980px; border:1px solid var(--line);}
+  .related-links a:hover{color:var(--accent); border-color:var(--accent);}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM",
+  "description": "A plain-English guide to identifying server memory — DIMM types, ECC, reading the module label, and decoding Samsung, Micron and SK Hynix part numbers.",
+  "author": {"@type": "Organization", "name": "Ocitech Inc."},
+  "publisher": {"@type": "Organization", "name": "Ocitech Inc.", "logo": {"@type": "ImageObject", "url": "https://ocitech.com/ocitech-logo.png"}},
+  "image": "https://ocitech.com/ocitech-logo.png",
+  "mainEntityOfPage": "https://ocitech.com/how-to-identify-your-ram"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ocitech.com/"},
+    {"@type": "ListItem", "position": 2, "name": "How to Identify Your RAM", "item": "https://ocitech.com/how-to-identify-your-ram"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I tell an RDIMM from a UDIMM?",
+      "acceptedAnswer": {"@type": "Answer", "text": "The fastest way is the part number and the printed label. Registered (RDIMM) and load-reduced (LRDIMM) modules are labeled as such and use buffered part-number families; unbuffered desktop/workstation memory (UDIMM) is not. If you only have the module in hand, RDIMM/LRDIMM are almost always ECC server parts pulled from rack servers, while UDIMMs come from desktops and workstations."}
+    },
+    {
+      "@type": "Question",
+      "name": "What does 2Rx4 or 1Rx8 mean on the label?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It describes the module's rank and DRAM width. 1R/2R/4R/8R is the number of ranks (1 = single-rank, 2 = dual-rank, and so on). The x4 or x8 is the width of each DRAM chip. It affects capacity and, in the used market, value — so it's worth reading it off the label when you request a quote."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does the brand printed on the label change what the RAM is worth?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Somewhat. The underlying DRAM maker — Samsung, SK Hynix, or Micron — and the exact part number matter more than an OEM sticker (HPE, Dell, Cisco, Lenovo). Send the part number and we price it on the actual module, not the badge."}
+    }
+  ]
+}
+</script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FJB2LL43N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3FJB2LL43N');
+  gtag('config', 'AW-18309966360');
+</script>
+<!-- Reddit Pixel -->
+<script>
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+rdt('init','a2_jix1ch5pxlq1');
+rdt('track','PageVisit');
+</script>
+<!-- End Reddit Pixel -->
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap-wide nav-inner">
+    <div class="nav-brand">
+      <a href="index.html" style="display:flex;align-items:center;gap:8px;">
+        <img src="/ocitech-logo.png" alt="Ocitech Inc. — we buy server RAM and GPUs">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="sell-ddr5-ram.html">DDR5</a>
+      <a href="sell-ddr4-ram.html">DDR4</a>
+      <a href="sell-ssds-bulk.html">SSDs</a>
+      <a href="sell-server-ram.html">Server RAM</a>
+      <a href="index.html#how-it-works">How It Works</a>
+    </div>
+    <a href="zh-cn/index.html" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> &rsaquo; How to Identify Your RAM</div>
+    <div class="eyebrow reveal in">Buyer's Guide</div>
+    <h1 class="reveal in">How to identify your server RAM.</h1>
+    <p class="sub reveal in">RDIMM, LRDIMM, or UDIMM? ECC or not? Which generation? Here's how to read a memory module in about two minutes — and why each detail changes what it's worth.</p>
+    <div class="hero-ctas reveal in">
+      <a href="#quote" class="btn btn-primary">Get a Quote</a>
+      <a href="tel:14252691221" class="btn btn-link">Call 425-269-1221 <span class="chev">&rsaquo;</span></a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px;">
+  <div class="wrap">
+    <div class="content-block reveal">
+      <h2>Why identifying your memory matters</h2>
+      <p>Two sticks of RAM that look identical can be worth very different amounts. A 64GB DDR4 LRDIMM and a 64GB DDR4 RDIMM are built differently, sell into different systems, and carry different prices on the used market. Before you request a quote — or decide whether a pile of pulled modules is worth shipping — it pays to know exactly what you're holding. The good news: everything you need is printed on the module itself.</p>
+
+      <h2>Step 1 — Know the three server DIMM types</h2>
+      <p>Almost all enterprise memory falls into one of three types. The difference is how the module buffers the signals between the DRAM chips and the CPU's memory controller.</p>
+
+      <h3>UDIMM — Unbuffered</h3>
+      <p>No buffering between the chips and the controller. This is standard desktop and workstation memory, plus some entry-level servers. It comes in ECC and non-ECC versions. UDIMMs are generally the lowest capacity per module and, in the used server market, usually the lowest value of the three.</p>
+
+      <h3>RDIMM — Registered</h3>
+      <p>Adds a register that buffers the address and command signals, which lets a server run more modules per channel with stability. This is the workhorse of mainstream rack servers (think Dell PowerEdge, HPE ProLiant, Cisco UCS). RDIMMs are ECC by default and are the most common thing we buy.</p>
+
+      <h3>LRDIMM — Load-Reduced</h3>
+      <p>Buffers <em>all</em> the signals — address, command, and data — through an on-module buffer, which reduces electrical load and allows the highest capacities per module (128GB, 256GB and up). LRDIMMs live in high-memory servers and often carry the strongest per-module prices.</p>
+
+      <div class="callout"><strong>Quick tell:</strong> if a module was pulled from a rack server and the label says ECC with a "R" or "L" in the type, it's an RDIMM or LRDIMM — the parts most worth pricing. Desktop-style UDIMMs are the exception in a server context, not the rule. There's also <strong>SO-DIMM</strong>, the small form factor used in laptops and compact systems — physically shorter, and identified the same way by its label.</p>
+
+      <h2>Step 2 — Read the module label</h2>
+      <p>Most modules carry a sticker with everything you need. Here's what each field tells you:</p>
+      <div class="spec-list">
+        <div class="spec-row"><span class="k">Capacity</span><span class="v">e.g. 16GB, 32GB, 64GB, 128GB — the size of that single module</span></div>
+        <div class="spec-row"><span class="k">Speed code</span><span class="v">PC3 = DDR3, PC4 = DDR4, PC5 = DDR5 (e.g. PC4-25600 = DDR4-3200; PC5-38400 = DDR5-4800)</span></div>
+        <div class="spec-row"><span class="k">Rank &amp; width</span><span class="v">1Rx8, 2Rx4, etc. — number of ranks and the width of each DRAM chip</span></div>
+        <div class="spec-row"><span class="k">Type</span><span class="v">R = Registered (RDIMM), L / LR = Load-Reduced (LRDIMM), E = ECC Unbuffered, U = Unbuffered</span></div>
+        <div class="spec-row"><span class="k">Part number</span><span class="v">The single most useful field — it encodes all of the above</span></div>
+      </div>
+
+      <h2>Step 3 — Decode the part number by brand</h2>
+      <p>If you can read one field, make it the part number. The three DRAM makers each use recognizable prefixes, so even the first few characters tell you the generation and type at a glance.</p>
+
+      <h3>Samsung (starts with M)</h3>
+      <div class="spec-list">
+        <div class="spec-row"><span class="k">M393&hellip;</span><span class="v">DDR4 RDIMM</span></div>
+        <div class="spec-row"><span class="k">M386&hellip;</span><span class="v">DDR4 LRDIMM</span></div>
+        <div class="spec-row"><span class="k">M321&hellip;</span><span class="v">DDR5 RDIMM</span></div>
+      </div>
+
+      <h3>SK Hynix (starts with HMA / HMC)</h3>
+      <div class="spec-list">
+        <div class="spec-row"><span class="k">HMA&hellip;</span><span class="v">DDR4 family (RDIMM/LRDIMM per the suffix)</span></div>
+        <div class="spec-row"><span class="k">HMCG&hellip;</span><span class="v">DDR5 family</span></div>
+      </div>
+
+      <h3>Micron (starts with MTA / MTC)</h3>
+      <div class="spec-list">
+        <div class="spec-row"><span class="k">MTA&hellip;</span><span class="v">DDR4 family</span></div>
+        <div class="spec-row"><span class="k">MTC&hellip;</span><span class="v">DDR5 family</span></div>
+      </div>
+      <p>OEM-branded modules (HPE, Dell, Cisco, Lenovo) carry their own part numbers on the sticker, but the DRAM inside is still made by one of these three. If you have the OEM number, that works too — we cross-reference it.</p>
+
+      <h2>Step 4 — Tell the generations apart</h2>
+      <p>If the label is missing or unreadable, a few physical and code tells separate the generations:</p>
+      <ul class="plain">
+        <li><strong>DDR3</strong> — older platforms; PC3 speed code; lowest value today.</li>
+        <li><strong>DDR4</strong> — the current bulk of the used market; PC4 speed code; notch position differs from DDR3.</li>
+        <li><strong>DDR5</strong> — newest; PC5 speed code; an on-module power management IC (PMIC) is visible, and the notch position differs again. Strongest pricing right now.</li>
+      </ul>
+
+      <div class="callout">Still not sure? You don't need to be. Send a photo of the label or the part number and a rough count — for example, <strong>"about 60 sticks, mostly 32GB, pulled from Dell R730s"</strong> — and we'll identify, sort, and test on our end.</div>
+
+      <h2>What your modules are worth</h2>
+      <p>Once you know the type, generation, capacity and part number, you can get an accurate quote. Server RDIMMs and LRDIMMs — especially DDR4 and DDR5 — are where the value is. Here's where to go next:</p>
+      <div class="related-links">
+        <a href="sell-server-ram.html">Sell Server RAM &rarr;</a>
+        <a href="sell-ddr5-ram.html">Sell DDR5 RAM &rarr;</a>
+        <a href="sell-ddr4-ram.html">Sell DDR4 RAM &rarr;</a>
+        <a href="sell-mixed-ram-lots.html">Mixed / Untested Lots &rarr;</a>
+        <a href="ddr5-price-guide.html">2026 Price Guide &rarr;</a>
+        <a href="best-places-to-sell-server-ram-2026.html">Best Places to Sell in 2026 &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Questions</div>
+      <h2>Identifying your RAM — common questions.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <h3>How do I tell an RDIMM from a UDIMM?</h3>
+        <p>The fastest way is the part number and the printed label. Registered (RDIMM) and load-reduced (LRDIMM) modules are labeled as such and use buffered part-number families; unbuffered desktop/workstation memory (UDIMM) is not. If you only have the module in hand, RDIMM/LRDIMM are almost always ECC server parts pulled from rack servers, while UDIMMs come from desktops and workstations.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What does 2Rx4 or 1Rx8 mean on the label?</h3>
+        <p>It describes the module's rank and DRAM width. 1R/2R/4R/8R is the number of ranks (1 = single-rank, 2 = dual-rank, and so on). The x4 or x8 is the width of each DRAM chip. It affects capacity and, in the used market, value — so it's worth reading it off the label when you request a quote.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does the brand printed on the label change what the RAM is worth?</h3>
+        <p>Somewhat. The underlying DRAM maker — Samsung, SK Hynix, or Micron — and the exact part number matter more than an OEM sticker (HPE, Dell, Cisco, Lenovo). Send the part number and we price it on the actual module, not the badge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quote" class="section-alt" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Get a quote</div>
+      <h2>Know what you've got? Let's price it.</h2>
+      <p>Send the part number, a photo of the label, or just a rough count. We'll follow up directly.</p>
+    </div>
+
+    <div class="quote-card reveal">
+      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="quote">
+        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="company">Company (optional)</label>
+            <input type="text" id="company" name="company">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div>
+          <label for="category">What are you selling?</label>
+          <select id="category" name="category">
+            <option>Server RAM (RDIMM / LRDIMM)</option>
+            <option>Desktop / laptop RAM</option>
+            <option>Mixed / untested memory lot</option>
+            <option>Data center GPUs (A100/H100/etc.)</option>
+            <option>Workstation or gaming GPUs</option>
+            <option>Mining rig / farm liquidation</option>
+            <option>SSDs / storage drives</option>
+            <option>Other IT hardware</option>
+          </select>
+        </div>
+        <div>
+          <label for="details">Details &mdash; part numbers, quantity, condition</label>
+          <textarea id="details" name="details" placeholder="e.g. part numbers, quantity, and condition"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Send to Ocitech</button>
+          <span class="form-note">We'll reply directly by email, usually within one business day.</span>
+        </div>
+        <div id="form-status"></div>
+      </form>
+    </div>
+
+    <div class="contact-line reveal">
+      Prefer to talk? Call <a href="tel:14252691221">425-269-1221</a> or email <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-xwide">
+    <div class="footer-sitemap">
+      <div>
+        <h4>Server &amp; Desktop RAM</h4>
+        <ul>
+          <li><a href="sell-server-ram.html">Server RAM (RDIMM/LRDIMM)</a></li>
+          <li><a href="sell-ddr4-ram.html">DDR4 RAM</a></li>
+          <li><a href="sell-ddr5-ram.html">DDR5 RAM</a></li>
+          <li><a href="sell-desktop-ram.html">Desktop &amp; Laptop RAM</a></li>
+          <li><a href="sell-mixed-ram-lots.html">Mixed / Untested Lots</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>GPUs</h4>
+        <ul>
+          <li><a href="sell-gpus-bulk.html">Sell GPUs in Bulk</a></li>
+          <li><a href="sell-data-center-gpus.html">Data Center GPUs</a></li>
+          <li><a href="sell-workstation-gpus.html">Workstation GPUs</a></li>
+          <li><a href="sell-mining-gpus.html">Mining &amp; Consumer GPUs</a></li>
+          <li><a href="sell-mining-rig-liquidation.html">Mining Rig Liquidation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>IT Hardware</h4>
+        <ul>
+          <li><a href="sell-decommissioned-servers.html">Decommissioned Servers</a></li>
+          <li><a href="sell-decommissioned-laptops.html">Decommissioned Laptops</a></li>
+          <li><a href="sell-ssds-bulk.html">Sell SSDs in Bulk</a></li>
+          <li><a href="bulk-it-asset-liquidation.html">Bulk IT Liquidation</a></li>
+          <li><a href="about.html">About Ocitech</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides &amp; Contact</h4>
+        <ul>
+          <li><a href="how-to-identify-your-ram.html">How to Identify Your RAM</a></li>
+          <li><a href="best-places-to-sell-server-ram-2026.html">Best Places to Sell in 2026</a></li>
+          <li><a href="tel:14252691221">425-269-1221</a></li>
+          <li><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></li>
+          <li><a href="index.html#quote">Request a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/ocitech-logo.png" alt="Ocitech Inc. — we buy server RAM and GPUs">
+        <span>Ocitech Inc. &mdash; When inventory has to move.</span>
+      </div>
+      <div class="footer-links">
+        <a href="tel:14252691221">425-269-1221</a>
+        <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Ocitech Inc. All rights reserved. &nbsp;&middot;&nbsp; <a href="https://ai.ocitech.com/" style="color:var(--text-secondary);">Ocitech AI &mdash; Agentic AI Integration &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const revealEls = document.querySelectorAll('.reveal:not(.in)');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+<!-- WhatsApp floating contact button -->
+<style>
+  .wa-float{position:fixed; bottom:24px; right:24px; width:58px; height:58px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.15); z-index:9999; transition:transform .2s ease, box-shadow .2s ease; text-decoration:none;}
+  .wa-float:hover{transform:scale(1.08); box-shadow:0 6px 22px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.18);}
+  .wa-float svg{width:30px; height:30px; display:block;}
+  .wa-float-pulse{position:absolute; top:0; left:0; right:0; bottom:0; border-radius:50%; background:#25D366; opacity:0.55; animation:wa-pulse 2.4s ease-out infinite; z-index:-1;}
+  @keyframes wa-pulse{0%{ transform:scale(1); opacity:0.55; } 100%{ transform:scale(1.7); opacity:0; }}
+  .wa-tooltip{position:fixed; bottom:38px; right:92px; background:#1D1D1F; color:#fff; font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size:13.5px; font-weight:500; padding:9px 14px; border-radius:10px; white-space:nowrap; z-index:9998; opacity:0; pointer-events:none; transform:translateX(8px); transition:opacity .25s ease, transform .25s ease;}
+  .wa-tooltip::after{content:""; position:absolute; top:50%; right:-6px; transform:translateY(-50%); border-width:6px 0 6px 6px; border-style:solid; border-color:transparent transparent transparent #1D1D1F;}
+  .wa-float:hover + .wa-tooltip, .wa-tooltip.wa-show{opacity:1; transform:translateX(0);}
+  @media (max-width:640px){.wa-float{bottom:18px; right:18px; width:52px; height:52px;} .wa-float svg{ width:27px; height:27px; } .wa-tooltip{ display:none; }}
+</style>
+<a href="https://wa.me/14252691221?text=Hi%20Harlan%2C%20I%20found%20Ocitech%20online%20and%20wanted%20to%20reach%20out%20about%20server%20memory%2FGPUs." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with Ocitech on WhatsApp" id="wa-float-btn">
+  <span class="wa-float-pulse"></span>
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.234.615 4.42 1.78 6.324L3 29l7.86-2.735A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3z" fill="#25D366"/>
+    <path d="M22.1 18.13c-.33-.166-1.955-.966-2.258-1.076-.303-.11-.523-.166-.744.166-.22.331-.853 1.076-1.046 1.297-.192.22-.385.248-.715.083-.33-.166-1.393-.514-2.653-1.638-.981-.875-1.644-1.955-1.837-2.286-.192-.331-.02-.51.145-.675.149-.148.33-.386.496-.579.165-.193.22-.33.33-.551.11-.221.055-.414-.028-.58-.083-.165-.744-1.79-1.02-2.45-.269-.645-.543-.558-.744-.568-.192-.008-.413-.01-.633-.01-.22 0-.578.083-.88.414-.303.331-1.156 1.13-1.156 2.755 0 1.625 1.184 3.195 1.349 3.416.165.221 2.33 3.557 5.646 4.987.789.34 1.404.543 1.884.695.792.252 1.512.216 2.082.131.635-.095 1.955-.8 2.23-1.572.276-.772.276-1.434.193-1.572-.083-.138-.303-.22-.633-.386z" fill="#FFFFFF"/>
+  </svg>
+</a>
+<span class="wa-tooltip" id="wa-tooltip">Chat on WhatsApp</span>
+<script>
+  (function(){
+    var tip = document.getElementById('wa-tooltip');
+    var btn = document.getElementById('wa-float-btn');
+    if(!tip || !btn) return;
+    setTimeout(function(){ tip.classList.add('wa-show'); setTimeout(function(){ tip.classList.remove('wa-show'); }, 3200); }, 2500);
+  })();
+</script>
+
+</body>
+</html>
