@@ -514,6 +514,7 @@ else{out.innerHTML='';openQuote(raw,null);}
       <a href="#lot" class="btn btn-primary">Selling a whole lot? Get a quote</a>
       <a href="tel:14252691221" class="btn btn-link">Call 425-269-1221 <span class="chev">&rsaquo;</span></a>
     </div>
+    <div class="reveal in" style="font-size:13px;color:var(--text-tertiary);margin-top:10px;">No perfectly sorted list required &mdash; paste it, upload it, or just send photos.</div>
   </div>
 
   <div class="wrap-xwide hero-visual reveal in">
@@ -819,7 +820,7 @@ else{out.innerHTML='';openQuote(raw,null);}
     <textarea id="lot-input" rows="7" placeholder="M393A8G40AB2-CWEBY   42&#10;HMA84GR7JJR4N-WM   58&#10;MTC40F2046S1RC56BD1   4" style="width:100%;padding:14px 16px;font-size:15px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);resize:vertical;box-sizing:border-box;"></textarea>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;"><button type="button" id="lot-run" class="btn btn-primary">Estimate my lot</button><span style="font-size:13px;color:var(--text-tertiary);">Any format works &mdash; "part qty", "qty part", commas, or tabs.</span></div>
     <div id="lot-results" style="margin-top:16px;"></div>
-    <form id="lot-form" name="lot-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden style="margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);">
+    <form id="lot-form" name="lot-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" hidden style="margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);">
       <input type="hidden" name="form-name" value="lot-quote">
       <input type="hidden" name="lot" id="lot-raw"><input type="hidden" name="estimate" id="lot-est"><input type="hidden" name="matched" id="lot-m"><input type="hidden" name="unmatched" id="lot-u">
       <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
@@ -830,6 +831,7 @@ else{out.innerHTML='';openQuote(raw,null);}
         <input type="email" name="email" required placeholder="Email (required)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
         <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
       </div>
+      <div style="margin-top:12px;"><label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:6px;">Or attach your original spreadsheet / photos (optional)</label><input type="file" name="attachment" multiple accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="font-size:14px;"></div>
       <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Email me a firm quote for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
       <div style="font-size:12px;color:var(--text-tertiary);margin-top:10px;">Estimate uses current indicative per-module prices. Firm quotes are often higher for volume and new/sealed stock &mdash; subject to inspection.</div>
     </form>
@@ -868,7 +870,7 @@ run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[
     </div>
 
     <div class="quote-card reveal">
-      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
         <input type="hidden" name="form-name" value="quote">
         <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
         <div class="form-row">
@@ -909,7 +911,12 @@ run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[
           <label for="details">Details &mdash; part numbers, quantity, condition</label>
           <textarea id="details" name="details" placeholder="e.g. ~200x 32GB DDR4 RDIMM pulled from Dell R740s, untested, ready to ship"></textarea>
         </div>
-        <div class="form-submit">
+                <div>
+          <label for="attachment">Attach a spreadsheet or photos (optional)</label>
+          <input type="file" id="attachment" name="attachment" multiple accept=".csv,.xlsx,.xls,.txt,.pdf,image/*">
+          <div class="form-note" style="display:block;margin-top:6px;">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 8 MB total.</div>
+        </div>
+<div class="form-submit">
           <button type="submit" class="btn btn-primary">Send to Ocitech</button>
           <span class="form-note">We'll reply directly by email, usually within one business day.</span>
         </div>

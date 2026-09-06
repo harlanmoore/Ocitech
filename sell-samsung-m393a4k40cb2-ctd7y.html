@@ -498,7 +498,7 @@ rdt('track','PageVisit');
     <div class="eyebrow reveal in">Samsung &middot; 32GB DDR4-2666 RDIMM</div>
     <h1 class="reveal in">Sell M393A4K40CB2-CTD7Y.</h1>
     <p class="sub reveal in">Samsung 32GB 2Rx4 DDR4-2666 server memory. Here's what it's worth today &mdash; and where to send it.</p>
-    <div class="hero-ctas reveal in"><a href="#quote" class="btn btn-primary">Get a Quote</a><a href="tel:14252691221" class="btn btn-link">Call 425-269-1221 <span class="chev">&rsaquo;</span></a></div>
+    <div class="hero-ctas reveal in"><a href="#quote" class="btn btn-primary">Get a Quote</a><a href="tel:14252691221" class="btn btn-link">Call 425-269-1221 <span class="chev">&rsaquo;</span></a></div><div class="reveal in" style="font-size:13px;color:var(--text-tertiary);margin-top:10px;">Fast quote &mdash; no sorted list or paperwork required.</div>
 </div></section>
 
 <section style="padding:34px 0 0;"><div class="wrap">
@@ -579,7 +579,7 @@ else{out.innerHTML='';openQuote(raw,null);}
     </div>
 
     <div class="quote-card reveal">
-      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
         <input type="hidden" name="form-name" value="quote">
         <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
         <div class="form-row">
@@ -620,7 +620,12 @@ else{out.innerHTML='';openQuote(raw,null);}
           <label for="details">Details &mdash; part numbers, quantity, condition</label>
           <textarea id="details" name="details" placeholder="e.g. part numbers, quantity, and condition"></textarea>
         </div>
-        <div class="form-submit">
+                <div>
+          <label for="attachment">Attach a spreadsheet or photos (optional)</label>
+          <input type="file" id="attachment" name="attachment" multiple accept=".csv,.xlsx,.xls,.txt,.pdf,image/*">
+          <div class="form-note" style="display:block;margin-top:6px;">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 8 MB total.</div>
+        </div>
+<div class="form-submit">
           <button type="submit" class="btn btn-primary">Send to Ocitech</button>
           <span class="form-note">We'll reply directly by email, usually within one business day.</span>
         </div>

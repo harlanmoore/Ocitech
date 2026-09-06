@@ -647,7 +647,7 @@ rdt('track','PageVisit');
     </div>
 
     <div class="quote-card reveal">
-      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field">
+      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
         <input type="hidden" name="form-name" value="quote">
         <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
         <div class="form-row">
@@ -688,7 +688,12 @@ rdt('track','PageVisit');
           <label for="details">Details &mdash; part numbers, quantity, condition</label>
           <textarea id="details" name="details" placeholder="e.g. part numbers, quantity, and condition"></textarea>
         </div>
-        <div class="form-submit">
+                <div>
+          <label for="attachment">Attach a spreadsheet or photos (optional)</label>
+          <input type="file" id="attachment" name="attachment" multiple accept=".csv,.xlsx,.xls,.txt,.pdf,image/*">
+          <div class="form-note" style="display:block;margin-top:6px;">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 8 MB total.</div>
+        </div>
+<div class="form-submit">
           <button type="submit" class="btn btn-primary">Send to Ocitech</button>
           <span class="form-note">We'll reply directly by email, usually within one business day.</span>
         </div>
