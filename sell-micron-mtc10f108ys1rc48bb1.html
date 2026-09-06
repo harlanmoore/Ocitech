@@ -507,20 +507,36 @@ rdt('track','PageVisit');
     <div style="color:var(--text-secondary);font-size:15px;margin-top:6px;">24GB DDR5-4800 RDIMM is in demand right now. Send your count and condition for a current quote &mdash; larger lots priced higher.</div>
     <div style="margin-top:18px;"><a href="#quote" class="btn btn-primary">Get my quote</a></div>
   </div></div></section>
-
-<section style="padding:26px 0 4px;"><div class="wrap"><div class="reveal" style="max-width:560px;margin:0 auto;text-align:center;">
-<label for="pnsearch" style="font-weight:600;display:block;margin-bottom:8px;">Look up your part number</label>
-<input id="pnsearch" type="text" autocomplete="off" spellcheck="false" placeholder="Type a part number, e.g. M393A8G40AB2-CWEBY" style="width:100%;padding:13px 16px;font-size:16px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);">
+<section style="padding:28px 0 4px;"><div class="wrap"><div class="reveal"><div class="pn-search" style="max-width:620px;margin:0 auto;">
+<label for="pnsearch" id="pnsearch-label" style="font-weight:600;display:block;margin-bottom:8px;text-align:center;">Look up your part number &mdash; see what it's worth</label>
+<input id="pnsearch" type="text" autocomplete="off" spellcheck="false" placeholder="Type a part number, e.g. M393A8G40AB2-CWEBY" style="width:100%;padding:15px 18px;font-size:17px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,0.05);">
 <div id="pnresults" style="margin-top:10px;text-align:left;"></div>
-</div></div></section>
+<form id="pnquote" name="part-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden style="margin-top:12px;padding:18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-alt);text-align:left;">
+  <input type="hidden" name="form-name" value="part-quote">
+  <input type="hidden" name="part" id="pnq-part">
+  <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
+  <div id="pnq-msg" style="font-size:14px;margin-bottom:10px;">Drop your email and we'll send you a quote.</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <input type="email" name="email" required placeholder="you@company.com" style="flex:2;min-width:180px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+    <input type="number" name="quantity" min="1" placeholder="Qty (optional)" style="flex:1;min-width:120px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+    <button type="submit" class="btn btn-primary">Email me a quote</button>
+  </div>
+  <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">Your part number is sent with your email. We reply directly, usually within one business day.</div>
+</form>
+</div>
 <script>
-(function(){var idx=null,inp=document.getElementById('pnsearch'),out=document.getElementById('pnresults');if(!inp)return;
+(function(){var idx=null,inp=document.getElementById('pnsearch'),out=document.getElementById('pnresults'),qf=document.getElementById('pnquote'),qp=document.getElementById('pnq-part'),qm=document.getElementById('pnq-msg');if(!inp)return;
 fetch('/parts-index.json').then(function(r){return r.json();}).then(function(d){idx=d;}).catch(function(){});
-inp.addEventListener('input',function(){var q=inp.value.trim().toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';return;}
+function esc(s){return String(s).replace(/</g,'&lt;');}
+function openQuote(pn,hi){qp.value=pn;qm.innerHTML=hi?('<strong>'+esc(pn)+'</strong> is going for up to <strong style="color:var(--green);">$'+hi+'</strong> per module. Drop your email and we\'ll confirm a firm quote &mdash; larger lots price higher.'):('No match for <strong>'+esc(pn)+'</strong> &mdash; but we probably still buy it. Drop your email and we\'ll send you a quote.');qf.hidden=false;}
+out.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(b){ev.preventDefault();openQuote(b.getAttribute('data-pn'),b.getAttribute('data-hi'));}});
+inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
 var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/\s+/g,'').indexOf(q)>=0;}).slice(0,6);
-if(!m.length){out.innerHTML='<div style="padding:12px 4px;color:var(--text-secondary);">No exact match &mdash; but we probably still buy it. <a href="#quote" style="color:var(--accent);font-weight:600;">Get a quote &rsaquo;</a></div>';return;}
-out.innerHTML=m.map(function(p){return '<a href="/'+p.slug+'" style="display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><span><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+'</span></span><span style="white-space:nowrap;color:var(--green);font-weight:700;">up to $'+p.hi+'</span></a>';}).join('');});})();
+if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get quote</button></div>';}).join('');}
+else{out.innerHTML='';openQuote(raw,null);}
+});})();
 </script>
+</div></div></section>
 
 <section><div class="wrap"><div class="split reveal" style="align-items:start;">
   <div class="content-block">
