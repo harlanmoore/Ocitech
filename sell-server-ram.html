@@ -492,7 +492,7 @@ else{out.innerHTML='';openQuote(raw,null);}
 </div>
 
     <div class="hero-ctas reveal in">
-      <a href="#quote" class="btn btn-primary">Selling a whole lot? Get a quote</a>
+      <a href="#lot" class="btn btn-primary">Selling a whole lot? Get a quote</a>
       <a href="tel:14252691221" class="btn btn-link">Call 425-269-1221 <span class="chev">&rsaquo;</span></a>
     </div>
   </div>
@@ -591,6 +591,52 @@ else{out.innerHTML='';openQuote(raw,null);}
     </div>
   </div>
 </section>
+
+<section id="lot" class="section-alt"><div class="wrap">
+  <div class="section-head reveal in"><div class="eyebrow">Selling a whole lot?</div><h2>Paste your list. See what it's worth.</h2><p>One part per line &mdash; part number and quantity, straight from your spreadsheet. We'll estimate the lot at today's prices.</p></div>
+  <div style="max-width:780px;margin:0 auto;">
+    <textarea id="lot-input" rows="7" placeholder="M393A8G40AB2-CWEBY   42&#10;HMA84GR7JJR4N-WM   58&#10;MTC40F2046S1RC56BD1   4" style="width:100%;padding:14px 16px;font-size:15px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);resize:vertical;box-sizing:border-box;"></textarea>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;"><button type="button" id="lot-run" class="btn btn-primary">Estimate my lot</button><span style="font-size:13px;color:var(--text-tertiary);">Any format works &mdash; "part qty", "qty part", commas, or tabs.</span></div>
+    <div id="lot-results" style="margin-top:16px;"></div>
+    <form id="lot-form" name="lot-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden style="margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);">
+      <input type="hidden" name="form-name" value="lot-quote">
+      <input type="hidden" name="lot" id="lot-raw"><input type="hidden" name="estimate" id="lot-est"><input type="hidden" name="matched" id="lot-m"><input type="hidden" name="unmatched" id="lot-u">
+      <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
+      <div id="lot-msg" style="font-size:15px;font-weight:600;margin-bottom:12px;"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">
+        <input type="text" name="name" placeholder="Name (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+        <input type="text" name="company" placeholder="Company (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+        <input type="email" name="email" required placeholder="Email (required)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+        <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+      </div>
+      <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Email me a firm quote for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
+      <div style="font-size:12px;color:var(--text-tertiary);margin-top:10px;">Estimate uses current indicative per-module prices. Firm quotes are often higher for volume and new/sealed stock &mdash; subject to inspection.</div>
+    </form>
+  </div>
+</div></section>
+<script>
+(function(){var idx=null,byN={},ta=document.getElementById('lot-input'),run=document.getElementById('lot-run'),out=document.getElementById('lot-results'),f=document.getElementById('lot-form');if(!ta||!run)return;
+function norm(s){return String(s).toUpperCase().replace(/[^A-Z0-9]/g,'');}
+fetch('/parts-index.json').then(function(r){return r.json();}).then(function(d){idx=d;d.forEach(function(p){byN[norm(p.pn)]=p;});}).catch(function(){});
+function esc(s){return String(s).replace(/</g,'&lt;');}
+function findPart(tok){var n=norm(tok);if(n.length<6)return null;if(byN[n])return byN[n];var best=null,bl=0;for(var k in byN){if(k.indexOf(n)===0||n.indexOf(k)===0){var l=Math.min(k.length,n.length);if(l>bl){bl=l;best=byN[k];}}}return bl>=8?best:null;}
+function parseLine(line){var t=line.trim();if(!t)return null;var parts=t.split(/[\t,;]+|\s+/).filter(Boolean);var qty=1,pn=null;
+ if(parts.length>1){for(var i=parts.length-1;i>=0;i--){var m=parts[i].match(/^x?(\d{1,6})(?:x|pcs?|ea|units?)?$/i);if(m){qty=parseInt(m[1],10);parts.splice(i,1);break;}}}
+ parts.forEach(function(p){if(/[A-Za-z]/.test(p)&&/\d/.test(p)&&(!pn||p.length>pn.length))pn=p;});
+ if(!pn)return null;return {raw:pn,qty:qty>0?qty:1};}
+function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[],total=0,mc=0,um=[];
+ if(!idx){out.innerHTML='<div style="color:var(--text-secondary);">Loading price index&hellip; try again in a second.</div>';return;}
+ lines.forEach(function(l){var it=parseLine(l);if(!it)return;var p=findPart(it.raw);if(p){var lt=p.hi*it.qty;total+=lt;mc++;rows.push('<tr><td style="padding:9px 10px;border-bottom:1px solid var(--line);"><a href="/'+p.slug+'" style="color:var(--accent);font-weight:600;">'+esc(p.pn)+'</a><div style="font-size:12px;color:var(--text-secondary);">'+p.cap+'GB '+p.spd+' '+p.ff+'</div></td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">'+it.qty+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">up to '+money(p.hi)+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);">'+money(lt)+'</td></tr>');}
+  else{um.push(it.raw+' x'+it.qty);rows.push('<tr><td style="padding:9px 10px;border-bottom:1px solid var(--line);"><strong>'+esc(it.raw)+'</strong><div style="font-size:12px;color:var(--text-secondary);">Not priced yet &mdash; we\'ll quote it</div></td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">'+it.qty+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;color:var(--text-tertiary);">&mdash;</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;color:var(--text-tertiary);">quote</td></tr>');}});
+ if(!rows.length){out.innerHTML='<div style="color:var(--text-secondary);">Paste at least one part number (one per line) and try again.</div>';f.hidden=true;return;}
+ out.innerHTML='<div style="overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px;"><thead><tr style="background:var(--bg-alt);text-align:left;"><th style="padding:10px;">Part</th><th style="padding:10px;text-align:right;">Qty</th><th style="padding:10px;text-align:right;">Per module</th><th style="padding:10px;text-align:right;">Line est.</th></tr></thead><tbody>'+rows.join('')+'</tbody></table></div>'
+  +'<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-top:14px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><div><div style="font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-tertiary);font-weight:600;">Estimated lot value</div><div style="font-size:34px;font-weight:600;letter-spacing:-.02em;color:var(--green);">'+money(total)+'</div></div><div style="font-size:13px;color:var(--text-secondary);text-align:right;">'+mc+' priced part'+(mc===1?'':'s')+(um.length?' &middot; '+um.length+' to quote':'')+'<br>Larger lots price higher &mdash; get a firm number below.</div></div>';
+ document.getElementById('lot-raw').value=ta.value;document.getElementById('lot-est').value=Math.round(total);document.getElementById('lot-m').value=mc;document.getElementById('lot-u').value=um.join('; ');
+ document.getElementById('lot-msg').innerHTML='Lock in a firm quote for this '+money(total)+' lot'+(um.length?' (plus '+um.length+' part'+(um.length===1?'':'s')+' we\'ll price for you)':'')+'.';
+ f.hidden=false;f.scrollIntoView({behavior:'smooth',block:'nearest'});});
+})();
+</script>
 
 <section id="quote" class="section-alt">
   <div class="wrap">
