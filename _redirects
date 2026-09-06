@@ -1,0 +1,45 @@
+# 301 .html -> clean canonical URL.
+# Netlify form target (/thanks.html) and ad landing offer pages intentionally NOT redirected.
+
+/about.html  /about  301!
+/ai-integration.html  /ai-integration  301!
+/best-places-to-sell-server-ram-2026.html  /best-places-to-sell-server-ram-2026  301!
+/bulk-it-asset-liquidation.html  /bulk-it-asset-liquidation  301!
+/ddr5-price-guide.html  /ddr5-price-guide  301!
+/how-to-identify-your-ram.html  /how-to-identify-your-ram  301!
+/index.html  /  301!
+/privacy.html  /privacy  301!
+/sell-128gb-ddr5-rdimm.html  /sell-128gb-ddr5-rdimm  301!
+/sell-16gb-ddr4-3200-rdimm.html  /sell-16gb-ddr4-3200-rdimm  301!
+/sell-32gb-ddr5-rdimm.html  /sell-32gb-ddr5-rdimm  301!
+/sell-64gb-ddr4-rdimm.html  /sell-64gb-ddr4-rdimm  301!
+/sell-64gb-ddr5-rdimm.html  /sell-64gb-ddr5-rdimm  301!
+/sell-data-center-gpus.html  /sell-data-center-gpus  301!
+/sell-ddr4-ram.html  /sell-ddr4-ram  301!
+/sell-ddr5-ram.html  /sell-ddr5-ram  301!
+/sell-decommissioned-laptops.html  /sell-decommissioned-laptops  301!
+/sell-decommissioned-servers.html  /sell-decommissioned-servers  301!
+/sell-desktop-ram.html  /sell-desktop-ram  301!
+/sell-gpus-bulk.html  /sell-gpus-bulk  301!
+/sell-memory-chips.html  /sell-memory-chips  301!
+/sell-micron-ddr4-ram.html  /sell-micron-ddr4-ram  301!
+/sell-micron-ddr5-ram.html  /sell-micron-ddr5-ram  301!
+/sell-mining-gpus.html  /sell-mining-gpus  301!
+/sell-mining-rig-liquidation.html  /sell-mining-rig-liquidation  301!
+/sell-mixed-ram-lots.html  /sell-mixed-ram-lots  301!
+/sell-samsung-ddr4-ram.html  /sell-samsung-ddr4-ram  301!
+/sell-samsung-ddr5-ram.html  /sell-samsung-ddr5-ram  301!
+/sell-server-ram.html  /sell-server-ram  301!
+/sell-sk-hynix-ddr4-ram.html  /sell-sk-hynix-ddr4-ram  301!
+/sell-sk-hynix-ddr5-ram.html  /sell-sk-hynix-ddr5-ram  301!
+/sell-ssds-bulk.html  /sell-ssds-bulk  301!
+/sell-workstation-gpus.html  /sell-workstation-gpus  301!
+/sell-xeon-cpus.html  /sell-xeon-cpus  301!
+/zh-cn/about.html  /zh-cn/about  301!
+/zh-cn/contact.html  /zh-cn/contact  301!
+/zh-cn/index.html  /zh-cn/index  301!
+/zh-cn/products.html  /zh-cn/products  301!
+/zh-tw/about.html  /zh-tw/about  301!
+/zh-tw/contact.html  /zh-tw/contact  301!
+/zh-tw/index.html  /zh-tw/index  301!
+/zh-tw/products.html  /zh-tw/products  301!
