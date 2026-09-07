@@ -494,6 +494,14 @@
   .buy-grid h3{font-size:23px;letter-spacing:-0.02em;margin-top:6px;}
   .buy-grid p.desc{font-size:15px;color:var(--text-secondary);margin-top:10px;}
 
+
+  /* founder photo (2026-09-07) */
+  img.hf-avatar{object-fit:cover;object-position:center 32%;background:none;border:1px solid rgba(255,255,255,0.5);}
+  .fact-founder{display:flex;align-items:center;gap:12px;padding:14px 0;}
+  .fact-portrait{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:center 32%;flex-shrink:0;border:1px solid var(--line);}
+  .fact-founder>div{display:flex;flex-direction:column;line-height:1.3;}
+  .fact-founder strong{font-size:15px;color:var(--text);}
+  .fact-founder span{font-size:13px;color:var(--text-secondary);}
 </style>
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FJB2LL43N"></script>
@@ -537,7 +545,7 @@ rdt('track','PageVisit');
 
 <div class="ribbon">
   <div class="wrap-wide ribbon-inner">
-    <span>&#10003;&nbsp; Tested 100% in-house in Tacoma, WA</span>
+    <span>Based in Tacoma, Washington &middot; Buying memory worldwide</span>
     <span>&#10003;&nbsp; Firm offer in one business day</span>
     <span>&#10003;&nbsp; Paid by wire / ACH within 2 business days of testing</span>
   </div>
@@ -551,7 +559,7 @@ rdt('track','PageVisit');
       <h1 class="reveal in">What's your server memory worth?</h1>
       <p class="sub reveal in">Type a part number, paste your list, or send a few photos of the labels. We price it and reply with a firm, itemized offer &mdash; usually within one business day.</p>
       <div class="hero-founder reveal in">
-        <div class="hf-avatar">HM</div>
+        <img class="hf-avatar" src="/founder-harlan.jpg" alt="Harlan Moore, founder of Ocitech" width="40" height="40">
         <div><strong>Harlan Moore</strong> buys every lot personally &mdash; a real buyer in Tacoma, WA, not a lead form. <a href="tel:14252691221">425-269-1221</a></div>
       </div>
       <ul class="hero-points reveal in">
@@ -735,12 +743,12 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
         <li>Carrier loss on our shipping label is paid at your quoted value.</li>
       </ul>
       <div class="fact-card">
-        <div class="fact-row"><span class="k">Buyer</span><span class="v">Harlan Moore, founder</span></div>
+        <div class="fact-founder"><img src="/founder-harlan.jpg" alt="Harlan Moore, founder of Ocitech" class="fact-portrait" width="56" height="56"><div><strong>Harlan Moore</strong><span>Founder, Ocitech</span></div></div>
         <div class="fact-row"><span class="k">Location</span><span class="v">7606 S Tacoma Way,<br>Tacoma, WA 98409</span></div>
         <div class="fact-row"><span class="k">Phone</span><span class="v"><a href="tel:14252691221">425-269-1221</a><br>Mon&ndash;Fri, 8am&ndash;6pm PT</span></div>
         <div class="fact-row"><span class="k">Email</span><span class="v"><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></span></div>
         <div class="fact-row"><span class="k">Payment</span><span class="v">Wire, ACH, Zelle, or check</span></div>
-        <div class="fact-row"><span class="k">Area served</span><span class="v">United States &amp; Canada</span></div>
+        <div class="fact-row"><span class="k">Area served</span><span class="v">U.S. &amp; international</span></div>
         <div class="fact-row"><span class="k">Testing</span><span class="v">100% on a DIMM tester, in-house</span></div>
       </div>
     </div>
@@ -963,7 +971,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
     </div>
     <div class="footer-top" style="border-top:none; border-bottom:none; padding-top:0; padding-bottom:0;">
       <div class="footer-links" style="font-size:12px; color:var(--text-tertiary);">
-        <span>Buying nationwide &mdash; server RAM, desktop RAM, and data center GPUs</span>
+        <span>Buying memory worldwide &mdash; server RAM, desktop RAM, and data center GPUs</span>
       </div>
     </div>
     <div class="footer-bottom">

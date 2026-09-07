@@ -9,8 +9,8 @@
 <link rel="canonical" href="https://ocitech.com/thanks">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ocitech Inc.">
-<meta property="og:title" content="About Ocitech Inc. | Server RAM & GPU Buyback">
-<meta property="og:description" content="Ocitech Inc. buys used server memory and data center GPUs in bulk, built on 20+ years of experience sourcing physical commodities at scale.">
+<meta property="og:title" content="Thanks — We'll be in touch soon | Ocitech Inc.">
+<meta property="og:description" content="Thanks for reaching out to Ocitech. We'll follow up directly with a quote or questions, usually within one business day.">
 <meta property="og:image" content="https://ocitech.com/ocitech-logo.png">
 <meta property="og:url" content="https://ocitech.com/thanks">
 <link rel="icon" href="/favicon.png" type="image/png">
@@ -355,6 +355,24 @@
   }
   .related-links a:hover{color:var(--accent); border-color:var(--accent);}
 
+
+  /* mobile nav (2026-09-07) */
+  .nav-toggle{display:none;width:40px;height:40px;border:0;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;margin-left:6px;}
+  .nav-toggle span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-links .nav-mobile-only{display:none;}
+  @media(max-width:759px){
+    .nav-toggle{display:inline-flex;}
+    .nav-lang-zh{display:none !important;}
+    .nav-cta{margin-left:auto;font-size:14px;}
+    .nav-links.open{display:flex;flex-direction:column;align-items:stretch;gap:0;position:absolute;top:52px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 30px -12px rgba(0,0,0,.25);padding:6px 0 10px;}
+    .nav-links.open a{display:block;padding:13px 22px;font-size:16px;color:var(--text);border-bottom:1px solid var(--line);}
+    .nav-links.open a:last-child{border-bottom:0;}
+    .nav-links.open .nav-mobile-only{display:block;}
+  }
+@media(max-width:759px){body.oci-typing .wa-float,body.oci-typing .wa-tooltip{opacity:0;pointer-events:none;transition:opacity .2s;}}
 </style>
 <script type="application/ld+json">
 {
@@ -377,14 +395,12 @@
   gtag('js', new Date());
   gtag('config', 'G-3FJB2LL43N');
   gtag('config', 'AW-18309966360');
-  gtag('event', 'conversion', {'send_to': 'AW-18309966360/BUWyCPrqpM0cEJjU75pE', 'value': 1.0, 'currency': 'USD'});
 </script>
 <!-- Reddit Pixel -->
 <script>
 !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
 rdt('init','a2_jix1ch5pxlq1');
 rdt('track','PageVisit');
-rdt('track','Lead');
 </script>
 <!-- End Reddit Pixel -->
 </head>
@@ -398,15 +414,18 @@ rdt('track','Lead');
         
       </a>
     </div>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="sell-ddr5-ram">DDR5</a>
       <a href="sell-ddr4-ram">DDR4</a>
       <a href="sell-ssds-bulk">SSDs</a>
       <a href="sell-server-ram">Server RAM</a>
+      <a href="ram-price-list">Price list</a>
       <a href="sell-xeon-cpus">Xeon CPUs</a>
       <a href="/#how-it-works">How It Works</a>
+      <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
+      <a href="zh-cn/index" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
     </div>
-    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="/#quote" class="nav-cta">Get a Quote &rsaquo;</a>
+    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="/#quote" class="nav-cta">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -416,6 +435,7 @@ rdt('track','Lead');
     <div class="eyebrow reveal in">Message received</div>
     <h1 class="reveal in">Thanks &mdash; we&rsquo;ll be in touch.</h1>
     <p class="sub reveal in">Your quote request just landed in our inbox. We&rsquo;ll follow up directly, usually within one business day.</p>
+    <p class="sub reveal in" id="thanks-detail" style="font-size:17px;"></p>
   </div>
 </section>
 
@@ -627,5 +647,87 @@ rdt('track','Lead');
   })();
 </script>
 
+<script>
+(function(){var t=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');if(!t||!l)return;
+function set(o){l.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');}
+t.addEventListener('click',function(){set(!l.classList.contains('open'));});
+l.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+document.addEventListener('click',function(e){if(!e.target.closest('.nav'))set(false);});
+window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false);});})();
+</script>
+<script>(function(){var b=document.body;document.addEventListener('focusin',function(e){if(e.target.matches('input,textarea'))b.classList.add('oci-typing');});document.addEventListener('focusout',function(){setTimeout(function(){if(!document.activeElement||!document.activeElement.matches('input,textarea'))b.classList.remove('oci-typing');},150);});})();</script>
+<script>
+(function(){
+  /* Ocitech conversion-event tracking v1 (2026-09-07). GA4 events + Google Ads / Reddit lead on submit.
+     Events: form_start, generate_lead, form_error, pn_search, pn_search_result_click, lot_estimate,
+             file_attach (fired by upload UX), cta_click, phone_click, email_click, whatsapp_click, scroll_depth, price_card_view */
+  if(window.__ociTrack) return; window.__ociTrack=1;
+  var GA_ADS_SEND_TO='AW-18309966360/BUWyCPrqpM0cEJjU75pE';
+  function ev(name,p){p=p||{};p.page_path=location.pathname;p.page_type=pageType();try{if(window.gtag)gtag('event',name,p);}catch(e){}}
+  function pageType(){var p=location.pathname.replace(/\.html$/,'').replace(/\/index$/,'/');if(p==='/'||p==='/index.html')return 'home';if(/offer/.test(p))return 'paid_landing';if(/ram-price-list/.test(p))return 'price_hub';if(/^\/sell-(samsung|sk-hynix|micron|kingston)-[a-z0-9]+-?[a-z0-9]*$/.test(p)&&!/-ddr[45]-ram$/.test(p))return 'part';if(/^\/sell-/.test(p))return 'category';if(/thanks/.test(p))return 'thanks';return 'other';}
+  function pos(el){var r=el.getBoundingClientRect(),y=r.top+window.scrollY,h=document.documentElement.scrollHeight;return y<900?'hero':(y>h-900?'footer':'body');}
+  function utm(){var q=new URLSearchParams(location.search),o={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','rdt_cid'].forEach(function(k){if(q.get(k))o[k]=q.get(k);});return o;}
+  // persist first-touch source for the session and stamp hidden fields on every form
+  try{var u=utm();if(Object.keys(u).length)sessionStorage.setItem('oci_src',JSON.stringify(u));}catch(e){}
+  function src(){try{return JSON.parse(sessionStorage.getItem('oci_src')||'{}');}catch(e){return {};}}
+  function stamp(form){
+    var s=src(),fields={source_utm:JSON.stringify(s),source_landing:sessionStorage.getItem('oci_landing')||location.pathname,source_page:location.pathname,source_device:(window.innerWidth<760?'mobile':'desktop'),source_referrer:document.referrer||''};
+    Object.keys(fields).forEach(function(k){var i=form.querySelector('input[name="'+k+'"]');if(i)i.value=fields[k];});
+  }
+  try{if(!sessionStorage.getItem('oci_landing'))sessionStorage.setItem('oci_landing',location.pathname+location.search);}catch(e){}
+
+  // thanks page: fire ad-platform conversions only after a real submission (marker set on submit), never on refresh/direct hit
+  if(pageType()==='thanks'){
+    var lead=null;try{lead=JSON.parse(sessionStorage.getItem('oci_lead')||'null');}catch(e){}
+    if(lead&&Date.now()-lead.t<15*60*1000){
+      var v=lead.est&&lead.est>0?lead.est:1;
+      try{if(window.gtag)gtag('event','conversion',{send_to:GA_ADS_SEND_TO,value:v,currency:'USD',transaction_id:lead.form+'-'+lead.t});}catch(e){}
+      try{if(window.rdt)rdt('track','Lead',{value:v,currency:'USD'});}catch(e){}
+      ev('lead_confirmed',{form_name:lead.form,estimate_value:lead.est||0,file_count:lead.files||0,value:v,currency:'USD'});
+      try{sessionStorage.removeItem('oci_lead');}catch(e){}
+      var el=document.getElementById('thanks-detail');if(el){el.textContent=(lead.files?('Your '+lead.files+(lead.files>1?' files':' file')+' came through. '):'')+(lead.est>0?('Estimated lot value on your list: $'+Math.round(lead.est).toLocaleString('en-US')+'. '):'')+'Reply to our email any time to add photos or details.';}
+    }else{ev('thanks_view_no_submission',{});}
+  }
+
+  // forms
+  var started={};
+  document.querySelectorAll('form[name]').forEach(function(form){
+    var name=form.getAttribute('name'); if(!name||name==='contact-zh-cn'||name==='buyer-zh-cn') return;
+    stamp(form);
+    form.addEventListener('focusin',function(){if(started[name])return;started[name]=1;ev('form_start',{form_name:name});});
+    form.addEventListener('submit',function(){
+      var mode=name==='part-quote'?'part':name==='lot-quote'?'paste':name==='quick-quote'?'upload':'form';
+      var files=0,bytes=0;form.querySelectorAll('input[type=file][name]').forEach(function(i){if(i.files&&i.files.length){files++;bytes+=i.files[0].size;}});
+      var est=form.querySelector('input[name="estimate"]'),m=form.querySelector('input[name="matched"]'),um=form.querySelector('input[name="unmatched"]');
+      var p={form_name:name,mode:mode,has_file:files>0,file_count:files,file_bytes:bytes,estimate_value:est&&est.value?Number(est.value):0,matched:m&&m.value?Number(m.value):0,unmatched:um&&um.value?String(um.value).split(';').filter(Boolean).length:0,value:est&&est.value?Number(est.value):1,currency:'USD'};
+      ev('generate_lead',p);
+      try{sessionStorage.setItem('oci_lead',JSON.stringify({form:name,est:p.estimate_value,files:files,t:Date.now()}));}catch(e){}
+    });
+    form.addEventListener('invalid',function(e){ev('form_error',{form_name:name,reason:'invalid_'+(e.target.name||'field')});},true);
+  });
+
+  // pricing tool
+  var pn=document.getElementById('pnsearch')||document.getElementById('wm-input'),t;
+  if(pn){pn.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){var q=pn.value.trim();if(q.length<3)return;var res=document.getElementById('pnresults')||document.getElementById('wm-suggest');var n=res?res.querySelectorAll('button[data-pn]').length:0;ev('pn_search',{query_len:q.length,match_count:n,no_match:n===0});},700);});}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-pn]');if(b){ev('pn_search_result_click',{part:b.getAttribute('data-pn'),price:Number(b.getAttribute('data-hi')||0)});}
+    var run=e.target.closest('#lot-run,#wm-value');if(run){setTimeout(function(){var est=document.getElementById('lot-est')||document.getElementById('wm-h-est'),m=document.getElementById('lot-m')||document.getElementById('wm-h-m'),u=document.getElementById('lot-u')||document.getElementById('wm-h-u');ev('lot_estimate',{estimate_value:est&&est.value?Number(est.value):0,matched:m&&m.value?Number(m.value):0,unmatched:u&&u.value?String(u.value).split(';').filter(Boolean).length:0});},300);}
+    var a=e.target.closest('a');if(a){var h=a.getAttribute('href')||'';
+      if(/^tel:/.test(h))ev('phone_click',{position:pos(a)});
+      else if(/^mailto:/.test(h))ev('email_click',{position:pos(a)});
+      else if(/wa\.me/.test(h))ev('whatsapp_click',{position:pos(a)});
+      else if(a.classList.contains('btn')||a.classList.contains('nav-cta'))ev('cta_click',{label:(a.textContent||'').trim().slice(0,60),href:h,position:pos(a)});}
+    var btn=e.target.closest('button.btn[type=button]');if(btn&&!btn.hasAttribute('data-pn'))ev('cta_click',{label:(btn.textContent||'').trim().slice(0,60),position:pos(btn)});
+  },true);
+
+  // price card view (part pages)
+  var card=document.querySelector('[data-price-card]')||(function(){var els=document.querySelectorAll('div');for(var i=0;i<els.length;i++){if(/Current indicative offer/i.test(els[i].textContent)&&els[i].children.length<3)return els[i].parentNode;}return null;})();
+  if(card&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){ev('price_card_view',{});io.disconnect();}});},{threshold:.5});io.observe(card);}
+
+  // scroll depth 25/50/75 (GA4 enhanced measurement covers 90)
+  var marks={25:0,50:0,75:0};
+  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h<=0)return;var pct=Math.round(window.scrollY/h*100);[25,50,75].forEach(function(m){if(!marks[m]&&pct>=m){marks[m]=1;ev('scroll_depth',{percent:m});}});},{passive:true});
+})();
+</script>
 </body>
 </html>
