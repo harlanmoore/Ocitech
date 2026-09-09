@@ -7,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ocitech Pricing Intelligence</title>
 <style>
+[hidden]{display:none!important}
+
   :root{
     --bg:#f7f8fa; --panel:#ffffff; --ink:#111826; --muted:#5b6472; --faint:#8a93a3;
     --line:#e6e9ef; --line2:#eef1f6; --accent:#0A66E0; --accent-soft:#e8f0fd;
@@ -148,6 +150,40 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 .lot{margin-top:28px;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:18px}.lot h2{margin:0;font-size:18px}.lot form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:16px 0}.lot label{display:flex;flex-direction:column;gap:4px;font-size:14px}.lot input,.lot select{font:inherit;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:9px;min-width:0;width:100%}.lot-item{border-top:1px solid var(--line);padding:16px 0;display:grid;gap:12px;grid-template-columns:minmax(0,2fr) 90px minmax(120px,1fr) auto}.lot-item strong{overflow-wrap:anywhere}.lot-evidence{grid-column:1/-1}.lot-evidence summary{cursor:pointer;color:var(--accent)}.muted{color:var(--muted)}.k-UNKNOWN{background:var(--warn-soft)}
 .kpi .l,table.parts th,.gtop .rl,.badge,.kbadge,.sub,.note,.btn,.dsub{font-size:12px}table.parts th{color:var(--muted)}.gmeta{font-size:13px}.lot-message{color:var(--muted);margin:8px 0}
 @media(max-width:650px){.wrap{padding:16px 12px 50px}.lot form{grid-template-columns:repeat(2,minmax(0,1fr))}.lot-item{grid-template-columns:1fr 80px}.lot-item>label:nth-of-type(2){grid-column:1/-1}.grp>summary{flex-wrap:wrap;gap:6px}.gmeta{flex-basis:100%;order:3}.gtop{margin-left:auto}.gtitle{min-width:0}.toolbar{position:static}.search{min-width:100%}}
+.speed-band{margin:20px 0 12px;padding:12px 0 0;border-top:3px solid var(--accent-soft)}.speed-band h4{margin:0 0 10px;padding:6px 10px;border-left:4px solid var(--accent);color:var(--accent);font-size:16px;letter-spacing:.02em;background:var(--accent-soft)}
+.module-section{margin-top:28px;padding-top:16px;border-top:2px solid var(--line)}.module-title{font-size:20px;margin:0 0 12px}.generation-title{font-size:15px;color:var(--muted);margin:10px 0}
+
+/* Compact spreadsheet-style catalog; preserve comfortable entry-form controls. */
+.wrap{max-width:1560px;padding-top:14px}
+.module-section{margin-top:16px;padding-top:8px}
+.module-title{font-size:18px;margin-bottom:4px}
+.gen{margin-top:8px}
+.generation-title{margin:5px 0;font-size:14px}
+.speed-band{margin:8px 0 6px;padding-top:4px;border-top-width:1px}
+.speed-band h4{margin:0 0 4px;padding:3px 8px;font-size:14px;line-height:1.35}
+.grp{margin-bottom:3px;border-radius:3px}
+.grp>summary{padding:4px 8px;gap:8px;min-height:32px}
+.gtitle{font-size:14px}.gmeta{font-size:12px}
+.gtop{display:flex;align-items:baseline;gap:7px}
+.gtop .r{font-size:13px}.gtop .rl{font-size:12px}
+table.parts th{padding:5px 8px;font-size:12px;letter-spacing:0;text-transform:none;background:var(--chip);color:var(--muted)}
+table.parts td{padding:3px 8px;line-height:1.35;border-right:1px solid var(--line2)}
+table.parts td:last-child{border-right:0}
+table.parts .btn{padding:3px 7px;font-size:12px;line-height:1.35;border-radius:3px;min-height:25px}
+table.parts .badge{padding:1px 5px;font-size:12px}
+table.parts .pn,table.parts .mfr{font-size:13px}
+table.parts tr.detail>td{padding:0}
+.detail-inner{padding:8px 10px}
+table.bids th,table.bids td{padding:4px 8px}
+.toolbar{padding:7px 0;margin-top:4px}
+.search input{padding-top:7px;padding-bottom:7px}
+@media(max-width:650px){.grp>summary{padding:6px 8px}.gtop{display:block}.gmeta{font-size:12px}table.parts .btn{min-height:32px}.wrap{padding-left:12px;padding-right:12px}}
+
+
+/* Keep exact part numbers on one line in the scrollable catalog. */
+table.parts th:nth-child(3),table.parts td:nth-child(3){min-width:320px;white-space:nowrap}
+table.parts td:nth-child(3) .pn{white-space:nowrap}
+
 </style>
 </head>
 <body>
@@ -185,7 +221,36 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 
   <div class="note"><b>Internal pricing — authorized records only.</b> Best evidence is the highest recorded buyer bid or price-list bid/quote, not a recommended buy price. Realized sales, supplier asks and synthetic guides are separate and excluded from market summaries. Evidence may differ in condition, date and quantity; inspect the underlying records before comparing. Quantity context is not treated as verified units sold.</div>
   <div class="refreshbar"><span id="refresh-status" role="status"></span><button class="btn" id="refresh">Refresh</button><a class="btn" href="#working-lot">Working Lot <span id="lot-count">0</span></a></div>
-  <div class="kpis" id="kpis"></div>
+<section class="lot" id="entry-panel" aria-label="Add part or price" style="padding:10px 0;border:0;background:transparent;margin-top:12px">
+<button class="btn" id="entry-toggle" aria-expanded="false" aria-controls="entry-body">+ Add part / price</button>
+<div id="entry-body" hidden>
+<h2 id="entry-title" style="margin-top:16px">Add part / price</h2>
+<p class="note" id="entry-mode">Preview — review entries here without changing your database.</p>
+<form id="price-entry">
+<label>Exact part number<input name="part_number" list="entry-parts" required maxlength="160" autocomplete="off" placeholder="Search or enter a part number"></label><datalist id="entry-parts"></datalist>
+<label>Manufacturer<input name="manufacturer" required maxlength="100" placeholder="Samsung, SK hynix, Micron…"></label>
+<label>Generation<select name="generation" required><option value="">Select</option><option>DDR4</option><option>DDR5</option></select></label>
+<label>Module type<select name="form_factor" required><option value="">Select</option><option>RDIMM</option><option>LRDIMM</option><option>UDIMM</option><option>SODIMM</option><option>MRDIMM</option></select></label>
+<label>Capacity (GB)<input name="capacity_gb" type="number" min="1" max="4096" step="1" required></label>
+<label>Speed (MT/s)<input name="speed_mts" type="number" min="1" max="20000" step="1" required></label>
+<label>Chip configuration (optional)<input name="rank" list="rank-options" maxlength="24" placeholder="e.g. 2Rx4 or 4DRx4"></label><datalist id="rank-options"><option value="1Rx4"><option value="1Rx8"><option value="2Rx4"><option value="2Rx8"><option value="4Rx4"><option value="4DRx4"><option value="8Rx4"></datalist>
+<label>USD per module<input name="unit_price" type="number" min="0.01" max="99999999.99" step="0.01" required placeholder="140.00"></label>
+<label>Evidence type<select name="kind"><option value="MARKET">Market price</option><option value="SALE">Completed sale</option><option value="SUPPLY">Supplier ask</option></select></label>
+<label>Condition<select name="condition"><option>PULL</option><option>NEW</option></select></label>
+<label>Quantity context (optional)<input name="qty_context" type="number" min="1" max="1000000000" step="1"></label>
+<label>Source / buyer<input name="bidder" required maxlength="100" placeholder="Who supplied this price?"></label>
+<label>Price date<input name="bid_date" type="date" required></label>
+<label style="grid-column:1/-1">Notes (optional)<input name="notes" maxlength="2000" placeholder="Condition details, quote reference, or other context"></label>
+<p id="entry-match" class="muted" style="grid-column:1/-1" role="status">Enter an exact part number. Suffixes are preserved.</p>
+<button class="btn" type="submit">Review entry</button>
+</form>
+<section id="entry-review" hidden aria-label="Review price entry" tabindex="-1"><h3>Review before saving</h3><div id="entry-summary"></div><p class="muted">New parts remain internal. Existing prices are preserved; conflicting same-source, same-day entries are rejected for review. Quantity context is not used as verified units sold.</p><button class="btn" id="entry-save">Confirm preview</button> <button class="btn" id="entry-edit">Back to edit</button></section>
+<p id="entry-result" role="status"></p>
+</div></section>
+
+  <details class="stats-panel" style="margin:8px 0"><summary class="btn" style="width:fit-content;cursor:pointer">Stats</summary>
+    <div class="kpis" id="kpis"></div>
+  </details>
 
   <div class="toolbar">
     <div class="search">
@@ -214,7 +279,7 @@ button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,s
 <label>Generation<select name="generation"><option value="">Select</option><option>DDR4</option><option>DDR5</option></select></label>
 <label>Capacity (GB)<input name="capacity_gb" type="number" min="1" step="1"></label>
 <label>Speed (MT/s)<input name="speed_mts" type="number" min="1" step="1"></label>
-<label>Module type<select name="form_factor"><option value="">Select</option><option>RDIMM</option><option>LRDIMM</option><option>UDIMM</option><option>MRDIMM</option></select></label>
+<label>Module type<select name="form_factor"><option value="">Select</option><option>RDIMM</option><option>LRDIMM</option><option>UDIMM</option><option>SODIMM</option><option>MRDIMM</option></select></label>
 <label>Quantity<input name="quantity" type="number" min="1" max="1000000000" step="1" value="1" required></label>
 <label>Notes<input name="notes" maxlength="2000"></label>
 <button class="btn" type="submit">Add to Working Lot</button>
@@ -244,6 +309,9 @@ let BIDS = [];
 /* ---------- classification ---------- */
 function classify(b){
   const s=(b.source||'').toLowerCase();
+  if(s.startsWith('ocitech entry: market;')) return {kind:'QUOTE',sell:true};
+  if(s.startsWith('ocitech entry: sale;')) return {kind:'SALE',sell:false};
+  if(s.startsWith('ocitech entry: supply;')) return {kind:'SUPPLY',sell:false};
   if(b.evidence_kind) return {kind:b.evidence_kind, sell:['BID','LIST','QUOTE'].includes(b.evidence_kind)};
   if(s.includes('invoice')) return {kind:'SALE', sell:false};
   if(s.includes('inventory_with_2_bids')) return {kind:'BID', sell:true};
@@ -300,7 +368,7 @@ groups = Object.values(gmap).map(g=>{
   g.hasSale = g.parts.some(p=>p.hasSale);
   return g;
 });
-groups.sort((a,b)=> a.gen.localeCompare(b.gen) || a.cap-b.cap || a.speed-b.speed
+groups.sort((a,b)=> a.gen.localeCompare(b.gen) || a.speed-b.speed || a.cap-b.cap
   || ((FFORD[a.ff]||9)-(FFORD[b.ff]||9)) || a.ff.localeCompare(b.ff));
 
 GENS = [...new Set(groups.map(g=>g.gen))].sort();
@@ -341,14 +409,16 @@ function partRow(p){
   return `<tr class="prow" data-pn="${esc(p.part_number)}">
     <td><button class="btn add-part" data-add="${esc(p.part_number)}" aria-label="Add ${esc(p.part_number)} to Working Lot">+ Add</button></td>
     <td class="mfr">${esc(p.manufacturer||'&mdash;')}</td>
-    <td><button class="pn detail-toggle" aria-expanded="false">${esc(p.part_number)}</button> ${p.rank?`<span class="rankchip">${esc(p.rank)}</span>`:''}</td>
+    <td><button class="pn detail-toggle" aria-expanded="false">${esc(p.part_number)}</button> </td>
+    <td style="white-space:nowrap;font-family:var(--mono)">${p.rank?esc(p.rank):'<span class="muted">Unknown</span>'}</td>
     <td class="num"><span class="price">${money(p.top)}</span></td>
     <td class="num"><span class="rng">${rng}</span></td>
     <td class="num cnt">${p.points||'<span class="dim">0</span>'}</td>
     <td>${partBadges(p)}</td>
     <td class="dim" style="font-size:12px">${esc(p.lastSeen||'—')}</td>
+    <td><button class="btn edit-price" data-edit-price="${esc(p.part_number)}" aria-label="${p.points?'Edit or add price for':'Add price for'} ${esc(p.part_number)}">${p.points?'Edit / add price':'+ Add price'}</button></td>
   </tr>
-  <tr class="detail" data-detail="${esc(p.part_number)}" hidden><td colspan="8">${detailHTML(p)}</td></tr>`;
+  <tr class="detail" data-detail="${esc(p.part_number)}" hidden><td colspan="10">${detailHTML(p)}</td></tr>`;
 }
 function detailHTML(p){
   const order=['SALE','BID','LIST','QUOTE','SUPPLY','SET','UNKNOWN'];
@@ -401,30 +471,37 @@ function groupHTML(g){
       ${topbox}
     </summary>
     <div class="tblwrap"><table class="parts">
-      <thead><tr><th>Working Lot</th><th>Manufacturer</th><th>Exact part number</th><th class="num">Best evidence</th><th class="num">Evidence range</th><th class="num">Evidence points</th><th>Signal</th><th>Latest record</th></tr></thead>
+      <thead><tr><th>Working Lot</th><th>Manufacturer</th><th>Exact part number</th><th>Chip configuration</th><th class="num">Best evidence</th><th class="num">Evidence range</th><th class="num">Evidence points</th><th>Signal</th><th>Latest record</th><th>Update price</th></tr></thead>
       <tbody>${rows}</tbody>
     </table></div>
   </details>`;
 }
 function render(){
-  tree.innerHTML = GENS.map(gen=>{
-    const gs=groups.filter(g=>g.gen===gen);
-    return `<section class="gen" data-gen="${gen}"><h2>${gen}</h2>${gs.map(groupHTML).join('')}</section>`;
+  const typeOrder=['RDIMM','LRDIMM','UDIMM','SODIMM','MRDIMM'];
+  const types=[...typeOrder,...new Set(groups.map(g=>g.ff).filter(ff=>!typeOrder.includes(ff)))];
+  tree.innerHTML=types.filter(ff=>ff!=='MRDIMM'||groups.some(g=>g.ff===ff)).map(ff=>{
+    const typeGroups=groups.filter(g=>g.ff===ff);
+    const content=GENS.map(gen=>{
+      const gs=typeGroups.filter(g=>g.gen===gen);
+      if(!gs.length)return '';
+      return `<section class="gen" data-gen="${esc(gen)}"><h3 class="generation-title">${esc(gen)}</h3>${[...new Set(gs.map(g=>g.speed))].sort((a,b)=>a-b).map(speed=>`<section class="speed-band" aria-label="${speed} MT/s"><h4>${speed} <span style="font-size:12px;font-weight:400">MT/s</span></h4>${gs.filter(g=>g.speed===speed).sort((a,b)=>a.cap-b.cap).map(groupHTML).join('')}</section>`).join('')}</section>`;
+    }).join('');
+    return `<section class="module-section" data-module="${esc(ff)}"><h2 class="module-title">${esc(ff)}</h2>${content||'<p class="muted">No parts recorded in this module type.</p>'}</section>`;
   }).join('');
-  bindRows();
-  restoreOpen();
+  bindRows();restoreOpen();
 }
 
 /* ---------- detail toggle ---------- */
 function bindRows(){
   tree.querySelectorAll('tr.prow').forEach(tr=>{
     tr.addEventListener('click',(event)=>{
-      if(event.target.closest('.add-part')) return;
+      if(event.target.closest('.add-part, .edit-price')) return;
       const pn=tr.getAttribute('data-pn');
       const d=tree.querySelector(`tr.detail[data-detail="${cssesc(pn)}"]`);
       if(d){ d.hidden=!d.hidden; tr.querySelector('.detail-toggle').setAttribute('aria-expanded',String(!d.hidden)); }
     });
   });
+  tree.querySelectorAll('.edit-price').forEach(b=>b.addEventListener('click',()=>openPriceEditor(b.dataset.editPrice)));
   tree.querySelectorAll('.add-part').forEach(b=>b.addEventListener('click',()=>addExact(b.dataset.add)));
   tree.querySelectorAll('details.grp').forEach(d=>{
     d.addEventListener('toggle',saveOpen);
@@ -460,7 +537,7 @@ function applySearch(){
     tree.querySelectorAll('tr.prow').forEach(tr=>tr.style.display='');
     tree.querySelectorAll('tr.detail').forEach(tr=>{tr.hidden=true;});
     tree.querySelectorAll('details.grp').forEach(d=>{d.style.display='';});
-    tree.querySelectorAll('section.gen').forEach(s=>s.style.display='');
+    tree.querySelectorAll('section.module-section, section.gen, section.speed-band').forEach(s=>s.style.display='');
     clearMarks(); hint.textContent=''; restoreOpen();
     return;
   }
@@ -482,7 +559,7 @@ function applySearch(){
     d.style.display=any?'':'none';
     if(any){d.open=true;matchGroups++;}
   });
-  tree.querySelectorAll('section.gen').forEach(s=>{
+  tree.querySelectorAll('section.module-section, section.gen, section.speed-band').forEach(s=>{
     const vis=[...s.querySelectorAll('details.grp')].some(d=>d.style.display!=='none');
     s.style.display=vis?'':'none';
   });
@@ -607,11 +684,11 @@ async function refreshPricing(){
   try{
     const data=validatePayload(live?await window.OCITECH_PRICING_LOADER():structuredClone(snapshot),live);
     if(refreshEpoch!==authEpoch)return;
-    PARTS=data.parts;BIDS=data.evidence;rebuild();render();applySearch();renderLot();
+    PARTS=data.parts;BIDS=data.evidence;rebuild();render();applySearch();renderLot();refreshEntryOptions();
     lastRefresh=new Date().toLocaleString();
     status.textContent=data.parts.length===0?'Signed in, but Supabase returned no visible parts. Your account may need pricing read access; an administrator should check the database policies. Last checked: '+lastRefresh:(live?'Authorized data refreshed: ':'Snapshot reloaded (not live): ')+lastRefresh;
     document.getElementById('snap').textContent=live?'Live authorized data':'2026-09-08';
-  }catch(error){if(refreshEpoch!==authEpoch)return;if(!authSession){PARTS=[];BIDS=[];rebuild();tree.innerHTML='';return;}PARTS=previous.parts;BIDS=previous.evidence;rebuild();render();applySearch();renderLot();status.textContent='Refresh failed. Previous pricing and Working Lot retained.'+(lastRefresh?' Last successful refresh: '+lastRefresh:'');}
+  }catch(error){if(refreshEpoch!==authEpoch)return;if(!authSession){PARTS=[];BIDS=[];rebuild();tree.innerHTML='';return;}PARTS=previous.parts;BIDS=previous.evidence;rebuild();render();applySearch();renderLot();refreshEntryOptions();status.textContent='Refresh failed. Previous pricing and Working Lot retained.'+(lastRefresh?' Last successful refresh: '+lastRefresh:'');}
   finally{button.disabled=false;}
 }
 document.getElementById('refresh').addEventListener('click',refreshPricing);
@@ -731,6 +808,49 @@ async function startLive(){
 
 renderLot();
 startLive();
+
+
+const ENTRY_SAVE_ENABLED=true; // Owner-restricted database function installed.
+const entryForm=document.getElementById('price-entry');
+let pendingEntry=null;
+const entryResult=document.getElementById('entry-result');
+function refreshEntryOptions(){document.getElementById('entry-parts').innerHTML=parts.map(p=>`<option value="${esc(p.part_number)}">${esc(p.manufacturer||'')} ${p.capacity_gb}GB ${p.speed_mts}</option>`).join('');}
+
+function openPriceEditor(pn){
+  if((pendingEntry||entryForm.elements.unit_price.value||entryForm.elements.bidder.value)&&!confirm('Replace the current unsaved price entry?'))return;
+  pendingEntry=null;entryForm.reset();entryForm.elements.bid_date.value=localDate();entryForm.elements.bid_date.max=localDate();
+  entryForm.elements.part_number.value=pn;matchEntry();
+  entryForm.hidden=false;document.getElementById('entry-review').hidden=true;
+  document.getElementById('entry-body').hidden=false;
+  document.getElementById('entry-toggle').textContent='Hide form';
+  document.getElementById('entry-toggle').setAttribute('aria-expanded','true');
+  entryResult.textContent='Enter the current price and source. Earlier evidence will remain in history.';
+  document.getElementById('entry-panel').scrollIntoView({block:'start',behavior:'smooth'});
+  entryForm.elements.unit_price.focus({preventScroll:true});
+}
+
+function localDate(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+entryForm.elements.bid_date.value=localDate();entryForm.elements.bid_date.max=localDate();
+function matchEntry(){const p=parts.find(p=>p.part_number.toUpperCase()===entryForm.elements.part_number.value.trim().toUpperCase());
+for(const key of ['manufacturer','generation','form_factor','capacity_gb','speed_mts','rank']){entryForm.elements[key].readOnly=!!p;if(entryForm.elements[key].tagName==='SELECT')entryForm.elements[key].disabled=!!p;if(p)entryForm.elements[key].value=p[key]||'';}
+document.getElementById('entry-match').textContent=p?'Existing exact part — its specifications will be preserved.':'New exact part — verify the specifications. It will stay unpublished.';
+return p;}
+entryForm.elements.part_number.addEventListener('input',()=>{matchEntry();pendingEntry=null;document.getElementById('entry-review').hidden=true;});
+entryForm.addEventListener('submit',event=>{event.preventDefault();if(!entryForm.reportValidity())return;const p=matchEntry();const data=Object.fromEntries(new FormData(entryForm));if(p)for(const key of ['manufacturer','generation','form_factor','capacity_gb','speed_mts','rank'])data[key]=p[key];
+data.part_number=p?p.part_number:data.part_number.trim().toUpperCase();data.bidder=data.bidder.trim();data.notes=data.notes.trim();data.rank=String(data.rank||'').trim();if(!data.bidder){entryResult.textContent='Enter a source or buyer.';return;}
+for(const key of ['capacity_gb','speed_mts','unit_price'])data[key]=Number(data[key]);data.qty_context=data.qty_context?Number(data.qty_context):null;
+pendingEntry=data;document.getElementById('entry-summary').innerHTML=`<strong>${esc(data.part_number)}</strong><p>${esc(data.manufacturer)} · ${data.capacity_gb}GB ${esc(data.generation)}-${data.speed_mts} ${esc(data.form_factor)} · Chip configuration: ${esc(data.rank||'Unknown')}</p><p><strong>${money2(data.unit_price)} USD / module</strong> · ${esc(data.condition)} · ${data.kind==='MARKET'?'Market price':data.kind==='SALE'?'Completed sale':'Supplier ask'}</p><p>Source: ${esc(data.bidder)} · ${esc(data.bid_date)} · Quantity context: ${data.qty_context??'not supplied'}</p><p>${esc(data.notes)}</p>`;
+entryForm.hidden=true;document.getElementById('entry-review').hidden=false;document.getElementById('entry-review').focus();entryResult.textContent='';});
+document.getElementById('entry-edit').onclick=()=>{pendingEntry=null;entryForm.hidden=false;document.getElementById('entry-review').hidden=true;};
+document.getElementById('entry-save').onclick=async()=>{if(!pendingEntry)return;const button=document.getElementById('entry-save');button.disabled=true;
+try{if(!ENTRY_SAVE_ENABLED){entryResult.textContent='Preview confirmed. Nothing was sent to Supabase. The form is ready for your review.';return;}
+if(!authSession||Date.now()>=authSession.expires_at*1000)throw Error('Please sign in again before saving.');
+const result=await api('/rest/v1/rpc/ocitech_record_price',{method:'POST',body:JSON.stringify({entry:pendingEntry})},authSession.access_token);
+pendingEntry=null;entryForm.reset();entryForm.elements.bid_date.value=localDate();entryForm.elements.bid_date.max=localDate();matchEntry();entryForm.hidden=false;document.getElementById('entry-review').hidden=true;await refreshPricing();refreshEntryOptions();entryResult.textContent=result.duplicate?'This identical entry was already saved; no duplicate added.':'Saved to the database. Check the refresh status above for current data.';
+}catch(error){entryResult.textContent=error.message||'Save failed. Your entry is retained; check before retrying.';}finally{button.disabled=false;}};
+document.getElementById('entry-toggle').onclick=()=>{const body=document.getElementById('entry-body');body.hidden=!body.hidden;document.getElementById('entry-toggle').textContent=body.hidden?'+ Add part / price':'Hide form';document.getElementById('entry-toggle').setAttribute('aria-expanded',String(!body.hidden));};
+if(ENTRY_SAVE_ENABLED){document.getElementById('entry-mode').textContent='Entries are saved to the internal database after confirmation.';document.getElementById('entry-save').textContent='Save to database';}
+refreshEntryOptions();
 
 </script>
 </body>
