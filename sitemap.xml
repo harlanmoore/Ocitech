@@ -494,12 +494,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ocitech.com/sell-samsung-mtc40f4086s1hc88xd1</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://ocitech.com/sell-micron-mtc40f204ws1rc48br1</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -546,5 +540,17 @@
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ocitech.com/sell-micron-mtc20f104xs1rc64bc1</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ocitech.com/sell-micron-mtc40f4086s1hc88xd1</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
