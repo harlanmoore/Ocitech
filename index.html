@@ -464,8 +464,14 @@
 
   /* hero two-column */
   .hero2{padding:40px 0 52px;background:linear-gradient(180deg,#FBFBFD 0%,#FFFFFF 62%);}
-  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:24px;}}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:48px;row-gap:0;align-items:start;grid-template-areas:"main console" "aside console";}
+  .hero-copy{grid-area:main;}
+  .hero-console{grid-area:console;}
+  .hero-aside{grid-area:aside;}
+  .diff-band{background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0;}
+  .diff-band p{margin:0 auto;max-width:900px;text-align:center;font-size:clamp(15px,1.9vw,19px);color:var(--text);line-height:1.5;}
+  .diff-band strong{color:var(--accent);}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;column-gap:0;row-gap:22px;grid-template-areas:"main" "console" "aside";}}
   .hero-copy .eyebrow{font-size:14px;color:var(--text-secondary);font-weight:600;margin-bottom:10px;}
   .hero-copy h1{font-size:clamp(30px,4.8vw,52px);line-height:1.05;letter-spacing:-0.03em;color:var(--accent);}
   .hero-copy p.sub{font-size:clamp(17px,2.1vw,21px);color:var(--text-secondary);margin-top:14px;max-width:520px;font-weight:400;}
@@ -558,7 +564,7 @@ rdt('track','PageVisit');
       <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
       <a href="zh-cn/index" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
     </div>
-    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#lot" class="nav-cta">Get my offer &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -575,17 +581,9 @@ rdt('track','PageVisit');
   <div class="wrap-wide hero-grid">
     <div class="hero-copy">
       <div class="eyebrow reveal in">We buy DDR4 &amp; DDR5 server memory, SSDs, GPUs &amp; Xeon CPUs in bulk</div>
-      <h1 class="reveal in">What's your server memory worth?</h1>
-      <p class="sub reveal in">Type a part number, paste your list, or send a few photos of the labels. We price it and reply with a firm, itemized offer &mdash; usually within one business day.</p>
-      <div class="hero-founder reveal in">
-        <img class="hf-avatar" src="/founder-harlan.jpg" alt="Harlan Moore, founder of Ocitech" width="40" height="40">
-        <div><strong>Harlan Moore</strong> buys every lot personally &mdash; a real buyer in Tacoma, WA, not a lead form. <a href="tel:14252691221">425-269-1221</a></div>
-      </div>
-      <ul class="hero-points reveal in">
-        <li>Firm offer locked for 5 business days (3 for DDR5)</li>
-        <li>Prepaid shipping label on offers over $500</li>
-        <li>Every module tested on a DIMM tester &mdash; not sampled</li>
-      </ul>
+      <h1 class="reveal in">Turn surplus server memory into cash.</h1>
+      <p class="sub reveal in">Type a part number for an instant price, or paste your list. We reply with a firm, itemized offer &mdash; usually within one business day &mdash; and pay by wire or ACH within two business days of testing.</p>
+
     </div>
 
     <div class="hero-console reveal in" id="lot">
@@ -608,7 +606,7 @@ rdt('track','PageVisit');
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <input type="email" name="email" required placeholder="you@company.com" style="flex:2;min-width:180px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
     <input type="number" name="quantity" min="1" placeholder="Qty (optional)" style="flex:1;min-width:120px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
-    <button type="submit" class="btn btn-primary">Email me a quote</button>
+    <button type="submit" class="btn btn-primary">Email me my offer</button>
   </div>
   <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">Your part number is sent with your email. We reply directly, usually within one business day.</div>
 </form>
@@ -621,7 +619,7 @@ function openQuote(pn,hi){qp.value=pn;qm.innerHTML=hi?('<strong>'+esc(pn)+'</str
 out.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(b){ev.preventDefault();openQuote(b.getAttribute('data-pn'),b.getAttribute('data-hi'));}});
 inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
 var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/\s+/g,'').indexOf(q)>=0;}).slice(0,6);
-if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get quote</button></div>';}).join('');}
+if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get my offer</button></div>';}).join('');}
 else{out.innerHTML='';openQuote(raw,null);}
 });})();
 </script>
@@ -642,7 +640,7 @@ else{out.innerHTML='';openQuote(raw,null);}
         <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
       </div>
       <div style="margin-top:12px;"><label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:6px;">Or attach your original spreadsheet / photos (optional)</label><input type="file" id="lot-file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="font-size:14px;"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"></div>
-      <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Email me a firm quote for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
+      <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Email me a firm offer for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
       <div style="font-size:12px;color:var(--text-tertiary);margin-top:10px;">Estimate uses current indicative per-module prices. Firm offers may be higher for volume and new/sealed stock &mdash; subject to inspection.</div>
     </form>
         </div>
@@ -663,6 +661,18 @@ else{out.innerHTML='';openQuote(raw,null);}
         </div>
       </div>
       <div class="vc-foot">No sorted list required &mdash; paste it, upload it, or just send photos.</div>
+    </div>
+
+    <div class="hero-aside">
+      <div class="hero-founder reveal in">
+        <img class="hf-avatar" src="/founder-harlan.jpg" alt="Harlan Moore, founder of Ocitech" width="40" height="40">
+        <div><strong>Harlan Moore</strong> buys every lot personally &mdash; a real buyer in Tacoma, WA, not a lead form. <a href="tel:14252691221">425-269-1221</a></div>
+      </div>
+      <ul class="hero-points reveal in">
+        <li>Firm cash offer, usually within one business day</li>
+        <li>We buy mixed, untested, and bulk lots others turn away</li>
+        <li>Paid by wire or ACH within two business days of testing</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -707,6 +717,12 @@ run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[
 ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='Attach your spreadsheet or photos, add your email, and send \u2014 we\'ll price it and reply, usually within one business day.';f.scrollIntoView({behavior:'smooth',block:'nearest'});setTimeout(function(){file.click();},300);});
 })();
 </script>
+
+<section class="diff-band">
+  <div class="wrap-wide">
+    <p><strong>We take the lots other buyers won&rsquo;t.</strong> Data centers, ITADs, resellers, IT teams &mdash; mixed brands, untested pulls, partial lots, full decommissions. Sorted or not, we&rsquo;ll price it.</p>
+  </div>
+</section>
 
 <section id="how-it-works" class="section-alt">
   <div class="wrap-wide">
@@ -758,6 +774,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
         <li>Prepaid shipping label on offers over $500.</li>
         <li>100% tested in-house on a DIMM tester &mdash; never sampled.</li>
         <li>Any downward revision comes with photo evidence, line by line.</li>
+        <li>Not as described after testing? Accept the revised offer or have the modules returned &mdash; and any lines we don't dispute are still paid on schedule.</li>
         <li>Large lots: a full line-by-line reconciliation, delivered as a spreadsheet.</li>
         <li>Carrier loss on our shipping label is paid at your quoted value.</li>
       </ul>
@@ -859,7 +876,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
       </div>
       <div class="faq-item">
         <h3>How and when do you pay?</h3>
-        <p>We move fast on both the quote and the payment. Most quotes are turned around within one business day, and once we've agreed on the lot &mdash; part numbers, quantities, condition, and price &mdash; we pay quickly. No net-30 or net-45 terms, no slow payment cycle. Exact terms are set per deal.</p>
+        <p>We move fast on both the quote and the payment. Most quotes are turned around within one business day. Once testing confirms your lot, you're paid within two business days &mdash; by wire, ACH, Zelle, or check. No net-30, no net-45, no slow payment cycle.</p>
       </div>
     </div>
   </div>
