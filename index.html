@@ -6,16 +6,16 @@
 <title>Sell DDR5, DDR4 RAM &amp; Enterprise SSDs in Bulk | Ocitech</title>
 <meta name="description" content="Ocitech buys DDR5 &amp; DDR4 server RAM and enterprise SSDs in bulk — tested or untested, any brand. Lightning-fast payment, quotes within one business day.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://ocitech.com/">
-<link rel="alternate" hreflang="en" href="https://ocitech.com/">
-<link rel="alternate" hreflang="zh-Hans" href="https://ocitech.com/zh-cn/index">
-<link rel="alternate" hreflang="zh-Hant" href="https://ocitech.com/zh-tw/index">
-<link rel="alternate" hreflang="x-default" href="https://ocitech.com/">
+<link rel="canonical" href="/">
+<link rel="alternate" hreflang="en" href="/">
+<link rel="alternate" hreflang="zh-Hans" href="zh-cn/index">
+<link rel="alternate" hreflang="zh-Hant" href="zh-tw/index">
+<link rel="alternate" hreflang="x-default" href="/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Ocitech, LLC">
 <meta property="og:title" content="Sell DDR5, DDR4 RAM &amp; Enterprise SSDs in Bulk | Ocitech">
 <meta property="og:description" content="Ocitech buys DDR5 &amp; DDR4 server RAM and enterprise SSDs in bulk — tested or untested, any brand. Lightning-fast payment, quotes within one business day.">
-<meta property="og:image" content="https://ocitech.com/ocitech-logo.png">
+<meta property="og:image" content="https://ocitech.comocitech-logo.png">
 <meta property="og:url" content="https://ocitech.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sell DDR5, DDR4 RAM &amp; Enterprise SSDs in Bulk | Ocitech">
@@ -49,7 +49,7 @@
   "sameAs": [
     "https://maps.app.goo.gl/eHoZF8UHBVgVErRA7"
   ],
-  "image": "https://ocitech.com/ocitech-logo.png",
+  "image": "https://ocitech.comocitech-logo.png",
   "areaServed": "US"
 }
 </script>
@@ -527,7 +527,24 @@
   .fact-founder>div{display:flex;flex-direction:column;line-height:1.3;}
   .fact-founder strong{font-size:15px;color:var(--text);}
   .fact-founder span{font-size:13px;color:var(--text-secondary);}
+
+/* Offer-first homepage */
+.nav-cta,.nav-lang-zh,.nav-links a{white-space:nowrap;}
+@media(min-width:760px) and (max-width:1100px){.nav-links{gap:12px;}.nav-lang-zh{display:none;}.nav-cta{font-size:12px;}}
+
+.hero2{padding:48px 0 52px;}.hero-grid{row-gap:22px;}
+.hero-copy h1{font-size:clamp(38px,4.5vw,60px);line-height:1.04;max-width:570px;color:var(--text);}
+.hero-copy .eyebrow{color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.07em;}
+.offer-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:26px;}
+.offer-actions .btn{padding:16px 24px;font-size:17px;gap:12px;}.price-link{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:4px;}
+.offer-terms{font-size:14px;line-height:1.65;margin-top:18px;color:var(--text-secondary);}.offer-other{font-size:13px;color:var(--text-secondary);margin-top:14px;}
+.offer-label{display:block;font-size:13px;font-weight:600;margin:12px 0 7px;}.offer-input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line);border-radius:10px;resize:vertical;font-family:inherit;font-size:14px;line-height:1.5;}
+.hero-founder{margin-top:0;}.hero-points{margin-top:16px;}#lot{scroll-margin-top:90px;}
+:focus-visible{outline:3px solid #2079c7;outline-offset:4px;}
+@media(max-width:600px){.hero2{padding-top:28px;}.offer-actions{gap:16px;}.offer-actions .btn{width:100%;}.hero-points{display:flex;}.vc-panel{padding:18px;}.hero-copy h1{font-size:42px;}}
+
 </style>
+
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3FJB2LL43N"></script>
 <script>
@@ -547,6 +564,7 @@ rdt('track','PageVisit');
 </head>
 <body>
 
+
 <nav class="nav">
   <div class="wrap-wide nav-inner">
     <div class="nav-brand">
@@ -564,7 +582,7 @@ rdt('track','PageVisit');
       <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
       <a href="zh-cn/index" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
     </div>
-    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#lot" class="nav-cta">Get my offer &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#lot" data-open-panel="photos" class="nav-cta">Get My Firm Offer &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -580,20 +598,22 @@ rdt('track','PageVisit');
 <section class="hero2">
   <div class="wrap-wide hero-grid">
     <div class="hero-copy">
-      <div class="eyebrow reveal in">We buy DDR4 &amp; DDR5 server memory, SSDs, GPUs &amp; Xeon CPUs in bulk</div>
+      <div class="eyebrow reveal in">We buy DDR4 &amp; DDR5 server memory in bulk</div>
       <h1 class="reveal in">Turn surplus server memory into cash.</h1>
-      <p class="sub reveal in">Type a part number for an instant price, or paste your list. We reply with a firm, itemized offer &mdash; usually within one business day &mdash; and pay by wire or ACH within two business days of testing.</p>
-
+      <p class="sub reveal in">Ready to sell? Send your inventory list or photos and get a firm, itemized offer &mdash; usually within one business day. Mixed lots and untested memory welcome.</p>
+      <div class="offer-actions"><a class="btn btn-primary" href="#lot" data-open-panel="photos">Get My Firm Offer <span aria-hidden="true">&rarr;</span></a><a class="price-link" href="#lot" data-open-panel="pn">Check Memory Prices</a></div>
+      <p class="offer-terms">Prepaid shipping on offers over $500.<br>Paid by wire or ACH within two business days after testing confirms your lot.</p>
+      <p class="offer-other">Also buying SSDs, GPUs &amp; Xeon CPUs.</p>
     </div>
 
     <div class="hero-console reveal in" id="lot">
       <div class="vc">
         <div class="vc-tabs" data-tabs>
-          <button type="button" class="vc-tab is-active" data-tab="pn">Type a part number</button>
-          <button type="button" class="vc-tab" data-tab="paste">Paste a list</button>
-          <button type="button" class="vc-tab" data-tab="photos">Add photos</button>
+          <button type="button" class="vc-tab is-active" data-tab="photos">Get a Firm Offer</button>
+          <button type="button" class="vc-tab" data-tab="pn">Check a Price</button>
+          <button type="button" class="vc-tab" data-tab="paste">Estimate a Lot</button>
         </div>
-        <div class="vc-panel is-active" data-panel="pn">
+        <div class="vc-panel" data-panel="pn">
 <div class="pn-search" style="max-width:620px;margin:0 auto;">
 <label for="pnsearch" id="pnsearch-label" style="font-size:22px;font-weight:600;letter-spacing:-0.01em;display:block;margin-bottom:8px;text-align:center;">Type a part number for an instant price</label>
 <input id="pnsearch" type="text" autocomplete="off" spellcheck="false" placeholder="Type a part number, e.g. M393A8G40AB2-CWEBY" style="width:100%;padding:15px 18px;font-size:17px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,0.05);">
@@ -606,7 +626,7 @@ rdt('track','PageVisit');
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <input type="email" name="email" required placeholder="you@company.com" style="flex:2;min-width:180px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
     <input type="number" name="quantity" min="1" placeholder="Qty (optional)" style="flex:1;min-width:120px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
-    <button type="submit" class="btn btn-primary">Email me my offer</button>
+    <button type="submit" class="btn btn-primary">Get My Firm Offer</button>
   </div>
   <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">Your part number is sent with your email. We reply directly, usually within one business day.</div>
 </form>
@@ -619,7 +639,7 @@ function openQuote(pn,hi){qp.value=pn;qm.innerHTML=hi?('<strong>'+esc(pn)+'</str
 out.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(b){ev.preventDefault();openQuote(b.getAttribute('data-pn'),b.getAttribute('data-hi'));}});
 inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
 var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/\s+/g,'').indexOf(q)>=0;}).slice(0,6);
-if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get my offer</button></div>';}).join('');}
+if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get My Offer</button></div>';}).join('');}
 else{out.innerHTML='';openQuote(raw,null);}
 });})();
 </script>
@@ -644,18 +664,21 @@ else{out.innerHTML='';openQuote(raw,null);}
       <div style="font-size:12px;color:var(--text-tertiary);margin-top:10px;">Estimate uses current indicative per-module prices. Firm offers may be higher for volume and new/sealed stock &mdash; subject to inspection.</div>
     </form>
         </div>
-        <div class="vc-panel" data-panel="photos">
+        <div class="vc-panel is-active" data-panel="photos">
 <form name="quick-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="padding:2px 0;">
         <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
-        <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Send us your inventory</div>
-        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Attach a spreadsheet or a few photos of the labels &mdash; we'll price it and get back to you.</div>
-        <input type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
+        <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get an offer for your memory</div>
+        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
+        <label for="offer-details" class="offer-label">What are you selling?</label>
+        <textarea id="offer-details" name="details" rows="3" placeholder="Paste part numbers and quantities, or describe your lot. You can also attach a list or photos below." class="offer-input"></textarea>
+        <label for="offer-email" class="offer-label">Email for your offer</label>
+        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
         <div style="margin-top:14px;text-align:center;">
           <input type="file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
         </div>
         <div class="form-note" style="text-align:center;margin-top:8px;font-size:13px;color:var(--text-tertiary);">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files; large photos are shrunk automatically.</div>
-        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Send to Ocitech</button>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Get My Firm Offer</button>
         <div style="text-align:center;margin-top:10px;font-size:13px;color:var(--text-tertiary);">We'll reply directly by email, usually within one business day.</div>
       </form>
         </div>
@@ -684,7 +707,8 @@ function activate(t){w.querySelectorAll('.vc-tab').forEach(function(x){x.classLi
 vc.querySelectorAll('.vc-panel').forEach(function(p){p.classList.toggle('is-active',p.getAttribute('data-panel')===t);});}
 w.addEventListener('click',function(e){var b=e.target.closest('.vc-tab');if(!b)return;var t=b.getAttribute('data-tab');activate(t);
 try{if(window.gtag)gtag('event','vc_tab',{tab:t});}catch(err){}});
-if(location.hash==='#lot')activate('paste');
+document.querySelectorAll('[data-open-panel]').forEach(function(link){link.addEventListener('click',function(){var t=link.getAttribute('data-open-panel');activate(t);var field=vc.querySelector('[data-panel="'+t+'"] input:not([type="hidden"]), [data-panel="'+t+'"] textarea');if(t==='photos')field=document.getElementById('offer-details');if(field)setTimeout(function(){field.focus({preventScroll:true});},0);});});
+activate('photos');
 })();
 </script>
 
@@ -937,7 +961,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
           <div class="form-note" style="display:block;margin-top:6px;">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files per submission &mdash; large phone photos are shrunk automatically before sending.</div>
         </div>
 <div class="form-submit">
-          <button type="submit" class="btn btn-primary">Send to Ocitech</button>
+          <button type="submit" class="btn btn-primary">Get My Firm Offer</button>
           <span class="form-note">We'll reply directly by email, usually within one business day.</span>
         </div>
         <div id="form-status"></div>
@@ -1196,7 +1220,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
     var picker=document.createElement('input');picker.type='file';picker.multiple=true;picker.setAttribute('accept',first.getAttribute('accept')||'.csv,.xlsx,.xls,.txt,.pdf,image/*');
     picker.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';
     var btn=document.createElement('button');btn.type='button';btn.className='oci-attach-btn';
-    btn.innerHTML='&#128206; Add photos or a spreadsheet';
+    btn.innerHTML='+ Add photos or a spreadsheet';
     btn.style.cssText='border:1.5px solid var(--accent,#0071E3);color:var(--accent,#0071E3);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;';
     btn.addEventListener('mouseover',function(){btn.style.background='var(--accent,#0071E3)';btn.style.color='#fff';});
     btn.addEventListener('mouseout',function(){btn.style.background='transparent';btn.style.color='var(--accent,#0071E3)';});
@@ -1211,9 +1235,9 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
     var chosen=[];
     function total(){return chosen.reduce(function(a,f){return a+f.size;},0);}
     function render(){
-      if(!chosen.length){info.textContent='';btn.innerHTML='&#128206; Add photos or a spreadsheet';warn.style.display='none';return true;}
+      if(!chosen.length){info.textContent='';btn.innerHTML='+ Add photos or a spreadsheet';warn.style.display='none';return true;}
       info.textContent=chosen.length+(chosen.length>1?' files ':' file ')+'attached ('+human(total())+'): '+chosen.map(function(f){return f.name;}).join(', ');
-      btn.innerHTML='&#128206; Add more / change files';
+      btn.innerHTML='+ Add more / change files';
       if(total()>MAX_TOTAL){warn.textContent='Those files total '+human(total())+' — over the ~6 MB limit, so they may not send. Remove a file or send the rest by email reply.';warn.style.display='block';return false;}
       warn.style.display='none';return true;
     }
