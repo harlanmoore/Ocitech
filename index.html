@@ -156,7 +156,7 @@
   .nav-brand img{height:22px; width:auto;}
   .nav-brand span{font-size:14px; font-weight:600; color:var(--text); letter-spacing:-0.01em;}
   .nav-links{display:none; align-items:center; gap:32px; font-size:12.5px; color:var(--text); font-weight:400;}
-  @media(min-width:760px){.nav-links{display:flex;}}
+  @media(min-width:1200px){.nav-links{display:flex;}}
   .nav-links a{color:var(--text-secondary); transition:color .15s;}
   .nav-links a:hover{color:var(--text);}
   .nav-cta{
@@ -315,6 +315,40 @@
   .faq-item h3{font-size:17px; font-weight:600; letter-spacing:-0.01em;}
   .faq-item p{font-size:15px; color:var(--text-secondary); margin-top:8px;}
 
+  /* FAQ collapsible toggle */
+  .faq-details{max-width:none; margin:0;}
+  .faq-details > summary{
+    list-style:none; cursor:pointer; display:flex; align-items:center; gap:20px;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:24px 28px; box-shadow:0 4px 40px rgba(0,0,0,0.08);
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .faq-details > summary::-webkit-details-marker{display:none;}
+  .faq-details > summary::marker{content:"";}
+  .faq-details > summary:hover{border-color:var(--accent); box-shadow:0 6px 44px rgba(10,102,224,0.14);}
+  .faq-summary-label{display:flex; flex-direction:column; flex:1; text-align:left;}
+  .faq-summary-kicker{font-size:13px; color:var(--accent); font-weight:700; letter-spacing:.06em; text-transform:uppercase;}
+  .faq-summary-title{font-size:22px; font-weight:600; letter-spacing:-0.01em; margin-top:4px;}
+  .faq-summary-sub{font-size:14.5px; color:var(--text-secondary); margin-top:6px; line-height:1.45;}
+  .faq-summary-chev{
+    flex-shrink:0; width:44px; height:44px; border-radius:50%;
+    background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:24px; line-height:1; transition:transform .2s ease;
+  }
+  .faq-details[open] > summary{border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+  .faq-details[open] > summary .faq-summary-chev{transform:rotate(90deg);}
+  .faq-details[open] > summary .faq-summary-sub{display:none;}
+  .faq-details .faq-list{
+    max-width:none; margin:0;
+    background:#fff; border:1px solid var(--line); border-top:0;
+    border-radius:0 0 var(--radius-lg) var(--radius-lg);
+    padding:6px 28px 10px;
+  }
+  .faq-details .faq-item{border-top:1px solid var(--line); border-bottom:0; padding:20px 2px;}
+  .faq-details .faq-item:first-child{border-top:0;}
+  .faq-details .faq-item h3{font-size:16px; font-weight:600; letter-spacing:-0.01em;}
+  .faq-details .faq-item p{font-size:15px; color:var(--text-secondary); margin-top:8px; line-height:1.55;}
+
   /* WHY NOW — stat cards */
   .stat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
   @media(max-width:860px){.stat-grid{grid-template-columns:1fr;}}
@@ -370,6 +404,38 @@
   }
   .contact-line a{color:var(--accent);}
   .contact-line a:hover{color:var(--accent-hover);}
+
+  /* Quote form collapsible toggle */
+  .quote-details{max-width:none; margin:0;}
+  .quote-details > summary{
+    list-style:none; cursor:pointer; display:flex; align-items:center; gap:20px;
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg);
+    padding:24px 28px; box-shadow:0 4px 40px rgba(0,0,0,0.08);
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .quote-details > summary::-webkit-details-marker{display:none;}
+  .quote-details > summary::marker{content:"";}
+  .quote-details > summary:hover{border-color:var(--accent); box-shadow:0 6px 44px rgba(10,102,224,0.14);}
+  .quote-summary-label{display:flex; flex-direction:column; flex:1; text-align:left;}
+  .quote-summary-kicker{font-size:13px; color:var(--accent); font-weight:700; letter-spacing:.06em; text-transform:uppercase;}
+  .quote-summary-title{font-size:22px; font-weight:600; letter-spacing:-0.01em; margin-top:4px;}
+  .quote-summary-sub{font-size:14.5px; color:var(--text-secondary); margin-top:6px; line-height:1.45;}
+  .quote-summary-chev{
+    flex-shrink:0; width:44px; height:44px; border-radius:50%;
+    background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:24px; line-height:1; transition:transform .2s ease;
+  }
+  .quote-details[open] > summary{border-radius:var(--radius-lg) var(--radius-lg) 0 0;}
+  .quote-details[open] > summary .quote-summary-chev{transform:rotate(90deg);}
+  .quote-details[open] > summary .quote-summary-sub{display:none;}
+  .quote-details .quote-card{
+    box-shadow:none; border-top:0; border-radius:0 0 var(--radius-lg) var(--radius-lg);
+    max-width:none; margin:0;
+  }
+  @media(max-width:520px){
+    .quote-details > summary{padding:20px;}
+    .quote-summary-chev{width:38px; height:38px; font-size:21px;}
+  }
 
   /* FOOTER */
   footer{background:var(--bg-alt); padding:40px 0 28px; border-top:1px solid var(--line);}
@@ -432,7 +498,7 @@
   .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
   .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
   .nav-links .nav-mobile-only{display:none;}
-  @media(max-width:759px){
+  @media(max-width:1199px){
     .nav-toggle{display:inline-flex;}
     .nav-lang-zh{display:none !important;}
     .nav-cta{margin-left:auto;font-size:14px;}
@@ -443,7 +509,7 @@
   }
 
   /* mobile first screen (2026-09-07) */
-  @media(max-width:759px){
+  @media(max-width:1199px){
     .hero{padding:34px 0 28px;}
     .hero .eyebrow{font-size:13px;margin-bottom:8px;}
     .hero h1{font-size:34px;}
@@ -543,6 +609,8 @@
 :focus-visible{outline:3px solid #2079c7;outline-offset:4px;}
 @media(max-width:600px){.hero2{padding-top:28px;}.offer-actions{gap:16px;}.offer-actions .btn{width:100%;}.hero-points{display:flex;}.vc-panel{padding:18px;}.hero-copy h1{font-size:42px;}}
 
+
+.memory-news-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}.memory-news-grid article{border-top:2px solid var(--accent);padding-top:20px}.memory-news-grid h3{font-size:24px;line-height:1.3}.memory-news-grid h3 a:hover{text-decoration:underline}.memory-news-grid p{font-size:16px;line-height:1.6;color:var(--text-secondary)}.memory-news-grid .memory-news-meta{font-size:14px}@media(max-width:800px){.memory-news-grid{grid-template-columns:1fr}}
 </style>
 
 <!-- Google Analytics (GA4) -->
@@ -579,6 +647,7 @@ rdt('track','PageVisit');
       <a href="ram-price-list">Price list</a>
       <a href="sell-xeon-cpus">Xeon CPUs</a>
       <a href="#how-it-works">How It Works</a>
+      <a href="memory-news">Memory News</a>
       <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
       <a href="zh-cn/index" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
     </div>
@@ -890,13 +959,20 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
 .ocpg-single .ocpg-imgwrap img{max-height:380px}
 </style><section class="section section-alt ocpg"><div class="wrap-wide"><div class="section-head reveal"><div class="eyebrow">Real inventory</div><h2>Real memory, really bought</h2><p>A few of the modules that have come across our bench — real photos, real labels, no stock imagery.</p></div><div class="ocpg-grid"><figure class="ocpg-fig"><a href="/images/products/crucial-micron-32gb-ddr4-2666-rdimm-server-memory-large.webp" target="_blank" rel="noopener"><div class="ocpg-imgwrap"><img src="/images/products/crucial-micron-32gb-ddr4-2666-rdimm-server-memory-thumb.webp" width="152" height="500" loading="lazy" decoding="async" alt="Crucial/Micron 32GB DDR4-2666 RDIMM memory module, part CT32G4RFD4266 — the type of used memory Ocitech buys"></div></a><figcaption class="ocpg-cap"><b>CT32G4RFD4266</b>Crucial/Micron 32GB DDR4-2666 RDIMM</figcaption></figure><figure class="ocpg-fig"><a href="/images/products/skhynix-hmabagl7c4r4n-128gb-ddr4-2666-lrdimm-server-memory-large.webp" target="_blank" rel="noopener"><div class="ocpg-imgwrap"><img src="/images/products/skhynix-hmabagl7c4r4n-128gb-ddr4-2666-lrdimm-server-memory-thumb.webp" width="325" height="500" loading="lazy" decoding="async" alt="SK hynix 128GB DDR4-2666 LRDIMM memory module, part HMABAGL7C4R4N — the type of used memory Ocitech buys"></div></a><figcaption class="ocpg-cap"><b>HMABAGL7C4R4N</b>SK hynix 128GB DDR4-2666 LRDIMM</figcaption></figure><figure class="ocpg-fig"><a href="/images/products/skhynix-hmaa8gr7ajr4n-64gb-ddr4-3200-rdimm-server-memory-large.webp" target="_blank" rel="noopener"><div class="ocpg-imgwrap"><img src="/images/products/skhynix-hmaa8gr7ajr4n-64gb-ddr4-3200-rdimm-server-memory-thumb.webp" width="500" height="150" loading="lazy" decoding="async" alt="SK hynix 64GB DDR4-3200 RDIMM memory module, part HMAA8GR7AJR4N — the type of used memory Ocitech buys"></div></a><figcaption class="ocpg-cap"><b>HMAA8GR7AJR4N</b>SK hynix 64GB DDR4-3200 RDIMM</figcaption></figure><figure class="ocpg-fig"><a href="/images/products/samsung-m393a4k40cb2-32gb-ddr4-2666-rdimm-netapp-server-memory-large.webp" target="_blank" rel="noopener"><div class="ocpg-imgwrap"><img src="/images/products/samsung-m393a4k40cb2-32gb-ddr4-2666-rdimm-netapp-server-memory-thumb.webp" width="500" height="149" loading="lazy" decoding="async" alt="Samsung 32GB DDR4-2666 RDIMM (NetApp) memory module, part M393A4K40CB2 — the type of used memory Ocitech buys"></div></a><figcaption class="ocpg-cap"><b>M393A4K40CB2</b>Samsung 32GB DDR4-2666 RDIMM (NetApp)</figcaption></figure><figure class="ocpg-fig"><a href="/images/products/samsung-m393a4k40cb1-32gb-ddr4-2400-rdimm-cisco-server-memory-large.webp" target="_blank" rel="noopener"><div class="ocpg-imgwrap"><img src="/images/products/samsung-m393a4k40cb1-32gb-ddr4-2400-rdimm-cisco-server-memory-thumb.webp" width="500" height="268" loading="lazy" decoding="async" alt="Samsung 32GB DDR4-2400 RDIMM (Cisco) memory module, part M393A4K40CB1 — the type of used memory Ocitech buys"></div></a><figcaption class="ocpg-cap"><b>M393A4K40CB1</b>Samsung 32GB DDR4-2400 RDIMM (Cisco)</figcaption></figure><figure class="ocpg-fig"><a href="/images/products/samsung-m474a2k43bb1-16gb-ddr4-2133-sodimm-laptop-memory-large.webp" target="_blank" rel="noopener"><div class="ocpg-imgwrap"><img src="/images/products/samsung-m474a2k43bb1-16gb-ddr4-2133-sodimm-laptop-memory-thumb.webp" width="415" height="500" loading="lazy" decoding="async" alt="Samsung 16GB DDR4-2133 SODIMM memory module, part M474A2K43BB1 — the type of used memory Ocitech buys"></div></a><figcaption class="ocpg-cap"><b>M474A2K43BB1</b>Samsung 16GB DDR4-2133 SODIMM</figcaption></figure></div><p style="margin-top:22px;"><a href="/how-to-identify-your-ram" class="btn btn-link">See the full wall of modules &amp; identify yours <span class="chev">&rsaquo;</span></a></p></div></section>
 
+<section id="memory-news" aria-labelledby="memory-news-title"><div class="wrap-wide"><div class="section-head"><div class="eyebrow">Market updates &amp; guides</div><h2 id="memory-news-title">Memory News</h2><p>Follow memory prices, understand your hardware, and make informed decisions about surplus RAM.</p></div><div class="memory-news-grid"><article><p class="memory-news-meta">September 19, 2026 · Market analysis</p><h3><a href="/ddr4-prices-easing-could-they-rise-again">DDR4 Prices Are Easing. Could They Rise Again?</a></h3><p>The supply pressures behind a possible rebound, and the signals buyers should watch.</p></article><article><p class="memory-news-meta">Practical guide</p><h3><a href="/how-to-identify-your-ram">How to Identify Your Server RAM</a></h3><p>Read module labels and understand RDIMM, LRDIMM and UDIMM before you sell.</p></article><article><p class="memory-news-meta">Selling guide</p><h3><a href="/best-places-to-sell-server-ram-2026">Best Places to Sell Server RAM in Bulk</a></h3><p>Compare selling options for surplus server memory.</p></article></div><p style="text-align:center;margin-top:30px"><a class="btn btn-link" href="/memory-news">Browse Memory News &rsaquo;</a></p></div></section>
+
 <section id="faq">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Questions</div>
-      <h2>Selling to Ocitech — the basics.</h2>
-    </div>
-    <div class="faq-list reveal">
+    <details class="faq-details reveal">
+      <summary>
+        <span class="faq-summary-label">
+          <span class="faq-summary-kicker">FAQ</span>
+          <span class="faq-summary-title">Selling to Ocitech — the basics</span>
+          <span class="faq-summary-sub">Common questions about what we buy, minimum quantities, and how fast you get paid.</span>
+        </span>
+        <span class="faq-summary-chev">&rsaquo;</span>
+      </summary>
+      <div class="faq-list">
       <div class="faq-item">
         <h3>What server RAM does Ocitech buy?</h3>
         <p>We buy DDR3, DDR4, and DDR5 memory in RDIMM, LRDIMM, UDIMM, and SODIMM form factors, pulled from servers, workstations, and desktops. We accept tested and untested modules, and single-brand or mixed lots.</p>
@@ -918,17 +994,21 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
         <p>We move fast on both the quote and the payment. Most quotes are turned around within one business day. Once testing confirms your lot, you're paid within two business days &mdash; by wire, ACH, Zelle, or check. No net-30, no net-45, no slow payment cycle.</p>
       </div>
     </div>
+    </details>
   </div>
 </section>
 <section id="quote" class="section-alt">
   <div class="wrap">
-    <div class="section-head reveal">
-      <div class="eyebrow">Get a quote</div>
-      <h2>Prefer a full form?</h2>
-      <p>Send every detail you have &mdash; part numbers, quantities, condition. We'll follow up directly with a firm offer or questions.</p>
-    </div>
-
-    <div class="quote-card reveal">
+    <details class="quote-details reveal">
+      <summary>
+        <span class="quote-summary-label">
+          <span class="quote-summary-kicker">Get a quote</span>
+          <span class="quote-summary-title">Prefer a full form?</span>
+          <span class="quote-summary-sub">Send every detail you have &mdash; part numbers, quantities, condition. We'll follow up directly with a firm offer.</span>
+        </span>
+        <span class="quote-summary-chev">&rsaquo;</span>
+      </summary>
+      <div class="quote-card">
       <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
         <input type="hidden" name="form-name" value="quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
@@ -982,6 +1062,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
         <div id="form-status"></div>
       </form>
     </div>
+    </details>
 
     <div class="contact-line reveal">
       Prefer to talk? Call <a href="tel:14252691221">425-269-1221</a> or email <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
@@ -1029,6 +1110,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
           <li><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></li>
           <li>7606 S Tacoma Way, Tacoma, WA 98409</li>
           <li><a href="/#quote">Request a Quote</a></li>
+          <li><a href="memory-news">Memory News</a></li>
           <li><a href="how-to-identify-your-ram">How to Identify Your RAM</a></li>
           <li><a href="best-places-to-sell-server-ram-2026">Best Places to Sell in 2026</a></li>
           <li><a href="privacy">Privacy Policy</a></li>
@@ -1282,7 +1364,7 @@ function set(o){l.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'t
 t.addEventListener('click',function(){set(!l.classList.contains('open'));});
 l.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
 document.addEventListener('click',function(e){if(!e.target.closest('.nav'))set(false);});
-window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false);});})();
+window.addEventListener('resize',function(){if(window.innerWidth>=1200)set(false);});})();
 </script>
 <script>(function(){var b=document.body;document.addEventListener('focusin',function(e){if(e.target.matches('input,textarea'))b.classList.add('oci-typing');});document.addEventListener('focusout',function(){setTimeout(function(){if(!document.activeElement||!document.activeElement.matches('input,textarea'))b.classList.remove('oci-typing');},150);});})();</script>
 <script>

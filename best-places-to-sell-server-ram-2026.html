@@ -798,5 +798,6 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
   window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h<=0)return;var pct=Math.round(window.scrollY/h*100);[25,50,75].forEach(function(m){if(!marks[m]&&pct>=m){marks[m]=1;ev('scroll_depth',{percent:m});}});},{passive:true});
 })();
 </script>
+<div style="max-width:980px;margin:24px auto;padding:0 22px 24px;font-size:16px"><a href="/memory-news" style="color:#0071e3">Browse more Memory News &amp; guides</a></div>
 </body>
 </html>
