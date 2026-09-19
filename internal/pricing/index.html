@@ -729,13 +729,19 @@ window.OCITECH_PRICING_LOADER=async()=>{
   const epoch=authEpoch,token=authSession.access_token;
   try{
     const [parts,evidence]=await Promise.all([
-      readAll('parts','part_number,memory_type,generation,form_factor,capacity_gb,speed_mts,rank,manufacturer,is_published,notes','part_number',token),
+      readAll('parts','part_number,memory_type,generation,form_factor,capacity_gb,speed_mts,rank,manufacturer,is_published,notes,category','part_number',token),
       readAll('bids','id,part_number,bidder,unit_price,condition,qty_context,bid_date,source','id',token)
     ]);
     if(epoch!==authEpoch)throw Error('Session changed.');
+    // This dashboard covers RAM only. Exclude non-RAM catalog parts (e.g. SSD-NAND,
+    // which have no DDR generation/capacity/speed) and any evidence tied to them, so
+    // the RAM grouping and validatePayload stay intact. NAND browsing is a separate view.
+    const ramParts=parts.filter(p=>p.category==='RAM');
+    const ramKeys=new Set(ramParts.map(p=>p.part_number));
+    const ramEvidence=evidence.filter(e=>ramKeys.has(e.part_number));
     // Existing schema has no evidence_kind column. Preserve conservative source
     // classification from the inspected prototype; unknown sources stay UNKNOWN.
-    return {parts,evidence:evidence.map(row=>({...row,evidence_kind:classify(row).kind}))};
+    return {parts:ramParts,evidence:ramEvidence.map(row=>({...row,evidence_kind:classify(row).kind}))};
   }catch(error){if(error.status===401)lockDashboard(error.message);throw error;}
 };
 async function unlock(session){
