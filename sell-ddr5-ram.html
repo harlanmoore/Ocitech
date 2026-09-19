@@ -520,7 +520,7 @@
       "name": "Where can I sell used DDR5 server memory?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ocitech buys DDR5 RDIMM, MRDIMM, UDIMM, and SODIMM in bulk, worldwide. Send your part numbers and quantities and we'll quote against the current market, usually within one business day, with lightning-fast payment once your lot is confirmed."
+        "text": "Ocitech buys DDR5 RDIMM, UDIMM, SODIMM, and MRDIMM in bulk, worldwide. Send your part numbers and quantities and we'll quote against the current market, usually within one business day, with lightning-fast payment once your lot is confirmed."
       }
     },
     {
@@ -528,7 +528,7 @@
       "name": "Who buys DDR5 RAM in bulk?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We do \u2014 Samsung, SK Hynix, and Micron server and desktop DDR5, new or pulled, tested or untested. Server RDIMM and MRDIMM are in especially high demand right now."
+        "text": "We do \u2014 Samsung, SK Hynix, and Micron server and desktop DDR5, new or pulled, tested or untested. Server RDIMM is in especially high demand right now."
       }
     },
     {
@@ -578,14 +578,14 @@ rdt('track','PageVisit');
       <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
       <a href="zh-cn/index" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
     </div>
-    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#lot" class="nav-cta" data-open-panel="photos">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="ribbon"><div class="wrap-wide ribbon-inner"><span>Based in Tacoma, Washington &middot; Buying memory worldwide since 2001</span><span>&#10003;&nbsp; Firm offer in one business day</span><span>&#10003;&nbsp; Paid by wire / ACH within 2 business days of testing</span></div></div>
 <section class="hero2"><div class="wrap"><div class="breadcrumb reveal in"><a href="/">Home</a> &rsaquo; DDR5 RAM</div><div class="eyebrow reveal in" style="margin-top:8px;">DDR5 memory buyback</div><h1 class="reveal in" style="color:var(--accent);max-width:760px;">What's your DDR5 memory worth?</h1><p class="sub reveal in" style="max-width:600px;">Type a part number, paste your list, or send a few photos of the labels. We price it against current DDR5 demand and reply with a firm, itemized offer &mdash; usually within one business day.</p><div class="hero-console reveal in" id="lot" style="max-width:640px;margin:26px auto 0;">
 <div class="vc">
-<div class="vc-tabs" data-tabs><button type="button" class="vc-tab is-active" data-tab="pn">Type a part number</button><button type="button" class="vc-tab" data-tab="paste">Paste a list</button><button type="button" class="vc-tab" data-tab="photos">Add photos</button></div>
-<div class="vc-panel is-active" data-panel="pn">
+<div class="vc-tabs" data-tabs><button type="button" class="vc-tab is-active" data-tab="photos">Get a Firm Offer</button><button type="button" class="vc-tab" data-tab="pn">Check a Price</button><button type="button" class="vc-tab" data-tab="paste">Estimate a Lot</button></div>
+<div class="vc-panel" data-panel="pn">
 <div class="pn-search" style="max-width:620px;margin:0 auto;">
 <label for="pnsearch" id="pnsearch-label" style="font-size:22px;font-weight:600;letter-spacing:-0.01em;display:block;margin-bottom:8px;text-align:center;">Type a part number for an instant price</label>
 <input id="pnsearch" type="text" autocomplete="off" spellcheck="false" placeholder="Type a part number, e.g. M393A8G40AB2-CWEBY" style="width:100%;padding:15px 18px;font-size:17px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,0.05);">
@@ -598,9 +598,9 @@ rdt('track','PageVisit');
   <div style="display:flex;gap:8px;flex-wrap:wrap;">
     <input type="email" name="email" required placeholder="you@company.com" style="flex:2;min-width:180px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
     <input type="number" name="quantity" min="1" placeholder="Qty (optional)" style="flex:1;min-width:120px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
-    <button type="submit" class="btn btn-primary">Email me a quote</button>
+    <button type="submit" class="btn btn-primary">Get My Firm Offer</button>
   </div>
-  <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">Your part number is sent with your email. We reply directly, usually within one business day.</div>
+  <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">Your part number is sent with your email. We reply directly, usually within one business day. This is an indicative price &mdash; your firm offer is confirmed after we see the exact part, quantity and condition.</div>
 </form>
 </div>
 <script>
@@ -611,7 +611,7 @@ function openQuote(pn,hi){qp.value=pn;qm.innerHTML=hi?('<strong>'+esc(pn)+'</str
 out.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(b){ev.preventDefault();openQuote(b.getAttribute('data-pn'),b.getAttribute('data-hi'));}});
 inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
 var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/\s+/g,'').indexOf(q)>=0;}).slice(0,6);
-if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get quote</button></div>';}).join('');}
+if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get My Offer</button></div>';}).join('');}
 else{out.innerHTML='';openQuote(raw,null);}
 });})();
 </script>
@@ -632,22 +632,25 @@ else{out.innerHTML='';openQuote(raw,null);}
         <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
       </div>
       <div style="margin-top:12px;"><label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:6px;">Or attach your original spreadsheet / photos (optional)</label><input type="file" id="lot-file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="font-size:14px;"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"></div>
-      <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Email me a firm quote for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
+      <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Get My Firm Offer for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
       <div style="font-size:12px;color:var(--text-tertiary);margin-top:10px;">Estimate uses current indicative per-module prices. Firm offers may be higher for volume and new/sealed stock &mdash; subject to inspection.</div>
     </form>
 </div>
-<div class="vc-panel" data-panel="photos">
+<div class="vc-panel is-active" data-panel="photos">
 <form name="quick-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="padding:2px 0;">
         <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
-        <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Send us your inventory</div>
-        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Attach a spreadsheet or a few photos of the labels &mdash; we'll price it and get back to you.</div>
-        <input type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
+        <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get an offer for your DDR5 memory</div>
+        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
+        <label for="offer-details" class="offer-label">What are you selling?</label>
+        <textarea id="offer-details" name="details" rows="3" placeholder="Paste part numbers and quantities, or describe your DDR5 lot &mdash; e.g. M321R8GA0PB1-CCPPC x48, mixed 32GB/64GB RDIMM. You can also attach a list or photos below." class="offer-input"></textarea>
+        <label for="offer-email" class="offer-label">Email for your offer</label>
+        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
         <div style="margin-top:14px;text-align:center;">
           <input type="file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
         </div>
         <div class="form-note" style="text-align:center;margin-top:8px;font-size:13px;color:var(--text-tertiary);">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files; large photos are shrunk automatically.</div>
-        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Send to Ocitech</button>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Get My Firm Offer</button>
         <div style="text-align:center;margin-top:10px;font-size:13px;color:var(--text-tertiary);">We'll reply directly by email, usually within one business day.</div>
       </form>
 </div>
@@ -655,12 +658,29 @@ else{out.innerHTML='';openQuote(raw,null);}
 <div class="vc-foot">No sorted list required &mdash; paste it, upload it, or just send photos.</div>
 </div></div></section>
 <script>
-(function(){var w=document.querySelector('[data-tabs]');if(!w)return;var vc=w.closest('.vc');
-function activate(t){w.querySelectorAll('.vc-tab').forEach(function(x){x.classList.toggle('is-active',x.getAttribute('data-tab')===t);});
-vc.querySelectorAll('.vc-panel').forEach(function(p){p.classList.toggle('is-active',p.getAttribute('data-panel')===t);});}
-w.addEventListener('click',function(e){var b=e.target.closest('.vc-tab');if(!b)return;var t=b.getAttribute('data-tab');activate(t);
-try{if(window.gtag)gtag('event','vc_tab',{tab:t});}catch(err){}});
-if(location.hash==='#lot')activate('paste');
+/* Ocitech consolidated offer console — tabs (ARIA + keyboard), deep-link + open-panel wiring, cross-tab carry into the firm-offer request. */
+(function(){
+  var w=document.querySelector('[data-tabs]');if(!w)return;var vc=w.closest('.vc');
+  var tabs=Array.prototype.slice.call(w.querySelectorAll('.vc-tab'));
+  var panels=Array.prototype.slice.call(vc.querySelectorAll('.vc-panel'));
+  w.setAttribute('role','tablist');
+  tabs.forEach(function(tab){var t=tab.getAttribute('data-tab');tab.setAttribute('role','tab');if(!tab.id)tab.id='vct-'+t;var panel=vc.querySelector('.vc-panel[data-panel="'+t+'"]');if(panel){if(!panel.id)panel.id='vcp-'+t;tab.setAttribute('aria-controls',panel.id);panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',tab.id);}});
+  function carry(){var od=document.getElementById('offer-details');if(!od||od.value.trim())return;var paste=document.getElementById('lot-input'),pn=document.getElementById('pnsearch'),qp=document.getElementById('pnq-part'),v='';
+    if(paste&&paste.value.trim())v=paste.value.trim();
+    else if(qp&&qp.value.trim()){v=qp.value.trim();var q=document.querySelector('#pnquote input[name="quantity"]');if(q&&q.value.trim())v+='  x'+q.value.trim();}
+    else if(pn&&pn.value.trim())v=pn.value.trim();
+    if(v)od.value=v;}
+  function activate(t,focusTab){
+    tabs.forEach(function(x){var on=x.getAttribute('data-tab')===t;x.classList.toggle('is-active',on);x.setAttribute('aria-selected',on?'true':'false');x.setAttribute('tabindex',on?'0':'-1');if(on&&focusTab)x.focus();});
+    panels.forEach(function(p){var on=p.getAttribute('data-panel')===t;p.classList.toggle('is-active',on);p.setAttribute('aria-hidden',on?'false':'true');});
+    if(t==='photos')carry();}
+  w.addEventListener('click',function(e){var b=e.target.closest('.vc-tab');if(!b)return;var t=b.getAttribute('data-tab');activate(t);try{if(window.gtag)gtag('event','vc_tab',{tab:t});}catch(err){}});
+  w.addEventListener('keydown',function(e){var i=tabs.indexOf(document.activeElement);if(i<0)return;var n=null;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;
+    if(n===null)return;e.preventDefault();activate(tabs[n].getAttribute('data-tab'),true);});
+  document.querySelectorAll('[data-open-panel]').forEach(function(link){link.addEventListener('click',function(){var t=link.getAttribute('data-open-panel');activate(t);var field=vc.querySelector('[data-panel="'+t+'"] input:not([type="hidden"]), [data-panel="'+t+'"] textarea');if(t==='photos')field=document.getElementById('offer-details');if(field)setTimeout(function(){field.focus({preventScroll:true});},0);});});
+  var h=(location.hash||'').replace('#','');
+  if(h==='pn'||h==='paste'||h==='photos')activate(h);else activate('photos');
 })();
 </script>
 <script>
@@ -692,7 +712,7 @@ run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[
 ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='Attach your spreadsheet or photos, add your email, and send \u2014 we\'ll price it and reply, usually within one business day.';f.scrollIntoView({behavior:'smooth',block:'nearest'});setTimeout(function(){file.click();},300);});
 })();
 </script>
-<section id="ddr5-prices" class="section-alt"><div class="wrap-wide"><div class="section-head reveal"><div class="eyebrow">Current DDR5 buyback prices</div><h2>Indicative DDR5 prices, by part.</h2><p>Per-module indicative figures for working modules &mdash; a guide, not a guaranteed offer. Your firm, itemized offer depends on the exact part, quantity and condition, and is confirmed usually within one business day.</p></div><div class="reveal" style="max-width:820px;margin:0 auto;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px;"><thead><tr style="background:var(--bg-alt);text-align:left;"><th style="padding:11px 12px;">Part number</th><th style="padding:11px 12px;">Spec</th><th style="padding:11px 12px;text-align:right;">Indicative / module</th></tr></thead><tbody><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc40f4086s1hc88xd1" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC40F4086S1HC88XD1</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-8800 MRDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1004</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc40f2046s1rc56bd2-mpff" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC40F2046S1RC56BD2 MPFF</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $976</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc40f2046s1rc56bd1-mpff" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC40F2046S1RC56BD1 MPFF</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $976</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-samsung-m321r8ga0pb1-ccppc" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">M321R8GA0PB1-CCPPC</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-6400 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $949</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-ktd-pe564d4-64g" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KTD-PE564D4-64G</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-6400 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $910</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-ksm56r46bd4pmi-64hai" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KSM56R46BD4PMI-64HAI</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $894</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-samsung-m321r4ga0pb0-cwmkj" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">M321R4GA0PB0-CWMKJ</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">32GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $446</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-kp8xpw-mid-11mi" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KP8XPW-MID-11MI</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">32GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $426</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-ktd-pe556e-32g" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KTD-PE556E-32G</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">32GB &middot; DDR5-5600 UDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $198</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-samsung-m321r2ga3bb0-cwm" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">M321R2GA3BB0-CWM</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $226</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc10f1084s1rc48bd1" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC10F1084S1RC48BD1</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-4800 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $206</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-sk-hynix-hmcg78mebra107n-aa" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">HMCG78MEBRA107N AA</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-4800 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $206</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc8c1084s1uc56bd1-bf" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC8C1084S1UC56BD1 BF</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-5600 UDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $91</td></tr></tbody></table></div><div class="reveal" style="max-width:820px;margin:14px auto 0;display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-tertiary);"><span>Prices are <strong>indicative</strong>, not guaranteed offers &middot; updated September 6, 2026</span><span>96GB, 128GB &amp; 256GB DDR5 &mdash; <a href="#lot" style="color:var(--accent);">priced on request</a> (send your part &amp; count)</span></div></div></section>
+<section id="ddr5-prices" class="section-alt"><div class="wrap-wide"><div class="section-head reveal"><div class="eyebrow">Current DDR5 buyback prices</div><h2>Indicative DDR5 prices, by part.</h2><p>Per-module indicative figures for working modules &mdash; a guide, not a guaranteed offer. Your firm, itemized offer depends on the exact part, quantity and condition, and is confirmed usually within one business day.</p></div><div class="reveal" style="max-width:820px;margin:0 auto;overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px;"><thead><tr style="background:var(--bg-alt);text-align:left;"><th style="padding:11px 12px;">Part number</th><th style="padding:11px 12px;">Spec</th><th style="padding:11px 12px;text-align:right;">Indicative / module</th></tr></thead><tbody><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-ktd-pe564d4-64g" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KTD-PE564D4-64G</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-6400 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1251</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-samsung-m321r8ga0pb1-ccppc" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">M321R8GA0PB1-CCPPC</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-6400 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1251</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-ksm56r46bd4pmi-64hai" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KSM56R46BD4PMI-64HAI</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1235</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc40f2046s1rc56bd1-mpff" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC40F2046S1RC56BD1 MPFF</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1235</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc40f2046s1rc56bd2-mpff" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC40F2046S1RC56BD2 MPFF</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1235</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc40f4086s1hc88xd1" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC40F4086S1HC88XD1</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">64GB &middot; DDR5-8800 MRDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $1004</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-kp8xpw-mid-11mi" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KP8XPW-MID-11MI</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">32GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $596</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-samsung-m321r4ga0pb0-cwmkj" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">M321R4GA0PB0-CWMKJ</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">32GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $596</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-samsung-m321r2ga3bb0-cwm" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">M321R2GA3BB0-CWM</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-5600 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $277</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-sk-hynix-hmcg78mebra107n-aa" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">HMCG78MEBRA107N AA</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-4800 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $276</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc10f1084s1rc48bd1" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC10F1084S1RC48BD1</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-4800 RDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $276</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-kingston-ktd-pe556e-32g" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">KTD-PE556E-32G</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">32GB &middot; DDR5-5600 UDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $198</td></tr><tr><td style="padding:11px 12px;border-bottom:1px solid var(--line);"><a href="/sell-micron-mtc8c1084s1uc56bd1-bf" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600;color:var(--accent);">MTC8C1084S1UC56BD1 BF</a></td><td style="padding:11px 12px;border-bottom:1px solid var(--line);color:var(--text-secondary);">16GB &middot; DDR5-5600 UDIMM</td><td style="padding:11px 12px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);white-space:nowrap;">up to $97</td></tr></tbody></table></div><div class="reveal" style="max-width:820px;margin:14px auto 0;display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:space-between;align-items:center;font-size:13px;color:var(--text-tertiary);"><span>Prices are <strong>indicative</strong>, not guaranteed offers &middot; updated September 11, 2026</span><span>96GB, 128GB &amp; 256GB DDR5 &mdash; <a href="#lot" style="color:var(--accent);">priced on request</a> (send your part &amp; count)</span></div></div></section>
 <section id="how-it-works" class="section-alt">
   <div class="wrap-wide">
     <div class="section-head reveal">
@@ -762,7 +782,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
       <div class="content-block">
       <h2>DDR5 demand is unusually high right now</h2>
       <p>DDR5 sits at the center of the current memory shortage: it's the primary format for new servers and AI workstations, and manufacturers are prioritizing high-margin high-bandwidth memory production over standard DDR5 supply. That's kept DDR5 prices elevated across both new and used markets. If your organization is holding surplus, pulled, or overstock DDR5, now is a reasonable time to get it priced.</p>
-      <h2>Sell used DDR5 server memory (RDIMM &amp; MRDIMM)</h2>
+      <h2>Sell used DDR5 server memory (RDIMM)</h2>
       <p>Speed grade, ECC vs. non-ECC, and capacity all affect price. Server RDIMMs and MRDIMMs typically bring more per module than desktop UDIMMs, which is where much of the DDR5 value sits right now. Send us part numbers where you have them, or a general description and quantity if you don't.</p>
       </div>
       <div class="split-visual" style="align-self:start;">
@@ -881,11 +901,11 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
       </div>
       <div class="faq-item">
         <h3>Where can I sell used DDR5 server memory?</h3>
-        <p>Ocitech buys DDR5 RDIMM, MRDIMM, UDIMM, and SODIMM in bulk, worldwide. Send your part numbers and quantities and we'll quote against the current market, usually within one business day &mdash; with lightning-fast payment once your lot is confirmed.</p>
+        <p>Ocitech buys DDR5 RDIMM, UDIMM, SODIMM, and MRDIMM in bulk, worldwide. Send your part numbers and quantities and we'll quote against the current market, usually within one business day &mdash; with lightning-fast payment once your lot is confirmed.</p>
       </div>
       <div class="faq-item">
         <h3>Who buys DDR5 RAM in bulk?</h3>
-        <p>We do &mdash; Samsung, SK Hynix, and Micron server and desktop DDR5, new or pulled, tested or untested. Server RDIMM and MRDIMM are in especially high demand right now.</p>
+        <p>We do &mdash; Samsung, SK Hynix, and Micron server and desktop DDR5, new or pulled, tested or untested. Server RDIMM is in especially high demand right now.</p>
       </div>
       <div class="faq-item">
         <h3>How much is my DDR5 RAM worth?</h3>
@@ -898,66 +918,13 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Get a quote</div>
-      <h2>Tell us what's moving.</h2>
-      <p>Send whatever detail you've got. We'll follow up directly with a quote or questions.</p>
+      <h2>Ready for your firm DDR5 offer?</h2>
+      <p>Describe your lot or attach a list &mdash; part numbers, quantities, and condition. We reply with a firm, itemized offer, usually within one business day.</p>
     </div>
-
-    <div class="quote-card reveal">
-      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
-        <input type="hidden" name="form-name" value="quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
-        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
-        <div class="form-row">
-          <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-          <div>
-            <label for="company">Company (optional)</label>
-            <input type="text" id="company" name="company">
-          </div>
-        </div>
-        <div class="form-row">
-          <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-          <div>
-            <label for="phone">Phone (optional)</label>
-            <input type="tel" id="phone" name="phone">
-          </div>
-        </div>
-        <div>
-          <label for="category">What are you selling?</label>
-          <select id="category" name="category">
-            <option>Server RAM (RDIMM / LRDIMM)</option>
-            <option>Desktop / laptop RAM</option>
-            <option>Mixed / untested memory lot</option>
-            <option>Data center GPUs (A100/H100/etc.)</option>
-            <option>Workstation or gaming GPUs</option>
-            <option>Mining rig / farm liquidation</option>
-            <option>SSDs / storage drives</option>
-            <option>Server CPUs (Xeon / EPYC)</option>
-            <option>Other IT hardware</option>
-          </select>
-        </div>
-        <div>
-          <label for="details">Details &mdash; part numbers, quantity, condition</label>
-          <textarea id="details" name="details" placeholder="e.g. part numbers, quantity, and condition"></textarea>
-        </div>
-                <div>
-          <label for="attachment">Attach a spreadsheet or photos (optional)</label>
-          <input type="file" id="attachment" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
-          <div class="form-note" style="display:block;margin-top:6px;">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files per submission &mdash; large phone photos are shrunk automatically before sending.</div>
-        </div>
-<div class="form-submit">
-          <button type="submit" class="btn btn-primary">Send to Ocitech</button>
-          <span class="form-note">We'll reply directly by email, usually within one business day.</span>
-        </div>
-        <div id="form-status"></div>
-      </form>
+    <div class="reveal" style="text-align:center;margin-top:26px;">
+      <a class="btn btn-primary" href="#lot" data-open-panel="photos" style="padding:16px 28px;font-size:17px;">Get My Firm Offer <span aria-hidden="true">&rarr;</span></a>
     </div>
-
-    <div class="contact-line reveal">
+    <div class="contact-line reveal" style="margin-top:22px;">
       Prefer to talk? Call <a href="tel:14252691221">425-269-1221</a> or email <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
     </div>
   </div>

@@ -376,6 +376,20 @@
     .nav-links.open .nav-mobile-only{display:block;}
   }
 @media(max-width:759px){body.oci-typing .wa-float,body.oci-typing .wa-tooltip{opacity:0;pointer-events:none;transition:opacity .2s;}}
+
+  /* Consolidated offer console (matches homepage) */
+  .vc{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 12px 42px -14px rgba(0,0,0,0.16);overflow:hidden;}
+  .vc-tabs{display:flex;background:var(--bg-alt);padding:6px;gap:4px;border-bottom:1px solid var(--line);}
+  .vc-tab{flex:1;border:0;background:transparent;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--text-secondary);padding:11px 6px;border-radius:10px;cursor:pointer;transition:all .15s;}
+  .vc-tab:hover{color:var(--text);}
+  .vc-tab.is-active{background:#fff;color:var(--accent);box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+  .vc-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .vc-panel{display:none;padding:22px;}
+  .vc-panel.is-active{display:block;}
+  .vc-foot{text-align:center;font-size:12.5px;color:var(--text-tertiary);margin-top:12px;}
+  .offer-label{display:block;font-size:13px;font-weight:600;margin:12px 0 7px;}
+  .offer-input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line);border-radius:10px;resize:vertical;font-family:inherit;font-size:14px;line-height:1.5;}
+  @media(max-width:600px){.vc-panel{padding:18px;}}
 </style>
 <script type="application/ld+json">
 {
@@ -489,226 +503,148 @@ rdt('track','PageVisit');
       <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
       <a href="zh-cn/index" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
     </div>
-    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <a href="zh-cn/index" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta" data-open-panel="photos">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<section class="page-hero">
+<section class="page-hero" id="quote">
   <div class="wrap">
     <div class="breadcrumb"><a href="/">Home</a> &rsaquo; Server RAM</div>
     <div class="eyebrow reveal in">Server Memory Buyback</div>
     <h1 class="reveal in">Sell server RAM in bulk.</h1>
     <p class="sub reveal in">RDIMM, LRDIMM, and registered ECC memory pulled from decommissioned servers — any brand, any condition.</p>
-    <div id="quote" class="wmrw reveal in" style="margin-top:30px;">
-  <style>
-  .wmrw{max-width:760px;margin:0 auto;text-align:left;}
-  .wmrw .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 1px 3px rgba(0,0,0,.04),0 12px 40px rgba(0,0,0,.06);padding:26px;}
-  .wmrw .lead{font-size:21px;font-weight:600;letter-spacing:-.01em;}
-  .wmrw .leadsub{font-size:14px;color:var(--text-secondary);margin-top:3px;margin-bottom:18px;}
-  .wmrw .steplab{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--text-secondary);margin:0 0 12px;}
-  .wmrw .stepn{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:999px;background:var(--bg-alt);color:var(--text);font-size:12px;font-weight:700;flex:none;}
-  .wmrw .iw{position:relative;}
-  .wmrw textarea#wm-input{width:100%;padding:15px 16px;font-size:15px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;border:1.5px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);resize:vertical;min-height:120px;line-height:1.7;box-shadow:none;}
-  .wmrw textarea#wm-input:focus{outline:none;border-color:var(--accent);background:var(--bg);box-shadow:0 0 0 4px rgba(0,113,227,.12);}
-  .wmrw .hint{font-size:13px;color:var(--text-tertiary);margin-top:9px;}
-  .wmrw .suggest{position:absolute;left:0;right:0;top:calc(100% - 6px);z-index:30;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:0 14px 44px rgba(0,0,0,.16);overflow:hidden;display:none;}
-  .wmrw .suggest button{display:flex;width:100%;justify-content:space-between;align-items:center;gap:12px;padding:11px 15px;border:0;border-bottom:1px solid var(--line);background:transparent;cursor:pointer;text-align:left;font-family:inherit;}
-  .wmrw .suggest button:last-child{border-bottom:0;}
-  .wmrw .suggest button:hover{background:var(--bg-alt);}
-  .wmrw .s-pn{font-weight:600;font-size:14px;font-family:ui-monospace,Menlo,monospace;color:var(--text);}
-  .wmrw .s-meta{font-size:12.5px;color:var(--text-secondary);}
-  .wmrw .s-price{font-weight:700;color:var(--green);font-size:14px;white-space:nowrap;}
-  .wmrw .actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px;}
-  .wmrw .aside{font-size:13px;color:var(--text-tertiary);}
-  .wmrw .results{margin-top:24px;display:none;}
-  .wmrw .twrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-md);}
-  .wmrw table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px;}
-  .wmrw thead th{background:var(--bg-alt);text-align:left;padding:11px 13px;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-secondary);font-weight:600;}
-  .wmrw thead th.r,.wmrw td.r{text-align:right;}
-  .wmrw tbody td{padding:11px 13px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums;}
-  .wmrw .cpn{font-weight:600;font-family:ui-monospace,Menlo,monospace;}
-  .wmrw .csub{font-size:12.5px;color:var(--text-secondary);}
-  .wmrw .lv{font-weight:700;color:var(--green);}
-  .wmrw .tq{color:var(--text-tertiary);}
-  .wmrw .totbar{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px;margin-top:16px;padding:18px 20px;border:1px solid var(--line);border-radius:var(--radius-md);background:linear-gradient(180deg,rgba(10,138,74,.05),rgba(10,138,74,0));}
-  .wmrw .totcap{font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-tertiary);font-weight:700;}
-  .wmrw .totamt{font-size:clamp(28px,5vw,38px);font-weight:600;letter-spacing:-.02em;color:var(--green);line-height:1.05;margin-top:4px;}
-  .wmrw .totnote{font-size:13px;color:var(--text-secondary);text-align:right;max-width:250px;}
-  .wmrw .cap{margin-top:20px;padding:24px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-alt);display:block;}
-  .wmrw .cap h3{font-size:19px;letter-spacing:-.01em;margin:0 0 4px;font-weight:600;}
-  .wmrw .cap .capsub{margin:0 0 18px;font-size:14.5px;color:var(--text-secondary);}
-  .wmrw .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
-  .wmrw .f label{display:block;font-size:12.5px;font-weight:600;color:var(--text-secondary);margin-bottom:6px;}
-  .wmrw .f input,.wmrw .f textarea{width:100%;padding:12px 14px;font-size:15px;font-family:inherit;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);}
-  .wmrw .f input:focus,.wmrw .f textarea:focus{outline:none;border-color:var(--accent);background:var(--bg);box-shadow:0 0 0 3px rgba(0,113,227,.1);}
-  .wmrw .f.full{margin-top:12px;}
-  .wmrw .f textarea{min-height:74px;resize:vertical;}
-  .wmrw .attach{margin-top:16px;position:relative;}
-  .wmrw .attach-btn{border:1.5px solid var(--accent);color:var(--accent);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;}
-  .wmrw .attach-btn:hover{background:var(--accent);color:#fff;}
-  .wmrw .attach-info{margin-top:8px;font-size:13px;color:var(--text-secondary);}
-  .wmrw .attach-warn{display:none;margin-top:6px;font-size:13px;color:#c0392b;font-weight:600;}
-  .wmrw .fnative{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;}
-  .wmrw .subrow{margin-top:20px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-  .wmrw .fine{font-size:12px;color:var(--text-tertiary);margin-top:14px;line-height:1.6;}
-  .wmrw .success{display:none;text-align:center;padding:34px 20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);margin-top:20px;}
-  .wmrw .success .chk{width:52px;height:52px;border-radius:999px;background:rgba(10,138,74,.12);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 14px;}
-  .wmrw .success h3{font-size:20px;margin:0 0 6px;}
-  .wmrw .success p{margin:0;color:var(--text-secondary);font-size:14.5px;}
-  @media(max-width:560px){.wmrw .totnote{text-align:left;}}
-  </style>
-
-  <div class="card">
-    <div class="lead">What's my RAM worth?</div>
-    <div class="leadsub">One part or your whole list &mdash; priced at today's rates, no account needed.</div>
-
-    <div class="steplab"><span class="stepn">1</span> Tell us what you've got</div>
-    <div class="iw">
-      <textarea id="wm-input" spellcheck="false" autocomplete="off" placeholder="Start typing a part number &mdash; e.g. M393A8G40AB2-CWEBY&#10;or paste a whole list, one per line:&#10;&#10;M393A8G40AB2-CWEBY   42&#10;HMA84GR7JJR4N-WM     58&#10;KSM56R46BD4PMI-64HAI  12"></textarea>
-      <div class="suggest" id="wm-suggest"></div>
-    </div>
-    <div class="hint">One part or a hundred &mdash; any format works: &ldquo;part qty&rdquo;, &ldquo;qty part&rdquo;, commas or tabs. Don't know the numbers? Just describe it below or attach a photo.</div>
-
-    <div class="actions">
-      <button type="button" class="btn btn-primary" id="wm-value">See what it's worth</button>
-      <span class="aside">Prices update as your list does.</span>
-    </div>
-
-    <div class="results" id="wm-results">
-      <div class="steplab" style="margin-top:6px;"><span class="stepn">2</span> Today's estimate</div>
-      <div class="twrap">
-        <table>
-          <thead><tr><th>Part</th><th class="r">Qty</th><th class="r">Per module</th><th class="r">Line estimate</th></tr></thead>
-          <tbody id="wm-rows"></tbody>
-        </table>
-      </div>
-      <div class="totbar">
-        <div><div class="totcap">Estimated lot value</div><div class="totamt" id="wm-total">$0</div></div>
-        <div class="totnote" id="wm-note"></div>
-      </div>
-    </div>
-
-    <form class="cap" id="wm-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
-      <input type="hidden" name="form-name" value="quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
-      <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
-      <input type="hidden" name="list" id="wm-h-list">
-      <input type="hidden" name="estimate" id="wm-h-est">
-      <input type="hidden" name="matched" id="wm-h-m">
-      <input type="hidden" name="unmatched" id="wm-h-u">
-
-      <div class="steplab" style="margin-top:0;"><span class="stepn">3</span> Where do we send your quote?</div>
-      <h3 id="wm-caphead">Get your quote</h3>
-      <p class="capsub" id="wm-capsub">We reply directly, usually within one business day. Larger lots and sealed stock price higher.</p>
-
-      <div class="grid">
-        <div class="f"><label>Name</label><input type="text" name="name" placeholder="Optional"></div>
-        <div class="f"><label>Company</label><input type="text" name="company" placeholder="Optional"></div>
-        <div class="f"><label>Email <span style="color:var(--accent)">*</span></label><input type="email" name="email" required placeholder="you@company.com"></div>
-        <div class="f"><label>Phone</label><input type="tel" name="phone" placeholder="Optional"></div>
-      </div>
-
-      <div class="f full">
-        <label>Notes &mdash; condition, quantities, part numbers, location, timing</label>
-        <textarea name="notes" placeholder="e.g. ~200 sticks pulled from decommissioned Dell R740s, all tested working, in Seattle, ready to ship this month. Mixed 32GB and 64GB DDR4."></textarea>
-      </div>
-
-      <div class="attach">
-        <button type="button" class="attach-btn" id="wm-attach">&#128206; Add photos or a spreadsheet</button>
-        <input class="fnative" id="wm-file" type="file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
-        <div class="attach-info" id="wm-attach-info">Excel, CSV, or phone photos of labels &amp; bins &mdash; no sorted list required. Up to 6 files; large photos are shrunk automatically.</div>
-        <div class="attach-warn" id="wm-attach-warn"></div>
-      </div>
-
-      <div class="subrow">
-        <button type="submit" class="btn btn-primary">Send it &mdash; get my quote</button>
-        <span class="aside">Your list, estimate and notes are sent along with it.</span>
-      </div>
-      <div class="fine">Estimates use current indicative per-module prices. Firm quotes are often higher for volume and new/sealed stock &mdash; subject to inspection.</div>
-    </form>
-
-    <div class="success" id="wm-success">
-      <div class="chk">&#10003;</div>
-      <h3>Got it &mdash; your list is on its way to Ocitech.</h3>
-      <p>We'll reply within one business day with your firm quote.</p>
-    </div>
+    <div class="hero-console reveal in" id="lot" style="max-width:640px;margin:26px auto 0;">
+<div class="vc">
+<div class="vc-tabs" data-tabs><button type="button" class="vc-tab is-active" data-tab="photos">Get a Firm Offer</button><button type="button" class="vc-tab" data-tab="pn">Check a Price</button><button type="button" class="vc-tab" data-tab="paste">Estimate a Lot</button></div>
+<div class="vc-panel" data-panel="pn">
+<div class="pn-search" style="max-width:620px;margin:0 auto;">
+<label for="pnsearch" id="pnsearch-label" style="font-size:22px;font-weight:600;letter-spacing:-0.01em;display:block;margin-bottom:8px;text-align:center;">Type a part number for an instant price</label>
+<input id="pnsearch" type="text" autocomplete="off" spellcheck="false" placeholder="Type a part number, e.g. M393A8G40AB2-CWEBY" style="width:100%;padding:15px 18px;font-size:17px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,0.05);">
+<div id="pnresults" style="margin-top:10px;text-align:left;"></div>
+<form id="pnquote" name="part-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden style="margin-top:12px;padding:18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-alt);text-align:left;">
+  <input type="hidden" name="form-name" value="part-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+  <input type="hidden" name="part" id="pnq-part">
+  <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
+  <div id="pnq-msg" style="font-size:14px;margin-bottom:10px;">Drop your email and we'll send you a quote.</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <input type="email" name="email" required placeholder="you@company.com" style="flex:2;min-width:180px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+    <input type="number" name="quantity" min="1" placeholder="Qty (optional)" style="flex:1;min-width:120px;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+    <button type="submit" class="btn btn-primary">Get My Firm Offer</button>
   </div>
+  <div style="font-size:12px;color:var(--text-tertiary);margin-top:8px;">Your part number is sent with your email. We reply directly, usually within one business day. This is an indicative price &mdash; your firm offer is confirmed after we see the exact part, quantity and condition.</div>
+</form>
 </div>
 <script>
+(function(){var idx=null,inp=document.getElementById('pnsearch'),out=document.getElementById('pnresults'),qf=document.getElementById('pnquote'),qp=document.getElementById('pnq-part'),qm=document.getElementById('pnq-msg');if(!inp)return;
+fetch('/parts-index.json').then(function(r){return r.json();}).then(function(d){idx=d;}).catch(function(){});
+function esc(s){return String(s).replace(/</g,'&lt;');}
+function openQuote(pn,hi){qp.value=pn;qm.innerHTML=hi?('<strong>'+esc(pn)+'</strong> is going for up to <strong style="color:var(--green);">$'+hi+'</strong> per module. Drop your email and we\'ll confirm a firm quote &mdash; larger lots may qualify for higher per-module offers.'):('No match for <strong>'+esc(pn)+'</strong> &mdash; but we probably still buy it. Drop your email and we\'ll send you a quote.');qf.hidden=false;}
+out.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(b){ev.preventDefault();openQuote(b.getAttribute('data-pn'),b.getAttribute('data-hi'));}});
+inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
+var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/\s+/g,'').indexOf(q)>=0;}).slice(0,6);
+if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get My Offer</button></div>';}).join('');}
+else{out.innerHTML='';openQuote(raw,null);}
+});})();
+</script>
+</div>
+<div class="vc-panel" data-panel="paste">
+<textarea id="lot-input" rows="7" placeholder="M393A8G40AB2-CWEBY   42&#10;HMA84GR7JJR4N-WM   58&#10;MTC40F2046S1RC56BD1   4" style="width:100%;padding:14px 16px;font-size:15px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);resize:vertical;box-sizing:border-box;"></textarea>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;"><button type="button" id="lot-run" class="btn btn-primary">Estimate my lot</button><button type="button" id="lot-attach-btn" class="btn btn-link">Attach a spreadsheet or photos <span class="chev">&rsaquo;</span></button><span style="font-size:13px;color:var(--text-tertiary);">Any format works &mdash; "part qty", "qty part", commas, or tabs.</span></div>
+    <div id="lot-results" style="margin-top:16px;"></div>
+    <form id="lot-form" name="lot-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" hidden style="margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);">
+      <input type="hidden" name="form-name" value="lot-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+      <input type="hidden" name="lot" id="lot-raw"><input type="hidden" name="estimate" id="lot-est"><input type="hidden" name="matched" id="lot-m"><input type="hidden" name="unmatched" id="lot-u">
+      <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
+      <div id="lot-msg" style="font-size:15px;font-weight:600;margin-bottom:12px;"></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;">
+        <input type="text" name="name" placeholder="Name (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+        <input type="text" name="company" placeholder="Company (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+        <input type="email" name="email" required placeholder="Email (required)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+        <input type="tel" name="phone" placeholder="Phone (optional)" style="padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);">
+      </div>
+      <div style="margin-top:12px;"><label style="font-size:13px;color:var(--text-secondary);display:block;margin-bottom:6px;">Or attach your original spreadsheet / photos (optional)</label><input type="file" id="lot-file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="font-size:14px;"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"></div>
+      <div style="margin-top:12px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;"><button type="submit" class="btn btn-primary">Get My Firm Offer for this lot</button><span style="font-size:12px;color:var(--text-tertiary);">Your full list and estimate are sent with it. We reply within one business day.</span></div>
+      <div style="font-size:12px;color:var(--text-tertiary);margin-top:10px;">Estimate uses current indicative per-module prices. Firm offers may be higher for volume and new/sealed stock &mdash; subject to inspection.</div>
+    </form>
+</div>
+<div class="vc-panel is-active" data-panel="photos">
+<form name="quick-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="padding:2px 0;">
+        <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+        <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
+        <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get an offer for your server memory</div>
+        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
+        <label for="offer-details" class="offer-label">What are you selling?</label>
+        <textarea id="offer-details" name="details" rows="3" placeholder="Paste part numbers and quantities, or describe your server RAM lot &mdash; e.g. M393A8G40AB2-CWEBY x64, mixed RDIMM &amp; LRDIMM, any brand. You can also attach a list or photos below." class="offer-input"></textarea>
+        <label for="offer-email" class="offer-label">Email for your offer</label>
+        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
+        <div style="margin-top:14px;text-align:center;">
+          <input type="file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
+        </div>
+        <div class="form-note" style="text-align:center;margin-top:8px;font-size:13px;color:var(--text-tertiary);">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files; large photos are shrunk automatically.</div>
+        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Get My Firm Offer</button>
+        <div style="text-align:center;margin-top:10px;font-size:13px;color:var(--text-tertiary);">We'll reply directly by email, usually within one business day.</div>
+      </form>
+</div>
+</div>
+<div class="vc-foot">No sorted list required &mdash; paste it, upload it, or just send photos.</div>
+</div>
+
+<script>
+/* Ocitech consolidated offer console — tabs (ARIA + keyboard), deep-link + open-panel wiring, cross-tab carry into the firm-offer request. */
 (function(){
-  var idx=null,byN={};
-  var ta=document.getElementById('wm-input'),valueBtn=document.getElementById('wm-value'),
-      results=document.getElementById('wm-results'),rows=document.getElementById('wm-rows'),
-      totalAmt=document.getElementById('wm-total'),totalNote=document.getElementById('wm-note'),
-      suggest=document.getElementById('wm-suggest'),form=document.getElementById('wm-form'),
-      capHead=document.getElementById('wm-caphead'),capSub=document.getElementById('wm-capsub'),
-      hList=document.getElementById('wm-h-list'),hEst=document.getElementById('wm-h-est'),
-      hM=document.getElementById('wm-h-m'),hU=document.getElementById('wm-h-u'),
-      success=document.getElementById('wm-success');
-  if(!ta) return;
-  var SAMPLE=["M393A8G40AB2-CWEBY   42","HMA84GR7JJR4N-WM   58","KSM56R46BD4PMI-64HAI   12","MYSTERY-STICK-FROM-BIN   30"].join(String.fromCharCode(10));
-
-  function norm(s){return String(s).toUpperCase().replace(/[^A-Z0-9]/g,'');}
-  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
-  function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
-  function findPart(tok){var n=norm(tok);if(n.length<6)return null;if(byN[n])return byN[n];var best=null,bl=0;for(var k in byN){if(k.indexOf(n)===0||n.indexOf(k)===0){var l=Math.min(k.length,n.length);if(l>bl){bl=l;best=byN[k];}}}return bl>=8?best:null;}
-  function parseLine(line){var t=line.trim();if(!t)return null;var parts=t.split(/[\t,;]+|\s+/).filter(Boolean);var qty=1,pn=null;
-    if(parts.length>1){for(var i=parts.length-1;i>=0;i--){var m=parts[i].match(/^x?(\d{1,6})(?:x|pcs?|ea|units?)?$/i);if(m){qty=parseInt(m[1],10);parts.splice(i,1);break;}}}
-    parts.forEach(function(p){if(/[A-Za-z]/.test(p)&&/\d/.test(p)&&(!pn||p.length>pn.length))pn=p;});
-    if(!pn)return null;return {raw:pn,qty:qty>0?qty:1};}
-
-  function renderSuggest(){
-    var lines=ta.value.split(/\r?\n/).filter(function(l){return l.trim();});
-    if(lines.length!==1||!idx){suggest.style.display='none';return;}
-    var q=norm(lines[0]);if(q.length<3){suggest.style.display='none';return;}
-    var m=idx.filter(function(p){return norm(p.pn).indexOf(q)>=0;}).slice(0,6);
-    if(!m.length||(m.length===1&&norm(m[0].pn)===q)){suggest.style.display='none';return;}
-    suggest.innerHTML=m.map(function(p){return '<button type="button" data-pn="'+esc(p.pn)+'"><span><span class="s-pn">'+esc(p.pn)+'</span><br><span class="s-meta">'+p.cap+'GB '+p.spd+' '+p.ff+'</span></span><span class="s-price">up to '+money(p.hi)+'</span></button>';}).join('');
-    suggest.style.display='block';
-  }
-  suggest.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(!b)return;ta.value=b.getAttribute('data-pn')+'   ';suggest.style.display='none';ta.focus();compute();});
-  ta.addEventListener('input',function(){renderSuggest();if(results.style.display==='block')compute();});
-  document.addEventListener('click',function(ev){if(!ev.target.closest('.iw'))suggest.style.display='none';});
-
-  function compute(){
-    if(!idx)return;
-    var lines=ta.value.split(/\r?\n/),html=[],total=0,mc=0,um=0,umList=[];
-    lines.forEach(function(l){var it=parseLine(l);if(!it)return;var p=findPart(it.raw);
-      if(p){var lt=p.hi*it.qty;total+=lt;mc++;
-        html.push('<tr><td><span class="cpn">'+esc(p.pn)+'</span><div class="csub">'+p.cap+'GB '+p.spd+' '+p.ff+'</div></td><td class="r">'+it.qty+'</td><td class="r">up to '+money(p.hi)+'</td><td class="r lv">'+money(lt)+'</td></tr>');
-      }else{um++;umList.push(it.raw+' x'+it.qty);
-        html.push('<tr><td><span class="cpn">'+esc(it.raw)+'</span><div class="csub tq">Not priced yet &mdash; we\'ll quote it</div></td><td class="r">'+it.qty+'</td><td class="r tq">&mdash;</td><td class="r tq">quote</td></tr>');}});
-    if(!html.length){results.style.display='none';return;}
-    rows.innerHTML=html.join('');
-    totalAmt.innerHTML=mc?money(total):'Send it &mdash; we\'ll price it';
-    totalNote.innerHTML=mc+' priced part'+(mc===1?'':'s')+(um?' &middot; '+um+' to quote':'')+'<br>Larger lots price higher &mdash; get a firm number below.';
-    capHead.textContent=mc?('Get your '+money(total)+(um?'+':'')+' quote'):'Send your list — we\'ll price it';
-    capSub.textContent=mc?'We reply directly, usually within one business day. Larger lots and sealed stock price higher.':'We\'ll identify and price everything you listed and get back to you, usually within one business day.';
-    hList.value=ta.value;hEst.value=Math.round(total);hM.value=mc;hU.value=umList.join('; ');
-    results.style.display='block';
-  }
-  valueBtn.addEventListener('click',function(){suggest.style.display='none';if(!ta.value.trim()){ta.focus();return;}compute();results.scrollIntoView({behavior:'smooth',block:'nearest'});});
-
-  // attachment UX + size guard (self-contained; no global guard on this page)
-  var attachBtn=document.getElementById('wm-attach'),fileNative=document.getElementById('wm-file'),
-      attachInfo=document.getElementById('wm-attach-info'),attachWarn=document.getElementById('wm-attach-warn');
-  var MAX=5.5*1024*1024;
-  function human(b){return (b/1048576).toFixed(1)+' MB';}
-  function totalBytes(){var t=0;for(var i=0;i<fileNative.files.length;i++)t+=fileNative.files[i].size;return t;}
-  function checkSize(){var t=totalBytes();if(t>MAX){attachWarn.textContent='Those files total '+human(t)+' — over the ~6 MB limit, so they may not send. Please attach fewer or smaller photos.';attachWarn.style.display='block';return false;}attachWarn.style.display='none';return true;}
-  
-  
-
-  form.addEventListener('submit',function(e){
-    if(ta.value.trim()){compute();}
-    if(!checkSize()){e.preventDefault();attachBtn.scrollIntoView({behavior:'smooth',block:'center'});return;}
-    if(window.WM_PREVIEW){e.preventDefault();form.style.display='none';results.style.display='none';success.style.display='block';success.scrollIntoView({behavior:'smooth',block:'center'});}
-  });
-
-  function loadIdx(d){idx=d;byN={};d.forEach(function(p){byN[norm(p.pn)]=p;});if(window.WM_PREVIEW){ta.value=SAMPLE;compute();}}
-  if(window.__WM_IDX){loadIdx(window.__WM_IDX);}
-  else{fetch('/parts-index.json').then(function(r){return r.json();}).then(loadIdx).catch(function(){});}
+  var w=document.querySelector('[data-tabs]');if(!w)return;var vc=w.closest('.vc');
+  var tabs=Array.prototype.slice.call(w.querySelectorAll('.vc-tab'));
+  var panels=Array.prototype.slice.call(vc.querySelectorAll('.vc-panel'));
+  w.setAttribute('role','tablist');
+  tabs.forEach(function(tab){var t=tab.getAttribute('data-tab');tab.setAttribute('role','tab');if(!tab.id)tab.id='vct-'+t;var panel=vc.querySelector('.vc-panel[data-panel="'+t+'"]');if(panel){if(!panel.id)panel.id='vcp-'+t;tab.setAttribute('aria-controls',panel.id);panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',tab.id);}});
+  function carry(){var od=document.getElementById('offer-details');if(!od||od.value.trim())return;var paste=document.getElementById('lot-input'),pn=document.getElementById('pnsearch'),qp=document.getElementById('pnq-part'),v='';
+    if(paste&&paste.value.trim())v=paste.value.trim();
+    else if(qp&&qp.value.trim()){v=qp.value.trim();var q=document.querySelector('#pnquote input[name="quantity"]');if(q&&q.value.trim())v+='  x'+q.value.trim();}
+    else if(pn&&pn.value.trim())v=pn.value.trim();
+    if(v)od.value=v;}
+  function activate(t,focusTab){
+    tabs.forEach(function(x){var on=x.getAttribute('data-tab')===t;x.classList.toggle('is-active',on);x.setAttribute('aria-selected',on?'true':'false');x.setAttribute('tabindex',on?'0':'-1');if(on&&focusTab)x.focus();});
+    panels.forEach(function(p){var on=p.getAttribute('data-panel')===t;p.classList.toggle('is-active',on);p.setAttribute('aria-hidden',on?'false':'true');});
+    if(t==='photos')carry();}
+  w.addEventListener('click',function(e){var b=e.target.closest('.vc-tab');if(!b)return;var t=b.getAttribute('data-tab');activate(t);try{if(window.gtag)gtag('event','vc_tab',{tab:t});}catch(err){}});
+  w.addEventListener('keydown',function(e){var i=tabs.indexOf(document.activeElement);if(i<0)return;var n=null;
+    if(e.key==='ArrowRight'||e.key==='ArrowDown')n=(i+1)%tabs.length;else if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;
+    if(n===null)return;e.preventDefault();activate(tabs[n].getAttribute('data-tab'),true);});
+  document.querySelectorAll('[data-open-panel]').forEach(function(link){link.addEventListener('click',function(){var t=link.getAttribute('data-open-panel');activate(t);var field=vc.querySelector('[data-panel="'+t+'"] input:not([type="hidden"]), [data-panel="'+t+'"] textarea');if(t==='photos')field=document.getElementById('offer-details');if(field)setTimeout(function(){field.focus({preventScroll:true});},0);});});
+  var h=(location.hash||'').replace('#','');
+  if(h==='pn'||h==='paste'||h==='photos')activate(h);else activate('photos');
 })();
 </script>
+<script>
+(function(){var idx=null,byN={},ta=document.getElementById('lot-input'),run=document.getElementById('lot-run'),out=document.getElementById('lot-results'),f=document.getElementById('lot-form');if(!ta||!run)return;
+function norm(s){return String(s).toUpperCase().replace(/[^A-Z0-9]/g,'');}
+fetch('/parts-index.json').then(function(r){return r.json();}).then(function(d){idx=d;d.forEach(function(p){byN[norm(p.pn)]=p;});}).catch(function(){});
+function esc(s){return String(s).replace(/</g,'&lt;');}
+function findPart(tok){var n=norm(tok);if(n.length<6)return null;if(byN[n])return byN[n];var best=null,bl=0;for(var k in byN){if(k.indexOf(n)===0||n.indexOf(k)===0){var l=Math.min(k.length,n.length);if(l>bl){bl=l;best=byN[k];}}}return bl>=8?best:null;}
+function parseLine(line){var t=line.trim();if(!t)return null;var parts=t.split(/[\t,;]+|\s+/).filter(Boolean);var qty=1,pn=null;
+ if(parts.length>1){for(var i=parts.length-1;i>=0;i--){var m=parts[i].match(/^x?(\d{1,6})(?:x|pcs?|ea|units?)?$/i);if(m){qty=parseInt(m[1],10);parts.splice(i,1);break;}}}
+ parts.forEach(function(p){if(/[A-Za-z]/.test(p)&&/\d/.test(p)&&(!pn||p.length>pn.length))pn=p;});
+ if(!pn)return null;return {raw:pn,qty:qty>0?qty:1};}
+function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[],total=0,mc=0,um=[];
+ if(!idx){out.innerHTML='<div style="color:var(--text-secondary);">Loading price index&hellip; try again in a second.</div>';return;}
+ lines.forEach(function(l){var it=parseLine(l);if(!it)return;var p=findPart(it.raw);if(p){var lt=p.hi*it.qty;total+=lt;mc++;rows.push('<tr><td style="padding:9px 10px;border-bottom:1px solid var(--line);"><a href="/'+p.slug+'" style="color:var(--accent);font-weight:600;">'+esc(p.pn)+'</a><div style="font-size:12px;color:var(--text-secondary);">'+p.cap+'GB '+p.spd+' '+p.ff+'</div></td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">'+it.qty+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">up to '+money(p.hi)+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);">'+money(lt)+'</td></tr>');}
+  else{um.push(it.raw+' x'+it.qty);rows.push('<tr><td style="padding:9px 10px;border-bottom:1px solid var(--line);"><strong>'+esc(it.raw)+'</strong><div style="font-size:12px;color:var(--text-secondary);">Not priced yet &mdash; we\'ll quote it</div></td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">'+it.qty+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;color:var(--text-tertiary);">&mdash;</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;color:var(--text-tertiary);">quote</td></tr>');}});
+ if(!rows.length){out.innerHTML='<div style="color:var(--text-secondary);">Paste at least one part number (one per line) and try again.</div>';f.hidden=true;return;}
+ out.innerHTML='<div style="overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px;"><thead><tr style="background:var(--bg-alt);text-align:left;"><th style="padding:10px;">Part</th><th style="padding:10px;text-align:right;">Qty</th><th style="padding:10px;text-align:right;">Per module</th><th style="padding:10px;text-align:right;">Line est.</th></tr></thead><tbody>'+rows.join('')+'</tbody></table></div>'
+  +'<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-top:14px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><div><div style="font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-tertiary);font-weight:600;">Estimated lot value</div><div style="font-size:34px;font-weight:600;letter-spacing:-.02em;color:var(--green);">'+money(total)+'</div></div><div style="font-size:13px;color:var(--text-secondary);text-align:right;">'+mc+' priced part'+(mc===1?'':'s')+(um.length?' &middot; '+um.length+' to quote':'')+'<br>Larger lots may qualify for higher per-module offers &mdash; get a firm number below.</div></div>';
+ document.getElementById('lot-raw').value=ta.value;document.getElementById('lot-est').value=Math.round(total);document.getElementById('lot-m').value=mc;document.getElementById('lot-u').value=um.join('; ');
+ document.getElementById('lot-msg').innerHTML='Lock in a firm quote for this '+money(total)+' lot'+(um.length?' (plus '+um.length+' part'+(um.length===1?'':'s')+' we\'ll price for you)':'')+'.';
+ f.hidden=false;f.scrollIntoView({behavior:'smooth',block:'nearest'});});
+})();
+</script>
+
+<script>
+(function(){var ab=document.getElementById('lot-attach-btn'),f=document.getElementById('lot-form'),file=document.getElementById('lot-file'),msg=document.getElementById('lot-msg');if(!ab||!f||!file)return;
+ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='Attach your spreadsheet or photos, add your email, and send \u2014 we\'ll price it and reply, usually within one business day.';f.scrollIntoView({behavior:'smooth',block:'nearest'});setTimeout(function(){file.click();},300);});
+})();
+</script>
+
   </div>
 </section>
 
@@ -819,7 +755,7 @@ rdt('track','PageVisit');
       <p>Enter a part number or paste your list up top &mdash; you'll have an estimate in seconds and a firm quote by email, usually within one business day.</p>
     </div>
     <div class="reveal" style="text-align:center;">
-      <a href="#quote" class="btn btn-primary">Value my RAM</a>
+      <a href="#quote" class="btn btn-primary" data-open-panel="photos">Value my RAM</a>
     </div>
     <div class="contact-line reveal">
       Prefer to talk? Call <a href="tel:14252691221">425-269-1221</a> or email <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
