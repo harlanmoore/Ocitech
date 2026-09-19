@@ -385,6 +385,15 @@
   .offer-label{display:block;font-size:13px;font-weight:600;margin:12px 0 7px;}
   .offer-input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line);border-radius:10px;resize:vertical;font-family:inherit;font-size:14px;line-height:1.5;}
   @media(max-width:600px){.vc-panel{padding:18px;}}
+
+  /* Category headlines follow the homepage typography. */
+  .page-hero h1.category-title,.hero2 h1.category-title{
+    color:var(--text);font-size:clamp(38px,4.5vw,60px);font-weight:600;
+    line-height:1.04;letter-spacing:-0.03em;max-width:820px;margin:14px 0 16px;
+  }
+  @media(max-width:600px){
+    .page-hero h1.category-title,.hero2 h1.category-title{font-size:42px;}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -539,7 +548,7 @@ rdt('track','PageVisit');
   <div class="wrap">
     <div class="breadcrumb"><a href="/">Home</a> &rsaquo; SSDs</div>
     <div class="eyebrow reveal in">SSD Buyback</div>
-    <h1 class="reveal in">Sell SSDs in Bulk &mdash; Enterprise &amp; Data-Center Drives.</h1>
+    <h1 class="reveal in category-title">What are your SSDs worth?</h1>
     <p class="sub reveal in">Enterprise and consumer solid-state drives &mdash; SATA, SAS, NVMe, U.2, and M.2. New or pulled, any brand, any quantity. Every drive is data-sanitized.</p>
     <div class="hero-ctas reveal in">
       <a href="#lot" class="btn btn-primary">Get a Quote</a>

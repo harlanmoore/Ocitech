@@ -390,6 +390,15 @@
   .offer-label{display:block;font-size:13px;font-weight:600;margin:12px 0 7px;}
   .offer-input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line);border-radius:10px;resize:vertical;font-family:inherit;font-size:14px;line-height:1.5;}
   @media(max-width:600px){.vc-panel{padding:18px;}}
+
+  /* Category headlines follow the homepage typography. */
+  .page-hero h1.category-title,.hero2 h1.category-title{
+    color:var(--text);font-size:clamp(38px,4.5vw,60px);font-weight:600;
+    line-height:1.04;letter-spacing:-0.03em;max-width:820px;margin:14px 0 16px;
+  }
+  @media(max-width:600px){
+    .page-hero h1.category-title,.hero2 h1.category-title{font-size:42px;}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -511,7 +520,7 @@ rdt('track','PageVisit');
   <div class="wrap">
     <div class="breadcrumb"><a href="/">Home</a> &rsaquo; Server RAM</div>
     <div class="eyebrow reveal in">Server Memory Buyback</div>
-    <h1 class="reveal in">Sell server RAM in bulk.</h1>
+    <h1 class="reveal in category-title">What's your server memory worth?</h1>
     <p class="sub reveal in">RDIMM, LRDIMM, and registered ECC memory pulled from decommissioned servers — any brand, any condition.</p>
     <div class="hero-console reveal in" id="lot" style="max-width:640px;margin:26px auto 0;">
 <div class="vc">
