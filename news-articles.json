@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "micron-512gb-ddr5-server-memory",
+    "title": "512GB on One Stick: What Micron’s New DDR5 Means for Server Upgrades",
+    "summary": "Capacity per slot, the power comparison, and what the expected 2027 rollout means for your next refresh.",
+    "category": "Technology & infrastructure",
+    "date": "2026-09-22"
+  },
+  {
+    "slug": "ddr4-prices-easing-could-they-rise-again",
+    "title": "DDR4 Prices Are Easing. Could They Rise Again?",
+    "summary": "The supply pressures behind a possible rebound, and the signals buyers should watch.",
+    "category": "Market analysis",
+    "date": "2026-09-19"
+  },
+  {
+    "slug": "how-to-identify-your-ram",
+    "title": "How to Identify Your Server RAM",
+    "summary": "Read module labels and understand RDIMM, LRDIMM and UDIMM before you sell.",
+    "category": "Practical guide",
+    "date": null
+  },
+  {
+    "slug": "best-places-to-sell-server-ram-2026",
+    "title": "Best Places to Sell Server RAM in Bulk",
+    "summary": "Compare selling options for surplus server memory.",
+    "category": "Selling guide",
+    "date": null
+  }
+]
