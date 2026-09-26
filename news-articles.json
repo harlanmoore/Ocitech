@@ -1,5 +1,19 @@
 [
   {
+    "slug": "memory-ranks-explained-2rx4-vs-2rx8",
+    "title": "2Rx4 vs 2Rx8: Understanding Server Memory Ranks",
+    "summary": "What 1Rx8, 2Rx4 and 2Rx8 mean, how ranks differ from chip width, and what to check before buying or selling server memory.",
+    "category": "Practical guide",
+    "date": "2026-09-26"
+  },
+  {
+    "slug": "why-ddr5-5600-server-memory-runs-slower",
+    "title": "Why DDR5-5600 Server Memory May Run Below 5600 MT/s",
+    "summary": "Why rated speed and operating speed can differ, with a platform-specific example and a practical memory-upgrade checklist.",
+    "category": "Configuration guide",
+    "date": "2026-09-26"
+  },
+  {
     "slug": "enterprise-ssd-prices-q4-2026-procurement",
     "title": "Enterprise SSD Prices Face More Pressure: A Q4 Checklist for Data Centers",
     "summary": "A fresh enterprise SSD demand outlook, with practical checks for workload fit, supply commitments and Q4 storage budgets.",
