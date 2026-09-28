@@ -187,6 +187,7 @@ rdt('track','PageVisit');
   .oci-hero-micro{font-size:13px;color:var(--text-tertiary);margin-top:8px;}
 </style>
 <style>:root{--text:var(--ink);--text-secondary:var(--ink-soft);--text-tertiary:var(--muted);--green:var(--ok);--radius-md:var(--radius);--radius-lg:var(--radius);}</style>
+<script src="/scripts/referral-attribution.js"></script>
 </head>
 <body>
 
@@ -410,12 +411,12 @@ else{out.innerHTML='';openQuote(raw,null);}
       </div>
       <div>
         <h2>Tested in-house. Paid on a schedule you can plan around.</h2>
-        <p>Every module we receive is tested individually on a dedicated DIMM tester at our Tacoma, WA receiving location &mdash; not sampled. If anything differs from your description you see photos before anything changes, and you choose: accept the revised line or have those modules returned.</p>
+        <p>Every module we receive is tested individually on a dedicated DIMM tester at our Tacoma, WA receiving location &mdash; not sampled. If anything differs from your description you see photos before anything changes, and you choose: accept the revised line or have those modules returned at your expense.</p>
         <p>Memory modules do not store your data. For equipment that does &mdash; drives, complete servers, mixed IT lots &mdash; Ocitech can coordinate certified recycling or data-bearing-device processing with an R2v3-certified downstream partner.</p>
         <div class="badges">
           <span class="badge">100% tested, not sampled</span>
           <span class="badge">Photo evidence on any revision</span>
-          <span class="badge">Paid within 2 business days of testing</span>
+          <span class="badge">Payment sent within 2 business days of receipt, subject to testing confirming quantity and condition</span>
         </div>
       </div>
     </div>
@@ -562,15 +563,8 @@ else{out.innerHTML='';openQuote(raw,null);}
   function ev(name,p){p=p||{};p.page_path=location.pathname;p.page_type=pageType();try{if(window.gtag)gtag('event',name,p);}catch(e){}}
   function pageType(){var p=location.pathname.replace(/\.html$/,'').replace(/\/index$/,'/');if(p==='/'||p==='/index.html')return 'home';if(/offer/.test(p))return 'paid_landing';if(/ram-price-list/.test(p))return 'price_hub';if(/^\/sell-(samsung|sk-hynix|micron|kingston)-[a-z0-9]+-?[a-z0-9]*$/.test(p)&&!/-ddr[45]-ram$/.test(p))return 'part';if(/^\/sell-/.test(p))return 'category';if(/thanks/.test(p))return 'thanks';return 'other';}
   function pos(el){var r=el.getBoundingClientRect(),y=r.top+window.scrollY,h=document.documentElement.scrollHeight;return y<900?'hero':(y>h-900?'footer':'body');}
-  function utm(){var q=new URLSearchParams(location.search),o={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','rdt_cid'].forEach(function(k){if(q.get(k))o[k]=q.get(k);});return o;}
-  // persist first-touch source for the session and stamp hidden fields on every form
-  try{var u=utm();if(Object.keys(u).length)sessionStorage.setItem('oci_src',JSON.stringify(u));}catch(e){}
-  function src(){try{return JSON.parse(sessionStorage.getItem('oci_src')||'{}');}catch(e){return {};}}
-  function stamp(form){
-    var s=src(),fields={source_utm:JSON.stringify(s),source_landing:sessionStorage.getItem('oci_landing')||location.pathname,source_page:location.pathname,source_device:(window.innerWidth<760?'mobile':'desktop'),source_referrer:document.referrer||''};
-    Object.keys(fields).forEach(function(k){var i=form.querySelector('input[name="'+k+'"]');if(i)i.value=fields[k];});
-  }
-  try{if(!sessionStorage.getItem('oci_landing'))sessionStorage.setItem('oci_landing',location.pathname+location.search);}catch(e){}
+  // Original session referral is captured by the shared script, including on article pages.
+  function stamp(form){if(window.ociAttribution)window.ociAttribution.stamp(form);}
 
   // thanks page: fire ad-platform conversions only after a real submission (marker set on submit), never on refresh/direct hit
   if(pageType()==='thanks'){
