@@ -2,70 +2,70 @@
   {
     "slug": "how-to-pack-server-ram",
     "title": "How to Pack Server RAM for Shipping: Trays, Antistatic Bags and Boxes",
-    "summary": "More than 20 modules: use a RAM tray. 20 or fewer: individual antistatic bags packed tightly. A step-by-step packing guide for sellers.",
+    "summary": "For more than 20 modules, use an antistatic RAM tray. For 20 or fewer, place each module in its own antistatic bag and pack the bags tightly in a sturdy box. Factory packaging is also fine.",
     "category": "Guides",
     "date": "2026-09-28"
   },
   {
     "slug": "memory-ranks-explained-2rx4-vs-2rx8",
     "title": "2Rx4 vs 2Rx8 Server Memory: Ranks and Device Width Explained",
-    "summary": "What 1Rx8, 2Rx4 and 2Rx8 mean, how ranks differ from chip width, and what to check before buying or selling server memory.",
+    "summary": "In a label such as 2Rx8, 2R is the number of ranks and x8 is the data width of each DRAM device. Neither indicates speed, capacity or quality, and matching rank labels do not make two modules interchangeable.",
     "category": "Guides",
     "date": "2026-09-26"
   },
   {
     "slug": "why-ddr5-5600-server-memory-runs-slower",
     "title": "Why DDR5-5600 Server Memory Can Run Slower: DIMMs per Channel Explained",
-    "summary": "Why rated speed and operating speed can differ, with a platform-specific example and a practical memory-upgrade checklist.",
+    "summary": "A module’s rated speed is not always the speed the server runs. Supermicro’s X13 guide lists DDR5 at 5600 MT/s with one DIMM per channel and 4400 MT/s with two on 5th Gen Xeon platforms, so check the supported configuration before assuming a fault.",
     "category": "Guides",
     "date": "2026-09-26"
   },
   {
     "slug": "enterprise-ssd-prices-q4-2026-procurement",
     "title": "U.S. Cloud Providers Raise Enterprise SSD Forecasts, Supporting Further Price Increases in Q4 2026",
-    "summary": "A fresh enterprise SSD demand outlook, with practical checks for workload fit, supply commitments and Q4 storage budgets.",
+    "summary": "TrendForce says U.S. cloud providers raised enterprise SSD demand forecasts in September and expects Q4 orders to exceed Q3 across TLC and QLC drives. Buyers should refresh quotes and confirm delivery commitments before approving Q4 storage budgets.",
     "category": "Market Analysis",
     "date": "2026-09-22"
   },
   {
     "slug": "64gb-ddr5-5600-server-memory-demand",
     "title": "64GB DDR5-5600 Server Memory Selling as Fast as We Can Source It",
-    "summary": "Our firsthand view of fast-moving server memory, with Samsung and SK hynix identification references for sellers.",
+    "summary": "In Ocitech’s own transactions, 64GB DDR5-5600 server modules are selling as quickly as we can source them, at prices we consider attractive. This is a firsthand trading observation, not a market-wide sales ranking.",
     "category": "Trading Desk",
     "date": "2026-09-22"
   },
   {
     "slug": "why-server-memory-could-stay-tight-through-2027",
     "title": "Server Memory Supply Expected to Stay Tight Until New Capacity Ramps in 2H 2027",
-    "summary": "The supply pressures behind the 2027 outlook—and a practical procurement framework for data center managers.",
+    "summary": "TrendForce reports historically low supplier inventories and does not expect meaningful new DRAM capacity until the second half of 2027. Data center managers should confirm memory availability and delivery dates before committing 2027 server budgets.",
     "category": "Market Analysis",
     "date": "2026-09-22"
   },
   {
     "slug": "micron-512gb-ddr5-server-memory",
     "title": "Micron Demonstrates 512GB DDR5 RDIMM, Targets Volume Production in 2H 2027",
-    "summary": "Capacity per slot, the power comparison, and what the expected 2027 rollout means for your next refresh.",
+    "summary": "Micron demonstrated a 512GB DDR5 RDIMM on September 15, citing speeds up to 9,200 MT/s. AMD and Intel are validating it for future server platforms, making it a factor for refresh planning rather than an option for upgrades due now.",
     "category": "Market Analysis",
     "date": "2026-09-22"
   },
   {
     "slug": "ddr4-prices-easing-could-they-rise-again",
     "title": "DDR3/DDR4 Retail Prices Ease 3.1% in September as DDR5 Rises 11.9%",
-    "summary": "The supply pressures behind a possible rebound, and the signals buyers should watch.",
+    "summary": "3DCenter’s German retail survey shows its DDR3/DDR4 basket down 3.1% month over month while DDR5 rose 11.9%. Both remain far above July 2025 levels (2.9× and 5.4×), so the relief is selective and a DDR4 rebound remains a credible risk.",
     "category": "Market Analysis",
     "date": "2026-09-19"
   },
   {
     "slug": "how-to-identify-your-ram",
     "title": "How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained",
-    "summary": "Read module labels and understand RDIMM, LRDIMM and UDIMM before you sell.",
+    "summary": "The manufacturer part number on the module label identifies server memory exactly. This guide shows how to tell RDIMM, LRDIMM and UDIMM apart, recognize DDR3, DDR4 and DDR5, and decode Samsung, Micron and SK hynix part numbers.",
     "category": "Guides",
     "date": null
   },
   {
     "slug": "best-places-to-sell-server-ram-2026",
     "title": "Best Places to Sell Server RAM in Bulk (2026 Guide)",
-    "summary": "Compare selling options for surplus server memory.",
+    "summary": "Bulk server memory can be sold through online marketplaces, OEM trade-in programs, e-waste and ITAD recyclers, or a specialist bulk buyer. This guide compares the four on price, payment speed and data security.",
     "category": "Guides",
     "date": null
   }
