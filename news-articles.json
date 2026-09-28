@@ -1,65 +1,72 @@
 [
   {
+    "slug": "how-to-pack-server-ram",
+    "title": "How to Pack Server RAM for Shipping: Trays, Antistatic Bags and Boxes",
+    "summary": "More than 20 modules: use a RAM tray. 20 or fewer: individual antistatic bags packed tightly. A step-by-step packing guide for sellers.",
+    "category": "Guides",
+    "date": "2026-09-28"
+  },
+  {
     "slug": "memory-ranks-explained-2rx4-vs-2rx8",
-    "title": "2Rx4 vs 2Rx8: Understanding Server Memory Ranks",
+    "title": "2Rx4 vs 2Rx8 Server Memory: Ranks and Device Width Explained",
     "summary": "What 1Rx8, 2Rx4 and 2Rx8 mean, how ranks differ from chip width, and what to check before buying or selling server memory.",
-    "category": "Practical guide",
+    "category": "Guides",
     "date": "2026-09-26"
   },
   {
     "slug": "why-ddr5-5600-server-memory-runs-slower",
-    "title": "Why DDR5-5600 Server Memory May Run Below 5600 MT/s",
+    "title": "Why DDR5-5600 Server Memory Can Run Slower: DIMMs per Channel Explained",
     "summary": "Why rated speed and operating speed can differ, with a platform-specific example and a practical memory-upgrade checklist.",
-    "category": "Configuration guide",
+    "category": "Guides",
     "date": "2026-09-26"
   },
   {
     "slug": "enterprise-ssd-prices-q4-2026-procurement",
-    "title": "Enterprise SSD Prices Face More Pressure: A Q4 Checklist for Data Centers",
+    "title": "U.S. Cloud Providers Raise Enterprise SSD Forecasts, Supporting Further Price Increases in Q4 2026",
     "summary": "A fresh enterprise SSD demand outlook, with practical checks for workload fit, supply commitments and Q4 storage budgets.",
-    "category": "Enterprise storage",
+    "category": "Market Analysis",
     "date": "2026-09-22"
   },
   {
     "slug": "64gb-ddr5-5600-server-memory-demand",
-    "title": "64GB DDR5-5600 Is Moving Fast: What We’re Seeing at Ocitech",
+    "title": "64GB DDR5-5600 Server Memory Selling as Fast as We Can Source It",
     "summary": "Our firsthand view of fast-moving server memory, with Samsung and SK hynix identification references for sellers.",
-    "category": "From the trading desk",
+    "category": "Trading Desk",
     "date": "2026-09-22"
   },
   {
     "slug": "why-server-memory-could-stay-tight-through-2027",
-    "title": "Why Server Memory Could Stay Tight Through 2027",
+    "title": "Server Memory Supply Expected to Stay Tight Until New Capacity Ramps in 2H 2027",
     "summary": "The supply pressures behind the 2027 outlook—and a practical procurement framework for data center managers.",
-    "category": "Data center planning",
+    "category": "Market Analysis",
     "date": "2026-09-22"
   },
   {
     "slug": "micron-512gb-ddr5-server-memory",
-    "title": "512GB on One Stick: What Micron’s New DDR5 Means for Server Upgrades",
+    "title": "Micron Demonstrates 512GB DDR5 RDIMM, Targets Volume Production in 2H 2027",
     "summary": "Capacity per slot, the power comparison, and what the expected 2027 rollout means for your next refresh.",
-    "category": "Technology & infrastructure",
+    "category": "Market Analysis",
     "date": "2026-09-22"
   },
   {
     "slug": "ddr4-prices-easing-could-they-rise-again",
-    "title": "DDR4 Prices Are Easing. Could They Rise Again?",
+    "title": "DDR3/DDR4 Retail Prices Ease 3.1% in September as DDR5 Rises 11.9%",
     "summary": "The supply pressures behind a possible rebound, and the signals buyers should watch.",
-    "category": "Market analysis",
+    "category": "Market Analysis",
     "date": "2026-09-19"
   },
   {
     "slug": "how-to-identify-your-ram",
-    "title": "How to Identify Your Server RAM",
+    "title": "How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained",
     "summary": "Read module labels and understand RDIMM, LRDIMM and UDIMM before you sell.",
-    "category": "Practical guide",
+    "category": "Guides",
     "date": null
   },
   {
     "slug": "best-places-to-sell-server-ram-2026",
-    "title": "Best Places to Sell Server RAM in Bulk",
+    "title": "Best Places to Sell Server RAM in Bulk (2026 Guide)",
     "summary": "Compare selling options for surplus server memory.",
-    "category": "Selling guide",
+    "category": "Guides",
     "date": null
   }
 ]

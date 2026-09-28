@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM | Ocitech</title>
+<title>How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained | Ocitech</title>
 <meta name="description" content="A plain-English guide to identifying server memory — RDIMM vs LRDIMM vs UDIMM, ECC, reading the module label, decoding Samsung, Micron & SK Hynix part numbers, and telling DDR3/DDR4/DDR5 apart.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://ocitech.com/how-to-identify-your-ram">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Ocitech, LLC">
-<meta property="og:title" content="How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM | Ocitech">
+<meta property="og:title" content="How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained">
 <meta property="og:description" content="Identify server memory the easy way — DIMM types, reading the label, and decoding Samsung, Micron & SK Hynix part numbers.">
 <meta property="og:image" content="https://ocitech.com/ocitech-logo.png">
 <meta property="og:url" content="https://ocitech.com/how-to-identify-your-ram">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM | Ocitech">
+<meta name="twitter:title" content="How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained">
 <meta name="twitter:description" content="Identify server memory the easy way — DIMM types, reading the label, and decoding part numbers.">
 <link rel="icon" href="/favicon.png" type="image/png">
 <style>
@@ -212,9 +212,9 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How to Identify Your Server RAM: RDIMM vs LRDIMM vs UDIMM",
+  "headline": "How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained",
   "description": "A plain-English guide to identifying server memory — DIMM types, ECC, reading the module label, and decoding Samsung, Micron and SK Hynix part numbers.",
-  "author": {"@type": "Organization", "name": "Ocitech, LLC"},
+  "author": {"@type": "Person", "name": "Harlan Moore", "jobTitle": "Founder", "url": "https://ocitech.com/about", "image": "https://ocitech.com/founder-harlan.jpg", "worksFor": {"@type": "Organization", "name": "Ocitech, LLC", "url": "https://ocitech.com/"}},
   "publisher": {"@type": "Organization", "name": "Ocitech, LLC", "logo": {"@type": "ImageObject", "url": "https://ocitech.com/ocitech-logo.png"}},
   "image": "https://ocitech.com/ocitech-logo.png",
   "mainEntityOfPage": "https://ocitech.com/how-to-identify-your-ram"
@@ -269,6 +269,8 @@ rdt('init','a2_jix1ch5pxlq1');
 rdt('track','PageVisit');
 </script>
 <!-- End Reddit Pixel -->
+<script src="/scripts/referral-attribution.js"></script>
+<style>h1{font-size:clamp(2rem,4.2vw,2.85rem)!important;line-height:1.15!important;letter-spacing:-.02em!important;max-width:900px}h1 em{color:inherit;font-style:normal}</style>
 </head>
 <body>
 
@@ -300,9 +302,9 @@ rdt('track','PageVisit');
   <div class="wrap article-wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="memory-news">Memory News &amp; Guides</a> &rsaquo; RAM Identification</nav>
     <div class="eyebrow">Memory guide</div>
-    <h1 id="article-title">How to identify your server RAM.</h1>
+    <h1 id="article-title">How to Identify Server RAM: RDIMM, LRDIMM and UDIMM Explained</h1>
     <p class="sub">RDIMM, LRDIMM, or UDIMM? Learn how to read the label, recognize the memory generation, and find the part number that identifies your module.</p>
-    <p class="article-meta">By Ocitech <span aria-hidden="true">&middot;</span> 5 min read</p>
+    <p class="article-meta">By <a href="/about" rel="author">Harlan Moore</a>, Founder <span aria-hidden="true">&middot;</span> 5 min read</p>
     <nav class="article-toc" aria-label="In this article">
       <strong>In this article</strong>
       <ol>
@@ -431,7 +433,7 @@ rdt('track','PageVisit');
   </div>
 </section>
 
-</article>
+<div class="author-bio" style="display:flex;gap:16px;align-items:center;border-top:1px solid #dbe2ec;margin-top:40px;padding-top:24px;font:.9rem/1.6 Arial,sans-serif;color:#536277"><img src="/founder-harlan.jpg" alt="Harlan Moore" width="56" height="56" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none"><p style="margin:0"><strong style="color:#152337">Harlan Moore</strong> is the founder of Ocitech and buys every lot personally from Tacoma, WA. He has more than 20 years of experience sourcing physical commodities and IT hardware at scale.</p></div></article>
 
 <section id="quote" class="section-alt" style="padding-top:0;">
   <div class="wrap">
@@ -542,6 +544,7 @@ rdt('track','PageVisit');
         <h4>Guides &amp; Contact</h4>
         <ul>
           <li><a href="how-to-identify-your-ram">How to Identify Your RAM</a></li>
+          <li><a href="how-to-pack-server-ram">How to Pack &amp; Ship RAM</a></li>
           <li><a href="best-places-to-sell-server-ram-2026">Best Places to Sell in 2026</a></li>
           <li><a href="tel:14252691221">425-269-1221</a></li>
           <li><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></li>
@@ -709,15 +712,8 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
   function ev(name,p){p=p||{};p.page_path=location.pathname;p.page_type=pageType();try{if(window.gtag)gtag('event',name,p);}catch(e){}}
   function pageType(){var p=location.pathname.replace(/\.html$/,'').replace(/\/index$/,'/');if(p==='/'||p==='/index.html')return 'home';if(/offer/.test(p))return 'paid_landing';if(/ram-price-list/.test(p))return 'price_hub';if(/^\/sell-(samsung|sk-hynix|micron|kingston)-[a-z0-9]+-?[a-z0-9]*$/.test(p)&&!/-ddr[45]-ram$/.test(p))return 'part';if(/^\/sell-/.test(p))return 'category';if(/thanks/.test(p))return 'thanks';return 'other';}
   function pos(el){var r=el.getBoundingClientRect(),y=r.top+window.scrollY,h=document.documentElement.scrollHeight;return y<900?'hero':(y>h-900?'footer':'body');}
-  function utm(){var q=new URLSearchParams(location.search),o={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','rdt_cid'].forEach(function(k){if(q.get(k))o[k]=q.get(k);});return o;}
-  // persist first-touch source for the session and stamp hidden fields on every form
-  try{var u=utm();if(Object.keys(u).length)sessionStorage.setItem('oci_src',JSON.stringify(u));}catch(e){}
-  function src(){try{return JSON.parse(sessionStorage.getItem('oci_src')||'{}');}catch(e){return {};}}
-  function stamp(form){
-    var s=src(),fields={source_utm:JSON.stringify(s),source_landing:sessionStorage.getItem('oci_landing')||location.pathname,source_page:location.pathname,source_device:(window.innerWidth<760?'mobile':'desktop'),source_referrer:document.referrer||''};
-    Object.keys(fields).forEach(function(k){var i=form.querySelector('input[name="'+k+'"]');if(i)i.value=fields[k];});
-  }
-  try{if(!sessionStorage.getItem('oci_landing'))sessionStorage.setItem('oci_landing',location.pathname+location.search);}catch(e){}
+  // Original session referral is captured by the shared script, including on article pages.
+  function stamp(form){if(window.ociAttribution)window.ociAttribution.stamp(form);}
 
   // thanks page: fire ad-platform conversions only after a real submission (marker set on submit), never on refresh/direct hit
   if(pageType()==='thanks'){
