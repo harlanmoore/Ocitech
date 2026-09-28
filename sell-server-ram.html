@@ -429,7 +429,7 @@
     "https://maps.app.goo.gl/eHoZF8UHBVgVErRA7"
   ],
   "image": "https://ocitech.com/ocitech-logo.png",
-  "areaServed": "US"
+  "areaServed": "Worldwide"
 }
 </script>
 <script type="application/ld+json">
@@ -465,6 +465,14 @@
     },
     {
       "@type": "Question",
+      "name": "How should I pack RAM for shipping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For more than 20 modules, use an antistatic RAM tray (available on Amazon). For 20 or fewer, put each module in its own antistatic bag and pack the bags tightly in a sturdy box. Factory packaging is also fine."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Can I sell RAM still installed in servers?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -490,6 +498,7 @@ rdt('init','a2_jix1ch5pxlq1');
 rdt('track','PageVisit');
 </script>
 <!-- End Reddit Pixel -->
+<script src="/scripts/referral-attribution.js"></script>
 </head>
 <body>
 
@@ -577,6 +586,7 @@ else{out.innerHTML='';openQuote(raw,null);}
     </form>
 </div>
 <div class="vc-panel is-active" data-panel="photos">
+<p class="form-note" style="line-height:1.6;margin:0 0 18px;">Payment is usually sent the day your memory arrives, and within two business days of receipt, subject to testing confirming the agreed quantity and condition.</p>
 <form name="quick-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="padding:2px 0;">
         <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
@@ -692,6 +702,21 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
   </div>
 </section>
 
+<section id="completed-memory-purchase" aria-labelledby="completed-memory-purchase-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Completed memory purchase</div>
+      <h2 id="completed-memory-purchase-title">150 used Cisco memory modules. $17,000 paid.</h2>
+    </div>
+    <div class="content-block" style="max-width:760px;margin:0 auto;">
+      <p>Ocitech purchased 150 used pulls of Cisco UCS-MR-X32G2RS-H 32GB DDR4-2666 ECC RDIMM server memory for a total of $17,000. The lot included 68 Micron, 56 SK Hynix, and 26 Samsung modules.</p>
+      <p>We paid $8,500 in advance and the remaining $8,500 the same day the FedEx shipment was received.</p>
+      <p>This completed purchase illustrates the terms agreed for one lot. Current offers depend on the memory, quantity, condition, and market; any advance payment is agreed for the individual transaction.</p>
+      <a class="btn btn-primary" href="/sell-server-ram#quote">Get an offer for your memory</a>
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-head reveal">
@@ -745,6 +770,10 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
       <div class="faq-item">
         <h3>Do I need to test the RAM before shipping it?</h3>
         <p>No. We accept untested pulls and test on arrival. Pre-tested lots may get a faster quote turnaround, but testing isn't required.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How should I pack RAM for shipping?</h3>
+        <p>For more than 20 modules, use an antistatic RAM tray (available on Amazon). For 20 or fewer, put each module in its own antistatic bag and pack the bags tightly in a sturdy box. Factory packaging is also fine. See our <a href="/how-to-pack-server-ram" style="color:var(--accent);">RAM packing guide</a> for step-by-step instructions.</p>
       </div>
       <div class="faq-item">
         <h3>Can I sell RAM still installed in servers?</h3>
@@ -814,6 +843,7 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
           <li>7606 S Tacoma Way, Tacoma, WA 98409</li>
           <li><a href="/#quote">Request a Quote</a></li>
           <li><a href="how-to-identify-your-ram">How to Identify Your RAM</a></li>
+          <li><a href="how-to-pack-server-ram">How to Pack &amp; Ship RAM</a></li>
           <li><a href="best-places-to-sell-server-ram-2026">Best Places to Sell in 2026</a></li>
           <li><a href="privacy">Privacy Policy</a></li>
         </ul>
@@ -1074,15 +1104,8 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
   function ev(name,p){p=p||{};p.page_path=location.pathname;p.page_type=pageType();try{if(window.gtag)gtag('event',name,p);}catch(e){}}
   function pageType(){var p=location.pathname.replace(/\.html$/,'').replace(/\/index$/,'/');if(p==='/'||p==='/index.html')return 'home';if(/offer/.test(p))return 'paid_landing';if(/ram-price-list/.test(p))return 'price_hub';if(/^\/sell-(samsung|sk-hynix|micron|kingston)-[a-z0-9]+-?[a-z0-9]*$/.test(p)&&!/-ddr[45]-ram$/.test(p))return 'part';if(/^\/sell-/.test(p))return 'category';if(/thanks/.test(p))return 'thanks';return 'other';}
   function pos(el){var r=el.getBoundingClientRect(),y=r.top+window.scrollY,h=document.documentElement.scrollHeight;return y<900?'hero':(y>h-900?'footer':'body');}
-  function utm(){var q=new URLSearchParams(location.search),o={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','rdt_cid'].forEach(function(k){if(q.get(k))o[k]=q.get(k);});return o;}
-  // persist first-touch source for the session and stamp hidden fields on every form
-  try{var u=utm();if(Object.keys(u).length)sessionStorage.setItem('oci_src',JSON.stringify(u));}catch(e){}
-  function src(){try{return JSON.parse(sessionStorage.getItem('oci_src')||'{}');}catch(e){return {};}}
-  function stamp(form){
-    var s=src(),fields={source_utm:JSON.stringify(s),source_landing:sessionStorage.getItem('oci_landing')||location.pathname,source_page:location.pathname,source_device:(window.innerWidth<760?'mobile':'desktop'),source_referrer:document.referrer||''};
-    Object.keys(fields).forEach(function(k){var i=form.querySelector('input[name="'+k+'"]');if(i)i.value=fields[k];});
-  }
-  try{if(!sessionStorage.getItem('oci_landing'))sessionStorage.setItem('oci_landing',location.pathname+location.search);}catch(e){}
+  // Original session referral is captured by the shared script, including on article pages.
+  function stamp(form){if(window.ociAttribution)window.ociAttribution.stamp(form);}
 
   // thanks page: fire ad-platform conversions only after a real submission (marker set on submit), never on refresh/direct hit
   if(pageType()==='thanks'){

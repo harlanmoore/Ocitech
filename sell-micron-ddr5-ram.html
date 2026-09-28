@@ -406,7 +406,7 @@
     "https://maps.app.goo.gl/eHoZF8UHBVgVErRA7"
   ],
   "image": "https://ocitech.com/ocitech-logo.png",
-  "areaServed": "US"
+  "areaServed": "Worldwide"
 }
 </script>
 <script type="application/ld+json">
@@ -500,6 +500,7 @@ rdt('init','a2_jix1ch5pxlq1');
 rdt('track','PageVisit');
 </script>
 <!-- End Reddit Pixel -->
+<script src="/scripts/referral-attribution.js"></script>
 </head>
 <body>
 
@@ -871,6 +872,7 @@ run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[
           <li>7606 S Tacoma Way, Tacoma, WA 98409</li>
           <li><a href="/#quote">Request a Quote</a></li>
           <li><a href="how-to-identify-your-ram">How to Identify Your RAM</a></li>
+          <li><a href="how-to-pack-server-ram">How to Pack &amp; Ship RAM</a></li>
           <li><a href="best-places-to-sell-server-ram-2026">Best Places to Sell in 2026</a></li>
           <li><a href="privacy">Privacy Policy</a></li>
         </ul>
@@ -1130,15 +1132,8 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
   function ev(name,p){p=p||{};p.page_path=location.pathname;p.page_type=pageType();try{if(window.gtag)gtag('event',name,p);}catch(e){}}
   function pageType(){var p=location.pathname.replace(/\.html$/,'').replace(/\/index$/,'/');if(p==='/'||p==='/index.html')return 'home';if(/offer/.test(p))return 'paid_landing';if(/ram-price-list/.test(p))return 'price_hub';if(/^\/sell-(samsung|sk-hynix|micron|kingston)-[a-z0-9]+-?[a-z0-9]*$/.test(p)&&!/-ddr[45]-ram$/.test(p))return 'part';if(/^\/sell-/.test(p))return 'category';if(/thanks/.test(p))return 'thanks';return 'other';}
   function pos(el){var r=el.getBoundingClientRect(),y=r.top+window.scrollY,h=document.documentElement.scrollHeight;return y<900?'hero':(y>h-900?'footer':'body');}
-  function utm(){var q=new URLSearchParams(location.search),o={};['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','rdt_cid'].forEach(function(k){if(q.get(k))o[k]=q.get(k);});return o;}
-  // persist first-touch source for the session and stamp hidden fields on every form
-  try{var u=utm();if(Object.keys(u).length)sessionStorage.setItem('oci_src',JSON.stringify(u));}catch(e){}
-  function src(){try{return JSON.parse(sessionStorage.getItem('oci_src')||'{}');}catch(e){return {};}}
-  function stamp(form){
-    var s=src(),fields={source_utm:JSON.stringify(s),source_landing:sessionStorage.getItem('oci_landing')||location.pathname,source_page:location.pathname,source_device:(window.innerWidth<760?'mobile':'desktop'),source_referrer:document.referrer||''};
-    Object.keys(fields).forEach(function(k){var i=form.querySelector('input[name="'+k+'"]');if(i)i.value=fields[k];});
-  }
-  try{if(!sessionStorage.getItem('oci_landing'))sessionStorage.setItem('oci_landing',location.pathname+location.search);}catch(e){}
+  // Original session referral is captured by the shared script, including on article pages.
+  function stamp(form){if(window.ociAttribution)window.ociAttribution.stamp(form);}
 
   // thanks page: fire ad-platform conversions only after a real submission (marker set on submit), never on refresh/direct hit
   if(pageType()==='thanks'){

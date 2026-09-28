@@ -1,0 +1,44 @@
+# Ocitech
+
+> Ocitech, LLC is a US buyer of used enterprise IT hardware, based in Tacoma, Washington. We buy DDR3, DDR4 and DDR5 server memory (RDIMM, LRDIMM, UDIMM and SODIMM), enterprise and consumer SSDs, data center, workstation and mining GPUs, and Intel Xeon CPUs, in bulk, from recyclers, ITAD companies, data centers and enterprises worldwide.
+
+Key facts:
+- Tested or untested modules, single-brand or mixed lots. No set minimum quantity; we compete hardest on bulk and mixed lots.
+- Most quotes are returned within one business day. Every memory module is tested on a DIMM tester in our Tacoma facility.
+- Payment is usually sent the day your memory arrives, and within two business days of receipt, subject to testing confirming the agreed quantity and condition. Methods: wire, ACH, Zelle or check.
+- Accepted offers over $500 get a prepaid shipping label. Carrier loss on our shipping label is paid at your quoted value.
+- Published prices are indicative per-module buyback offers, reviewed and dated, not a live feed. Firm offers depend on exact part number, quantity and condition.
+- Contact: harlan@ocitech.com, +1-425-269-1221, 7606 S Tacoma Way, Tacoma, WA 98409, USA.
+
+## Prices
+
+- [Server RAM buyback price list](https://ocitech.com/ram-price-list): Indicative DDR4 and DDR5 offers by manufacturer part number, with source and last-checked dates for each row.
+- [Price data (JSON)](https://ocitech.com/parts-index.json): Machine-readable version of the priced part numbers on the price list.
+- [DDR5 price guide](https://ocitech.com/ddr5-price-guide): What DDR5 server memory is worth and what affects the price.
+
+## Sell to Ocitech
+
+- [Sell server RAM](https://ocitech.com/sell-server-ram): DDR4 and DDR5 RDIMM, LRDIMM and registered ECC memory, any brand.
+- [Sell DDR4 RAM](https://ocitech.com/sell-ddr4-ram)
+- [Sell DDR5 RAM](https://ocitech.com/sell-ddr5-ram)
+- [Sell mixed or untested RAM lots](https://ocitech.com/sell-mixed-ram-lots): Mixed brands, untested pulls and partial lots.
+- [Sell desktop and laptop RAM](https://ocitech.com/sell-desktop-ram): DDR3, DDR4 and DDR5 DIMM and SODIMM modules.
+- [Sell SSDs in bulk](https://ocitech.com/sell-ssds-bulk): SATA, SAS, NVMe, U.2 and M.2, new or pulled.
+- [Sell GPUs in bulk](https://ocitech.com/sell-gpus-bulk): Data center, workstation and consumer or mining GPUs.
+- [Sell data center GPUs](https://ocitech.com/sell-data-center-gpus): Nvidia A100, H100, A40 and V100.
+- [Sell Xeon CPUs](https://ocitech.com/sell-xeon-cpus)
+- [Bulk IT asset liquidation](https://ocitech.com/bulk-it-asset-liquidation): For recyclers, ITAD companies and enterprises.
+
+## Guides
+
+- [How to pack server RAM for shipping](https://ocitech.com/how-to-pack-server-ram): More than 20 modules: an antistatic RAM tray. 20 or fewer: one module per antistatic bag, packed tightly in a sturdy box. Factory packaging is also fine.
+- [How to identify your server RAM](https://ocitech.com/how-to-identify-your-ram): RDIMM vs LRDIMM vs UDIMM, reading labels and decoding part numbers.
+- [2Rx4 vs 2Rx8 memory ranks explained](https://ocitech.com/memory-ranks-explained-2rx4-vs-2rx8)
+- [Best places to sell server RAM in 2026](https://ocitech.com/best-places-to-sell-server-ram-2026)
+- [How to sell your SSDs for cash](https://ocitech.com/how-to-sell-your-ssds-for-cash)
+- [Memory News](https://ocitech.com/memory-news): Market analysis and practical guides on server memory.
+
+## About
+
+- [About Ocitech](https://ocitech.com/about): Company background and experience.
+- [Request a quote](https://ocitech.com/#quote)
