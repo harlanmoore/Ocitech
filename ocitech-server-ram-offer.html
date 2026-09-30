@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- OpenAI Ads measurement: Ocitech website quote requests -->
+<script>
+!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+oaiq("init",{pixelId:"NbeB7vMJ2vfmqoDMeqbKNL"});
+</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,follow">
@@ -588,7 +594,7 @@ run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[
       var est=form.querySelector('input[name="estimate"]'),m=form.querySelector('input[name="matched"]'),um=form.querySelector('input[name="unmatched"]');
       var p={form_name:name,mode:mode,has_file:files>0,file_count:files,file_bytes:bytes,estimate_value:est&&est.value?Number(est.value):0,matched:m&&m.value?Number(m.value):0,unmatched:um&&um.value?String(um.value).split(';').filter(Boolean).length:0,value:est&&est.value?Number(est.value):1,currency:'USD'};
       ev('generate_lead',p);
-      try{sessionStorage.setItem('oci_lead',JSON.stringify({form:name,est:p.estimate_value,files:files,t:Date.now()}));}catch(e){}
+      try{sessionStorage.setItem('oci_lead',JSON.stringify({form:name,est:p.estimate_value,files:files,t:Date.now(),source:'server_ram_offer',quantity:Number((form.querySelector('[name="quantity"]')||{}).value)||0}));}catch(e){}
     });
     form.addEventListener('invalid',function(e){ev('form_error',{form_name:name,reason:'invalid_'+(e.target.name||'field')});},true);
   });

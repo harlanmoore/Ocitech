@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- OpenAI Ads measurement: Ocitech website quote requests -->
+<script>
+!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+oaiq("init",{pixelId:"NbeB7vMJ2vfmqoDMeqbKNL"});
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Thanks — We'll be in touch soon | Ocitech, LLC</title>
@@ -702,6 +708,10 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
       try{if(window.gtag)gtag('event','conversion',{send_to:GA_ADS_SEND_TO,value:v,currency:'USD',transaction_id:lead.form+'-'+lead.t});}catch(e){}
       try{if(window.rdt)rdt('track','Lead',{value:v,currency:'USD'});}catch(e){}
       ev('lead_confirmed',{form_name:lead.form,estimate_value:lead.est||0,file_count:lead.files||0,value:v,currency:'USD'});
+      // Only confirmed 10+ module submissions from the campaign landing page qualify.
+      if(lead.source==='server_ram_offer' && Number.isInteger(lead.quantity) && lead.quantity>=10 && ['serverram-offer','part-quote','lot-quote'].indexOf(lead.form)!==-1){
+        try{if(window.oaiq)oaiq('measure','lead_created',{type:'customer_action'},{event_id:'oci-'+lead.form+'-'+lead.t});}catch(e){}
+      }
       try{sessionStorage.removeItem('oci_lead');}catch(e){}
       var el=document.getElementById('thanks-detail');if(el){el.textContent=(lead.files?('Your '+lead.files+(lead.files>1?' files':' file')+' came through. '):'')+(lead.est>0?('Estimated lot value on your list: $'+Math.round(lead.est).toLocaleString('en-US')+'. '):'')+'Reply to our email any time to add photos or details.';}
     }else{ev('thanks_view_no_submission',{});}
