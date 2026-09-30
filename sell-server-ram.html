@@ -540,7 +540,7 @@ rdt('track','PageVisit');
 <input id="pnsearch" type="text" autocomplete="off" spellcheck="false" placeholder="Type a part number, e.g. M393A8G40AB2-CWEBY" style="width:100%;padding:15px 18px;font-size:17px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,0.05);">
 <div id="pnresults" style="margin-top:10px;text-align:left;"></div>
 <form id="pnquote" name="part-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden style="margin-top:12px;padding:18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-alt);text-align:left;">
-  <input type="hidden" name="form-name" value="part-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+  <input type="hidden" name="form-name" value="part-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
   <input type="hidden" name="part" id="pnq-part">
   <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
   <div id="pnq-msg" style="font-size:14px;margin-bottom:10px;">Drop your email and we'll send you a quote.</div>
@@ -570,7 +570,7 @@ else{out.innerHTML='';openQuote(raw,null);}
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:10px;"><button type="button" id="lot-run" class="btn btn-primary">Estimate my lot</button><button type="button" id="lot-attach-btn" class="btn btn-link">Attach a spreadsheet or photos <span class="chev">&rsaquo;</span></button><span style="font-size:13px;color:var(--text-tertiary);">Any format works &mdash; "part qty", "qty part", commas, or tabs.</span></div>
     <div id="lot-results" style="margin-top:16px;"></div>
     <form id="lot-form" name="lot-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" hidden style="margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);">
-      <input type="hidden" name="form-name" value="lot-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+      <input type="hidden" name="form-name" value="lot-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
       <input type="hidden" name="lot" id="lot-raw"><input type="hidden" name="estimate" id="lot-est"><input type="hidden" name="matched" id="lot-m"><input type="hidden" name="unmatched" id="lot-u">
       <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
       <div id="lot-msg" style="font-size:15px;font-weight:600;margin-bottom:12px;"></div>
@@ -588,7 +588,7 @@ else{out.innerHTML='';openQuote(raw,null);}
 <div class="vc-panel is-active" data-panel="photos">
 <p class="form-note" style="line-height:1.6;margin:0 0 18px;">Payment is usually sent the day your memory arrives. For lots of up to 200 modules, payment is sent within two business days of receipt; lots of more than 200 modules may take up to three business days. Payment is subject to testing confirming the agreed quantity and condition.</p>
 <form name="quick-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="padding:2px 0;">
-        <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+        <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
         <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get an offer for your server memory</div>
         <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>

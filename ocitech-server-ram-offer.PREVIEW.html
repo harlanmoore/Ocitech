@@ -286,7 +286,7 @@ rdt('track','PageVisit');
           <input id="pnsearch" class="cinput" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. M393A8G40AB2-CWEBY">
           <div id="pnresults" style="margin-top:10px;"></div>
           <form id="pnquote" class="reveal-form" name="part-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-            <input type="hidden" name="form-name" value="part-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+            <input type="hidden" name="form-name" value="part-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
             <input type="hidden" name="part" id="pnq-part">
             <p class="hp"><label>Leave blank if human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <div id="pnq-msg" style="font-size:14px;margin-bottom:12px;">Add your email and we'll send a confirmed quote.</div>
@@ -312,7 +312,7 @@ rdt('track','PageVisit');
           <button type="button" id="lot-run" class="btn btn-primary" style="margin-top:10px;">Estimate my lot</button>
           <div id="lot-results" style="margin-top:16px;"></div>
           <form id="lot-form" class="reveal-form" name="lot-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" hidden>
-            <input type="hidden" name="form-name" value="lot-quote"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+            <input type="hidden" name="form-name" value="lot-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
             <input type="hidden" name="lot" id="lot-raw"><input type="hidden" name="estimate" id="lot-est"><input type="hidden" name="matched" id="lot-m"><input type="hidden" name="unmatched" id="lot-u">
             <p class="hp"><label>Leave blank if human: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <div id="lot-msg" style="font-size:15px;font-weight:600;margin-bottom:12px;"></div>
@@ -338,7 +338,7 @@ rdt('track','PageVisit');
           <h2>Get a quote from label photos</h2>
           <p class="sub">No inventory list needed. Send clear photos of the module labels.</p>
           <form name="serverram-offer" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="company-website" enctype="multipart/form-data">
-            <input type="hidden" name="form-name" value="serverram-offer"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+            <input type="hidden" name="form-name" value="serverram-offer"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
             <div class="hp"><label>Do not fill<input name="company-website" tabindex="-1" autocomplete="off"></label></div>
             <!-- category defaults to server RAM; no need to ask again on the photos path -->
             <input type="hidden" id="category" name="category" value="Server RAM — DDR4 or DDR5 (RDIMM / LRDIMM)">
