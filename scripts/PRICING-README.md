@@ -29,3 +29,24 @@ The public site remains a static, reviewed price publication. It is not a live f
 ## Price list structured data
 
 The generator also writes the price list's structured data (WebPage, Dataset, ItemList of priced parts, and FAQPage) between the `<!-- PRICE-LD:START -->` and `<!-- PRICE-LD:END -->` markers in `ram-price-list.html`, and updates the "last checked" date in its "How current are these prices?" answer. The FAQ structured data is copied from the page's visible FAQ, so edit the visible questions and answers, then regenerate. Don't edit the generated block by hand. A test fails if the block is removed or goes out of step with the catalog.
+
+## Adding new part numbers (October 2, 2026)
+
+`sync-public-prices.py` only updates pages that already exist. To publish a part that is new to the catalog:
+
+1. Publish the part in Supabase (`is_published`, `slug`) and add it to `public-prices.json` from `public_offer`, as in the refresh workflow above.
+2. Create its page, price-list row, sitemap entry and redirect, then synchronize:
+
+```sh
+python3 scripts/add-part-pages.py --selftest   # the clone must reproduce existing pages
+python3 scripts/add-part-pages.py --write
+python3 scripts/sync-public-prices.py --write  # run twice: the first pass can leave the price list one step behind
+python3 scripts/sync-public-prices.py --write
+python3 scripts/sync-public-prices.py && python3 scripts/add-part-pages.py && python3 scripts/test-public-prices.py
+```
+
+`add-part-pages.py` clones a current part page of the same module type (RDIMM, LRDIMM or UDIMM), so new pages carry every site-wide change already applied to part pages. Do not use `genall.py` for this: its template has drifted from the live part pages. The script also keeps three price mentions the sync does not rewrite in step with the catalog: the "How much is ... worth?" FAQ answer, the "within or above the indicative range" sentence, and the prices in "Other ...GB modules we're buying".
+
+Limits: priced DDR4 parts only (the pattern pages are DDR4). DDR3 needs its own category page and price-list section first; quote-only and DDR5 pages are not created by the script.
+
+October 2 review: read 134 published offers (125 priced, nine quote-only). Added 84 DDR4 part numbers from current buyer bids dated October 2. Seven existing listings gained an October 2 supporting record; four moved: M393A4K40CB2-CTD7Y $91 to $100, M386A8K40BM2-CTD7Y $143 to $150, M393A4K40BB2-CTD6Q $96 to $101, MTA36ASF8G72PZ-3G2E1TI $304 to $305. DDR5 competitor overrides were not re-checked and keep their September 28 check date.
