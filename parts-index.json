@@ -1,5 +1,233 @@
 [
   {
+    "pn": "9995640-011.A00G",
+    "slug": "sell-kingston-9995640-011-a00g",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 66,
+    "hi": 66,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA41GR7AFR8N-TF",
+    "slug": "sell-sk-hynix-hma41gr7afr8n-tf",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 15,
+    "hi": 15,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA41GR7BJR4N-UH",
+    "slug": "sell-sk-hynix-hma41gr7bjr4n-uh",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 13,
+    "hi": 13,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA41GR7MFR4N-TF",
+    "slug": "sell-sk-hynix-hma41gr7mfr4n-tf",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 13,
+    "hi": 13,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA41GR7MFR8N-TF",
+    "slug": "sell-sk-hynix-hma41gr7mfr8n-tf",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 13,
+    "hi": 13,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA41GU7AFR8N-TF",
+    "slug": "sell-sk-hynix-hma41gu7afr8n-tf",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "UDIMM",
+    "lo": 12,
+    "hi": 12,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA42GL7MFR4N-TF",
+    "slug": "sell-sk-hynix-hma42gl7mfr4n-tf",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "LRDIMM",
+    "lo": 26,
+    "hi": 26,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA42GR7AFR4N-TF",
+    "slug": "sell-sk-hynix-hma42gr7afr4n-tf",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 33,
+    "hi": 34,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA42GR7MFR4N-TF",
+    "slug": "sell-sk-hynix-hma42gr7mfr4n-tf",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 21,
+    "hi": 26,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA451R7MFR8N-TF",
+    "slug": "sell-sk-hynix-hma451r7mfr8n-tf",
+    "cap": 4,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 5,
+    "hi": 5,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA81GR7AFR8N-VK",
+    "slug": "sell-sk-hynix-hma81gr7afr8n-vk",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 14,
+    "hi": 14,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA81GR7CJR8N-XN",
+    "slug": "sell-sk-hynix-hma81gr7cjr8n-xn",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 17,
+    "hi": 17,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA81GR7MFR8N-UH",
+    "slug": "sell-sk-hynix-hma81gr7mfr8n-uh",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 12,
+    "hi": 12,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA81GU7CJR8N-VK",
+    "slug": "sell-sk-hynix-hma81gu7cjr8n-vk",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "UDIMM",
+    "lo": 17,
+    "hi": 17,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA81GU7DJR8N-VK",
+    "slug": "sell-sk-hynix-hma81gu7djr8n-vk",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "UDIMM",
+    "lo": 14,
+    "hi": 14,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA82GR7AFR4N-UH",
+    "slug": "sell-sk-hynix-hma82gr7afr4n-uh",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 33,
+    "hi": 33,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA82GR7AFR8N-UH",
+    "slug": "sell-sk-hynix-hma82gr7afr8n-uh",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 28,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA82GR7AFR8N-VK",
+    "slug": "sell-sk-hynix-hma82gr7afr8n-vk",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 42,
+    "hi": 42,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA82GR7CJR4N-VK",
+    "slug": "sell-sk-hynix-hma82gr7cjr4n-vk",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 44,
+    "hi": 44,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
     "pn": "HMA82GR7CJR8N-XN",
     "slug": "sell-sk-hynix-hma82gr7cjr8n-xn",
     "cap": 16,
@@ -9,7 +237,19 @@
     "lo": 41,
     "hi": 66,
     "source_updated_at": "2026-09-19",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA82GR7DJR4N-XN",
+    "slug": "sell-sk-hynix-hma82gr7djr4n-xn",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 47,
+    "hi": 47,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMA82GR7MFR8N-UH",
@@ -21,7 +261,31 @@
     "lo": 39,
     "hi": 39,
     "source_updated_at": "2026-09-19",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA84GL7MMR4N-TF",
+    "slug": "sell-sk-hynix-hma84gl7mmr4n-tf",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "LRDIMM",
+    "lo": 61,
+    "hi": 61,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA84GR7AFR4N-UH",
+    "slug": "sell-sk-hynix-hma84gr7afr4n-uh",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 77,
+    "hi": 86,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMA84GR7AFR4N-VK",
@@ -33,7 +297,19 @@
     "lo": 77,
     "hi": 87,
     "source_updated_at": "2026-09-08",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA84GR7CJR4N-VK",
+    "slug": "sell-sk-hynix-hma84gr7cjr4n-vk",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 94,
+    "hi": 99,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMA84GR7DJR4N-WM",
@@ -45,7 +321,19 @@
     "lo": 88,
     "hi": 105,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA84GR7JJR4N-VK",
+    "slug": "sell-sk-hynix-hma84gr7jjr4n-vk",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 91,
+    "hi": 91,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMA84GR7JJR4N-WM",
@@ -57,7 +345,31 @@
     "lo": 88,
     "hi": 105,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMA84GR7MFR4N-UH",
+    "slug": "sell-sk-hynix-hma84gr7mfr4n-uh",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 77,
+    "hi": 86,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMAA4GR7CJR8N-XN",
+    "slug": "sell-sk-hynix-hmaa4gr7cjr8n-xn",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 110,
+    "hi": 135,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMAA8GL7AMR4N-UH",
@@ -69,7 +381,19 @@
     "lo": 135,
     "hi": 135,
     "source_updated_at": "2026-09-08",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMAA8GL7CPR4N-VK",
+    "slug": "sell-sk-hynix-hmaa8gl7cpr4n-vk",
+    "cap": 64,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "LRDIMM",
+    "lo": 132,
+    "hi": 149,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMAA8GL7MMR4N-UH",
@@ -81,7 +405,55 @@
     "lo": 135,
     "hi": 135,
     "source_updated_at": "2026-09-08",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMAA8GR7AJR4N-WM",
+    "slug": "sell-sk-hynix-hmaa8gr7ajr4n-wm",
+    "cap": 64,
+    "gen": "DDR4",
+    "spd": "DDR4-2933",
+    "ff": "RDIMM",
+    "lo": 231,
+    "hi": 231,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMABAGL7A4R4N-VN",
+    "slug": "sell-sk-hynix-hmabagl7a4r4n-vn",
+    "cap": 128,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "LRDIMM",
+    "lo": 220,
+    "hi": 220,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMABAGL7C4R4N-WR",
+    "slug": "sell-sk-hynix-hmabagl7c4r4n-wr",
+    "cap": 128,
+    "gen": "DDR4",
+    "spd": "DDR4-2933",
+    "ff": "LRDIMM",
+    "lo": 330,
+    "hi": 330,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "HMAG78EXNRA084N AD",
+    "slug": "sell-sk-hynix-hmag78exnra084n-ad",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "HMCG78MEBRA107N AA",
@@ -94,6 +466,54 @@
     "hi": 276,
     "source_updated_at": "2026-08-27",
     "checked_at": "2026-09-28"
+  },
+  {
+    "pn": "HP21D4R5D4MBM-16",
+    "slug": "sell-kingston-hp21d4r5d4mbm-16",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 19,
+    "hi": 19,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "KCPC7G-MIAS170323QPT",
+    "slug": "sell-kingston-kcpc7g-mias170323qpt",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 61,
+    "hi": 61,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "KCPC7G-MIAS170323RR1",
+    "slug": "sell-kingston-kcpc7g-mias170323rr1",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 61,
+    "hi": 61,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "KCPC7G-MIAS180267NYV",
+    "slug": "sell-kingston-kcpc7g-mias180267nyv",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 61,
+    "hi": 61,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "KP8XPW-MID-11MI",
@@ -129,7 +549,7 @@
     "lo": 198,
     "hi": 198,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "KTD-PE564D4-64G",
@@ -153,7 +573,7 @@
     "lo": 74,
     "hi": 77,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M321R2GA3BB0-CWM",
@@ -201,7 +621,19 @@
     "lo": 63,
     "hi": 83,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M386A4G40DM0-CPB",
+    "slug": "sell-samsung-m386a4g40dm0-cpb",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "LRDIMM",
+    "lo": 65,
+    "hi": 65,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M386A8K40BM1-CRC5Q",
@@ -213,7 +645,19 @@
     "lo": 144,
     "hi": 144,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M386A8K40BM2-CTD",
+    "slug": "sell-samsung-m386a8k40bm2-ctd",
+    "cap": 64,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "LRDIMM",
+    "lo": 150,
+    "hi": 150,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M386A8K40BM2-CTD6Q",
@@ -222,10 +666,10 @@
     "gen": "DDR4",
     "spd": "DDR4-2666",
     "ff": "LRDIMM",
-    "lo": 151,
+    "lo": 150,
     "hi": 151,
-    "source_updated_at": "2026-09-08",
-    "checked_at": "2026-09-28"
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M386A8K40BM2-CTD7Y",
@@ -235,9 +679,189 @@
     "spd": "DDR4-2666",
     "ff": "LRDIMM",
     "lo": 143,
-    "hi": 143,
-    "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "hi": 150,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M386AAK40B40-CWD",
+    "slug": "sell-samsung-m386aak40b40-cwd",
+    "cap": 128,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "LRDIMM",
+    "lo": 220,
+    "hi": 220,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M391A2K43BB1-CTD",
+    "slug": "sell-samsung-m391a2k43bb1-ctd",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "UDIMM",
+    "lo": 46,
+    "hi": 46,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A1G40DB0-CPB",
+    "slug": "sell-samsung-m393a1g40db0-cpb",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 15,
+    "hi": 15,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A1G40DB1-CRC",
+    "slug": "sell-samsung-m393a1g40db1-crc",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 15,
+    "hi": 15,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A1K43BB1-CTD",
+    "slug": "sell-samsung-m393a1k43bb1-ctd",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 17,
+    "hi": 17,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2G40DB0-CPB",
+    "slug": "sell-samsung-m393a2g40db0-cpb",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 34,
+    "hi": 39,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2G40DB1-CRC",
+    "slug": "sell-samsung-m393a2g40db1-crc",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 34,
+    "hi": 34,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2G40EB1-CPB",
+    "slug": "sell-samsung-m393a2g40eb1-cpb",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 33,
+    "hi": 33,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2G40EB1-CRC",
+    "slug": "sell-samsung-m393a2g40eb1-crc",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 33,
+    "hi": 33,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2K40BB2-CTD",
+    "slug": "sell-samsung-m393a2k40bb2-ctd",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 47,
+    "hi": 47,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2K40CB1-CRC",
+    "slug": "sell-samsung-m393a2k40cb1-crc",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 43,
+    "hi": 43,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2K40CB2-CTD",
+    "slug": "sell-samsung-m393a2k40cb2-ctd",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 45,
+    "hi": 45,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2K40DB3-CWE",
+    "slug": "sell-samsung-m393a2k40db3-cwe",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 47,
+    "hi": 47,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2K43BB1-CRC",
+    "slug": "sell-samsung-m393a2k43bb1-crc",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 45,
+    "hi": 45,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A2K43DB2-CTD",
+    "slug": "sell-samsung-m393a2k43db2-ctd",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A2K43DB3-CWEGQ",
@@ -249,7 +873,7 @@
     "lo": 36,
     "hi": 57,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A4G43AB3-CVFBO",
@@ -261,7 +885,55 @@
     "lo": 83,
     "hi": 94,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4G43BB4-CWE",
+    "slug": "sell-samsung-m393a4g43bb4-cwe",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 121,
+    "hi": 121,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4K40BB0-CPB",
+    "slug": "sell-samsung-m393a4k40bb0-cpb",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 77,
+    "hi": 96,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4K40BB1-CRC",
+    "slug": "sell-samsung-m393a4k40bb1-crc",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 94,
+    "hi": 100,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4K40BB2-CTD",
+    "slug": "sell-samsung-m393a4k40bb2-ctd",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 101,
+    "hi": 101,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A4K40BB2-CTD6Q",
@@ -271,9 +943,33 @@
     "spd": "DDR4-2666",
     "ff": "RDIMM",
     "lo": 96,
-    "hi": 96,
-    "source_updated_at": "2026-09-08",
-    "checked_at": "2026-09-28"
+    "hi": 101,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4K40CB1-CRC",
+    "slug": "sell-samsung-m393a4k40cb1-crc",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 75,
+    "hi": 88,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4K40CB2-CTD",
+    "slug": "sell-samsung-m393a4k40cb2-ctd",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 100,
+    "hi": 100,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A4K40CB2-CTD7Y",
@@ -283,9 +979,21 @@
     "spd": "DDR4-2666",
     "ff": "RDIMM",
     "lo": 88,
-    "hi": 91,
-    "source_updated_at": "2026-09-19",
-    "checked_at": "2026-09-28"
+    "hi": 100,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A4K40CB2-CVF",
+    "slug": "sell-samsung-m393a4k40cb2-cvf",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2933",
+    "ff": "RDIMM",
+    "lo": 100,
+    "hi": 100,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A4K40CB2-CVFBO",
@@ -296,8 +1004,8 @@
     "ff": "RDIMM",
     "lo": 91,
     "hi": 105,
-    "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A4K40CB2-CVFBQ",
@@ -308,8 +1016,8 @@
     "ff": "RDIMM",
     "lo": 91,
     "hi": 105,
-    "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A4K40DB2-CTD6Y",
@@ -321,7 +1029,19 @@
     "lo": 77,
     "hi": 77,
     "source_updated_at": "2026-09-08",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "M393A5143DB0-CPB",
+    "slug": "sell-samsung-m393a5143db0-cpb",
+    "cap": 4,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 5,
+    "hi": 5,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A8G40AB2-CWEBY",
@@ -333,7 +1053,7 @@
     "lo": 312,
     "hi": 336,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A8G40BB4-CWEBY",
@@ -345,7 +1065,7 @@
     "lo": 312,
     "hi": 336,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "M393A8G40MB2-CVFBY",
@@ -357,7 +1077,139 @@
     "lo": 204,
     "hi": 226,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF1G72PDZ-2G1A1",
+    "slug": "sell-micron-mta18asf1g72pdz-2g1a1",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 12,
+    "hi": 12,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF1G72PZ-2G1B1",
+    "slug": "sell-micron-mta18asf1g72pz-2g1b1",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 12,
+    "hi": 12,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PDZ-2G3B1",
+    "slug": "sell-micron-mta18asf2g72pdz-2g3b1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 40,
+    "hi": 40,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PDZ-2G3D1",
+    "slug": "sell-micron-mta18asf2g72pdz-2g3d1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 40,
+    "hi": 40,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PDZ-2G6D1",
+    "slug": "sell-micron-mta18asf2g72pdz-2g6d1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PDZ-2G6E1",
+    "slug": "sell-micron-mta18asf2g72pdz-2g6e1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PDZ-2G6J1",
+    "slug": "sell-micron-mta18asf2g72pdz-2g6j1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PDZ-3G2R1",
+    "slug": "sell-micron-mta18asf2g72pdz-3g2r1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 44,
+    "hi": 44,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PZ-2G3B1",
+    "slug": "sell-micron-mta18asf2g72pz-2g3b1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 40,
+    "hi": 40,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PZ-2G9E1",
+    "slug": "sell-micron-mta18asf2g72pz-2g9e1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2933",
+    "ff": "RDIMM",
+    "lo": 30,
+    "hi": 30,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF2G72PZ-3G2E2",
+    "slug": "sell-micron-mta18asf2g72pz-3g2e2",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTA18ASF2G72PZ-3G2R1VI",
@@ -369,7 +1221,31 @@
     "lo": 28,
     "hi": 40,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF4G72PDZ-3G2E1",
+    "slug": "sell-micron-mta18asf4g72pdz-3g2e1",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 113,
+    "hi": 113,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA18ASF4G72PDZ-3G2F1",
+    "slug": "sell-micron-mta18asf4g72pdz-3g2f1",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 113,
+    "hi": 113,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTA18ASF4G72PZ-3G2F1UI",
@@ -381,7 +1257,67 @@
     "lo": 105,
     "hi": 148,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF2G72PZ-2G1A2",
+    "slug": "sell-micron-mta36asf2g72pz-2g1a2",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 25,
+    "hi": 25,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF2G72PZ-2G1B1",
+    "slug": "sell-micron-mta36asf2g72pz-2g1b1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2133",
+    "ff": "RDIMM",
+    "lo": 25,
+    "hi": 25,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF2G72PZ-2G6F1",
+    "slug": "sell-micron-mta36asf2g72pz-2g6f1",
+    "cap": 16,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "RDIMM",
+    "lo": 41,
+    "hi": 41,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF4G72PZ-2G3B1",
+    "slug": "sell-micron-mta36asf4g72pz-2g3b1",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 78,
+    "hi": 78,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF4G72PZ-2G3D1",
+    "slug": "sell-micron-mta36asf4g72pz-2g3d1",
+    "cap": 32,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 72,
+    "hi": 78,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTA36ASF4G72PZ-2G6D1QK",
@@ -393,7 +1329,7 @@
     "lo": 76,
     "hi": 78,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTA36ASF4G72PZ-3G2R1VI",
@@ -405,7 +1341,7 @@
     "lo": 121,
     "hi": 148,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTA36ASF8G72PZ-2G9B1TL",
@@ -417,7 +1353,31 @@
     "lo": 165,
     "hi": 222,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF8G72PZ-2G9E1",
+    "slug": "sell-micron-mta36asf8g72pz-2g9e1",
+    "cap": 64,
+    "gen": "DDR4",
+    "spd": "DDR4-2933",
+    "ff": "RDIMM",
+    "lo": 220,
+    "hi": 220,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA36ASF8G72PZ-3G2E1",
+    "slug": "sell-micron-mta36asf8g72pz-3g2e1",
+    "cap": 64,
+    "gen": "DDR4",
+    "spd": "DDR4-3200",
+    "ff": "RDIMM",
+    "lo": 305,
+    "hi": 305,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTA36ASF8G72PZ-3G2E1TI",
@@ -427,9 +1387,57 @@
     "spd": "DDR4-3200",
     "ff": "RDIMM",
     "lo": 275,
-    "hi": 304,
-    "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "hi": 305,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA9ASF1G72AZ-2G6E1",
+    "slug": "sell-micron-mta9asf1g72az-2g6e1",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2666",
+    "ff": "UDIMM",
+    "lo": 14,
+    "hi": 14,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA9ASF1G72PZ-2G3B1",
+    "slug": "sell-micron-mta9asf1g72pz-2g3b1",
+    "cap": 8,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 15,
+    "hi": 15,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA9ASF51272AZ-2G3B1",
+    "slug": "sell-micron-mta9asf51272az-2g3b1",
+    "cap": 4,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "UDIMM",
+    "lo": 5,
+    "hi": 5,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
+  },
+  {
+    "pn": "MTA9ASF51272PZ-2G3B1",
+    "slug": "sell-micron-mta9asf51272pz-2g3b1",
+    "cap": 4,
+    "gen": "DDR4",
+    "spd": "DDR4-2400",
+    "ff": "RDIMM",
+    "lo": 5,
+    "hi": 5,
+    "source_updated_at": "2026-10-02",
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTC10F1084S1RC48BD1",
@@ -477,7 +1485,7 @@
     "lo": 1004,
     "hi": 1004,
     "source_updated_at": "2026-09-06",
-    "checked_at": "2026-09-28"
+    "checked_at": "2026-10-02"
   },
   {
     "pn": "MTC8C1084S1UC56BD1 BF",
