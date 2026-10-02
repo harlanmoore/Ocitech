@@ -1,5 +1,19 @@
 [
   {
+    "slug": "micron-8800-mts-rdimm-customer-qualification",
+    "title": "Micron Reports 8,800 MT/s RDIMM Qualifications: What Server Buyers Should Check",
+    "summary": "Micron reports completed customer qualifications for 8,800 MT/s server RDIMMs. Buyers should verify the exact platform and module type, then confirm workload value and delivery before ordering.",
+    "category": "Market Analysis",
+    "date": "2026-10-02"
+  },
+  {
+    "slug": "dram-module-revenue-growth-2025-pricing",
+    "title": "DRAM Module Revenue Rose 59% in 2025. What Does That Mean for RAM Prices?",
+    "summary": "TrendForce reports $21.2 billion in 2025 DRAM module revenue, up 59%. The figure measures supplier revenue, not a universal price increase or the resale value of an individual server-memory lot.",
+    "category": "Market Analysis",
+    "date": "2026-09-29"
+  },
+  {
     "slug": "how-to-pack-server-ram",
     "title": "How to Pack Server RAM for Shipping: Trays, Antistatic Bags and Boxes",
     "summary": "For more than 20 modules, use an antistatic RAM tray. For 20 or fewer, place each module in its own antistatic bag and pack the bags tightly in a sturdy box. Factory packaging is also fine.",
