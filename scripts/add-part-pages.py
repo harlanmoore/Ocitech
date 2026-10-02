@@ -155,7 +155,9 @@ def hub_tables(text, parts, new):
         body += ''.join(have[p['slug']] for p in sorted((p for p in priced if p['cap'] not in HUB_CAPS[gen]), key=key))
         assert all(v in body for v in have.values()), 'price table lost a row'
         text = text[:m.start(2)] + body + text[m.end(2):]
-    return text
+    # A long table can never reach the scroll-reveal threshold (15% of its own height
+    # on screen), so it would stay invisible. Price tables are always shown.
+    return re.sub(r'<div class="reveal"( style="overflow-x:auto;)', r'<div class="reveal in"\1', text)
 
 
 def sitemap(text, new, today):
@@ -220,7 +222,7 @@ def main():
                      ('sitemap.xml', lambda t: sitemap(t, new, data['checked_at'])),
                      ('_redirects', lambda t: redirects(t, new))):
         old = (ROOT / name).read_text()
-        text = fn(old) if new else old
+        text = fn(old) if (new or name == 'ram-price-list.html') else old
         if text != old:
             out[ROOT / name] = text
     if not out:
