@@ -276,7 +276,7 @@ table.parts td:nth-child(3) .pn{white-space:nowrap}
 <form id="manual-form">
 <label>Part number (optional)<input name="part_number" maxlength="160"></label>
 <label>Manufacturer (optional)<input name="manufacturer" maxlength="100"></label>
-<label>Generation<select name="generation"><option value="">Select</option><option>DDR4</option><option>DDR5</option></select></label>
+<label>Generation<select name="generation"><option value="">Select</option><option>DDR3</option><option>DDR4</option><option>DDR5</option></select></label>
 <label>Capacity (GB)<input name="capacity_gb" type="number" min="1" step="1"></label>
 <label>Speed (MT/s)<input name="speed_mts" type="number" min="1" step="1"></label>
 <label>Module type<select name="form_factor"><option value="">Select</option><option>RDIMM</option><option>LRDIMM</option><option>UDIMM</option><option>SODIMM</option><option>MRDIMM</option></select></label>
@@ -319,6 +319,7 @@ function classify(b){
   if(s.includes('price_list (quote)')) return {kind:'QUOTE', sell:true};
   if(s.includes('packing')||s.includes('jason')) return {kind:'SUPPLY', sell:false};
   if(s.includes('guide-set')||s.includes('guide set')) return {kind:'SET', sell:false};
+  if(s.startsWith('bid sheet')||s.includes('buyer bid')) return {kind:'BID', sell:true};
   return {kind:'UNKNOWN', sell:false};
 }
 const num = v => v==null || v==='' || !Number.isFinite(Number(v)) || Number(v)<0 ? null : Number(v);
@@ -667,7 +668,7 @@ function validatePayload(data,live){
   if(!data||!Array.isArray(data.parts)||!Array.isArray(data.evidence))throw Error('Invalid pricing response.');
   const keys=new Set();
   for(const p of data.parts){
-    if(!p||typeof p.part_number!=='string'||!p.part_number.trim()||keys.has(normalizePN(p.part_number))||!['DDR4','DDR5'].includes(p.generation)||!p.form_factor||!(Number(p.capacity_gb)>0)||!(Number(p.speed_mts)>0))throw Error('Invalid or duplicate part record.');
+    if(!p||typeof p.part_number!=='string'||!p.part_number.trim()||keys.has(normalizePN(p.part_number))||!['DDR3','DDR4','DDR5'].includes(p.generation)||!p.form_factor||!(Number(p.capacity_gb)>0)||!(Number(p.speed_mts)>0))throw Error('Invalid or duplicate part record.');
     keys.add(normalizePN(p.part_number));
   }
   for(const e of data.evidence){
