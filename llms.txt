@@ -33,6 +33,7 @@ Key facts:
 
 - [How to pack server RAM for shipping](https://ocitech.com/how-to-pack-server-ram): More than 20 modules: an antistatic RAM tray. 20 or fewer: one module per antistatic bag, packed tightly in a sturdy box. Factory packaging is also fine.
 - [How to identify your server RAM](https://ocitech.com/how-to-identify-your-ram): RDIMM vs LRDIMM vs UDIMM, reading labels and decoding part numbers.
+- [Server RAM part number decoder](https://ocitech.com/server-ram-part-number-decoder): Free tool that decodes Samsung, SK hynix, Micron and Kingston memory part numbers into capacity, generation, speed, module type and rank.
 - [2Rx4 vs 2Rx8 memory ranks explained](https://ocitech.com/memory-ranks-explained-2rx4-vs-2rx8)
 - [Best places to sell server RAM in 2026](https://ocitech.com/best-places-to-sell-server-ram-2026)
 - [How to sell your SSDs for cash](https://ocitech.com/how-to-sell-your-ssds-for-cash)

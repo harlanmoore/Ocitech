@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server RAM Part Number Decoder (Samsung, SK hynix, Micron) | Ocitech</title>
+<meta name="description" content="Paste a Samsung, SK hynix, Micron or Kingston memory part number to decode its capacity, DDR generation, speed, module type and rank, character by character. Free, no sign-up.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ocitech.com/server-ram-part-number-decoder">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ocitech, LLC">
+<meta property="og:title" content="Server RAM Part Number Decoder: Samsung, SK hynix, Micron, Kingston">
+<meta property="og:description" content="Paste a Samsung, SK hynix, Micron or Kingston memory part number to decode its capacity, DDR generation, speed, module type and rank, character by character. Free, no sign-up.">
+<meta property="og:image" content="https://ocitech.com/ocitech-logo.png">
+<meta property="og:url" content="https://ocitech.com/server-ram-part-number-decoder">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Server RAM Part Number Decoder: Samsung, SK hynix, Micron, Kingston">
+<meta name="twitter:description" content="Paste a Samsung, SK hynix, Micron or Kingston memory part number to decode its capacity, DDR generation, speed, module type and rank, character by character. Free, no sign-up.">
+<link rel="icon" href="/favicon.png" type="image/png">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-alt:#F5F5F7;
+    --bg-dark:#1D1D1F;
+    --text:#1D1D1F;
+    --text-secondary:#6E6E73;
+    --text-tertiary:#86868B;
+    --accent:#0071E3;
+    --accent-hover:#0077ED;
+    --green:#0A8A4A;
+    --line:rgba(0,0,0,0.08);
+    --radius-lg:20px;
+    --radius-md:14px;
+    --radius-sm:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.47;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 22px;}
+  .wrap-wide{max-width:1180px; margin:0 auto; padding:0 22px;}
+  .wrap-xwide{max-width:1440px; margin:0 auto; padding:0 32px;}
+
+  h1,h2,h3{margin:0; font-weight:600; letter-spacing:-0.015em;}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  .nav{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.78);
+    backdrop-filter:saturate(180%) blur(20px);
+    -webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; height:52px;}
+  .nav-brand{display:flex; align-items:center; gap:8px;}
+  .nav-brand img{height:22px; width:auto;}
+  .nav-brand span{font-size:14px; font-weight:600; color:var(--text); letter-spacing:-0.01em;}
+  .nav-links{display:none; align-items:center; gap:32px; font-size:12.5px; color:var(--text); font-weight:400;}
+  @media(min-width:1100px){.nav-links{display:flex;}}
+  .nav-links a{color:var(--text-secondary); transition:color .15s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-cta{font-size:12.5px; color:var(--accent); font-weight:400;}
+  .nav-cta:hover{color:var(--accent-hover);}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    font-size:17px; font-weight:400; padding:12px 22px; border-radius:980px;
+    cursor:pointer; border:1px solid transparent; transition:all .15s ease; white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent); color:#fff;}
+  .btn-primary:hover{background:var(--accent-hover);}
+  .btn-link{color:var(--accent); font-size:17px; padding:12px 4px;}
+  .btn-link:hover{color:var(--accent-hover);}
+  .btn-link .chev{transition:transform .15s;}
+  .btn-link:hover .chev{transform:translateX(3px);}
+
+  section{padding:100px 0;}
+  .section-alt{background:var(--bg-alt);}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
+  .section-head .eyebrow{font-size:15px; color:var(--text-secondary); font-weight:600; margin-bottom:10px;}
+  .section-head h2{font-size:clamp(30px,4vw,44px); letter-spacing:-0.02em;}
+  .section-head p{font-size:19px; color:var(--text-secondary); margin-top:14px; font-weight:400;}
+
+  .spec-list{margin-top:26px; display:flex; flex-direction:column; gap:0;}
+  .spec-row{display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-top:1px solid var(--line); font-size:15px;}
+  .spec-row:last-child{border-bottom:1px solid var(--line);}
+  .spec-row .k{color:var(--text-secondary);}
+  .spec-row .v{color:var(--text); font-weight:500; text-align:right;}
+
+  .faq-list{max-width:760px; margin:0 auto;}
+  .faq-item{border-top:1px solid var(--line); padding:22px 0;}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item h3{font-size:17px; font-weight:600; letter-spacing:-0.01em;}
+  .faq-item p{font-size:15px; color:var(--text-secondary); margin-top:8px;}
+
+  .quote-card{max-width:640px; margin:0 auto; background:#fff; border-radius:var(--radius-lg); padding:44px; box-shadow:0 4px 40px rgba(0,0,0,0.08); border:1px solid var(--line);}
+  form{display:flex; flex-direction:column; gap:18px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+  label{font-size:13px; color:var(--text-secondary); font-weight:500; margin-bottom:6px; display:block;}
+  input, select, textarea{width:100%; background:var(--bg-alt); border:1px solid transparent; color:var(--text); font-family:inherit; font-size:15px; padding:12px 14px; border-radius:var(--radius-sm); outline:none; transition:border-color .15s, background .15s;}
+  input:focus, select:focus, textarea:focus{background:#fff; border-color:var(--accent); box-shadow:0 0 0 4px rgba(0,113,227,0.12);}
+  textarea{resize:vertical; min-height:96px;}
+  .form-submit{display:flex; align-items:center; gap:16px; margin-top:2px; flex-wrap:wrap;}
+  .form-note{font-size:12.5px; color:var(--text-tertiary);}
+  #form-status{font-size:13px; color:var(--green); display:none;}
+  .contact-line{text-align:center; margin-top:28px; font-size:15px; color:var(--text-secondary);}
+  .contact-line a{color:var(--accent);}
+  .contact-line a:hover{color:var(--accent-hover);}
+
+  footer{background:var(--bg-alt); padding:40px 0 28px; border-top:1px solid var(--line);}
+  .footer-top{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; padding-bottom:24px; border-bottom:1px solid var(--line);}
+  .footer-brand{display:flex; align-items:center; gap:8px;}
+  .footer-brand img{height:20px;}
+  .footer-brand span{font-size:13px; color:var(--text-secondary); font-weight:500;}
+  .footer-links{display:flex; gap:24px; font-size:13px; color:var(--text-secondary);}
+  .footer-links a:hover{color:var(--text);}
+  .footer-bottom{padding-top:20px; font-size:12px; color:var(--text-tertiary);}
+  .footer-sitemap{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; padding:28px 0; border-bottom:1px solid var(--line);}
+  @media(max-width:760px){.footer-sitemap{grid-template-columns:1fr 1fr;}}
+  .footer-sitemap h4{font-size:12px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-tertiary); font-weight:600; margin-bottom:12px;}
+  .footer-sitemap ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:9px;}
+  .footer-sitemap a{font-size:13.5px; color:var(--text-secondary);}
+  .footer-sitemap a:hover{color:var(--accent);}
+
+  ::selection{background:var(--accent); color:#fff;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+
+  .breadcrumb{font-size:13px; color:var(--text-tertiary); padding:18px 0 0;}
+  .breadcrumb a{color:var(--text-secondary);}
+  .breadcrumb a:hover{color:var(--accent);}
+  .page-hero{padding:36px 0 56px; background:linear-gradient(180deg, #FBFBFD 0%, #FFFFFF 60%);}
+  .page-hero .eyebrow{font-size:15px; color:var(--text-secondary); font-weight:600; margin-bottom:14px;}
+  .page-hero h1{font-size:clamp(34px,5.5vw,58px); line-height:1.05; letter-spacing:-0.03em; max-width:820px;}
+  .page-hero p.sub{font-size:19px; color:var(--text-secondary); max-width:640px; margin-top:16px; font-weight:400;}
+  .page-hero .hero-ctas{margin-top:26px; display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+
+  .content-block{max-width:760px;}
+  .content-block h2{font-size:clamp(24px,3vw,32px); margin-top:52px; margin-bottom:16px;}
+  .content-block h2:first-child{margin-top:0;}
+  .content-block h3{font-size:19px; margin-top:30px; margin-bottom:8px;}
+  .content-block p{font-size:16.5px; color:var(--text-secondary); margin:0 0 14px;}
+  .content-block ul.plain{margin:0 0 14px; padding-left:20px; color:var(--text-secondary); font-size:16px;}
+  .content-block ul.plain li{margin-bottom:6px;}
+  .callout{background:var(--bg-alt); border-radius:var(--radius-md); padding:22px 24px; margin:22px 0; font-size:15.5px; color:var(--text-secondary);}
+  .callout strong{color:var(--text);}
+
+  .related-links{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .related-links a{font-size:13.5px; color:var(--text-secondary); background:var(--bg-alt); padding:8px 14px; border-radius:980px; border:1px solid var(--line);}
+  .related-links a:hover{color:var(--accent); border-color:var(--accent);}
+
+  /* mobile nav (2026-09-07) */
+  .nav-toggle{display:none;width:40px;height:40px;border:0;background:transparent;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:0;margin-left:6px;}
+  .nav-toggle span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px;transition:transform .2s,opacity .2s;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .nav-links .nav-mobile-only{display:none;}
+  @media(max-width:1099px){
+    .nav-toggle{display:inline-flex;}
+    .nav-lang-zh{display:none !important;}
+    .nav-cta{margin-left:auto;font-size:14px;}
+    .nav-links.open{display:flex;flex-direction:column;align-items:stretch;gap:0;position:absolute;top:52px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 30px -12px rgba(0,0,0,.25);padding:6px 0 10px;}
+    .nav-links.open a{display:block;padding:13px 22px;font-size:16px;color:var(--text);border-bottom:1px solid var(--line);}
+    .nav-links.open a:last-child{border-bottom:0;}
+    .nav-links.open .nav-mobile-only{display:block;}
+  }
+@media(max-width:759px){body.oci-typing .wa-float,body.oci-typing .wa-tooltip{opacity:0;pointer-events:none;transition:opacity .2s;}}
+
+  /* Article layout: reading first, quote form after the guide. */
+  .article-wrap,.article-body .wrap{max-width:804px;}
+  .page-hero{padding:24px 0 32px;background:#fff;}
+  .breadcrumb{padding:0;margin-bottom:32px;line-height:1.7;}
+  .page-hero .eyebrow{color:var(--accent);font-size:13px;letter-spacing:.08em;text-transform:uppercase;}
+  .page-hero h1{font-size:clamp(36px,5vw,56px);line-height:1.1;}
+  .page-hero p.sub{max-width:none;font-size:20px;line-height:1.6;}
+  .article-meta{font-size:14px;color:var(--text-secondary);margin:22px 0 28px;}
+  .article-meta span{padding:0 8px;}
+  .article-toc{padding:22px 24px;background:var(--bg-alt);border-radius:14px;font-size:15px;}
+  .article-toc strong{font-size:13px;text-transform:uppercase;letter-spacing:.06em;}
+  .article-toc ol{display:grid;grid-template-columns:1fr 1fr;gap:10px 30px;padding-left:20px;margin:16px 0;}
+  .article-toc a{color:var(--accent);}
+  .article-toc a:hover{text-decoration:underline;}
+  .article-body{padding:8px 0 48px;}
+  .content-block p,.content-block ul.plain{font-size:17px;line-height:1.8;color:#454549;}
+  .content-block h2,[id="label-examples"]{scroll-margin-top:80px;}
+  .spec-row .k{flex:0 0 110px;}
+  .spec-row .v{text-align:left;flex:1;}
+  .ocpg{padding:48px 0;border-top:1px solid var(--line);}
+  .ocpg .section-head{text-align:left;max-width:none;margin-bottom:28px;}
+  .ocpg .section-head h2{font-size:32px;}
+  .ocpg .wrap-wide{max-width:980px;}
+  @media(max-width:600px){
+    .article-toc ol{grid-template-columns:1fr;}
+    .spec-row{flex-direction:column;gap:6px;}
+    .spec-row .k{flex-basis:auto;}
+    .quote-card{padding:24px;}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}.reveal{transition:none;}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Server RAM Part Number Decoder",
+  "url": "https://ocitech.com/server-ram-part-number-decoder",
+  "description": "Paste a Samsung, SK hynix, Micron or Kingston memory part number to decode its capacity, DDR generation, speed, module type and rank, character by character. Free, no sign-up.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires JavaScript",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "dateModified": "2026-10-04",
+  "author": {
+    "@type": "Person",
+    "name": "Harlan Moore",
+    "jobTitle": "Founder",
+    "url": "https://ocitech.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ocitech, LLC",
+    "url": "https://ocitech.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ocitech.com/ocitech-logo.png"
+    }
+  },
+  "image": "https://ocitech.com/ocitech-logo.png"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://ocitech.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Memory News & Guides",
+      "item": "https://ocitech.com/memory-news"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Server RAM Part Number Decoder",
+      "item": "https://ocitech.com/server-ram-part-number-decoder"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is the part number on a RAM module?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the white label on the module. It is the longest code on the label and starts with M for Samsung, HM for SK hynix, MT for Micron or K for Kingston. The shorter line with the capacity, rank and a PC4 or PC5 code is the specification line, which the decoder also accepts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the rank marked “worked out”?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Samsung, SK hynix and Micron DDR4 part numbers do not include the rank. The decoder calculates it from the capacity, the DRAM die density and the DRAM width, all of which are in the part number. The result matched the label on the modules we tested, but if the two ever disagree, trust the label."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can it decode HPE, Dell or Lenovo part numbers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Server-brand spare and option numbers do not follow a scheme that can be decoded. The same label almost always carries the DRAM manufacturer’s own part number as well, and that one decodes. If you only have the server-brand number, send it to us and we will cross-reference it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do the extra letters after the speed code mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are customer, production or component-sourcing codes, such as the register and power-management chip combination on a DDR5 module. They do not change the capacity, speed, type or rank, so two modules that differ only in that suffix have the same specification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work for desktop and laptop memory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, for modules made by these four manufacturers. Unbuffered DIMMs and SODIMMs use the same numbering schemes as server modules, with a different module type code."
+      }
+    }
+  ]
+}
+</script>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3FJB2LL43N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-3FJB2LL43N');
+  gtag('config', 'AW-18309966360');
+</script>
+<!-- Reddit Pixel -->
+<script>
+!function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/pixel.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+rdt('init','a2_jix1ch5pxlq1');
+rdt('track','PageVisit');
+</script>
+<!-- End Reddit Pixel -->
+<script src="/scripts/referral-attribution.js"></script>
+<style>h1{font-size:clamp(2rem,4.2vw,2.85rem)!important;line-height:1.15!important;letter-spacing:-.02em!important;max-width:900px}h1 em{color:inherit;font-style:normal}</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap-wide nav-inner">
+    <div class="nav-brand">
+      <a href="/" style="display:flex;align-items:center;gap:8px;">
+        <img src="/ocitech-logo.png" alt="Ocitech, LLC — we buy server RAM and GPUs">
+      </a>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="sell-ddr5-ram">DDR5</a>
+      <a href="sell-ddr4-ram">DDR4</a>
+      <a href="sell-ssds-bulk">SSDs</a>
+      <a href="sell-server-ram">Server RAM</a>
+      <a href="ram-price-list">Price list</a>
+      <a href="sell-xeon-cpus">Xeon CPUs</a>
+      <a href="/#how-it-works">How It Works</a>
+      <a href="tel:14252691221" class="nav-mobile-only">Call 425-269-1221</a>
+      <a href="/zh-cn/" class="nav-mobile-only">&#127760; 中文 · For Chinese-speaking buyers</a>
+    </div>
+    <a href="/zh-cn/" class="nav-lang-zh" style="font-size:13px;color:var(--text-secondary);border:1px solid rgba(0,0,0,0.12);padding:5px 12px;border-radius:999px;margin-right:10px;">&#127760; 中文</a><a href="#quote" class="nav-cta">Get a Quote &rsaquo;</a><button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<style id="dec-style">
+  .dec-tool{margin-top:26px;padding:26px;background:var(--bg-alt);border-radius:var(--radius-lg);}
+  .dec-tool>label{font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;}
+  .dec-inputrow{display:flex;gap:10px;flex-wrap:wrap;}
+  .dec-inputrow input{flex:1;min-width:220px;padding:15px 18px;font-size:17px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;color:var(--text);box-shadow:0 2px 10px rgba(0,0,0,0.05);text-transform:uppercase;}
+  .dec-inputrow input::placeholder{text-transform:none;}
+  .dec-examples{margin-top:12px;font-size:13.5px;color:var(--text-secondary);display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .dec-examples button,.dec-fill{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;color:var(--text-secondary);background:#fff;border:1px solid var(--line);border-radius:980px;padding:6px 12px;cursor:pointer;}
+  .dec-examples button:hover,.dec-fill:hover{color:var(--accent);border-color:var(--accent);}
+  .dec-card{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:24px;}
+  .dec-maker{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600;}
+  .dec-sum{font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;margin-top:6px;}
+  .dec-pn{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;color:var(--text-secondary);margin-top:6px;word-break:break-all;}
+  .dec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:18px;}
+  .dec-tile{background:var(--bg-alt);border-radius:var(--radius-sm);padding:12px 14px;}
+  .dec-tile .k{font-size:12px;color:var(--text-secondary);}
+  .dec-tile .v{font-size:17px;font-weight:600;margin-top:2px;}
+  .dec-tile .s{font-size:12.5px;color:var(--text-secondary);margin-top:2px;}
+  .dec-badge{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.02em;color:#8a5a00;background:#FFF4D6;border-radius:980px;padding:2px 8px;vertical-align:middle;white-space:nowrap;}
+  .dec-badge-u{color:var(--text-secondary);background:#ECECEF;}
+  .dec-h{font-size:17px;margin:24px 0 10px;}
+  .dec-tablewrap{overflow-x:auto;}
+  .dec-table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  .dec-table th{text-align:left;font-size:12px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.05em;padding:8px 10px;border-bottom:1px solid var(--line);}
+  .dec-table td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--text-secondary);}
+  .dec-table td:nth-child(2){color:var(--text);white-space:nowrap;}
+  .dec-table td.seg,.dec-table td.code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:600;color:var(--text);white-space:nowrap;}
+  .dec-table tr.unk td{color:var(--text-tertiary);}
+  .dec-note{font-size:14px;line-height:1.6;color:var(--text-secondary);margin:14px 0 0;}
+  .dec-cta{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px;padding:18px 20px;background:var(--bg-alt);border-radius:var(--radius-md);font-size:15px;color:var(--text-secondary);}
+  .dec-cta>div{flex:1;min-width:220px;}
+  .dec-cta strong{color:var(--text);}
+  .dec-cta .btn{font-size:15px;padding:11px 20px;}
+  .dec-near{font-size:13.5px;color:var(--text-secondary);margin-top:12px;line-height:2;}
+  .dec-near a{color:var(--accent);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px;}
+  .dec-foot{margin-top:14px;}
+  .dec-share{font-size:13px;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;font-family:inherit;}
+  .dec-share:hover{text-decoration:underline;}
+  #pnquote{margin-top:14px;padding:20px;border:1px solid var(--line);border-radius:var(--radius-md);background:#fff;gap:10px;}
+  #pnquote[hidden]{display:none!important;}
+  #pnquote input{background:var(--bg-alt);}
+  .content-block .dec-table{margin:14px 0 6px;}
+  .content-block .dec-table td{font-size:15px;}
+  .content-block p a,.callout a,.faq-item p a{color:var(--accent);}
+  .content-block p a:hover,.callout a:hover,.faq-item p a:hover{text-decoration:underline;}
+  .dec-jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .dec-jump a{font-size:13.5px;color:var(--text-secondary);background:#fff;padding:7px 14px;border-radius:980px;border:1px solid var(--line);}
+  .dec-jump a:hover{color:var(--accent);border-color:var(--accent);}
+  @media(max-width:600px){.dec-tool{padding:18px;}.dec-card{padding:18px;}.dec-table td:nth-child(2){white-space:normal;}.dec-inputrow .btn{width:100%;}}
+</style>
+<main id="main-content">
+<article aria-labelledby="article-title">
+<header class="page-hero">
+  <div class="wrap article-wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a> &rsaquo; <a href="memory-news">Memory News &amp; Guides</a> &rsaquo; Part Number Decoder</nav>
+    <div class="eyebrow">Free tool</div>
+    <h1 id="article-title">Server RAM Part Number Decoder</h1>
+    <p class="sub">Paste a Samsung, SK hynix, Micron or Kingston memory part number to see its capacity, generation, speed, module type and rank, with every character explained.</p>
+    <div class="dec-tool" id="decoder">
+      <label for="pnsearch">Part number</label>
+      <div class="dec-inputrow">
+        <input id="pnsearch" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="60" placeholder="e.g. M393A4K40CB2-CTD">
+        <button type="button" id="dec-go" class="btn btn-primary">Decode</button>
+      </div>
+      <div class="dec-examples">Try one:
+        <button type="button" data-ex="M393A4K40CB2-CTD">M393A4K40CB2-CTD</button>
+        <button type="button" data-ex="HMA84GR7CJR4N-VK">HMA84GR7CJR4N-VK</button>
+        <button type="button" data-ex="MTC40F2046S1RC56BD1">MTC40F2046S1RC56BD1</button>
+        <button type="button" data-ex="KSM56R46BD4PMI-64HAI">KSM56R46BD4PMI-64HAI</button>
+      </div>
+      <div id="pnresults" aria-live="polite"></div>
+      <form id="pnquote" name="part-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input type="hidden" name="form-name" value="part-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+        <input type="hidden" name="part" id="pnq-part">
+        <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
+        <div id="pnq-msg" style="font-size:14px;">Add your email and we will send you an offer.</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input type="email" name="email" required placeholder="you@company.com" aria-label="Email" style="flex:2;min-width:180px;">
+          <input type="number" name="quantity" min="1" placeholder="Qty (optional)" aria-label="Quantity" style="flex:1;min-width:120px;">
+          <button type="submit" class="btn btn-primary" style="font-size:15px;">Get My Firm Offer</button>
+        </div>
+        <div style="font-size:12px;color:var(--text-tertiary);">Your part number is sent with your email. We reply directly, usually within one business day.</div>
+      </form>
+      <noscript><p class="dec-note">The decoder needs JavaScript. The reference tables below work without it.</p></noscript>
+    </div>
+    <div class="dec-jump" aria-label="On this page">
+      <a href="#how-it-works">How it works</a>
+      <a href="#samsung">Samsung</a>
+      <a href="#sk-hynix">SK hynix</a>
+      <a href="#micron">Micron</a>
+      <a href="#kingston">Kingston</a>
+      <a href="#speed-codes">Speed codes</a>
+      <a href="#faq">Questions</a>
+    </div>
+  </div>
+</header>
+
+<section class="article-body" aria-label="How RAM part numbers are built">
+  <div class="wrap">
+    <div class="content-block">
+      <h2 id="how-it-works">What the decoder reads, and what it works out</h2>
+      <p>A memory part number is a packed specification. Capacity, generation, module type, DRAM width and speed each sit at a fixed position. The decoder reads those positions using the manufacturer&rsquo;s own numbering scheme, so it works on part numbers it has never seen, not only on a list of known ones.</p>
+      <p>Rank is the exception. Samsung, SK hynix and Micron&rsquo;s DDR4 numbers do not print it, so the decoder works it out from capacity, die density and DRAM width and marks the result <span class="dec-badge">worked out</span>. It agreed with the label on more than 100 modules from our buying catalog, but the label on the module has the final word. If the difference between 2Rx4 and 2Rx8 is new to you, read <a href="memory-ranks-explained-2rx4-vs-2rx8">memory ranks explained</a>.</p>
+      <div class="callout"><strong>Where to find the part number:</strong> it is on the white label on the module and starts with <strong>M</strong> (Samsung), <strong>HM</strong> (SK hynix), <strong>MT</strong> (Micron) or <strong>K</strong> (Kingston). The shorter line that reads like <em>32GB 2Rx4 PC4-2666V-RB2</em> is the specification line; you can paste that here too. Our guide to <a href="how-to-identify-your-ram">identifying server RAM</a> shows real labels.</div>
+
+      <h2 id="samsung">Samsung part numbers</h2>
+      <p>Samsung module numbers start with <strong>M3</strong> (full-size DIMM) or <strong>M4</strong> (SODIMM). The next two digits give the module type, and the letter after them gives the generation: <strong>A</strong> for DDR4, <strong>R</strong> for DDR5. The speed is the last two characters after the dash and the letter C.</p>
+      <p><strong>Example:</strong> <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);">M393A4K40CB2-CTD</span> is a 32GB DDR4-2666 RDIMM, 2Rx4 module. <button type="button" class="dec-fill" data-ex="M393A4K40CB2-CTD">Open in the decoder</button></p>
+<div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="seg">M</td><td>Product</td><td>Samsung memory module</td></tr>
+<tr><td class="seg">3</td><td>Module format</td><td>DIMM</td></tr>
+<tr><td class="seg">93</td><td>Module type</td><td>288-pin registered DIMM, 72-bit (ECC)</td></tr>
+<tr><td class="seg">A</td><td>DRAM type</td><td>DDR4 SDRAM (1.2V)</td></tr>
+<tr><td class="seg">4K</td><td>Depth</td><td>4G words = 32GB module (built on 8Gb DRAM)</td></tr>
+<tr><td class="seg">4</td><td>Banks &amp; interface</td><td>16 banks, POD 1.2V</td></tr>
+<tr><td class="seg">0</td><td>DRAM width</td><td>x4 components</td></tr>
+<tr><td class="seg">C</td><td>Component revision</td><td>C-die</td></tr>
+<tr><td class="seg">B</td><td>Package</td><td>FBGA, flip chip (single die per package)</td></tr>
+<tr><td class="seg">2</td><td>PCB revision</td><td>Revision 2</td></tr>
+<tr><td class="seg">C</td><td>Temperature &amp; power</td><td>Commercial temperature (0–85°C), normal power</td></tr>
+<tr><td class="seg">TD</td><td>Speed</td><td>DDR4-2666, CL19</td></tr>
+</tbody></table></div>
+      <h3>Samsung module type codes</h3>
+      <div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Prefix</th><th>Generation</th><th>Module type</th></tr></thead><tbody>
+        <tr><td class="code">M393A</td><td>DDR4</td><td>Registered DIMM (RDIMM)</td></tr>
+        <tr><td class="code">M392A</td><td>DDR4</td><td>Very-low-profile RDIMM</td></tr>
+        <tr><td class="code">M386A</td><td>DDR4</td><td>Load-reduced DIMM (LRDIMM)</td></tr>
+        <tr><td class="code">M391A</td><td>DDR4</td><td>ECC unbuffered DIMM</td></tr>
+        <tr><td class="code">M378A</td><td>DDR4</td><td>Unbuffered DIMM (desktop)</td></tr>
+        <tr><td class="code">M471A</td><td>DDR4</td><td>SODIMM (laptop)</td></tr>
+        <tr><td class="code">M474A</td><td>DDR4</td><td>ECC SODIMM</td></tr>
+        <tr><td class="code">M321R</td><td>DDR5</td><td>Registered DIMM (RDIMM)</td></tr>
+        <tr><td class="code">M324R</td><td>DDR5</td><td>ECC unbuffered DIMM</td></tr>
+        <tr><td class="code">M323R</td><td>DDR5</td><td>Unbuffered DIMM (desktop)</td></tr>
+        <tr><td class="code">M425R</td><td>DDR5</td><td>SODIMM (laptop)</td></tr>
+      </tbody></table></div>
+      <p>In the depth field, a <strong>K</strong> (as in 4K) means the module is built on 8Gb DRAM; a <strong>G</strong> means 4Gb or 16Gb DRAM, which the component revision letter settles. The digit after it gives the DRAM width: <strong>0</strong> is x4, <strong>3</strong> is x8.</p>
+
+      <h2 id="sk-hynix">SK hynix part numbers</h2>
+      <p>SK hynix uses two formats. DDR4 modules mostly use the older one, which starts <strong>HMA</strong> followed by the DRAM density and depth. All DDR5 modules, and some later DDR4 ones, use a 15-character format that starts <strong>HMC</strong> (DDR5) or <strong>HMA</strong> (DDR4) followed by <strong>G</strong> or <strong>T</strong> and a capacity code.</p>
+      <h3>DDR4 format</h3>
+      <p><strong>Example:</strong> <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);">HMA84GR7CJR4N-VK</span> is a 32GB DDR4-2666 RDIMM, 2Rx4 module. <button type="button" class="dec-fill" data-ex="HMA84GR7CJR4N-VK">Open in the decoder</button></p>
+<div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="seg">HM</td><td>Product</td><td>SK hynix memory module</td></tr>
+<tr><td class="seg">A</td><td>DRAM type</td><td>DDR4 SDRAM</td></tr>
+<tr><td class="seg">8</td><td>Component density</td><td>8Gb per DRAM package</td></tr>
+<tr><td class="seg">4G</td><td>Depth</td><td>4G words = 32GB module</td></tr>
+<tr><td class="seg">R</td><td>Module type</td><td>288-pin registered DIMM</td></tr>
+<tr><td class="seg">7</td><td>Data width &amp; height</td><td>72-bit (ECC), standard height</td></tr>
+<tr><td class="seg">C</td><td>Die generation</td><td>C-die (4th generation)</td></tr>
+<tr><td class="seg">J</td><td>Package</td><td>Flip-chip, single die</td></tr>
+<tr><td class="seg">R</td><td>Package material</td><td>Lead-free and halogen-free (RoHS)</td></tr>
+<tr><td class="seg">4</td><td>DRAM width</td><td>x4 components</td></tr>
+<tr><td class="seg">N</td><td>Temperature &amp; voltage</td><td>Commercial temperature (0–85°C), 1.2V</td></tr>
+<tr><td class="seg">VK</td><td>Speed</td><td>DDR4-2666, CL19</td></tr>
+</tbody></table></div>
+      <h3>15-character format (DDR5)</h3>
+      <p><strong>Example:</strong> <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);">HMCG88MEBRA107N</span> is a 32GB DDR5-4800 RDIMM, 2Rx8 module. <button type="button" class="dec-fill" data-ex="HMCG88MEBRA107N">Open in the decoder</button></p>
+<div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="seg">HM</td><td>Product</td><td>SK hynix memory module</td></tr>
+<tr><td class="seg">C</td><td>DRAM type</td><td>DDR5 SDRAM</td></tr>
+<tr><td class="seg">G8</td><td>Module density</td><td>32GB</td></tr>
+<tr><td class="seg">8</td><td>DRAM width</td><td>x8 components</td></tr>
+<tr><td class="seg">M</td><td>Die generation</td><td>M-die (1st generation)</td></tr>
+<tr><td class="seg">EB</td><td>Speed</td><td>DDR5-4800, CL40</td></tr>
+<tr><td class="seg">R</td><td>Module type</td><td>RDIMM</td></tr>
+<tr><td class="seg">A</td><td>Die density &amp; build</td><td>16Gb DRAM, low profile, commercial temperature</td></tr>
+<tr><td class="seg">107</td><td>Package &amp; module options</td><td>Identifies the register (RCD) and power-management IC combination</td></tr>
+<tr><td class="seg">N</td><td>Sales type</td><td>Normal</td></tr>
+</tbody></table></div>
+      <div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Code</th><th>Capacity</th><th>Code</th><th>Capacity</th></tr></thead><tbody>
+        <tr><td class="code">G6</td><td>8GB</td><td class="code">G9</td><td>64GB</td></tr>
+        <tr><td class="code">G7</td><td>16GB</td><td class="code">GM</td><td>96GB</td></tr>
+        <tr><td class="code">GJ</td><td>24GB</td><td class="code">T0</td><td>128GB</td></tr>
+        <tr><td class="code">G8</td><td>32GB</td><td class="code">T1</td><td>256GB</td></tr>
+        <tr><td class="code">GY</td><td>48GB</td><td class="code">T2</td><td>512GB</td></tr>
+      </tbody></table></div>
+
+      <h2 id="micron">Micron part numbers</h2>
+      <p>Micron DDR4 modules start <strong>MTA</strong> and DDR5 modules start <strong>MTC</strong>. Both open with the number of DRAM die on the module. The DDR4 scheme leaves rank and DRAM width to be worked out from that die count; the DDR5 scheme prints both.</p>
+      <h3>DDR4 format</h3>
+      <p><strong>Example:</strong> <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);">MTA36ASF4G72PZ-2G6D1</span> is a 32GB DDR4-2666 RDIMM, 2Rx4 module. <button type="button" class="dec-fill" data-ex="MTA36ASF4G72PZ-2G6D1">Open in the decoder</button></p>
+<div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="seg">MT</td><td>Product</td><td>Micron Technology</td></tr>
+<tr><td class="seg">A</td><td>DRAM type</td><td>DDR4 SDRAM</td></tr>
+<tr><td class="seg">36</td><td>Number of DRAM die</td><td>36</td></tr>
+<tr><td class="seg">A</td><td>Voltage</td><td>1.2V</td></tr>
+<tr><td class="seg">SF</td><td>Module options</td><td>FBGA with temperature sensor</td></tr>
+<tr><td class="seg">4G</td><td>Depth</td><td>4G words = 32GB module</td></tr>
+<tr><td class="seg">72</td><td>Module width</td><td>72-bit (ECC)</td></tr>
+<tr><td class="seg">P</td><td>Module type</td><td>288-pin registered DIMM</td></tr>
+<tr><td class="seg">Z</td><td>Package code</td><td>Commercial temperature, halogen-free</td></tr>
+<tr><td class="seg">-2G6</td><td>Speed</td><td>DDR4-2666, CL19</td></tr>
+<tr><td class="seg">D</td><td>Die revision</td><td>Revision D</td></tr>
+<tr><td class="seg">1</td><td>PCB revision</td><td>Revision 1</td></tr>
+</tbody></table></div>
+      <p>The letters after the 72 or 64 give the module type: <strong>P</strong> is RDIMM, <strong>L</strong> is LRDIMM, <strong>A</strong> is UDIMM and <strong>H</strong> is SODIMM. A package code of <strong>DZ</strong> rather than <strong>Z</strong> marks the dual-rank build, which is how an 18-die 16GB module is told apart: PZ is 1Rx4, PDZ is 2Rx8.</p>
+      <h3>DDR5 format</h3>
+      <p><strong>Example:</strong> <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);">MTC40F2046S1RC56BD1</span> is a 64GB DDR5-5600 RDIMM, 2Rx4 module. <button type="button" class="dec-fill" data-ex="MTC40F2046S1RC56BD1">Open in the decoder</button></p>
+<div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="seg">MT</td><td>Product</td><td>Micron Technology</td></tr>
+<tr><td class="seg">C</td><td>DRAM type</td><td>DDR5 SDRAM</td></tr>
+<tr><td class="seg">40</td><td>Number of DRAM die</td><td>40</td></tr>
+<tr><td class="seg">F</td><td>Module power input</td><td>12V (server RDIMM class)</td></tr>
+<tr><td class="seg">2</td><td>Ranks</td><td>2 ranks</td></tr>
+<tr><td class="seg">0</td><td>Logical ranks</td><td>No 3DS stacking</td></tr>
+<tr><td class="seg">4</td><td>DRAM width</td><td>x4 components</td></tr>
+<tr><td class="seg">6</td><td>Module density</td><td>64GB</td></tr>
+<tr><td class="seg">S</td><td>Module height</td><td>Standard height (low profile)</td></tr>
+<tr><td class="seg">1</td><td>Die package</td><td>Single die per package</td></tr>
+<tr><td class="seg">R</td><td>Module type</td><td>Registered DIMM</td></tr>
+<tr><td class="seg">C</td><td>Temperature</td><td>Commercial temperature</td></tr>
+<tr><td class="seg">56B</td><td>Speed</td><td>DDR5-5600, CL46</td></tr>
+<tr><td class="seg">D</td><td>Die revision</td><td>Revision D</td></tr>
+<tr><td class="seg">1</td><td>PCB revision</td><td>Revision 1</td></tr>
+</tbody></table></div>
+      <div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Density code</th><th>Capacity</th><th>Type code</th><th>Module type</th></tr></thead><tbody>
+        <tr><td class="code">3</td><td>8GB</td><td class="code">R</td><td>RDIMM</td></tr>
+        <tr><td class="code">4</td><td>16GB</td><td class="code">E</td><td>ECC UDIMM</td></tr>
+        <tr><td class="code">Y</td><td>24GB</td><td class="code">U</td><td>UDIMM</td></tr>
+        <tr><td class="code">5</td><td>32GB</td><td class="code">S</td><td>SODIMM</td></tr>
+        <tr><td class="code">X</td><td>48GB</td><td class="code">T</td><td>ECC SODIMM</td></tr>
+        <tr><td class="code">6</td><td>64GB</td><td class="code">H</td><td>MRDIMM</td></tr>
+        <tr><td class="code">W</td><td>96GB</td><td></td><td></td></tr>
+        <tr><td class="code">7</td><td>128GB</td><td></td><td></td></tr>
+      </tbody></table></div>
+
+      <h2 id="kingston">Kingston part numbers</h2>
+      <p>Kingston&rsquo;s Server Premier (<strong>KSM</strong>) and ValueRAM (<strong>KVR</strong>) numbers are the most readable of the four: speed, module type, rank, DRAM width and capacity are all printed, and Server Premier adds the DRAM manufacturer and die revision. Kingston&rsquo;s system-specific numbers (<strong>KTD-</strong>, <strong>KTH-</strong>, <strong>KTL-</strong>) are shorter and name the server family the module was built for.</p>
+      <p><strong>Example:</strong> <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--text);">KSM56R46BD4PMI-64HAI</span> is a 64GB DDR5-5600 RDIMM, 2Rx4 module. <button type="button" class="dec-fill" data-ex="KSM56R46BD4PMI-64HAI">Open in the decoder</button></p>
+<div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>
+<tr><td class="seg">KSM</td><td>Product line</td><td>Kingston Server Premier</td></tr>
+<tr><td class="seg">56</td><td>Speed</td><td>DDR5-5600</td></tr>
+<tr><td class="seg">R</td><td>Module type</td><td>ECC registered DIMM (EC8, x80)</td></tr>
+<tr><td class="seg">46B</td><td>CAS latency</td><td>CL46-45-45</td></tr>
+<tr><td class="seg">D</td><td>Ranks</td><td>Dual rank</td></tr>
+<tr><td class="seg">4</td><td>DRAM width</td><td>x4 components</td></tr>
+<tr><td class="seg">P</td><td>Power-management IC (PMIC)</td><td>MPS</td></tr>
+<tr><td class="seg">M</td><td>SPD hub</td><td>Montage</td></tr>
+<tr><td class="seg">I</td><td>Thermal sensor</td><td>Renesas</td></tr>
+<tr><td class="seg">64</td><td>Capacity</td><td>64GB</td></tr>
+<tr><td class="seg">H</td><td>DRAM manufacturer</td><td>SK hynix</td></tr>
+<tr><td class="seg">A</td><td>Die revision</td><td>A-die</td></tr>
+<tr><td class="seg">I</td><td>Register (RCD)</td><td>Renesas</td></tr>
+</tbody></table></div>
+
+      <h2 id="speed-codes">Speed codes at a glance</h2>
+      <p>Each manufacturer has its own code for the same speed. The same two letters can mean different things: <strong>WM</strong> is DDR5-5600 on a Samsung module and DDR4-2933 on an SK hynix one.</p>
+      <div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Speed</th><th>Label</th><th>Samsung</th><th>SK hynix</th><th>Micron</th></tr></thead><tbody>
+        <tr><td>DDR4-2133</td><td>PC4-17000</td><td class="code">PB</td><td class="code">TF</td><td class="code">-2G1</td></tr>
+        <tr><td>DDR4-2400</td><td>PC4-19200</td><td class="code">RC</td><td class="code">UH</td><td class="code">-2G3</td></tr>
+        <tr><td>DDR4-2666</td><td>PC4-21300</td><td class="code">TD</td><td class="code">VK</td><td class="code">-2G6</td></tr>
+        <tr><td>DDR4-2933</td><td>PC4-23400</td><td class="code">VF</td><td class="code">WM</td><td class="code">-2G9</td></tr>
+        <tr><td>DDR4-3200</td><td>PC4-25600</td><td class="code">WE</td><td class="code">XN</td><td class="code">-3G2</td></tr>
+        <tr><td>DDR5-4800</td><td>PC5-38400</td><td class="code">QK</td><td class="code">EB</td><td class="code">48B</td></tr>
+        <tr><td>DDR5-5600</td><td>PC5-44800</td><td class="code">WM</td><td class="code">GB</td><td class="code">56B</td></tr>
+        <tr><td>DDR5-6400</td><td>PC5-51200</td><td class="code">CP</td><td class="code">HB</td><td class="code">64B</td></tr>
+      </tbody></table></div>
+
+      <h2 id="sources">Sources and accuracy</h2>
+      <p>The decoding rules are based on the manufacturers&rsquo; published part-numbering documentation: Samsung&rsquo;s DDR4 product guide and DDR5 module datasheets, SK hynix&rsquo;s DDR4 and DDR5 module part-number decoders, Micron&rsquo;s <a href="https://www.micron.com/content/dam/micron/global/public/products/part-numbering-guide/numsdrammod.pdf" rel="noopener">module part numbering guides</a> and Kingston&rsquo;s <a href="https://www.kingston.com/en/memory/memory-part-number-decoder" rel="noopener">memory part number decoder</a>. They were then checked against real modules from our buying catalog.</p>
+      <p>Manufacturers add codes over time. When the decoder meets a code it does not know, it says so instead of guessing. If it gets a part number wrong, email <a href="mailto:harlan@ocitech.com?subject=Part%20number%20decoder">harlan@ocitech.com</a> and we will fix it.</p>
+
+      <div class="related-links">
+        <a href="how-to-identify-your-ram">How to identify your RAM &rarr;</a>
+        <a href="memory-ranks-explained-2rx4-vs-2rx8">2Rx4 vs 2Rx8 explained &rarr;</a>
+        <a href="sell-ddr5-ram">Sell DDR5 RAM &rarr;</a>
+        <a href="sell-ddr4-ram">Sell DDR4 RAM &rarr;</a>
+        <a href="sell-mixed-ram-lots">Mixed / untested lots &rarr;</a>
+        <a href="how-to-pack-server-ram">How to pack &amp; ship RAM &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Questions</div>
+      <h2>Decoding RAM part numbers: common questions.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <h3>Where is the part number on a RAM module?</h3>
+        <p>On the white label on the module. It is the longest code on the label and starts with M for Samsung, HM for SK hynix, MT for Micron or K for Kingston. The shorter line with the capacity, rank and a PC4 or PC5 code is the specification line, which the decoder also accepts.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why is the rank marked “worked out”?</h3>
+        <p>Samsung, SK hynix and Micron DDR4 part numbers do not include the rank. The decoder calculates it from the capacity, the DRAM die density and the DRAM width, all of which are in the part number. The result matched the label on the modules we tested, but if the two ever disagree, trust the label.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can it decode HPE, Dell or Lenovo part numbers?</h3>
+        <p>No. Server-brand spare and option numbers do not follow a scheme that can be decoded. The same label almost always carries the DRAM manufacturer’s own part number as well, and that one decodes. If you only have the server-brand number, send it to us and we will cross-reference it.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What do the extra letters after the speed code mean?</h3>
+        <p>They are customer, production or component-sourcing codes, such as the register and power-management chip combination on a DDR5 module. They do not change the capacity, speed, type or rank, so two modules that differ only in that suffix have the same specification.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does it work for desktop and laptop memory?</h3>
+        <p>Yes, for modules made by these four manufacturers. Unbuffered DIMMs and SODIMMs use the same numbering schemes as server modules, with a different module type code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="author-bio" style="display:flex;gap:16px;align-items:center;border-top:1px solid #dbe2ec;margin-top:40px;padding-top:24px;font:.9rem/1.6 Arial,sans-serif;color:#536277"><img src="/founder-harlan.jpg" alt="Harlan Moore" width="56" height="56" style="width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none"><p style="margin:0"><strong style="color:#152337">Harlan Moore</strong> is the founder of Ocitech and buys every lot personally from Tacoma, WA. He has more than 20 years of experience sourcing physical commodities and IT hardware at scale.</p></div></article>
+
+<section id="quote" class="section-alt" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Get a quote</div>
+      <h2>Know what you have? Let’s price it.</h2>
+      <p>Send the part number, a photo of the label, or just a rough count. We'll follow up directly.</p>
+    </div>
+
+    <div class="quote-card reveal">
+      <form id="quote-form" name="quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
+        <p style="display:none;"><label>Don't fill this out if you're human: <input name="bot-field"></label></p>
+        <div class="form-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div>
+            <label for="company">Company (optional)</label>
+            <input type="text" id="company" name="company">
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div>
+          <label for="category">What are you selling?</label>
+          <select id="category" name="category">
+            <option>Server RAM (RDIMM / LRDIMM)</option>
+            <option>Desktop / laptop RAM</option>
+            <option>Mixed / untested memory lot</option>
+            <option>Data center GPUs (A100/H100/etc.)</option>
+            <option>Workstation or gaming GPUs</option>
+            <option>Mining rig / farm liquidation</option>
+            <option>SSDs / storage drives</option>
+            <option>Server CPUs (Xeon / EPYC)</option>
+            <option>Other IT hardware</option>
+          </select>
+        </div>
+        <div>
+          <label for="details">Details &mdash; part numbers, quantity, condition</label>
+          <textarea id="details" name="details" placeholder="e.g. part numbers, quantity, and condition"></textarea>
+        </div>
+                <div>
+          <label for="attachment">Attach a spreadsheet or photos (optional)</label>
+          <input type="file" id="attachment" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
+          <div class="form-note" style="display:block;margin-top:6px;">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files per submission &mdash; large phone photos are shrunk automatically before sending.</div>
+        </div>
+<div class="form-submit">
+          <button type="submit" class="btn btn-primary">Send to Ocitech</button>
+          <span class="form-note">We'll reply directly by email, usually within one business day.</span>
+        </div>
+        <div id="form-status"></div>
+      </form>
+    </div>
+
+    <div class="contact-line reveal">
+      Prefer to talk? Call <a href="tel:14252691221">425-269-1221</a> or email <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap-xwide">
+    <div class="footer-sitemap">
+      <div>
+        <h4>Server &amp; Desktop RAM</h4>
+        <ul>
+          <li><a href="sell-server-ram">Server RAM (RDIMM/LRDIMM)</a></li>
+          <li><a href="sell-ddr4-ram">DDR4 RAM</a></li>
+          <li><a href="sell-ddr5-ram">DDR5 RAM</a></li>
+          <li><a href="sell-desktop-ram">Desktop &amp; Laptop RAM</a></li>
+          <li><a href="sell-mixed-ram-lots">Mixed / Untested Lots</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>GPUs</h4>
+        <ul>
+          <li><a href="sell-gpus-bulk">Sell GPUs in Bulk</a></li>
+          <li><a href="sell-data-center-gpus">Data Center GPUs</a></li>
+          <li><a href="sell-workstation-gpus">Workstation GPUs</a></li>
+          <li><a href="sell-mining-gpus">Mining &amp; Consumer GPUs</a></li>
+          <li><a href="sell-mining-rig-liquidation">Mining Rig Liquidation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>IT Hardware</h4>
+        <ul>
+          <li><a href="sell-xeon-cpus">Xeon &amp; Server CPUs</a></li>
+          <li><a href="sell-decommissioned-servers">Decommissioned Servers</a></li>
+          <li><a href="sell-decommissioned-laptops">Decommissioned Laptops</a></li>
+          <li><a href="sell-ssds-bulk">Sell SSDs in Bulk</a></li>
+          <li><a href="bulk-it-asset-liquidation">Bulk IT Liquidation</a></li>
+          <li><a href="about">About Ocitech</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Guides &amp; Contact</h4>
+        <ul>
+          <li><a href="how-to-identify-your-ram">How to Identify Your RAM</a></li>
+          <li><a href="server-ram-part-number-decoder">RAM Part Number Decoder</a></li>
+          <li><a href="how-to-pack-server-ram">How to Pack &amp; Ship RAM</a></li>
+          <li><a href="best-places-to-sell-server-ram-2026">Best Places to Sell in 2026</a></li>
+          <li><a href="tel:14252691221">425-269-1221</a></li>
+          <li><a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a></li>
+          <li>7606 S Tacoma Way, Tacoma, WA 98409</li>
+          <li><a href="/#quote">Request a Quote</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="/ocitech-logo.png" alt="Ocitech, LLC — we buy server RAM and GPUs">
+        <span>Ocitech, LLC &mdash; When inventory has to move.</span>
+      </div>
+      <div class="footer-links">
+        <a href="tel:14252691221">425-269-1221</a>
+        <a href="mailto:harlan@ocitech.com">harlan@ocitech.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Ocitech, LLC. All rights reserved. &nbsp;&middot;&nbsp; <a href="https://ai.ocitech.com/" style="color:var(--text-secondary);">Ocitech AI &mdash; Agentic AI Integration &rarr;</a>
+    </div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const revealEls = document.querySelectorAll('.reveal:not(.in)');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+<!-- WhatsApp floating contact button -->
+<style>
+  .wa-float{position:fixed; bottom:24px; right:24px; width:58px; height:58px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,0.25), 0 2px 6px rgba(0,0,0,0.15); z-index:9999; transition:transform .2s ease, box-shadow .2s ease; text-decoration:none;}
+  .wa-float:hover{transform:scale(1.08); box-shadow:0 6px 22px rgba(0,0,0,0.3), 0 3px 8px rgba(0,0,0,0.18);}
+  .wa-float svg{width:30px; height:30px; display:block;}
+  .wa-float-pulse{position:absolute; top:0; left:0; right:0; bottom:0; border-radius:50%; background:#25D366; opacity:0.55; animation:wa-pulse 2.4s ease-out infinite; z-index:-1;}
+  @keyframes wa-pulse{0%{ transform:scale(1); opacity:0.55; } 100%{ transform:scale(1.7); opacity:0; }}
+  .wa-tooltip{position:fixed; bottom:38px; right:92px; background:#1D1D1F; color:#fff; font-family:-apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; font-size:13.5px; font-weight:500; padding:9px 14px; border-radius:10px; white-space:nowrap; z-index:9998; opacity:0; pointer-events:none; transform:translateX(8px); transition:opacity .25s ease, transform .25s ease;}
+  .wa-tooltip::after{content:""; position:absolute; top:50%; right:-6px; transform:translateY(-50%); border-width:6px 0 6px 6px; border-style:solid; border-color:transparent transparent transparent #1D1D1F;}
+  .wa-float:hover + .wa-tooltip, .wa-tooltip.wa-show{opacity:1; transform:translateX(0);}
+  @media (max-width:640px){.wa-float{bottom:18px; right:18px; width:52px; height:52px;} .wa-float svg{ width:27px; height:27px; } .wa-tooltip{ display:none; }}
+</style>
+<a href="https://wa.me/14252691221?text=Hi%20Harlan%2C%20I%20found%20Ocitech%20online%20and%20wanted%20to%20reach%20out%20about%20server%20memory%2FGPUs." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat with Ocitech on WhatsApp" id="wa-float-btn">
+  <span class="wa-float-pulse"></span>
+  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.004 3C9.376 3 4 8.373 4 15c0 2.234.615 4.42 1.78 6.324L3 29l7.86-2.735A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3z" fill="#25D366"/>
+    <path d="M22.1 18.13c-.33-.166-1.955-.966-2.258-1.076-.303-.11-.523-.166-.744.166-.22.331-.853 1.076-1.046 1.297-.192.22-.385.248-.715.083-.33-.166-1.393-.514-2.653-1.638-.981-.875-1.644-1.955-1.837-2.286-.192-.331-.02-.51.145-.675.149-.148.33-.386.496-.579.165-.193.22-.33.33-.551.11-.221.055-.414-.028-.58-.083-.165-.744-1.79-1.02-2.45-.269-.645-.543-.558-.744-.568-.192-.008-.413-.01-.633-.01-.22 0-.578.083-.88.414-.303.331-1.156 1.13-1.156 2.755 0 1.625 1.184 3.195 1.349 3.416.165.221 2.33 3.557 5.646 4.987.789.34 1.404.543 1.884.695.792.252 1.512.216 2.082.131.635-.095 1.955-.8 2.23-1.572.276-.772.276-1.434.193-1.572-.083-.138-.303-.22-.633-.386z" fill="#FFFFFF"/>
+  </svg>
+</a>
+<span class="wa-tooltip" id="wa-tooltip">Chat on WhatsApp</span>
+<script>
+  (function(){
+    var tip = document.getElementById('wa-tooltip');
+    var btn = document.getElementById('wa-float-btn');
+    if(!tip || !btn) return;
+    setTimeout(function(){ tip.classList.add('wa-show'); setTimeout(function(){ tip.classList.remove('wa-show'); }, 3200); }, 2500);
+  })();
+</script>
+
+<script>
+(function(){
+  /* Ocitech file-upload UX v2 (2026-09-07)
+     Netlify Forms accepts ONE file per field, so every form carries six static file fields:
+     attachment, attachment2 ... attachment6 (added by the site generator / patch script).
+     This script hides them, shows one "Add photos or a spreadsheet" button backed by a
+     hidden multi-select picker, compresses phone photos client-side, and distributes up to
+     six files across the six fields. Total payload is kept under ~5.5 MB (Netlify cap 8 MB). */
+  if(window.__ociFileUX) return; window.__ociFileUX=2;
+  var MAX_TOTAL=5.5*1024*1024, MAX_FILES=6, IMG_MAX_PX=1600, IMG_Q=0.82;
+  function human(b){return (b/1048576).toFixed(1)+' MB';}
+  function track(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}}
+  function isImage(f){return /^image\//.test(f.type)&&!/heic|heif/i.test(f.type);}
+  function compress(file){
+    return new Promise(function(res){
+      if(!isImage(file)||file.size<450*1024){res(file);return;}
+      var img=new Image(),url=URL.createObjectURL(file);
+      img.onload=function(){
+        var w=img.naturalWidth,h=img.naturalHeight,s=Math.min(1,IMG_MAX_PX/Math.max(w,h));
+        var c=document.createElement('canvas');c.width=Math.round(w*s);c.height=Math.round(h*s);
+        c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+        c.toBlob(function(b){URL.revokeObjectURL(url);
+          if(!b||b.size>=file.size){res(file);return;}
+          res(new File([b],file.name.replace(/\.[^.]+$/,'')+'.jpg',{type:'image/jpeg',lastModified:Date.now()}));
+        },'image/jpeg',IMG_Q);
+      };
+      img.onerror=function(){URL.revokeObjectURL(url);res(file);};
+      img.src=url;
+    });
+  }
+  function setFiles(input,file){var dt=new DataTransfer();if(file)dt.items.add(file);input.files=dt.files;}
+
+  var forms=[];document.querySelectorAll('form').forEach(function(f){if(f.querySelector('input[type=file]')&&forms.indexOf(f)<0)forms.push(f);});
+  forms.forEach(function(form){
+    var slots=Array.prototype.slice.call(form.querySelectorAll('input[type=file]'));
+    var first=slots[0]; if(!first) return;
+    var base=(first.getAttribute('name')||'attachment').replace(/\d+$/,'');
+    // ensure six static-named slots exist (generator adds them; this is a safety net for hand pages)
+    for(var i=slots.length+1;i<=MAX_FILES;i++){var extra=document.createElement('input');extra.type='file';extra.name=base+i;extra.setAttribute('accept',first.getAttribute('accept')||'');first.parentNode.insertBefore(extra,first.nextSibling);slots.push(extra);}
+    slots.forEach(function(s){s.removeAttribute('multiple');s.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';s.tabIndex=-1;});
+
+    var picker=document.createElement('input');picker.type='file';picker.multiple=true;picker.setAttribute('accept',first.getAttribute('accept')||'.csv,.xlsx,.xls,.txt,.pdf,image/*');
+    picker.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';
+    var btn=document.createElement('button');btn.type='button';btn.className='oci-attach-btn';
+    btn.innerHTML='&#128206; Add photos or a spreadsheet';
+    btn.style.cssText='border:1.5px solid var(--accent,#0071E3);color:var(--accent,#0071E3);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;';
+    btn.addEventListener('mouseover',function(){btn.style.background='var(--accent,#0071E3)';btn.style.color='#fff';});
+    btn.addEventListener('mouseout',function(){btn.style.background='transparent';btn.style.color='var(--accent,#0071E3)';});
+    var info=document.createElement('div');info.style.cssText='margin-top:8px;font-size:13px;color:var(--text-secondary,#6E6E73);';
+    var warn=document.createElement('div');warn.style.cssText='display:none;margin-top:6px;font-size:13px;color:#c0392b;font-weight:600;';
+    first.parentNode.insertBefore(picker,first);first.parentNode.insertBefore(btn,first);
+    var last=slots[slots.length-1];last.parentNode.insertBefore(info,last.nextSibling);info.parentNode.insertBefore(warn,info.nextSibling);
+    // legacy buttons from v1 markup (e.g. sell-server-ram's own attach button) delegate here
+    form.querySelectorAll('.attach-btn,#lot-attach-btn').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
+    btn.addEventListener('click',function(){picker.click();});
+
+    var chosen=[];
+    function total(){return chosen.reduce(function(a,f){return a+f.size;},0);}
+    function render(){
+      if(!chosen.length){info.textContent='';btn.innerHTML='&#128206; Add photos or a spreadsheet';warn.style.display='none';return true;}
+      info.textContent=chosen.length+(chosen.length>1?' files ':' file ')+'attached ('+human(total())+'): '+chosen.map(function(f){return f.name;}).join(', ');
+      btn.innerHTML='&#128206; Add more / change files';
+      if(total()>MAX_TOTAL){warn.textContent='Those files total '+human(total())+' — over the ~6 MB limit, so they may not send. Remove a file or send the rest by email reply.';warn.style.display='block';return false;}
+      warn.style.display='none';return true;
+    }
+    picker.addEventListener('change',function(){
+      var incoming=Array.prototype.slice.call(picker.files||[]);picker.value='';
+      if(!incoming.length)return;
+      var room=MAX_FILES-chosen.length;
+      if(incoming.length>room){warn.textContent='Up to '+MAX_FILES+' files per submission — the first '+room+' were added. For more, attach a spreadsheet or reply to our email with the rest.';warn.style.display='block';incoming=incoming.slice(0,Math.max(0,room));}
+      info.textContent='Preparing files…';
+      Promise.all(incoming.map(compress)).then(function(done){
+        chosen=chosen.concat(done);
+        slots.forEach(function(s,i){setFiles(s,chosen[i]||null);});
+        var ok=render();
+        track('file_attach',{file_count:chosen.length,file_bytes:total(),over_limit:!ok,form_name:form.getAttribute('name')||''});
+      });
+    });
+    form.addEventListener('submit',function(e){
+      if(total()>MAX_TOTAL){e.preventDefault();btn.scrollIntoView({behavior:'smooth',block:'center'});track('form_error',{reason:'files_over_limit',form_name:form.getAttribute('name')||''});}
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){var t=document.querySelector('.nav-toggle'),l=document.getElementById('nav-links');if(!t||!l)return;
+function set(o){l.classList.toggle('open',o);t.setAttribute('aria-expanded',o?'true':'false');t.setAttribute('aria-label',o?'Close menu':'Open menu');}
+t.addEventListener('click',function(){set(!l.classList.contains('open'));});
+l.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+document.addEventListener('click',function(e){if(!e.target.closest('.nav'))set(false);});
+window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false);});})();
+</script>
+<script>(function(){var b=document.body;document.addEventListener('focusin',function(e){if(e.target.matches('input,textarea'))b.classList.add('oci-typing');});document.addEventListener('focusout',function(){setTimeout(function(){if(!document.activeElement||!document.activeElement.matches('input,textarea'))b.classList.remove('oci-typing');},150);});})();</script>
+<script>
+(function(){
+  /* Ocitech conversion-event tracking v1 (2026-09-07). GA4 events + Google Ads / Reddit lead on submit.
+     Events: form_start, generate_lead, form_error, pn_search, pn_search_result_click, lot_estimate,
+             file_attach (fired by upload UX), cta_click, phone_click, email_click, whatsapp_click, scroll_depth, price_card_view */
+  if(window.__ociTrack) return; window.__ociTrack=1;
+  var GA_ADS_SEND_TO='AW-18309966360/BUWyCPrqpM0cEJjU75pE';
+  function ev(name,p){p=p||{};p.page_path=location.pathname;p.page_type=pageType();try{if(window.gtag)gtag('event',name,p);}catch(e){}}
+  function pageType(){var p=location.pathname.replace(/\.html$/,'').replace(/\/index$/,'/');if(p==='/'||p==='/index.html')return 'home';if(/offer/.test(p))return 'paid_landing';if(/ram-price-list/.test(p))return 'price_hub';if(/^\/sell-(samsung|sk-hynix|micron|kingston)-[a-z0-9]+-?[a-z0-9]*$/.test(p)&&!/-ddr[45]-ram$/.test(p))return 'part';if(/^\/sell-/.test(p))return 'category';if(/thanks/.test(p))return 'thanks';return 'other';}
+  function pos(el){var r=el.getBoundingClientRect(),y=r.top+window.scrollY,h=document.documentElement.scrollHeight;return y<900?'hero':(y>h-900?'footer':'body');}
+  // Original session referral is captured by the shared script, including on article pages.
+  function stamp(form){if(window.ociAttribution)window.ociAttribution.stamp(form);}
+
+  // thanks page: fire ad-platform conversions only after a real submission (marker set on submit), never on refresh/direct hit
+  if(pageType()==='thanks'){
+    var lead=null;try{lead=JSON.parse(sessionStorage.getItem('oci_lead')||'null');}catch(e){}
+    if(lead&&Date.now()-lead.t<15*60*1000){
+      var v=lead.est&&lead.est>0?lead.est:1;
+      try{if(window.gtag)gtag('event','conversion',{send_to:GA_ADS_SEND_TO,value:v,currency:'USD',transaction_id:lead.form+'-'+lead.t});}catch(e){}
+      try{if(window.rdt)rdt('track','Lead',{value:v,currency:'USD'});}catch(e){}
+      ev('lead_confirmed',{form_name:lead.form,estimate_value:lead.est||0,file_count:lead.files||0,value:v,currency:'USD'});
+      try{sessionStorage.removeItem('oci_lead');}catch(e){}
+      var el=document.getElementById('thanks-detail');if(el){el.textContent=(lead.files?('Your '+lead.files+(lead.files>1?' files':' file')+' came through. '):'')+(lead.est>0?('Estimated lot value on your list: $'+Math.round(lead.est).toLocaleString('en-US')+'. '):'')+'Reply to our email any time to add photos or details.';}
+    }else{ev('thanks_view_no_submission',{});}
+  }
+
+  // forms
+  var started={};
+  document.querySelectorAll('form[name]').forEach(function(form){
+    var name=form.getAttribute('name'); if(!name||name==='contact-zh-cn'||name==='buyer-zh-cn') return;
+    stamp(form);
+    form.addEventListener('focusin',function(){if(started[name])return;started[name]=1;ev('form_start',{form_name:name});});
+    form.addEventListener('submit',function(){
+      var mode=name==='part-quote'?'part':name==='lot-quote'?'paste':name==='quick-quote'?'upload':'form';
+      var files=0,bytes=0;form.querySelectorAll('input[type=file][name]').forEach(function(i){if(i.files&&i.files.length){files++;bytes+=i.files[0].size;}});
+      var est=form.querySelector('input[name="estimate"]'),m=form.querySelector('input[name="matched"]'),um=form.querySelector('input[name="unmatched"]');
+      var p={form_name:name,mode:mode,has_file:files>0,file_count:files,file_bytes:bytes,estimate_value:est&&est.value?Number(est.value):0,matched:m&&m.value?Number(m.value):0,unmatched:um&&um.value?String(um.value).split(';').filter(Boolean).length:0,value:est&&est.value?Number(est.value):1,currency:'USD'};
+      ev('generate_lead',p);
+      try{sessionStorage.setItem('oci_lead',JSON.stringify({form:name,est:p.estimate_value,files:files,t:Date.now()}));}catch(e){}
+    });
+    form.addEventListener('invalid',function(e){ev('form_error',{form_name:name,reason:'invalid_'+(e.target.name||'field')});},true);
+  });
+
+  // pricing tool
+  var pn=document.getElementById('pnsearch')||document.getElementById('wm-input'),t;
+  if(pn){pn.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){var q=pn.value.trim();if(q.length<3)return;var res=document.getElementById('pnresults')||document.getElementById('wm-suggest');var n=res?res.querySelectorAll('button[data-pn]').length:0;ev('pn_search',{query_len:q.length,match_count:n,no_match:n===0});},700);});}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-pn]');if(b){ev('pn_search_result_click',{part:b.getAttribute('data-pn'),price:Number(b.getAttribute('data-hi')||0)});}
+    var run=e.target.closest('#lot-run,#wm-value');if(run){setTimeout(function(){var est=document.getElementById('lot-est')||document.getElementById('wm-h-est'),m=document.getElementById('lot-m')||document.getElementById('wm-h-m'),u=document.getElementById('lot-u')||document.getElementById('wm-h-u');ev('lot_estimate',{estimate_value:est&&est.value?Number(est.value):0,matched:m&&m.value?Number(m.value):0,unmatched:u&&u.value?String(u.value).split(';').filter(Boolean).length:0});},300);}
+    var a=e.target.closest('a');if(a){var h=a.getAttribute('href')||'';
+      if(/^tel:/.test(h))ev('phone_click',{position:pos(a)});
+      else if(/^mailto:/.test(h))ev('email_click',{position:pos(a)});
+      else if(/wa\.me/.test(h))ev('whatsapp_click',{position:pos(a)});
+      else if(a.classList.contains('btn')||a.classList.contains('nav-cta'))ev('cta_click',{label:(a.textContent||'').trim().slice(0,60),href:h,position:pos(a)});}
+    var btn=e.target.closest('button.btn[type=button]');if(btn&&!btn.hasAttribute('data-pn'))ev('cta_click',{label:(btn.textContent||'').trim().slice(0,60),position:pos(btn)});
+  },true);
+
+  // price card view (part pages)
+  var card=document.querySelector('[data-price-card]')||(function(){var els=document.querySelectorAll('div');for(var i=0;i<els.length;i++){if(/Current indicative offer/i.test(els[i].textContent)&&els[i].children.length<3)return els[i].parentNode;}return null;})();
+  if(card&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){ev('price_card_view',{});io.disconnect();}});},{threshold:.5});io.observe(card);}
+
+  // scroll depth 25/50/75 (GA4 enhanced measurement covers 90)
+  var marks={25:0,50:0,75:0};
+  window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h<=0)return;var pct=Math.round(window.scrollY/h*100);[25,50,75].forEach(function(m){if(!marks[m]&&pct>=m){marks[m]=1;ev('scroll_depth',{percent:m});}});},{passive:true});
+})();
+</script>
+<div style="max-width:980px;margin:24px auto;padding:0 22px 24px;font-size:16px"><a href="/memory-news" style="color:#0071e3">Browse more Memory News &amp; guides</a></div>
+<script>
+/* Ocitech server RAM part-number decoder v1 (2026-10-04).
+   Rule-based: parses each manufacturer's published numbering scheme, so it works on part numbers
+   outside the Ocitech catalog. Fields flagged "derived" are worked out from other fields
+   (they are not printed in the part number). */
+(function(root){
+'use strict';
+var PC4={1600:12800,1866:14900,2133:17000,2400:19200,2666:21300,2933:23400,3200:25600};
+function pc(gen,spd){if(!spd)return '';if(gen==='DDR4')return PC4[spd]?'PC4-'+PC4[spd]:'';if(gen==='DDR5')return 'PC5-'+(spd*8);return '';}
+function F(seg,name,value,flag){return {seg:seg,name:name,value:value,flag:flag||''};}
+function isInt(n){return isFinite(n)&&Math.floor(n)===n&&n>0;}
+function rankLabel(logical,width,stack){return stack>1?((logical/stack)+'S'+stack+'Rx'+width):(logical+'Rx'+width);}
+function base(maker,scheme,pn){return {status:'decoded',maker:maker,scheme:scheme,pn:pn,spec:{},derived:{},fields:[],notes:[]};}
+function setSpeed(r,gen,spd,cl){r.spec.generation=gen;if(spd){r.spec.speed=gen+'-'+spd;r.spec.speedMts=spd;r.spec.pc=pc(gen,spd);}if(cl)r.spec.cl='CL'+cl;}
+/* pick a DDR5 die density that gives a normal 1- or 2-rank (per package) module */
+function ddr5Ranks(cap,width,stack,known){
+  var dens=known?[known]:[16,24,32],i,L;
+  for(i=0;i<dens.length;i++){L=cap*8/(dens[i]*(64/width));if(isInt(L)&&isInt(L/stack)&&L/stack<=2)return {die:dens[i],logical:L};}
+  return null;
+}
+
+/* ---------- Samsung ---------- */
+var SS4={'71':['SODIMM','260-pin unbuffered SODIMM, 64-bit (non-ECC)',0],'74':['ECC SODIMM','260-pin ECC unbuffered SODIMM, 72-bit',1],'78':['UDIMM','288-pin unbuffered DIMM, 64-bit (non-ECC)',0],'86':['LRDIMM','288-pin load-reduced DIMM, 72-bit (ECC)',1],'91':['ECC UDIMM','288-pin ECC unbuffered DIMM, 72-bit',1],'92':['RDIMM','288-pin very-low-profile registered DIMM, 72-bit (ECC)',1],'93':['RDIMM','288-pin registered DIMM, 72-bit (ECC)',1]};
+var SS5={'21':['RDIMM','Registered DIMM (ECC)',1],'23':['UDIMM','Unbuffered DIMM (non-ECC)',0],'24':['ECC UDIMM','ECC unbuffered DIMM',1],'25':['SODIMM','Unbuffered SODIMM (non-ECC)',0]};
+var SSDEPTH={'56':2,'51':4,'52':4,'1G':8,'1K':8,'2G':16,'2K':16,'3G':24,'4G':32,'4K':32,'6G':48,'8G':64,'8K':64,'YG':96,'AG':128,'AK':128,'BG':256,'BK':256};
+var SSDEPTHTXT={'56':'256M','51':'512M','52':'512M','1G':'1G','1K':'1G','2G':'2G','2K':'2G','3G':'3G','4G':'4G','4K':'4G','6G':'6G','8G':'8G','8K':'8G','YG':'12G','AG':'16G','AK':'16G','BG':'32G','BK':'32G'};
+var SSORG={'0':4,'3':8,'4':16};
+var SSPKG={'B':['FBGA, flip chip (single die per package)',1,0],'M':['FBGA, dual-die package (DDP)',1,1],'2':['FBGA, 2-high TSV stack',2,0],'3':['FBGA, 2-high 3DS stack',2,0],'4':['FBGA, 4-high TSV stack',4,0],'5':['FBGA, 4-high 3DS stack',4,0]};
+var SSSPD4={'PB':[2133,15],'RB':[2133,17],'RC':[2400,17],'TC':[2400,19],'TD':[2666,19],'WD':[2666,22],'VF':[2933,21],'YF':[2933,24],'WE':[3200,22],'AE':[3200,26]};
+var SSSPD5={'QK':[4800,40],'WK':[4800,0],'WM':[5600,46],'CP':[6400,52]};
+function decodeSamsung(s){
+  var m=/^M([34])(\d{2})([ABR])([0-9A-Z]{2})([0-9A-Z])(\d)([A-Z])([A-Z0-9])(\d)(?:[-\s]?([A-Z])([A-Z0-9]{2})([A-Z0-9]*))?$/.exec(s.replace(/\s+/g,''));
+  if(!m)return null;
+  var gen={A:'DDR4',B:'DDR3',R:'DDR5'}[m[3]],r=base('Samsung','Samsung '+gen+' module',s),f=r.fields;
+  f.push(F('M','Product','Samsung memory module'));
+  f.push(F(m[1],'Module format',m[1]==='3'?'DIMM':'SODIMM'));
+  if(gen==='DDR3'){
+    r.status='partial';r.spec.generation='DDR3';
+    f.push(F(m[2],'Module type code','DDR3 code (not decoded here)','unknown'));
+    f.push(F(m[3],'DRAM type','DDR3 SDRAM'));
+    r.notes.push('This is a Samsung DDR3 module. The decoder covers DDR4 and DDR5 field by field; for DDR3, send us the part number and we will identify it.');
+    return r;
+  }
+  var bits=(gen==='DDR4'?SS4:SS5)[m[2]];
+  f.push(bits?F(m[2],'Module type',bits[1]):F(m[2],'Module type','Code not in Samsung’s published list','unknown'));
+  if(bits){r.spec.type=bits[0];r.spec.ecc=bits[2]?'ECC':'Non-ECC';}
+  f.push(F(m[3],'DRAM type',gen==='DDR4'?'DDR4 SDRAM (1.2V)':'DDR5 SDRAM (1.1V)'));
+  var cap=SSDEPTH[m[4]],eightGb=(m[4].charAt(1)==='K'||m[4]==='52');
+  if(cap){r.spec.capacity=cap+'GB';f.push(F(m[4],'Depth',SSDEPTHTXT[m[4]]+' words = '+cap+'GB module'+(eightGb?' (built on 8Gb DRAM)':'')));}
+  else f.push(F(m[4],'Depth','Code not in Samsung’s published list','unknown'));
+  f.push(F(m[5],gen==='DDR4'?'Banks & interface':'Interface code',gen==='DDR4'&&m[5]==='4'?'16 banks, POD 1.2V':'Samsung internal code'));
+  var w=SSORG[m[6]];
+  f.push(w?F(m[6],'DRAM width','x'+w+' components'):F(m[6],'DRAM width','Code not in Samsung’s published list','unknown'));
+  f.push(F(m[7],'Component revision',m[7]+'-die'));
+  var pk=SSPKG[m[8]];
+  f.push(pk?F(m[8],'Package',pk[0]):F(m[8],'Package','Code not in Samsung’s published list','unknown'));
+  f.push(F(m[9],'PCB revision',m[9]==='0'?'Original':'Revision '+m[9]));
+  var stack=pk?pk[1]:1,die=null,L=null;
+  if(cap&&w){
+    if(gen==='DDR4'){
+      if(eightGb)die=8;
+      else if(m[4]==='51'||m[4]==='56'||'DEF'.indexOf(m[7])>=0)die=4;
+      else if('MABC'.indexOf(m[7])>=0)die=16;
+      if(die){L=cap*8/(die*(64/w));if(!isInt(L)||!isInt(L/stack))L=null;}
+    }else{
+      var d5=ddr5Ranks(cap,w,stack,null);if(d5){die=d5.die;L=d5.logical;}
+    }
+    if(L){
+      r.spec.rank=rankLabel(L,w,stack);r.derived.rank=true;r.spec.die=die+'Gb';r.derived.die=true;
+      r.rankInfo={logical:L,width:w,stack:stack,ddp:pk&&pk[2]?true:false};
+      if(stack>1)r.notes.push('3DS / TSV module: '+r.spec.rank+' means '+(L/stack)+' package ranks, each a '+stack+'-high die stack ('+L+' logical ranks).');
+      else if(pk&&pk[2])r.notes.push('Built on dual-die packages, so the label reads '+L+'DRx'+w+' or '+L+'Rx'+w+'.');
+    }else{r.spec.width='x'+w;}
+  }
+  if(m[10]){
+    f.push(F(m[10],'Temperature & power',m[10]==='C'?'Commercial temperature (0–85°C), normal power':m[10]==='I'?'Industrial temperature, normal power':'Code not in Samsung’s published list',m[10]==='C'||m[10]==='I'?'':'unknown'));
+    var sp=(gen==='DDR4'?SSSPD4:SSSPD5)[m[11]];
+    if(sp){setSpeed(r,gen,sp[0],sp[1]);f.push(F(m[11],'Speed',gen+'-'+sp[0]+(sp[1]?', CL'+sp[1]:'')));}
+    else{r.spec.generation=gen;f.push(F(m[11],'Speed','Code not in this decoder yet','unknown'));}
+    if(m[12])f.push(F(m[12],'Suffix',gen==='DDR5'?'Bucket code for the PMIC / register (RCD) combination':'Customer or production suffix. Not part of Samsung’s public scheme; it does not change the module’s specification.'));
+  }else{r.spec.generation=gen;r.notes.push('No speed code entered. The speed is the two characters after the dash and the letter C, for example -CTD or -CWM.');}
+  if(r.derived.rank)r.notes.push('Samsung does not print the rank in the part number. It is worked out here from capacity, DRAM width and die density, so confirm it against the label.');
+  return r;
+}
+
+/* ---------- SK hynix (classic DDR4 format) ---------- */
+var HXDEN={'4':4,'8':8,'A':16,'B':32};
+var HXDEPTH={'25':2,'51':4,'1G':8,'2G':16,'4G':32,'8G':64,'AG':128,'BG':256};
+var HXTYPE={'U':'UDIMM','S':'SODIMM','R':'RDIMM','L':'LRDIMM'};
+var HXTYPETXT={'U':'288-pin unbuffered DIMM','S':'260-pin SODIMM','R':'288-pin registered DIMM','L':'288-pin load-reduced DIMM'};
+var HXW={'6':[64,'64-bit (non-ECC), standard height'],'1':[64,'64-bit (non-ECC), very low profile'],'2':[64,'64-bit (non-ECC), ultra low profile'],'7':[72,'72-bit (ECC), standard height'],'8':[72,'72-bit (ECC), very low profile'],'9':[72,'72-bit (ECC), ultra low profile']};
+var HXGEN={'M':'1st','A':'2nd','B':'3rd','C':'4th','D':'5th','E':'6th','F':'7th','G':'8th'};
+var HXPKG={'F':['FBGA, single die',1,0],'J':['Flip-chip, single die',1,0],'M':['FBGA dual-die package (DDP)',2,1],'P':['Flip-chip planar dual-die package',2,1],'2':['TSV 2-high stack',2,0],'4':['TSV 4-high stack',4,0]};
+var HXORG={'4':4,'8':8,'6':16};
+var HXSPD4={'PB':[1600,11],'RD':[1866,13],'TF':[2133,15],'UH':[2400,17],'UL':[2400,20],'VK':[2666,19],'VN':[2666,22],'WM':[2933,21],'WR':[2933,0],'XN':[3200,22]};
+function decodeHynixClassic(s){
+  var m=/^HMA([48AB])([0-9A-Z]{2})([A-Z])(\d)([A-Z])([A-Z0-9])([A-Z])([468])([A-Z])(?:[-\s]?([A-Z]{2})([A-Z0-9]*))?$/.exec(s.replace(/\s+/g,''));
+  if(!m)return null;
+  var r=base('SK hynix','SK hynix DDR4 module',s),f=r.fields;
+  f.push(F('HM','Product','SK hynix memory module'));
+  f.push(F('A','DRAM type','DDR4 SDRAM'));
+  var den=HXDEN[m[1]],cap=HXDEPTH[m[2]];
+  f.push(F(m[1],'Component density',den+'Gb per DRAM package'));
+  f.push(cap?F(m[2],'Depth',(m[2]==='51'?'512M':m[2]==='25'?'256M':m[2]==='AG'?'16G':m[2]==='BG'?'32G':m[2])+' words = '+cap+'GB module'):F(m[2],'Depth','Code not in SK hynix’s published list','unknown'));
+  if(cap)r.spec.capacity=cap+'GB';
+  var ty=HXTYPE[m[3]],wd=HXW[m[4]];
+  f.push(ty?F(m[3],'Module type',HXTYPETXT[m[3]]):F(m[3],'Module type','Code not in SK hynix’s published list','unknown'));
+  f.push(wd?F(m[4],'Data width & height',wd[1]):F(m[4],'Data width & height','Code not in SK hynix’s published list','unknown'));
+  if(ty){var ecc=wd&&wd[0]===72;r.spec.type=(ecc&&(m[3]==='U'||m[3]==='S')?'ECC ':'')+ty;if(wd)r.spec.ecc=ecc?'ECC':'Non-ECC';}
+  f.push(F(m[5],'Die generation',HXGEN[m[5]]?m[5]+'-die ('+HXGEN[m[5]]+' generation)':m[5]+'-die'));
+  var pk=HXPKG[m[6]];
+  f.push(pk?F(m[6],'Package',pk[0]):F(m[6],'Package','Code not in SK hynix’s published list','unknown'));
+  f.push(F(m[7],'Package material',m[7]==='R'?'Lead-free and halogen-free (RoHS)':'Code '+m[7]));
+  var w=HXORG[m[8]];
+  f.push(F(m[8],'DRAM width','x'+w+' components'));
+  f.push(F(m[9],'Temperature & voltage',m[9]==='N'?'Commercial temperature (0–85°C), 1.2V':m[9]==='B'?'Commercial temperature, 1.2V, reduced standby current':'Code not in SK hynix’s published list',m[9]==='N'||m[9]==='B'?'':'unknown'));
+  if(cap&&den&&w&&pk){
+    var stack=pk[1],L=cap*8/(den*(64/w))*stack;
+    if(isInt(L)){
+      var tsv=(m[6]==='2'||m[6]==='4');
+      r.spec.rank=rankLabel(L,w,tsv?stack:1);r.derived.rank=true;r.spec.die=(den/stack)+'Gb';r.derived.die=stack>1;
+      r.rankInfo={logical:L,width:w,stack:tsv?stack:1,ddp:pk[2]?true:false};
+      if(tsv)r.notes.push('3DS / TSV module: '+r.spec.rank+' means '+(L/stack)+' package ranks, each a '+stack+'-high die stack ('+L+' logical ranks).');
+      else if(pk[2])r.notes.push('Built on dual-die packages, so the label reads '+L+'DRx'+w+' or '+L+'Rx'+w+'.');
+    }
+  }
+  if(m[10]){
+    var sp=HXSPD4[m[10]];
+    if(sp){setSpeed(r,'DDR4',sp[0],sp[1]);f.push(F(m[10],'Speed','DDR4-'+sp[0]+(sp[1]?', CL'+sp[1]:'')));}
+    else{r.spec.generation='DDR4';f.push(F(m[10],'Speed','Code not in this decoder yet','unknown'));}
+    if(m[11])f.push(F(m[11],'Suffix','Extra characters after the speed code. Not part of SK hynix’s public scheme.'));
+  }else{r.spec.generation='DDR4';r.notes.push('No speed code entered. The speed is the two letters after the dash, for example -VK or -XN.');}
+  if(r.derived.rank)r.notes.push('SK hynix does not print the rank in the part number. It is worked out here from capacity, component density and DRAM width, so confirm it against the label.');
+  return r;
+}
+
+/* ---------- SK hynix (15-character format: all DDR5, later DDR4) ---------- */
+var HNDEN={'GG':12,'G6':8,'G7':16,'GJ':24,'G8':32,'GY':48,'G9':64,'GM':96,'T0':128,'T1':256,'T2':512};
+var HNGEN={'M':'1st','A':'2nd','B':'3rd','C':'4th','D':'5th','E':'6th','J':'10th or special'};
+var HNSPD5={'EB':[4800,40],'GB':[5600,46],'HB':[6400,52],'KB':[7200,58],'MB':[8000,64]};
+var HNTYPE={'U':['UDIMM',0],'S':['SODIMM',0],'R':['RDIMM',1],'L':['LRDIMM',1],'E':['ECC UDIMM',1],'A':['ECC SODIMM',1],'Q':['RDIMM',1]};
+function decodeHynixNew(s){
+  var t=s.replace(/\s+/g,' '),suffix='',sp0=t.indexOf(' ');
+  if(sp0>0){suffix=t.slice(sp0+1).replace(/\s/g,'');t=t.slice(0,sp0);}
+  var m=/^HM([AC])([GT][0-9A-Z])([468])([A-Z])([A-Z]{2})([A-Z])([A-Z])([0-9A-Z]{3})([A-Z])(?:-?([A-Z0-9]{1,4}))?$/.exec(t);
+  if(!m)return null;
+  if(!suffix&&m[10])suffix=m[10];
+  var gen=m[1]==='C'?'DDR5':'DDR4',r=base('SK hynix','SK hynix '+gen+' module (15-character format)',s),f=r.fields;
+  f.push(F('HM','Product','SK hynix memory module'));
+  f.push(F(m[1],'DRAM type',gen+' SDRAM'));
+  var cap=HNDEN[m[2]];
+  f.push(cap?F(m[2],'Module density',cap+'GB'):F(m[2],'Module density','Code not in SK hynix’s published list','unknown'));
+  if(cap)r.spec.capacity=cap+'GB';
+  var w=HXORG[m[3]];
+  f.push(F(m[3],'DRAM width','x'+w+' components'));
+  f.push(F(m[4],'Die generation',HNGEN[m[4]]?m[4]+'-die ('+HNGEN[m[4]]+' generation)':m[4]+'-die'));
+  var sp=(gen==='DDR5'?HNSPD5:HXSPD4)[m[5]];
+  if(sp){setSpeed(r,gen,sp[0],sp[1]);f.push(F(m[5],'Speed',gen+'-'+sp[0]+(sp[1]?', CL'+sp[1]:'')));}
+  else{r.spec.generation=gen;f.push(F(m[5],'Speed','Code not in this decoder yet','unknown'));}
+  var ty=HNTYPE[m[6]];
+  f.push(ty?F(m[6],'Module type',ty[0]+(m[6]==='Q'?' (72-bit)':'')):F(m[6],'Module type','Code not in SK hynix’s published list','unknown'));
+  if(ty){r.spec.type=ty[0];r.spec.ecc=ty[1]?'ECC':'Non-ECC';}
+  var known=null;
+  if(gen==='DDR5'&&m[7]==='A'){known=16;f.push(F('A','Die density & build','16Gb DRAM, low profile, commercial temperature'));}
+  else if(gen==='DDR5'&&m[7]==='B'){known=24;f.push(F('B','Die density & build','24Gb DRAM, low profile, commercial temperature'));}
+  else f.push(F(m[7],'Die density & build','Code not in SK hynix’s published list','unknown'));
+  var opt=m[8],stack=1,o=parseInt(opt,10);
+  if(/^\d{3}$/.test(opt)){if([128,129,136,138].indexOf(o)>=0)stack=2;if([144,146,153,155].indexOf(o)>=0)stack=4;}
+  f.push(F(opt,'Package & module options','Identifies the register (RCD) and power-management IC combination'+(stack>1?', '+stack+'-high 3DS stack':'')));
+  f.push(F(m[9],'Sales type',m[9]==='N'?'Normal':'Code '+m[9]));
+  if(suffix)f.push(F(suffix,'Label suffix','Revision code printed after the part number. Not part of SK hynix’s public scheme.'));
+  if(gen==='DDR5'&&cap&&w){
+    var d5=ddr5Ranks(cap,w,stack,known);
+    if(!d5&&known&&stack===1){var L=cap*8/(known*(64/w));if(isInt(L)&&L>2){r.spec.width='x'+w;r.notes.push('At '+cap+'GB on '+known+'Gb DRAM this is a 3DS-stacked module with '+L+' logical ranks. Read the exact rank notation from the label.');}}
+    if(d5){r.spec.rank=rankLabel(d5.logical,w,stack);r.derived.rank=true;r.spec.die=d5.die+'Gb';r.derived.die=!known;r.rankInfo={logical:d5.logical,width:w,stack:stack,ddp:false};
+      r.notes.push('SK hynix does not print the rank in the part number. It is worked out here from capacity, die density and DRAM width, so confirm it against the label.');}
+    else if(!r.spec.width)r.spec.width='x'+w;
+  }else if(w){r.spec.width='x'+w;if(gen==='DDR4')r.notes.push('In this format the rank cannot be worked out from the part number. Read it from the label (for example 2Rx8).');}
+  return r;
+}
+
+/* ---------- Micron DDR4 ---------- */
+var MUOPT={'TF':['FBGA, no temperature sensor',1],'TS':['Dual-die packages, no temperature sensor',2],'TQ':['Quad-die packages, no temperature sensor',4],'SF':['FBGA with temperature sensor',1],'SS':['Dual-die packages with temperature sensor',2],'SQ':['Quad-die packages with temperature sensor',4],'SE':['Octal-die packages with temperature sensor',8],'DF':['Very low profile, with temperature sensor',1],'DS':['Very low profile, dual-die packages, with temperature sensor',2],'DQ':['Very low profile, quad-die packages, with temperature sensor',4],'LF':['4U height, with temperature sensor',1],'LS':['4U height, dual-die packages, with temperature sensor',2],'LQ':['4U height, quad-die packages, with temperature sensor',4],'LE':['4U height, octal-die packages, with temperature sensor',8],'HF':['2U height, with temperature sensor',1],'HS':['2U height, dual-die packages, with temperature sensor',2],'HQ':['2U height, quad-die packages, with temperature sensor',4],'HE':['2U height, octal-die packages, with temperature sensor',8],'SZF':['FBGA with temperature sensor and heat spreader',1],'SZS':['Dual-die packages with temperature sensor and heat spreader',2],'SZQ':['Quad-die packages with temperature sensor and heat spreader',4],'SZE':['Octal-die packages with temperature sensor and heat spreader',8],'DZF':['Very low profile, temperature sensor and heat spreader',1],'DZS':['Very low profile, dual-die packages, temperature sensor and heat spreader',2],'DZQ':['Very low profile, quad-die packages, temperature sensor and heat spreader',4]};
+var MUTYPE={'A':['UDIMM','288-pin unbuffered DIMM'],'H':['SODIMM','260-pin SODIMM'],'L':['LRDIMM','288-pin load-reduced DIMM'],'LS':['LRDIMM','288-pin 3DS load-reduced DIMM'],'P':['RDIMM','288-pin registered DIMM'],'PS':['RDIMM','288-pin 3DS registered DIMM'],'AK':['UDIMM','288-pin mini unbuffered DIMM'],'PK':['RDIMM','288-pin mini registered DIMM']};
+var MUPKG={'Z':'Commercial temperature, halogen-free','DZ':'Commercial temperature, halogen-free; the dual-rank (or higher) build of this module','DZM':'Commercial temperature, reduced standby, halogen-free; the dual-rank (or higher) build','IZ':'Industrial temperature, halogen-free','TZ':'Industrial temperature, halogen-free; the dual-rank (or higher) build','ZM':'Commercial temperature, reduced standby, halogen-free'};
+var MUSPD4={'2G1':[2133,15],'2S1':[2133,18],'2G3':[2400,17],'2G4':[2400,16],'2S3':[2400,20],'2S4':[2400,19],'2G6':[2666,19],'2S6':[2666,22],'2G7':[2666,18],'2G9':[2933,21],'2S9':[2933,24],'3G2':[3200,22],'3S2':[3200,26]};
+function decodeMicron4(s){
+  var m=/^MTA(\d{1,3})A(SZ[FSQE]|DZ[FSQ]|[TSDLH][FSQE])(\d{1,2}G|\d{3})(64|72)(LS|PS|AK|PK|A|H|L|P)(DZM|ZM|DZ|IZ|TZ|Z)(?:-(\d[GS]\d)(?:([A-Z]{1,2})(\d))?([A-Z0-9]*))?$/.exec(s.replace(/\s+/g,''));
+  if(!m)return null;
+  var r=base('Micron','Micron DDR4 module',s),f=r.fields,dies=parseInt(m[1],10);
+  f.push(F('MT','Product','Micron Technology'));
+  f.push(F('A','DRAM type','DDR4 SDRAM'));
+  f.push(F(m[1],'Number of DRAM die',String(dies)));
+  f.push(F('A','Voltage','1.2V'));
+  var op=MUOPT[m[2]];
+  f.push(op?F(m[2],'Module options',op[0]):F(m[2],'Module options','Code not in Micron’s published list','unknown'));
+  var cap=/G$/.test(m[3])?parseInt(m[3],10)*8:parseInt(m[3],10)*8/1024;
+  r.spec.capacity=cap+'GB';
+  f.push(F(m[3],'Depth',(/G$/.test(m[3])?m[3]:m[3]+'M')+' words = '+cap+'GB module'));
+  var bw=parseInt(m[4],10),ecc=bw===72;
+  f.push(F(m[4],'Module width',ecc?'72-bit (ECC)':'64-bit (non-ECC)'));
+  var ty=MUTYPE[m[5]];
+  f.push(F(m[5],'Module type',ty[1]));
+  r.spec.type=(ecc&&(ty[0]==='UDIMM'||ty[0]==='SODIMM')?'ECC ':'')+ty[0];r.spec.ecc=ecc?'ECC':'Non-ECC';
+  f.push(F(m[6],'Package code',MUPKG[m[6]]));
+  var k=op?op[1]:1,registered=(ty[0]==='RDIMM'||ty[0]==='LRDIMM'),dual=/^D|^T/.test(m[6]),L=null,w=null,stack=1;
+  if(ecc&&registered){
+    if(k===1){if(dies===36){L=2;w=4;}else if(dies===18){if(dual){L=2;w=8;}else{L=1;w=4;}}else if(dies===9){L=1;w=8;}}
+    else if(isInt(dies/18)){L=dies/18;w=4;if(m[5]==='LS'||m[5]==='PS')stack=k;}
+  }else if(ecc){if(dies===9){L=1;w=8;}else if(dies===18){L=2;w=8;}}
+  else{if(dies===8){L=1;w=8;}else if(dies===16){L=2;w=8;}else if(dies===4){L=1;w=16;}}
+  if(L){r.spec.rank=rankLabel(L,w,stack);r.derived.rank=true;r.rankInfo={logical:L,width:w,stack:stack,ddp:k===2&&stack===1};
+    var dd=cap*8*(bw/64)/dies;if(isInt(dd)){r.spec.die=dd+'Gb';r.derived.die=true;}
+    if(stack>1)r.notes.push('3DS module: '+r.spec.rank+' means '+(L/stack)+' package ranks, each a '+stack+'-high die stack ('+L+' logical ranks).');
+    else if(k===2)r.notes.push('Built on dual-die packages, so the label reads '+L+'DRx'+w+' or '+L+'Rx'+w+'.');
+    r.notes.push('Micron does not print the rank or DRAM width in the part number. They are worked out here from the die count, module width and package code, so confirm them against the label.');
+  }
+  if(m[7]){
+    var sp=MUSPD4[m[7]];
+    if(sp){setSpeed(r,'DDR4',sp[0],sp[1]);f.push(F('-'+m[7],'Speed','DDR4-'+sp[0]+', CL'+sp[1]));}
+    else{r.spec.generation='DDR4';f.push(F('-'+m[7],'Speed','Code not in Micron’s published list','unknown'));}
+    if(m[8]){f.push(F(m[8],'Die revision','Revision '+m[8]));f.push(F(m[9],'PCB revision','Revision '+m[9]));}
+    if(m[10])f.push(F(m[10],'Suffix','Customer or vendor suffix. It does not change the module’s specification.'));
+  }else{r.spec.generation='DDR4';r.notes.push('No speed code entered. The speed is the three characters after the dash, for example -2G6 or -3G2.');}
+  return r;
+}
+
+/* ---------- Micron DDR5 ---------- */
+var MU5DEN={'3':8,'4':16,'5':32,'6':64,'7':128,'Y':24,'X':48,'W':96};
+var MU5TYPE={'R':['RDIMM','Registered DIMM',1],'U':['UDIMM','Unbuffered DIMM (non-ECC)',0],'S':['SODIMM','Unbuffered SODIMM (non-ECC)',0],'E':['ECC UDIMM','ECC unbuffered DIMM',1],'T':['ECC SODIMM','ECC unbuffered SODIMM',1],'H':['MRDIMM','Multiplexed-rank DIMM (MRDIMM)',1]};
+var MU5CL={'48B':40,'52B':42,'56B':46,'64B':52};
+function decodeMicron5(s){
+  var t=s.replace(/\s+/g,' '),suffix='',sp=t.indexOf(' ');
+  if(sp>0){suffix=t.slice(sp+1).replace(/\s/g,'');t=t.slice(0,sp);}
+  var m=/^MTC(\d{1,3})([A-Z])(\d)(\d)(16|4|8)([0-9A-Z])([A-Z])(\d)([A-Z])([A-Z])(?:(\d{2})([A-Z])(?:([A-Z])(\d))?([A-Z0-9]*))?$/.exec(t);
+  if(!m)return null;
+  var r=base('Micron','Micron DDR5 module',s),f=r.fields,dies=parseInt(m[1],10),ranks=parseInt(m[3],10),w=parseInt(m[5],10);
+  f.push(F('MT','Product','Micron Technology'));
+  f.push(F('C','DRAM type','DDR5 SDRAM'));
+  f.push(F(m[1],'Number of DRAM die',String(dies)));
+  f.push(F(m[2],'Module power input',m[2]==='F'?'12V (server RDIMM class)':m[2]==='C'?'5V (UDIMM / SODIMM class)':'Code not confirmed',m[2]==='F'?'':m[2]==='C'?'derived':'unknown'));
+  f.push(F(m[3],'Ranks',ranks+(ranks===1?' rank':' ranks')));
+  f.push(F(m[4],'Logical ranks',m[4]==='0'?'No 3DS stacking':m[4]+' logical ranks per package rank (3DS)'));
+  f.push(F(m[5],'DRAM width','x'+w+' components'));
+  var cap=MU5DEN[m[6]];
+  f.push(cap?F(m[6],'Module density',cap+'GB'):F(m[6],'Module density','Code not in this decoder yet','unknown'));
+  if(cap)r.spec.capacity=cap+'GB';
+  f.push(F(m[7],'Module height',m[7]==='S'?'Standard height (low profile)':'Code '+m[7]));
+  f.push(F(m[8],'Die package',m[8]==='1'?'Single die per package':m[8]+' die per package'));
+  var ty=MU5TYPE[m[9]];
+  f.push(ty?F(m[9],'Module type',ty[1]):F(m[9],'Module type','Code not in this decoder yet','unknown'));
+  if(ty){r.spec.type=ty[0];r.spec.ecc=ty[2]?'ECC':'Non-ECC';}
+  f.push(F(m[10],'Temperature',m[10]==='C'?'Commercial temperature':'Code '+m[10]));
+  var stack=parseInt(m[4],10)||1;
+  r.spec.rank=stack>1?(ranks+'S'+stack+'Rx'+w):(ranks+'Rx'+w);r.rankInfo={logical:ranks*stack,width:w,stack:stack,ddp:false};
+  if(cap){var dd=cap*8/(ranks*stack*(64/w));if(isInt(dd)){r.spec.die=dd+'Gb';r.derived.die=true;}}
+  if(m[11]){
+    var spd=parseInt(m[11],10)*100,code=m[11]+m[12];
+    setSpeed(r,'DDR5',spd,MU5CL[code]);
+    f.push(F(code,'Speed','DDR5-'+spd+(MU5CL[code]?', CL'+MU5CL[code]:', speed bin '+m[12])));
+    if(m[13]){f.push(F(m[13],'Die revision','Revision '+m[13]));f.push(F(m[14],'PCB revision','Revision '+m[14]));}
+    if(m[15])f.push(F(m[15],'Pack type',m[15]==='R'?'Retail pack':'Code '+m[15]));
+  }else{r.spec.generation='DDR5';r.notes.push('No speed code entered. The speed is the two digits and letter after the module-type characters, for example 48B or 56B.');}
+  if(suffix)f.push(F(suffix,'Label suffix','Sourcing code printed after the part number (register / PMIC combination). It does not change the module’s specification.'));
+  return r;
+}
+
+/* ---------- Kingston ---------- */
+var KDRAM={'H':'SK hynix','M':'Micron','S':'Samsung','N':'Nanya','K':'Kingston'};
+var KIC={'I':'Renesas','M':'Montage','R':'Rambus','P':'MPS','K':'Richtek','T':'TI'};
+var KRANK={'S':1,'D':2,'Q':4};
+var KRANKTXT={'S':'Single rank','D':'Dual rank','Q':'Quad rank'};
+var KCL5={'40B':'CL40-39-39','42B':'CL42-42-42','46B':'CL46-45-45','52B':'CL52-52-52'};
+function decodeKingston(s){
+  var t=s.replace(/\s+/g,''),m,r,f,spd,i;
+  /* Server Premier DDR5 */
+  m=/^KSM(48|52|56|64)([RETPBW])(\d{2}B)([SDQ])([48])([A-Z]{0,3})-(\d{1,3})([HMS])([A-Z])([A-Z])?$/.exec(t);
+  if(m){
+    r=base('Kingston','Kingston Server Premier DDR5',s);f=r.fields;spd=parseInt(m[1],10)*100;
+    var k5={'R':['RDIMM','ECC registered DIMM (EC8, x80)'],'E':['ECC UDIMM','ECC unbuffered DIMM (EC4, x72)'],'T':['ECC SODIMM','ECC SODIMM (EC4, x72)'],'P':['RDIMM','ECC registered DIMM (EC4, x72)'],'B':['ECC CUDIMM','ECC clocked unbuffered DIMM (EC4, x72)'],'W':['ECC CSODIMM','ECC clocked SODIMM (EC4, x72)']}[m[2]];
+    f.push(F('KSM','Product line','Kingston Server Premier'));
+    f.push(F(m[1],'Speed','DDR5-'+spd));
+    f.push(F(m[2],'Module type',k5[1]));
+    f.push(F(m[3],'CAS latency',KCL5[m[3]]||('CL'+m[3].slice(0,2))));
+    f.push(F(m[4],'Ranks',KRANKTXT[m[4]]));
+    f.push(F(m[5],'DRAM width','x'+m[5]+' components'));
+    var ic=m[6],nm=['Power-management IC (PMIC)','SPD hub','Thermal sensor'];
+    for(i=0;i<ic.length;i++)f.push(F(ic.charAt(i),nm[i],KIC[ic.charAt(i)]||('Code '+ic.charAt(i))));
+    f.push(F(m[7],'Capacity',m[7]+'GB'));
+    f.push(F(m[8],'DRAM manufacturer',KDRAM[m[8]]));
+    f.push(F(m[9],'Die revision',m[9]+'-die'));
+    if(m[10])f.push(F(m[10],'Register (RCD)',KIC[m[10]]||('Code '+m[10])));
+    setSpeed(r,'DDR5',spd,parseInt(m[3],10));r.spec.capacity=m[7]+'GB';r.spec.type=k5[0];r.spec.ecc='ECC';r.spec.rank=KRANK[m[4]]+'Rx'+m[5];
+    r.spec.dram=KDRAM[m[8]]+' '+m[9]+'-die';
+    return r;
+  }
+  /* Server Premier DDR4 */
+  m=/^KSM(24|26|29|32)(SE|R|E|L)([SDQ])([48])([A-Z])?\/(\d{1,3})([HMS])([A-Z])([A-Z])?$/.exec(t);
+  if(m){
+    r=base('Kingston','Kingston Server Premier DDR4',s);f=r.fields;spd={24:2400,26:2666,29:2933,32:3200}[m[1]];
+    var k4={'R':['RDIMM','ECC registered DIMM'],'E':['ECC UDIMM','ECC unbuffered DIMM'],'SE':['ECC SODIMM','ECC SODIMM'],'L':['LRDIMM','Load-reduced DIMM']}[m[2]];
+    f.push(F('KSM','Product line','Kingston Server Premier'));
+    f.push(F(m[1],'Speed','DDR4-'+spd));
+    f.push(F(m[2],'Module type',k4[1]));
+    f.push(F(m[3],'Ranks',KRANKTXT[m[3]]));
+    f.push(F(m[4],'DRAM width','x'+m[4]+' components'));
+    if(m[5])f.push(F(m[5],'Variant','Code not in Kingston’s published decoder','unknown'));
+    f.push(F(m[6],'Capacity',m[6]+'GB'));
+    f.push(F(m[7],'DRAM manufacturer',KDRAM[m[7]]));
+    f.push(F(m[8],'Die revision',m[8]+'-die'));
+    if(m[9])f.push(F(m[9],'Register (RCD)',KIC[m[9]]||('Code '+m[9])));
+    setSpeed(r,'DDR4',spd,0);r.spec.capacity=m[6]+'GB';r.spec.type=k4[0];r.spec.ecc='ECC';r.spec.rank=KRANK[m[3]]+'Rx'+m[4];
+    r.spec.dram=KDRAM[m[7]]+' '+m[8]+'-die';
+    return r;
+  }
+  /* ValueRAM DDR5 */
+  m=/^KVR(48|52|56|64)([USAV])(\d{2}B)([SD])([86])(K\d)?-(\d{1,3})$/.exec(t);
+  if(m){
+    r=base('Kingston','Kingston ValueRAM DDR5',s);f=r.fields;spd=parseInt(m[1],10)*100;
+    var v5={'U':'UDIMM','S':'SODIMM','A':'CUDIMM','V':'CSODIMM'}[m[2]],vw=m[5]==='6'?16:8;
+    f.push(F('KVR','Product line','Kingston ValueRAM'));
+    f.push(F(m[1],'Speed','DDR5-'+spd));
+    f.push(F(m[2],'Module type',v5+', non-ECC unbuffered'));
+    f.push(F(m[3],'CAS latency','CL'+m[3].slice(0,2)));
+    f.push(F(m[4],'Ranks',KRANKTXT[m[4]]));
+    f.push(F(m[5],'DRAM width','x'+vw+' components'));
+    if(m[6])f.push(F(m[6],'Kit','Kit of '+m[6].charAt(1)+' modules'));
+    f.push(F(m[7],'Capacity',m[7]+'GB'+(m[6]?' total':'')));
+    setSpeed(r,'DDR5',spd,parseInt(m[3],10));r.spec.capacity=m[7]+'GB';r.spec.type=v5;r.spec.ecc='Non-ECC';r.spec.rank=KRANK[m[4]]+'Rx'+vw;
+    return r;
+  }
+  /* ValueRAM DDR4 */
+  m=/^KVR(21|24|26|29|32)(SE|N|S|E|R|L)(\d{2})([SDQ])([486])(K\d)?\/(\d{1,3})$/.exec(t);
+  if(m){
+    r=base('Kingston','Kingston ValueRAM DDR4',s);f=r.fields;spd={21:2133,24:2400,26:2666,29:2933,32:3200}[m[1]];
+    var v4={'N':['UDIMM','Non-ECC unbuffered DIMM',0],'S':['SODIMM','Non-ECC SODIMM',0],'E':['ECC UDIMM','ECC unbuffered DIMM',1],'SE':['ECC SODIMM','ECC SODIMM',1],'R':['RDIMM','ECC registered DIMM',1],'L':['LRDIMM','Load-reduced DIMM',1]}[m[2]],v4w=m[5]==='6'?16:parseInt(m[5],10);
+    f.push(F('KVR','Product line','Kingston ValueRAM'));
+    f.push(F(m[1],'Speed','DDR4-'+spd));
+    f.push(F(m[2],'Module type',v4[1]));
+    f.push(F(m[3],'CAS latency','CL'+m[3]));
+    f.push(F(m[4],'Ranks',KRANKTXT[m[4]]));
+    f.push(F(m[5],'DRAM width','x'+v4w+' components'));
+    if(m[6])f.push(F(m[6],'Kit','Kit of '+m[6].charAt(1)+' modules'));
+    f.push(F(m[7],'Capacity',m[7]+'GB'+(m[6]?' total':'')));
+    setSpeed(r,'DDR4',spd,parseInt(m[3],10));r.spec.capacity=m[7]+'GB';r.spec.type=v4[0];r.spec.ecc=v4[2]?'ECC':'Non-ECC';r.spec.rank=KRANK[m[4]]+'Rx'+v4w;
+    return r;
+  }
+  /* System-specific lines (KTD-, KTH-, KTL-, KCS-): not in Kingston's published decoder; read from the pattern */
+  m=/^K(T[DHL]|CS)-?([A-Z]{2})([45])(\d{2})(E|[SDQ][48]|LQ|L[SDQ][48])?[-\/](\d{1,3})G$/.exec(t);
+  if(m){
+    r=base('Kingston','Kingston system-specific module',s);f=r.fields;r.status='pattern';
+    var gen='DDR'+m[3],sp2=parseInt(m[4],10);spd=gen==='DDR5'?sp2*100:({21:2133,24:2400,26:2666,29:2933,32:3200}[sp2]||0);
+    f.push(F('K'+m[1],'System brand',{TD:'Built for Dell systems',TH:'Built for HP / HPE systems',TL:'Built for Lenovo systems',CS:'Built for Cisco systems'}[m[1]],'derived'));
+    f.push(F(m[2],'System family','Server family code','derived'));
+    f.push(F(m[3],'Generation',gen,'derived'));
+    f.push(spd?F(m[4],'Speed',gen+'-'+spd,'derived'):F(m[4],'Speed','Code not recognised','unknown'));
+    if(m[5]){
+      if(m[5]==='E'){f.push(F('E','Module type','ECC unbuffered DIMM','derived'));r.spec.type='ECC UDIMM';r.spec.ecc='ECC';}
+      else{var rc=/([SDQ])([48])$/.exec(m[5]);
+        if(rc){f.push(F(m[5],'Rank & width',KRANKTXT[rc[1]]+', x'+rc[2]+' components','derived'));r.spec.rank=KRANK[rc[1]]+'Rx'+rc[2];r.derived.rank=true;}
+        else f.push(F(m[5],'Module code','Code not recognised','unknown'));
+        if(m[5].charAt(0)==='L'){r.spec.type='LRDIMM';r.spec.ecc='ECC';}}
+    }
+    f.push(F(m[6]+'G','Capacity',m[6]+'GB'));
+    r.spec.capacity=m[6]+'GB';if(spd)setSpeed(r,gen,spd,0);else r.spec.generation=gen;
+    if(!r.spec.type){r.spec.type='RDIMM';r.spec.ecc='ECC';r.derived.type=true;f.push(F('','Module type','ECC registered DIMM (no E or L code in the part number)','derived'));}
+    r.notes.push('Kingston’s published decoder does not cover its system-specific part numbers. These fields are read from the pattern Kingston uses across the line, so treat them as a guide and confirm against the label.');
+    return r;
+  }
+  return null;
+}
+
+/* ---------- JEDEC label line (e.g. "32GB 2Rx4 PC4-2666V-RB2-12") ---------- */
+function decodeLabel(s){
+  var m=/PC([345])L?-?(\d{4,5})([A-Z]{1,2})?(?:-([RLUSE])([A-Z]\d)?)?/.exec(s);
+  if(!m)return null;
+  var gen='DDR'+m[1],n=parseInt(m[2],10),spd=n,r=base('','JEDEC label line',s),f=r.fields,k;
+  r.status='label';
+  if(gen==='DDR4'){for(k in PC4)if(PC4[k]===n)spd=parseInt(k,10);}
+  else if(gen==='DDR5'&&n>12000)spd=n/8;
+  else if(gen==='DDR3'&&n>3000)spd=({6400:800,8500:1066,10600:1333,12800:1600,14900:1866,17000:2133})[n]||0;
+  f.push(F('PC'+m[1],'Generation',gen));
+  if(spd){f.push(F(m[2],'Speed',gen+'-'+spd));setSpeed(r,gen,spd,0);}else r.spec.generation=gen;
+  if(m[4]){var ty={R:'RDIMM',L:'LRDIMM',U:'UDIMM',S:'SODIMM',E:'ECC UDIMM'}[m[4]];f.push(F(m[4],'Module type',ty));r.spec.type=ty;}
+  var c=/(\d{1,3})\s?GB/.exec(s),rk=/\b(\d)(?:S(\d))?D?RX(4|8|16)\b/.exec(s);
+  if(c){r.spec.capacity=c[1]+'GB';f.push(F(c[0],'Capacity',c[1]+'GB'));}
+  if(rk){r.spec.rank=rk[0].replace('DRX','Rx').replace('RX','Rx');f.push(F(rk[0].replace('RX','Rx'),'Rank & width',rk[1]+(rk[1]==='1'?' rank':' ranks')+', x'+rk[3]+' components'));}
+  r.notes.push('That looks like the specification line from the label, not the manufacturer part number. The part number is the longer code on the same sticker, starting with M (Samsung), HM (SK hynix), MT (Micron) or K (Kingston). Enter it for a full breakdown.');
+  return r;
+}
+
+function decodeRAM(raw){
+  var s=String(raw||'').toUpperCase().replace(/[‐-―]/g,'-').replace(/[^A-Z0-9\-\/\. ]/g,' ').replace(/\s+/g,' ').trim();
+  if(s.length<4)return null;
+  var r=null;
+  if(/^M[34]\d\d[ABR]/.test(s))r=decodeSamsung(s);
+  else if(/^HM[AC][GT]/.test(s))r=decodeHynixNew(s);
+  else if(/^HMA/.test(s))r=decodeHynixClassic(s);
+  else if(/^MTA/.test(s))r=decodeMicron4(s);
+  else if(/^MTC/.test(s))r=decodeMicron5(s);
+  else if(/^K(SM|VR|T[DHL]|CS)/.test(s))r=decodeKingston(s);
+  if(!r&&/PC[345]L?-?\d{4}/.test(s))r=decodeLabel(s);
+  if(r)return r;
+  var fam='';
+  if(/^M[34]\d\d/.test(s))fam='Samsung';else if(/^HM[ACT]/.test(s))fam='SK hynix';else if(/^MT/.test(s))fam='Micron';else if(/^K(SM|VR|F|T|C)/.test(s))fam='Kingston';
+  return {status:'unknown',maker:fam,scheme:'',pn:s,spec:{},derived:{},fields:[],notes:[]};
+}
+function summary(r){
+  if(!r||!r.spec)return '';
+  var p=[];if(r.spec.capacity)p.push(r.spec.capacity);if(r.spec.speed)p.push(r.spec.speed);else if(r.spec.generation)p.push(r.spec.generation);if(r.spec.type)p.push(r.spec.type);
+  var t=p.join(' ');if(r.spec.rank)t+=', '+r.spec.rank;return t;
+}
+root.OciRamDecoder={decode:decodeRAM,summary:summary};
+if(typeof module!=='undefined'&&module.exports)module.exports=root.OciRamDecoder;
+})(typeof window!=='undefined'?window:this);
+
+</script>
+<script>
+/* Decoder page UI (2026-10-04). Result first; catalog link or quote form after. No prices shown here. */
+(function(){
+var D=window.OciRamDecoder,inp=document.getElementById('pnsearch'),out=document.getElementById('pnresults'),go=document.getElementById('dec-go'),qf=document.getElementById('pnquote'),qp=document.getElementById('pnq-part'),qm=document.getElementById('pnq-msg'),idx=null,timer=null,evt=null;
+if(!D||!inp||!out)return;
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function norm(s){return String(s).toUpperCase().replace(/[^A-Z0-9]/g,'');}
+function catalog(pn){
+  var res={exact:null,near:[]};if(!idx)return res;
+  var q=norm(pn);if(q.length<3)return res;
+  idx.forEach(function(p){var n=norm(p.pn);
+    if(n===q)res.exact=p;
+    else if(n.indexOf(q)===0||(q.length>=10&&n.slice(0,10)===q.slice(0,10))||(q.length<10&&n.indexOf(q)>=0))res.near.push(p);});
+  res.near=res.near.slice(0,4);return res;
+}
+function tile(k,v,sub,derived){return '<div class="dec-tile"><div class="k">'+k+(derived?' <span class="dec-badge" title="Worked out from other fields, not printed in the part number">worked out</span>':'')+'</div><div class="v">'+esc(v)+'</div>'+(sub?'<div class="s">'+esc(sub)+'</div>':'')+'</div>';}
+function nearLinks(c){
+  if(!c.near.length)return '';
+  return '<div class="dec-near">Similar modules in our catalog: '+c.near.map(function(p){return '<a href="/'+esc(p.slug)+'">'+esc(p.pn)+'</a>';}).join(', ')+'</div>';
+}
+function cta(r,c,sum){
+  if(c.exact)return '<div class="dec-cta"><div><strong>We buy this module.</strong> It is in our catalog with a current offer.</div><a class="btn btn-primary" href="/'+esc(c.exact.slug)+'">See what this module is worth &rsaquo;</a></div>';
+  return '<div class="dec-cta"><div><strong>Have these to sell?</strong> We buy server, desktop and laptop memory in any quantity and reply within one business day.</div><button type="button" class="btn btn-primary" data-pn="'+esc(r.pn)+'" data-sum="'+esc(sum)+'">Get an offer for this part</button></div>'+nearLinks(c);
+}
+function share(pn){return '<button type="button" class="dec-share" data-share="'+esc(pn)+'">Copy a link to this result</button>';}
+function render(r){
+  if(!r){out.innerHTML='';qf.hidden=true;return;}
+  var c=catalog(r.pn),h='',s=r.spec,sum=D.summary(r);
+  if(r.status==='unknown'){
+    if(c.exact){
+      var p=c.exact;sum=p.cap+'GB '+p.spd+' '+p.ff;
+      h='<div class="dec-card"><div class="dec-head"><div class="dec-maker">From the Ocitech catalog</div><div class="dec-sum">'+esc(sum)+'</div><div class="dec-pn">'+esc(p.pn)+'</div></div>'
+       +'<div class="dec-grid">'+tile('Capacity',p.cap+'GB')+tile('Generation',p.gen)+tile('Speed',p.spd)+tile('Module type',p.ff)+'</div>'
+       +'<p class="dec-note">This is an OEM or contract part number with no published numbering scheme, so there is nothing to decode character by character. The specification above comes from our own catalog.</p>'
+       +cta(r,c,sum)+'</div>';
+    }else{
+      var sug=c.near.length?'<div class="dec-near">Did you mean: '+c.near.map(function(p){return '<button type="button" class="dec-fill" data-fill="'+esc(p.pn)+'">'+esc(p.pn)+'</button>';}).join(' ')+'</div>':'';
+      h='<div class="dec-card dec-unknown"><div class="dec-head"><div class="dec-maker">'+(r.maker?'Looks like '+esc(r.maker):'Not recognised')+'</div><div class="dec-sum">'+(r.maker?'Keep typing, or check the characters':'We could not decode that one')+'</div></div>'
+       +'<p class="dec-note">'+(r.maker?'That starts like a '+esc(r.maker)+' part number, but it is incomplete or in a format this decoder does not cover yet.':'The decoder reads Samsung (M3&hellip;), SK hynix (HMA&hellip;, HMC&hellip;), Micron (MTA&hellip;, MTC&hellip;) and Kingston (KSM&hellip;, KVR&hellip;, KT&hellip;) module part numbers. Server-brand numbers from HPE, Dell or Lenovo are not decodable, but the DRAM maker&rsquo;s number is usually on the same label.')+'</p>'
+       +sug+'<div class="dec-cta"><div><strong>Send it to us.</strong> We will identify the module and reply within one business day.</div><button type="button" class="btn btn-primary" data-pn="'+esc(r.pn)+'" data-sum="">Ask Ocitech to identify it</button></div></div>';
+    }
+    out.innerHTML=h;return;
+  }
+  var head=r.status==='label'?'Label specification line':(r.scheme||r.maker);
+  h='<div class="dec-card"><div class="dec-head"><div class="dec-maker">'+esc(head)+'</div><div class="dec-sum">'+esc(sum||'Partly decoded')+'</div><div class="dec-pn">'+esc(r.pn)+'</div></div><div class="dec-grid">';
+  if(s.capacity)h+=tile('Capacity',s.capacity);
+  if(s.generation)h+=tile('Generation',s.generation);
+  if(s.speed)h+=tile('Speed',s.speed,[s.pc,s.cl].filter(Boolean).join(' · '));
+  if(s.type)h+=tile('Module type',s.type,s.ecc||'',r.derived.type);
+  if(s.rank)h+=tile('Rank &amp; width',s.rank,'',r.derived.rank);
+  else if(s.width)h+=tile('DRAM width',s.width);
+  if(s.die)h+=tile('DRAM die',s.die,'',r.derived.die);
+  if(s.dram)h+=tile('DRAM',s.dram);
+  h+='</div>';
+  if(r.fields.length){
+    h+='<h3 class="dec-h">Character by character</h3><div class="dec-tablewrap"><table class="dec-table"><thead><tr><th>Characters</th><th>Field</th><th>Meaning</th></tr></thead><tbody>';
+    r.fields.forEach(function(f){h+='<tr'+(f.flag==='unknown'?' class="unk"':'')+'><td class="seg">'+esc(f.seg||'—')+'</td><td>'+esc(f.name)+'</td><td>'+esc(f.value)+(f.flag==='derived'?' <span class="dec-badge">worked out</span>':f.flag==='unknown'?' <span class="dec-badge dec-badge-u">not decoded</span>':'')+'</td></tr>';});
+    h+='</tbody></table></div>';
+  }
+  r.notes.forEach(function(n){h+='<p class="dec-note">'+esc(n)+'</p>';});
+  h+=cta(r,c,sum)+'<div class="dec-foot">'+share(r.pn)+'</div></div>';
+  out.innerHTML=h;
+}
+function track(r){
+  clearTimeout(evt);evt=setTimeout(function(){try{if(window.gtag&&r)gtag('event','decoder_result',{status:r.status,maker:r.maker||'',in_catalog:!!catalog(r.pn).exact,page_path:location.pathname});}catch(e){}},900);
+}
+function run(commit){
+  var raw=inp.value.trim(),r=raw.length>=3?D.decode(raw):null;
+  if(raw.length===3&&!r)r=null;
+  qf.hidden=true;render(r);if(r)track(r);
+  if(commit&&window.history&&history.replaceState){try{history.replaceState(null,'',raw?('?pn='+encodeURIComponent(raw)):location.pathname);}catch(e){}}
+}
+function fill(v){inp.value=v;run(true);}
+inp.addEventListener('input',function(){clearTimeout(timer);timer=setTimeout(function(){run(false);},140);});
+inp.addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();clearTimeout(timer);run(true);}});
+if(go)go.addEventListener('click',function(){clearTimeout(timer);run(true);inp.focus();});
+document.addEventListener('click',function(e){
+  var ex=e.target.closest('[data-ex]');if(ex){fill(ex.getAttribute('data-ex'));document.getElementById('decoder').scrollIntoView({behavior:'smooth',block:'start'});return;}
+  var fl=e.target.closest('[data-fill]');if(fl){fill(fl.getAttribute('data-fill'));return;}
+  var sh=e.target.closest('[data-share]');if(sh){var u=location.origin+location.pathname+'?pn='+encodeURIComponent(sh.getAttribute('data-share'));
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(u).then(function(){sh.textContent='Link copied';},function(){sh.textContent=u;});}else{sh.textContent=u;}return;}
+  var b=e.target.closest('#pnresults button[data-pn]');if(b){
+    var pn=b.getAttribute('data-pn'),sm=b.getAttribute('data-sum');
+    qp.value=pn+(sm?' | decoder: '+sm:' | decoder: not recognised');
+    qm.innerHTML=sm?('Offer request for <strong>'+esc(pn)+'</strong> ('+esc(sm)+'). Add your email and a rough quantity.'):('We will identify <strong>'+esc(pn)+'</strong> for you. Add your email and a rough quantity.');
+    qf.hidden=false;qf.scrollIntoView({behavior:'smooth',block:'center'});var em=qf.querySelector('input[type=email]');if(em)setTimeout(function(){em.focus();},350);
+  }
+});
+fetch('/parts-index.json').then(function(x){return x.json();}).then(function(d){idx=d;if(inp.value.trim())run(false);}).catch(function(){});
+var q=/[?&]pn=([^&]+)/.exec(location.search);
+if(q){try{inp.value=decodeURIComponent(q[1].replace(/\+/g,' ')).slice(0,60);}catch(e){}run(false);}
+})();
+
+</script>
+</body>
+</html>
