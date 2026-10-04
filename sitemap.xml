@@ -92,7 +92,7 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ocitech.com/zh-cn/index</loc>
+    <loc>https://ocitech.com/zh-cn/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -116,7 +116,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ocitech.com/zh-tw/index</loc>
+    <loc>https://ocitech.com/zh-tw/</loc>
     <lastmod>2026-07-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
