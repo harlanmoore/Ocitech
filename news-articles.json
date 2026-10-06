@@ -1,5 +1,12 @@
 [
   {
+    "slug": "ddr5-on-die-ecc-vs-server-ecc",
+    "title": "DDR5 On-Die ECC vs System ECC: What Server Memory Buyers Should Know",
+    "summary": "On-die ECC corrects errors inside DDR5 chips; it does not replace system ECC. Buyers should verify the module type, full part number and platform support before accepting a server-memory substitute.",
+    "category": "Guides",
+    "date": "2026-10-06"
+  },
+  {
     "slug": "micron-8800-mts-rdimm-customer-qualification",
     "title": "Micron Reports 8,800 MT/s RDIMM Qualifications: What Server Buyers Should Check",
     "summary": "Micron reports completed customer qualifications for 8,800 MT/s server RDIMMs. Buyers should verify the exact platform and module type, then confirm workload value and delivery before ordering.",
