@@ -522,6 +522,29 @@ rdt('track','PageVisit');
 </script>
 <!-- End Reddit Pixel -->
 <script src="/scripts/referral-attribution.js"></script>
+<style id="oci-mobileintro">
+/* 2026-10-08: shorter mobile intro, form reachable sooner */
+.hero-points .mob-only{display:none;}
+.qq-pay{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--text-secondary);text-align:center;}
+.qq-pay a{color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){
+  .ribbon .ribbon-inner span+span{display:none;}
+  .ribbon .ribbon-inner{padding:7px 16px;}
+  .page-hero{padding-top:18px;padding-bottom:36px;}
+  .hero2{padding-top:18px;}
+  .page-hero .eyebrow,.hero2 .eyebrow{font-size:13px;margin-bottom:6px;}
+  .page-hero h1.category-title,.hero2 h1.category-title{font-size:32px;}
+  .hero-copy h1{font-size:34px;}
+  .page-hero p.sub,.hero2 p.sub,.hero-copy p.sub{font-size:16px;margin-top:10px;}
+  .hero-console{margin-top:16px !important;}
+  .hero-grid{row-gap:16px;}
+  .hero-copy .offer-actions,.hero-copy .offer-terms{display:none;}
+  .hero-points .mob-only{display:list-item;}
+  .vc-panel{padding:16px;}
+  .qq-sub{display:none;}
+  .qq-title{font-size:18px !important;margin-bottom:12px !important;}
+}
+</style>
 </head>
 <body>
 
@@ -565,7 +588,7 @@ rdt('track','PageVisit');
         <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
         <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get a firm offer for your drives</div>
-        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
+        <div class="qq-sub" style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
         <label for="offer-details" class="offer-label">What are you selling?</label>
         <textarea id="offer-details" name="details" rows="3" placeholder="Model numbers, capacities and quantities &mdash; e.g. 40x Samsung PM1733 3.84TB NVMe U.2, 120x Intel S4610 960GB SATA. Paste a list or describe your drives; you can attach a spreadsheet or photos below." class="offer-input"></textarea>
         <label for="offer-condition" class="offer-label">Condition</label>
@@ -576,12 +599,12 @@ rdt('track','PageVisit');
           <option>Used &mdash; untested</option>
           <option>Failed / for parts</option>
         </select>
-        <label for="offer-email" class="offer-label">Email for your offer</label>
-        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
         <div style="margin-top:14px;text-align:center;">
           <input type="file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
         </div>
         <div class="form-note" style="text-align:center;margin-top:8px;font-size:13px;color:var(--text-tertiary);">Excel, CSV, or phone photos of drive labels and bins &mdash; no sorted list required. Up to 6 files; large photos are shrunk automatically.</div>
+        <label for="offer-email" class="offer-label">Email for your offer</label>
+        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
         <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Get My Firm Offer</button>
         <div style="text-align:center;margin-top:10px;font-size:13px;color:var(--text-tertiary);">We price drives by model, capacity, interface and condition &mdash; a firm, itemized offer, usually within one business day. Every drive is data-sanitized.</div>
       </form>
@@ -995,17 +1018,19 @@ rdt('track','PageVisit');
 
 <script>
 (function(){
-  /* Ocitech file-upload UX v2 (2026-09-07)
-     Netlify Forms accepts ONE file per field, so every form carries six static file fields:
-     attachment, attachment2 ... attachment6 (added by the site generator / patch script).
-     This script hides them, shows one "Add photos or a spreadsheet" button backed by a
-     hidden multi-select picker, compresses phone photos client-side, and distributes up to
-     six files across the six fields. Total payload is kept under ~5.5 MB (Netlify cap 8 MB). */
-  if(window.__ociFileUX) return; window.__ociFileUX=2;
-  var MAX_TOTAL=5.5*1024*1024, MAX_FILES=6, IMG_MAX_PX=1600, IMG_Q=0.82;
-  function human(b){return (b/1048576).toFixed(1)+' MB';}
+  /* Ocitech file-upload UX v3 (2026-10-08)
+     Netlify Forms accepts ONE file per field, so every form carries six static file fields
+     (attachment, attachment2 ... attachment6). This script hides them behind one button with a
+     multi-select picker, compresses phone photos, and distributes up to six files across the
+     six fields. v3: each file is listed with Replace / Remove, "Add more" is distinct from
+     replacing, files left out by the 6-file limit stay named in a warning, and the limits are
+     shown before anything is chosen. Total payload is kept under ~5.5 MB. */
+  if(window.__ociFileUX>=3) return; window.__ociFileUX=3;
+  var MAX_TOTAL=5.5*1024*1024, MAX_FILES=6, IMG_MAX_PX=1600, IMG_Q=0.82, ICON='&#128206;';
+  function human(b){return b<1048576?Math.max(1,Math.round(b/1024))+' KB':(b/1048576).toFixed(1)+' MB';}
   function track(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}}
   function isImage(f){return /^image\//.test(f.type)&&!/heic|heif/i.test(f.type);}
+  function el(tag,css,txt){var e=document.createElement(tag);if(css)e.style.cssText=css;if(txt!=null)e.textContent=txt;return e;}
   function compress(file){
     return new Promise(function(res){
       if(!isImage(file)||file.size<450*1024){res(file);return;}
@@ -1029,50 +1054,72 @@ rdt('track','PageVisit');
   forms.forEach(function(form){
     var slots=Array.prototype.slice.call(form.querySelectorAll('input[type=file]'));
     var first=slots[0]; if(!first) return;
+    var accept=first.getAttribute('accept')||'.csv,.xlsx,.xls,.txt,.pdf,image/*';
     var base=(first.getAttribute('name')||'attachment').replace(/\d+$/,'');
-    // ensure six static-named slots exist (generator adds them; this is a safety net for hand pages)
-    for(var i=slots.length+1;i<=MAX_FILES;i++){var extra=document.createElement('input');extra.type='file';extra.name=base+i;extra.setAttribute('accept',first.getAttribute('accept')||'');first.parentNode.insertBefore(extra,first.nextSibling);slots.push(extra);}
+    for(var i=slots.length+1;i<=MAX_FILES;i++){var extra=document.createElement('input');extra.type='file';extra.name=base+i;extra.setAttribute('accept',accept);first.parentNode.insertBefore(extra,first.nextSibling);slots.push(extra);}
     slots.forEach(function(s){s.removeAttribute('multiple');s.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';s.tabIndex=-1;});
 
-    var picker=document.createElement('input');picker.type='file';picker.multiple=true;picker.setAttribute('accept',first.getAttribute('accept')||'.csv,.xlsx,.xls,.txt,.pdf,image/*');
-    picker.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';
-    var btn=document.createElement('button');btn.type='button';btn.className='oci-attach-btn';
-    btn.innerHTML='&#128206; Add photos or a spreadsheet';
-    btn.style.cssText='border:1.5px solid var(--accent,#0071E3);color:var(--accent,#0071E3);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;';
+    var picker=el('input','position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;');picker.type='file';picker.multiple=true;picker.setAttribute('accept',accept);
+    var one=el('input','position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;');one.type='file';one.setAttribute('accept',accept);
+    var btn=el('button','border:1.5px solid var(--accent,#0071E3);color:var(--accent,#0071E3);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;');
+    btn.type='button';btn.className='oci-attach-btn';
     btn.addEventListener('mouseover',function(){btn.style.background='var(--accent,#0071E3)';btn.style.color='#fff';});
     btn.addEventListener('mouseout',function(){btn.style.background='transparent';btn.style.color='var(--accent,#0071E3)';});
-    var info=document.createElement('div');info.style.cssText='margin-top:8px;font-size:13px;color:var(--text-secondary,#6E6E73);';
-    var warn=document.createElement('div');warn.style.cssText='display:none;margin-top:6px;font-size:13px;color:#c0392b;font-weight:600;';
-    first.parentNode.insertBefore(picker,first);first.parentNode.insertBefore(btn,first);
-    var last=slots[slots.length-1];last.parentNode.insertBefore(info,last.nextSibling);info.parentNode.insertBefore(warn,info.nextSibling);
-    // legacy buttons from v1 markup (e.g. sell-server-ram's own attach button) delegate here
-    form.querySelectorAll('.attach-btn,#lot-attach-btn').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
-    btn.addEventListener('click',function(){picker.click();});
+    var mb=(MAX_TOTAL/1048576).toFixed(1)+' MB';
+    var limits=el('div','margin-top:6px;font-size:12.5px;color:var(--text-tertiary,#86868B);',/Up to 6 files/.test(form.textContent)?'Total size limit: '+mb+'.':'Up to '+MAX_FILES+' files, '+mb+' total. Large photos are shrunk automatically.');
+    var list=el('ul','list-style:none;margin:10px 0 0;padding:0;text-align:left;');list.className='oci-files';
+    var info=el('div','margin-top:6px;font-size:13px;color:var(--text-secondary,#6E6E73);');
+    var warn=el('div','display:none;margin-top:6px;font-size:13px;color:#c0392b;font-weight:600;text-align:left;');warn.setAttribute('role','status');
+    first.parentNode.insertBefore(picker,first);first.parentNode.insertBefore(one,first);first.parentNode.insertBefore(btn,first);
+    var last=slots[slots.length-1];
+    [limits,list,info,warn].reduce(function(prev,node){prev.parentNode.insertBefore(node,prev.nextSibling);return node;},last);
 
-    var chosen=[];
+    var chosen=[],omitted=[],replaceAt=-1;
     function total(){return chosen.reduce(function(a,f){return a+f.size;},0);}
+    function sync(){slots.forEach(function(s,i){setFiles(s,chosen[i]||null);});}
     function render(){
-      if(!chosen.length){info.textContent='';btn.innerHTML='&#128206; Add photos or a spreadsheet';warn.style.display='none';return true;}
-      info.textContent=chosen.length+(chosen.length>1?' files ':' file ')+'attached ('+human(total())+'): '+chosen.map(function(f){return f.name;}).join(', ');
-      btn.innerHTML='&#128206; Add more / change files';
-      if(total()>MAX_TOTAL){warn.textContent='Those files total '+human(total())+' — over the ~6 MB limit, so they may not send. Remove a file or send the rest by email reply.';warn.style.display='block';return false;}
-      warn.style.display='none';return true;
+      list.innerHTML='';
+      chosen.forEach(function(f,i){
+        var li=el('li','display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line,#D2D2D7);border-radius:10px;margin-top:6px;font-size:13.5px;background:var(--bg,#fff);');
+        var nm=el('span','flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text,#1D1D1F);',f.name);
+        var sz=el('span','color:var(--text-tertiary,#86868B);white-space:nowrap;',human(f.size));
+        var rp=el('button','border:0;background:none;color:var(--accent,#0071E3);font:inherit;font-weight:600;cursor:pointer;padding:2px 4px;','Replace');rp.type='button';rp.setAttribute('aria-label','Replace '+f.name);
+        var rm=el('button','border:0;background:none;color:#c0392b;font:inherit;font-weight:600;cursor:pointer;padding:2px 4px;','Remove');rm.type='button';rm.setAttribute('aria-label','Remove '+f.name);
+        rp.addEventListener('click',function(){replaceAt=i;one.click();});
+        rm.addEventListener('click',function(){chosen.splice(i,1);sync();render();track('file_remove',{file_count:chosen.length,form_name:form.getAttribute('name')||''});});
+        li.appendChild(nm);li.appendChild(sz);li.appendChild(rp);li.appendChild(rm);list.appendChild(li);
+      });
+      var n=chosen.length;
+      btn.innerHTML=ICON+' '+(n?'Add more files':'Add photos or a spreadsheet');
+      btn.style.display=n>=MAX_FILES?'none':'inline-flex';
+      info.textContent=n?(n+' of '+MAX_FILES+' files attached, '+human(total())+' total'+(n>=MAX_FILES?' — remove one to add another.':'.')):'';
+      var msgs=[];
+      if(omitted.length)msgs.push('Not attached (limit is '+MAX_FILES+' files): '+omitted.join(', ')+'. '+(n<MAX_FILES?'There is room now \u2014 choose Add more files to include '+(omitted.length>1?'them':'it')+'.':'Remove a file to make room, or reply to our email with the rest.'));
+      if(total()>MAX_TOTAL)msgs.push('These files total '+human(total())+', over the '+mb+' limit, so the form will not send. Remove or replace a large file.');
+      warn.textContent=msgs.join(' ');warn.style.display=msgs.length?'block':'none';
+      return total()<=MAX_TOTAL;
     }
-    picker.addEventListener('change',function(){
-      var incoming=Array.prototype.slice.call(picker.files||[]);picker.value='';
-      if(!incoming.length)return;
+    function add(incoming){
       var room=MAX_FILES-chosen.length;
-      if(incoming.length>room){warn.textContent='Up to '+MAX_FILES+' files per submission — the first '+room+' were added. For more, attach a spreadsheet or reply to our email with the rest.';warn.style.display='block';incoming=incoming.slice(0,Math.max(0,room));}
+      omitted=incoming.slice(Math.max(0,room)).map(function(f){return f.name;});
+      incoming=incoming.slice(0,Math.max(0,room));
+      if(!incoming.length){render();return;}
       info.textContent='Preparing files…';
       Promise.all(incoming.map(compress)).then(function(done){
-        chosen=chosen.concat(done);
-        slots.forEach(function(s,i){setFiles(s,chosen[i]||null);});
-        var ok=render();
-        track('file_attach',{file_count:chosen.length,file_bytes:total(),over_limit:!ok,form_name:form.getAttribute('name')||''});
+        chosen=chosen.concat(done);sync();var ok=render();
+        track('file_attach',{file_count:chosen.length,file_bytes:total(),over_limit:!ok,omitted:omitted.length,form_name:form.getAttribute('name')||''});
       });
-    });
+    }
+    picker.addEventListener('change',function(){var inc=Array.prototype.slice.call(picker.files||[]);picker.value='';if(inc.length)add(inc);});
+    one.addEventListener('change',function(){var f=one.files&&one.files[0];one.value='';var at=replaceAt;replaceAt=-1;if(!f||at<0)return;
+      info.textContent='Preparing file…';compress(f).then(function(c){chosen[at]=c;sync();render();track('file_replace',{file_count:chosen.length,form_name:form.getAttribute('name')||''});});});
+    btn.addEventListener('click',function(){picker.click();});
+    // older buttons and scripts that open a slot directly are routed to the managed picker
+    form.querySelectorAll('.attach-btn,#lot-attach-btn').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
+    slots.forEach(function(s){s.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
+    render();
     form.addEventListener('submit',function(e){
-      if(total()>MAX_TOTAL){e.preventDefault();btn.scrollIntoView({behavior:'smooth',block:'center'});track('form_error',{reason:'files_over_limit',form_name:form.getAttribute('name')||''});}
+      if(total()>MAX_TOTAL){e.preventDefault();render();warn.scrollIntoView({behavior:'smooth',block:'center'});track('form_error',{reason:'files_over_limit',form_name:form.getAttribute('name')||''});}
     });
   });
 })();
@@ -1152,6 +1199,18 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
   var marks={25:0,50:0,75:0};
   window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h<=0)return;var pct=Math.round(window.scrollY/h*100);[25,50,75].forEach(function(m){if(!marks[m]&&pct>=m){marks[m]=1;ev('scroll_depth',{percent:m});}});},{passive:true});
 })();
+</script>
+<script>
+/* quick-offer form needs something to price: a description or a file (2026-10-08) */
+(function(){document.querySelectorAll('form[name="quick-quote"]').forEach(function(f){var d=f.querySelector('[name=details]');if(!d)return;
+var msg=document.createElement('div');msg.setAttribute('role','alert');msg.style.cssText='display:none;margin-top:12px;font-size:13.5px;color:#c0392b;font-weight:600;text-align:left;';
+msg.textContent='Tell us a little about what you have \u2014 an approximate count is fine (e.g. "about 200 x 32GB DDR4") \u2014 or attach a list or a photo of a label.';
+var sub=f.querySelector('button[type=submit]');if(sub)sub.parentNode.insertBefore(msg,sub);
+function hasFiles(){return Array.prototype.some.call(f.querySelectorAll('input[type=file][name]'),function(i){return i.files&&i.files.length;});}
+document.addEventListener('submit',function(e){if(e.target!==f)return;if(d.value.trim()||hasFiles()){msg.style.display='none';return;}
+ e.preventDefault();e.stopImmediatePropagation();msg.style.display='block';d.focus();
+ try{if(window.gtag)gtag('event','form_error',{reason:'nothing_to_price',form_name:'quick-quote'});}catch(err){}},true);
+d.addEventListener('input',function(){if(d.value.trim())msg.style.display='none';});});})();
 </script>
 </body>
 </html>
