@@ -526,6 +526,75 @@ rdt('track','PageVisit');
 </script>
 <!-- End Reddit Pixel -->
 <script src="/scripts/referral-attribution.js"></script>
+<style id="oci-lotfix">
+/* 2026-10-07: lot estimator + trust ribbon fit small screens */
+.ribbon .ribbon-inner span{white-space:normal;text-align:center;}
+.hero-grid>*{min-width:0;}
+.vc,.vc-panel,#lot-results,#lot-form{min-width:0;max-width:100%;box-sizing:border-box;}
+.lot-tablewrap{container-type:inline-size;overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);}
+.lot-table{width:100%;border-collapse:collapse;font-size:14px;}
+.lot-table th{padding:10px;text-align:left;background:var(--bg-alt);font-weight:600;}
+.lot-table td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;}
+.lot-table tr:last-child td{border-bottom:0;}
+.lot-table th.num,.lot-table td.num{text-align:right;white-space:nowrap;}
+.lot-table .pn{font-weight:600;overflow-wrap:anywhere;color:var(--text);}
+.lot-table a.pn{color:var(--accent);}
+.lot-table .sub{font-size:12px;color:var(--text-secondary);font-weight:400;}
+.lot-table .unit-m{display:none;}
+.lot-table td.line{font-weight:700;color:var(--green);}
+.lot-table td.muted{color:var(--text-tertiary);}
+.lot-table .warn{color:#B45309;font-weight:600;}
+.lot-sum{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin-top:14px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);}
+.lot-sum-label{font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-tertiary);font-weight:600;}
+.lot-sum-value{font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--green);}
+.lot-sum-value.is-text{font-size:26px;color:var(--text);}
+.lot-sum-note{flex:1 1 220px;min-width:0;font-size:13px;color:var(--text-secondary);text-align:right;}
+.lot-sum-note .warn{color:#B45309;font-weight:600;}
+@container (max-width:440px){
+  .lot-table{font-size:13px;}
+  .lot-table th,.lot-table td{padding:9px 8px;}
+  .lot-table .unit{display:none;}
+  .lot-table .unit-m{display:block;}
+}
+@media(max-width:600px){
+  .lot-table{font-size:13px;}
+  .lot-table th,.lot-table td{padding:9px 8px;}
+  .lot-table .unit{display:none;}
+  .lot-table .unit-m{display:block;}
+  .lot-sum{padding:14px;}
+  .lot-sum-value{font-size:28px;}
+  .lot-sum-value.is-text{font-size:22px;}
+  .lot-sum-note{flex-basis:100%;text-align:left;}
+  #lot-form{padding:16px !important;}
+  #lot-form>div[style*="grid-template-columns"]{grid-template-columns:1fr !important;}
+  #lot-form input[type=text],#lot-form input[type=email],#lot-form input[type=tel]{width:100%;min-width:0;box-sizing:border-box;}
+  #lot-form button[type=submit]{width:100%;}
+  a.btn.btn-link{white-space:normal;text-align:center;max-width:100%;box-sizing:border-box;}
+}
+</style>
+<style id="oci-mobileintro">
+/* 2026-10-08: shorter mobile intro, form reachable sooner */
+.hero-points .mob-only{display:none;}
+.qq-pay{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--text-secondary);text-align:center;}
+.qq-pay a{color:var(--accent);white-space:nowrap;}
+@media(max-width:600px){
+  .ribbon .ribbon-inner span+span{display:none;}
+  .ribbon .ribbon-inner{padding:7px 16px;}
+  .page-hero{padding-top:18px;padding-bottom:36px;}
+  .hero2{padding-top:18px;}
+  .page-hero .eyebrow,.hero2 .eyebrow{font-size:13px;margin-bottom:6px;}
+  .page-hero h1.category-title,.hero2 h1.category-title{font-size:32px;}
+  .hero-copy h1{font-size:34px;}
+  .page-hero p.sub,.hero2 p.sub,.hero-copy p.sub{font-size:16px;margin-top:10px;}
+  .hero-console{margin-top:16px !important;}
+  .hero-grid{row-gap:16px;}
+  .hero-copy .offer-actions,.hero-copy .offer-terms{display:none;}
+  .hero-points .mob-only{display:list-item;}
+  .vc-panel{padding:16px;}
+  .qq-sub{display:none;}
+  .qq-title{font-size:18px !important;margin-bottom:12px !important;}
+}
+</style>
 </head>
 <body>
 
@@ -585,8 +654,8 @@ fetch('/parts-index.json').then(function(r){return r.json();}).then(function(d){
 function esc(s){return String(s).replace(/</g,'&lt;');}
 function openQuote(pn,hi){qp.value=pn;qm.innerHTML=hi?('<strong>'+esc(pn)+'</strong> is going for up to <strong style="color:var(--green);">$'+hi+'</strong> per module. Drop your email and we\'ll confirm a firm quote &mdash; larger lots may qualify for higher per-module offers.'):('We don’t have an online price for <strong>'+esc(pn)+'</strong> yet. Request a manual quote below, or choose Get a Firm Offer to send label photos for identification.');qf.hidden=false;}
 out.addEventListener('click',function(ev){var b=ev.target.closest('button[data-pn]');if(b){ev.preventDefault();openQuote(b.getAttribute('data-pn'),b.getAttribute('data-hi'));}});
-inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/\s+/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
-var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/\s+/g,'').indexOf(q)>=0;}).slice(0,6);
+inp.addEventListener('input',function(){var raw=inp.value.trim();var q=raw.toUpperCase().replace(/[^A-Z0-9]/g,'');if(!idx||q.length<3){out.innerHTML='';qf.hidden=true;return;}
+var m=idx.filter(function(p){return p.pn.toUpperCase().replace(/[^A-Z0-9]/g,'').indexOf(q)>=0;}).slice(0,6);
 if(m.length){qf.hidden=true;out.innerHTML=m.map(function(p){return '<div style="display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:var(--bg);"><a href="/'+p.slug+'" style="flex:1;min-width:0;"><strong>'+p.pn+'</strong><br><span style="color:var(--text-secondary);font-size:13px;">'+p.cap+'GB '+p.spd+' '+p.ff+' &middot; <span style="color:var(--green);font-weight:700;">up to $'+p.hi+'</span></span></a><button type="button" class="btn btn-primary" data-pn="'+p.pn+'" data-hi="'+p.hi+'" style="padding:9px 16px;font-size:14px;white-space:nowrap;">Get My Offer</button></div>';}).join('');}
 else{out.innerHTML='';openQuote(raw,null);}
 });})();
@@ -616,21 +685,23 @@ else{out.innerHTML='';openQuote(raw,null);}
 <form name="quick-quote" method="POST" action="/thanks.html" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" style="padding:2px 0;">
         <input type="hidden" name="form-name" value="quick-quote"><input type="hidden" name="subject" value="%{formName} submission #%{submissionId}"><input type="hidden" name="source_utm"><input type="hidden" name="source_landing"><input type="hidden" name="source_page"><input type="hidden" name="source_device"><input type="hidden" name="source_referrer">
         <p style="display:none;"><label>Leave blank if human: <input name="bot-field"></label></p>
-        <div style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get an offer for your DDR4 memory</div>
-        <div style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
+        <div class="qq-title" style="font-size:20px;font-weight:600;letter-spacing:-0.01em;text-align:center;margin-bottom:4px;">Get an offer for your DDR4 memory</div>
+        <div class="qq-sub" style="font-size:14px;color:var(--text-secondary);text-align:center;margin-bottom:18px;">Send what you have. We'll handle the pricing.</div>
         <label for="offer-details" class="offer-label">What are you selling?</label>
         <textarea id="offer-details" name="details" rows="3" placeholder="Paste part numbers and quantities, or describe your DDR4 lot &mdash; e.g. M393A8G40BB4-CWEBY x48, mixed 16GB/32GB/64GB RDIMM &amp; LRDIMM. You can also attach a list or photos below." class="offer-input"></textarea>
-        <label for="offer-email" class="offer-label">Email for your offer</label>
-        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
         <div style="margin-top:14px;text-align:center;">
           <input type="file" name="attachment" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*"><input type="file" name="attachment2" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment3" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment4" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment5" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1"><input type="file" name="attachment6" accept=".csv,.xlsx,.xls,.txt,.pdf,image/*" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;" tabindex="-1">
         </div>
         <div class="form-note" style="text-align:center;margin-top:8px;font-size:13px;color:var(--text-tertiary);">Excel, CSV, or phone photos of labels and bins &mdash; no sorted list required. Up to 6 files; large photos are shrunk automatically.</div>
+        <label for="offer-email" class="offer-label">Email for your offer</label>
+        <input id="offer-email" type="email" name="email" required placeholder="you@company.com" style="width:100%;padding:13px 15px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--text);box-sizing:border-box;">
         <button type="submit" class="btn btn-primary" style="width:100%;margin-top:16px;">Get My Firm Offer</button>
         <div style="text-align:center;margin-top:10px;font-size:13px;color:var(--text-tertiary);">We'll reply directly by email, usually within one business day.</div>
         <div class="offer-reassurance" style="margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;line-height:1.6;color:var(--text-secondary);text-align:left;">
           <p style="margin:0 0 8px;"><strong>Tested individually in Tacoma, WA.</strong> Payment within 2 business days of receipt for up to 200 modules; larger lots may take up to 3 business days, subject to testing confirming quantity and condition.</p>
-          <p style="margin:0;">Prepaid shipping label on offers over $500.</p>
+          <p style="margin:0 0 8px;">Any downward revision comes with photo evidence, line by line. Not as described? Accept the revised offer or have those modules returned at your expense &mdash; lines we don&rsquo;t dispute are still paid on schedule.</p>
+          <p style="margin:0 0 10px;">Prepaid shipping label on offers over $500.</p>
+          <p class="or-founder" style="margin:0;display:flex;align-items:center;gap:10px;"><img src="/founder-harlan.jpg" alt="Harlan Moore, founder of Ocitech" width="28" height="28" style="width:28px;height:28px;border-radius:50%;object-fit:cover;object-position:center 32%;flex-shrink:0;"><span style="flex:1;min-width:0;"><strong style="color:var(--text);">Harlan Moore</strong>, founder &middot; <a href="tel:14252691221" style="color:var(--accent);">425-269-1221</a> &middot; <a href="/#how-it-works" style="color:var(--accent);">Full terms &rsaquo;</a></span></p>
         </div>
       </form>
 </div>
@@ -664,25 +735,42 @@ else{out.innerHTML='';openQuote(raw,null);}
 })();
 </script>
 <script>
-(function(){var idx=null,byN={},ta=document.getElementById('lot-input'),run=document.getElementById('lot-run'),out=document.getElementById('lot-results'),f=document.getElementById('lot-form');if(!ta||!run)return;
+/* lot estimator v3 (2026-10-07) */
+(function(){var idx=null,byN={},ta=document.getElementById('lot-input'),run=document.getElementById('lot-run'),out=document.getElementById('lot-results'),f=document.getElementById('lot-form');if(!ta||!run||!out||!f)return;
+var qf=document.getElementById('lot-quantity'),MINQ=qf?10:0;
+if(qf)ta.addEventListener('input',function(){f.hidden=true;qf.value='';});
 function norm(s){return String(s).toUpperCase().replace(/[^A-Z0-9]/g,'');}
 fetch('/parts-index.json').then(function(r){return r.json();}).then(function(d){idx=d;d.forEach(function(p){byN[norm(p.pn)]=p;});}).catch(function(){});
-function esc(s){return String(s).replace(/</g,'&lt;');}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function findPart(tok){var n=norm(tok);if(n.length<6)return null;if(byN[n])return byN[n];var best=null,bl=0;for(var k in byN){if(k.indexOf(n)===0||n.indexOf(k)===0){var l=Math.min(k.length,n.length);if(l>bl){bl=l;best=byN[k];}}}return bl>=8?best:null;}
-function parseLine(line){var t=line.trim();if(!t)return null;var parts=t.split(/[\t,;]+|\s+/).filter(Boolean);var qty=1,pn=null;
+var HDR=/^(part|p\/?n|mpn|sku|model|item|qty|quantity|description|desc|manufacturer|mfr|brand|capacity|condition)\b/i;
+/* qty is null when the line gives none (a part number then counts as 1) and 0 when the line says 0 */
+function parseLine(line){var t=line.trim();if(!t)return null;var parts=t.split(/[\t,;]+|\s+/).filter(Boolean),qty=null,pn=null;
  if(parts.length>1){for(var i=parts.length-1;i>=0;i--){var m=parts[i].match(/^x?(\d{1,6})(?:x|pcs?|ea|units?)?$/i);if(m){qty=parseInt(m[1],10);parts.splice(i,1);break;}}}
  parts.forEach(function(p){if(/[A-Za-z]/.test(p)&&/\d/.test(p)&&(!pn||p.length>pn.length))pn=p;});
- if(!pn)return null;return {raw:pn,qty:qty>0?qty:1};}
+ if(!pn&&!/\d/.test(t)&&HDR.test(t))return null;
+ if(!pn||norm(pn).length<6)return {desc:true,raw:t.length>90?t.slice(0,88)+'…':t,qty:qty};
+ return {raw:pn,qty:qty};}
 function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
-run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[],total=0,mc=0,um=[];
+function pl(n,w){return n+' '+w+(n===1?'':'s');}
+run.addEventListener('click',function(){var lines=ta.value.split(/\r?\n/),rows=[],total=0,mc=0,um=[],zq=0,moduleCount=0;
  if(!idx){out.innerHTML='<div style="color:var(--text-secondary);">Loading price index&hellip; try again in a second.</div>';return;}
- lines.forEach(function(l){var it=parseLine(l);if(!it)return;var p=findPart(it.raw);if(p){var lt=p.hi*it.qty;total+=lt;mc++;rows.push('<tr><td style="padding:9px 10px;border-bottom:1px solid var(--line);"><a href="/'+p.slug+'" style="color:var(--accent);font-weight:600;">'+esc(p.pn)+'</a><div style="font-size:12px;color:var(--text-secondary);">'+p.cap+'GB '+p.spd+' '+p.ff+'</div></td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">'+it.qty+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">up to '+money(p.hi)+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;font-weight:700;color:var(--green);">'+money(lt)+'</td></tr>');}
-  else{um.push(it.raw+' x'+it.qty);rows.push('<tr><td style="padding:9px 10px;border-bottom:1px solid var(--line);"><strong>'+esc(it.raw)+'</strong><div style="font-size:12px;color:var(--text-secondary);">Not priced yet &mdash; we\'ll quote it</div></td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;">'+it.qty+'</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;color:var(--text-tertiary);">&mdash;</td><td style="padding:9px 10px;border-bottom:1px solid var(--line);text-align:right;color:var(--text-tertiary);">quote</td></tr>');}});
- if(!rows.length){out.innerHTML='<div style="color:var(--text-secondary);">Paste at least one part number (one per line) and try again.</div>';f.hidden=true;return;}
- out.innerHTML='<div style="overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><table style="width:100%;border-collapse:collapse;font-size:14px;min-width:520px;"><thead><tr style="background:var(--bg-alt);text-align:left;"><th style="padding:10px;">Part</th><th style="padding:10px;text-align:right;">Qty</th><th style="padding:10px;text-align:right;">Per module</th><th style="padding:10px;text-align:right;">Line est.</th></tr></thead><tbody>'+rows.join('')+'</tbody></table></div>'
-  +'<div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-top:14px;padding:16px 18px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg);"><div><div style="font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--text-tertiary);font-weight:600;">'+(mc?(um.length?'Priced items subtotal':'Estimated lot value'):'Manual valuation needed')+'</div><div style="font-size:34px;font-weight:600;letter-spacing:-.02em;color:var(--green);">'+(mc?'up to '+money(total):'Request an offer')+'</div></div><div style="font-size:13px;color:var(--text-secondary);text-align:right;">'+mc+' priced part'+(mc===1?'':'s')+(um.length?' &middot; '+um.length+' to quote':'')+'<br>'+(!mc?'No online valuation available for these items.':um.length?'Unpriced items are not included in this amount.':'Indicative prices, subject to inspection.')+'</div></div>';
+ lines.forEach(function(l){var it=parseLine(l);if(!it)return;var p=it.desc?null:findPart(it.raw),q=it.qty===null?(it.desc?null:1):it.qty;
+  var name=p?'<a class="pn" href="/'+p.slug+'">'+esc(p.pn)+'</a><div class="sub">'+p.cap+'GB '+p.spd+' '+p.ff+'</div>':'<span class="pn">'+esc(it.raw)+'</span>';
+  if(q===0){zq++;rows.push('<tr><td>'+name+'<div class="sub warn">Quantity is 0 &mdash; not counted</div></td><td class="num warn">0</td><td class="num unit muted">'+(p?'up to '+money(p.hi):'&mdash;')+'</td><td class="num muted">&mdash;</td></tr>');return;}
+  moduleCount+=q===null?1:q;
+  if(p){var lt=p.hi*q;total+=lt;mc++;rows.push('<tr><td>'+name+'<div class="sub unit-m">up to '+money(p.hi)+' / module</div></td><td class="num">'+q+'</td><td class="num unit">up to '+money(p.hi)+'</td><td class="num line">'+money(lt)+'</td></tr>');}
+  else{um.push(it.raw+(q===null?'':' x'+q));rows.push('<tr><td>'+name+'<div class="sub">'+(it.desc?'Description &mdash; we\'ll price it for you':'Not priced yet &mdash; we\'ll quote it')+'</div></td><td class="num">'+(q===null?'&mdash;':q)+'</td><td class="num unit muted">&mdash;</td><td class="num muted">quote</td></tr>');}});
+ if(!rows.length){out.innerHTML='<div style="color:var(--text-secondary);">Paste at least one part number per line, or describe what you have, and try again.</div>';f.hidden=true;return;}
+ var label,value,note,msg,zn=zq?'<br><span class="warn">'+pl(zq,'line')+' with a quantity of 0 '+(zq===1?'is':'are')+' not counted &mdash; edit and estimate again.</span>':'';
+ if(mc&&!um.length){label='Estimated lot value';value='up to '+money(total);note=pl(mc,'priced part')+'<br>Indicative prices, subject to inspection. Larger lots may qualify for higher per-module offers.';msg='Request a firm quote for your full lot. Indicative value: up to '+money(total)+'.';}
+ else if(mc){label='Indicative subtotal for priced items';value='up to '+money(total);note=pl(mc,'priced part')+' &middot; '+um.length+' awaiting quote<br>Additional items are not included in this amount &mdash; we\'ll quote them with your firm offer.';msg='Request a firm quote for your full lot. The subtotal excludes '+pl(um.length,'item')+' we\'ll price for you.';}
+ else{label='Not in the online price list';value='We\'ll price this inventory';note=(um.length?pl(um.length,'item')+' to quote<br>':'')+'Not in the online list yet &mdash; but we probably still buy it.';msg='Send this list and we\'ll reply with an itemized offer, usually within one business day.';}
+ out.innerHTML='<div class="lot-tablewrap"><table class="lot-table"><thead><tr><th>Part</th><th class="num">Qty</th><th class="num unit">Per module</th><th class="num">Line est.</th></tr></thead><tbody>'+rows.join('')+'</tbody></table></div>'
+  +'<div class="lot-sum"><div><div class="lot-sum-label">'+label+'</div><div class="lot-sum-value'+(mc?'':' is-text')+'">'+value+'</div></div><div class="lot-sum-note">'+note+zn+'</div></div>';
+ if(qf){qf.value=moduleCount;if(moduleCount<MINQ){out.insertAdjacentHTML('beforeend','<p role="status" class="form-note">This list contains '+pl(moduleCount,'module')+'. Quotes require at least '+MINQ+' modules in total. Add the rest of your lot and estimate again.</p>');f.hidden=true;return;}}
  document.getElementById('lot-raw').value=ta.value;document.getElementById('lot-est').value=mc?Math.round(total):'';document.getElementById('lot-m').value=mc;document.getElementById('lot-u').value=um.join('; ');
- document.getElementById('lot-msg').innerHTML=mc?('Request a firm quote for your full lot. '+(um.length?'The subtotal excludes '+um.length+' unpriced part'+(um.length===1?'':'s')+'.':'Indicative value: up to '+money(total)+'.')):'Your items need manual pricing. Send your list for an itemized offer.';
+ document.getElementById('lot-msg').innerHTML=msg;
  f.hidden=false;f.scrollIntoView({behavior:'smooth',block:'nearest'});});
 })();
 </script>
@@ -792,8 +880,8 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
       </div>
     </div>
     <div class="content-block reveal" style="margin-top:36px;">
-      <h3 style="margin-bottom:8px;">Why we don't publish prices</h3>
-      <p>RAM trades like a commodity &mdash; prices genuinely move day to day, and any number we printed here would be wrong by the time you read it. Any estimate our lot calculator shows is a guide, not a guaranteed offer: your firm offer depends on the exact part numbers, quantities, <strong>condition (new or pulls)</strong>, and what the market is paying that day. Send your inventory list or label photos and we'll confirm an itemized quote, usually within one business day.</p>
+      <h3 style="margin-bottom:8px;">Why an indicative price differs from your firm offer</h3>
+      <p>The prices our part search and lot calculator show are <strong>indicative</strong> &mdash; a guide to current demand for that exact part, not a guaranteed offer. RAM trades like a commodity and prices move day to day, so your firm offer is confirmed when we see your actual lot. The biggest factors are simple: <strong>are the modules new or are they pulls</strong>, how many you have, and what the market is paying that day. Send your part numbers and quantities and we'll confirm an itemized firm offer, usually within one business day.</p>
     </div>
   </div>
 </section>
@@ -1071,17 +1159,19 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
 
 <script>
 (function(){
-  /* Ocitech file-upload UX v2 (2026-09-07)
-     Netlify Forms accepts ONE file per field, so every form carries six static file fields:
-     attachment, attachment2 ... attachment6 (added by the site generator / patch script).
-     This script hides them, shows one "Add photos or a spreadsheet" button backed by a
-     hidden multi-select picker, compresses phone photos client-side, and distributes up to
-     six files across the six fields. Total payload is kept under ~5.5 MB (Netlify cap 8 MB). */
-  if(window.__ociFileUX) return; window.__ociFileUX=2;
-  var MAX_TOTAL=5.5*1024*1024, MAX_FILES=6, IMG_MAX_PX=1600, IMG_Q=0.82;
-  function human(b){return (b/1048576).toFixed(1)+' MB';}
+  /* Ocitech file-upload UX v3 (2026-10-08)
+     Netlify Forms accepts ONE file per field, so every form carries six static file fields
+     (attachment, attachment2 ... attachment6). This script hides them behind one button with a
+     multi-select picker, compresses phone photos, and distributes up to six files across the
+     six fields. v3: each file is listed with Replace / Remove, "Add more" is distinct from
+     replacing, files left out by the 6-file limit stay named in a warning, and the limits are
+     shown before anything is chosen. Total payload is kept under ~5.5 MB. */
+  if(window.__ociFileUX>=3) return; window.__ociFileUX=3;
+  var MAX_TOTAL=5.5*1024*1024, MAX_FILES=6, IMG_MAX_PX=1600, IMG_Q=0.82, ICON='&#128206;';
+  function human(b){return b<1048576?Math.max(1,Math.round(b/1024))+' KB':(b/1048576).toFixed(1)+' MB';}
   function track(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}}
   function isImage(f){return /^image\//.test(f.type)&&!/heic|heif/i.test(f.type);}
+  function el(tag,css,txt){var e=document.createElement(tag);if(css)e.style.cssText=css;if(txt!=null)e.textContent=txt;return e;}
   function compress(file){
     return new Promise(function(res){
       if(!isImage(file)||file.size<450*1024){res(file);return;}
@@ -1105,50 +1195,72 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
   forms.forEach(function(form){
     var slots=Array.prototype.slice.call(form.querySelectorAll('input[type=file]'));
     var first=slots[0]; if(!first) return;
+    var accept=first.getAttribute('accept')||'.csv,.xlsx,.xls,.txt,.pdf,image/*';
     var base=(first.getAttribute('name')||'attachment').replace(/\d+$/,'');
-    // ensure six static-named slots exist (generator adds them; this is a safety net for hand pages)
-    for(var i=slots.length+1;i<=MAX_FILES;i++){var extra=document.createElement('input');extra.type='file';extra.name=base+i;extra.setAttribute('accept',first.getAttribute('accept')||'');first.parentNode.insertBefore(extra,first.nextSibling);slots.push(extra);}
+    for(var i=slots.length+1;i<=MAX_FILES;i++){var extra=document.createElement('input');extra.type='file';extra.name=base+i;extra.setAttribute('accept',accept);first.parentNode.insertBefore(extra,first.nextSibling);slots.push(extra);}
     slots.forEach(function(s){s.removeAttribute('multiple');s.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';s.tabIndex=-1;});
 
-    var picker=document.createElement('input');picker.type='file';picker.multiple=true;picker.setAttribute('accept',first.getAttribute('accept')||'.csv,.xlsx,.xls,.txt,.pdf,image/*');
-    picker.style.cssText='position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;';
-    var btn=document.createElement('button');btn.type='button';btn.className='oci-attach-btn';
-    btn.innerHTML='&#128206; Add photos or a spreadsheet';
-    btn.style.cssText='border:1.5px solid var(--accent,#0071E3);color:var(--accent,#0071E3);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;';
+    var picker=el('input','position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;');picker.type='file';picker.multiple=true;picker.setAttribute('accept',accept);
+    var one=el('input','position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;');one.type='file';one.setAttribute('accept',accept);
+    var btn=el('button','border:1.5px solid var(--accent,#0071E3);color:var(--accent,#0071E3);background:transparent;padding:11px 22px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-family:inherit;');
+    btn.type='button';btn.className='oci-attach-btn';
     btn.addEventListener('mouseover',function(){btn.style.background='var(--accent,#0071E3)';btn.style.color='#fff';});
     btn.addEventListener('mouseout',function(){btn.style.background='transparent';btn.style.color='var(--accent,#0071E3)';});
-    var info=document.createElement('div');info.style.cssText='margin-top:8px;font-size:13px;color:var(--text-secondary,#6E6E73);';
-    var warn=document.createElement('div');warn.style.cssText='display:none;margin-top:6px;font-size:13px;color:#c0392b;font-weight:600;';
-    first.parentNode.insertBefore(picker,first);first.parentNode.insertBefore(btn,first);
-    var last=slots[slots.length-1];last.parentNode.insertBefore(info,last.nextSibling);info.parentNode.insertBefore(warn,info.nextSibling);
-    // legacy buttons from v1 markup (e.g. sell-server-ram's own attach button) delegate here
-    form.querySelectorAll('.attach-btn,#lot-attach-btn').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
-    btn.addEventListener('click',function(){picker.click();});
+    var mb=(MAX_TOTAL/1048576).toFixed(1)+' MB';
+    var limits=el('div','margin-top:6px;font-size:12.5px;color:var(--text-tertiary,#86868B);',/Up to 6 files/.test(form.textContent)?'Total size limit: '+mb+'.':'Up to '+MAX_FILES+' files, '+mb+' total. Large photos are shrunk automatically.');
+    var list=el('ul','list-style:none;margin:10px 0 0;padding:0;text-align:left;');list.className='oci-files';
+    var info=el('div','margin-top:6px;font-size:13px;color:var(--text-secondary,#6E6E73);');
+    var warn=el('div','display:none;margin-top:6px;font-size:13px;color:#c0392b;font-weight:600;text-align:left;');warn.setAttribute('role','status');
+    first.parentNode.insertBefore(picker,first);first.parentNode.insertBefore(one,first);first.parentNode.insertBefore(btn,first);
+    var last=slots[slots.length-1];
+    [limits,list,info,warn].reduce(function(prev,node){prev.parentNode.insertBefore(node,prev.nextSibling);return node;},last);
 
-    var chosen=[];
+    var chosen=[],omitted=[],replaceAt=-1;
     function total(){return chosen.reduce(function(a,f){return a+f.size;},0);}
+    function sync(){slots.forEach(function(s,i){setFiles(s,chosen[i]||null);});}
     function render(){
-      if(!chosen.length){info.textContent='';btn.innerHTML='&#128206; Add photos or a spreadsheet';warn.style.display='none';return true;}
-      info.textContent=chosen.length+(chosen.length>1?' files ':' file ')+'attached ('+human(total())+'): '+chosen.map(function(f){return f.name;}).join(', ');
-      btn.innerHTML='&#128206; Add more / change files';
-      if(total()>MAX_TOTAL){warn.textContent='Those files total '+human(total())+' — over the ~6 MB limit, so they may not send. Remove a file or send the rest by email reply.';warn.style.display='block';return false;}
-      warn.style.display='none';return true;
+      list.innerHTML='';
+      chosen.forEach(function(f,i){
+        var li=el('li','display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--line,#D2D2D7);border-radius:10px;margin-top:6px;font-size:13.5px;background:var(--bg,#fff);');
+        var nm=el('span','flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text,#1D1D1F);',f.name);
+        var sz=el('span','color:var(--text-tertiary,#86868B);white-space:nowrap;',human(f.size));
+        var rp=el('button','border:0;background:none;color:var(--accent,#0071E3);font:inherit;font-weight:600;cursor:pointer;padding:2px 4px;','Replace');rp.type='button';rp.setAttribute('aria-label','Replace '+f.name);
+        var rm=el('button','border:0;background:none;color:#c0392b;font:inherit;font-weight:600;cursor:pointer;padding:2px 4px;','Remove');rm.type='button';rm.setAttribute('aria-label','Remove '+f.name);
+        rp.addEventListener('click',function(){replaceAt=i;one.click();});
+        rm.addEventListener('click',function(){chosen.splice(i,1);sync();render();track('file_remove',{file_count:chosen.length,form_name:form.getAttribute('name')||''});});
+        li.appendChild(nm);li.appendChild(sz);li.appendChild(rp);li.appendChild(rm);list.appendChild(li);
+      });
+      var n=chosen.length;
+      btn.innerHTML=ICON+' '+(n?'Add more files':'Add photos or a spreadsheet');
+      btn.style.display=n>=MAX_FILES?'none':'inline-flex';
+      info.textContent=n?(n+' of '+MAX_FILES+' files attached, '+human(total())+' total'+(n>=MAX_FILES?' — remove one to add another.':'.')):'';
+      var msgs=[];
+      if(omitted.length)msgs.push('Not attached (limit is '+MAX_FILES+' files): '+omitted.join(', ')+'. '+(n<MAX_FILES?'There is room now \u2014 choose Add more files to include '+(omitted.length>1?'them':'it')+'.':'Remove a file to make room, or reply to our email with the rest.'));
+      if(total()>MAX_TOTAL)msgs.push('These files total '+human(total())+', over the '+mb+' limit, so the form will not send. Remove or replace a large file.');
+      warn.textContent=msgs.join(' ');warn.style.display=msgs.length?'block':'none';
+      return total()<=MAX_TOTAL;
     }
-    picker.addEventListener('change',function(){
-      var incoming=Array.prototype.slice.call(picker.files||[]);picker.value='';
-      if(!incoming.length)return;
+    function add(incoming){
       var room=MAX_FILES-chosen.length;
-      if(incoming.length>room){warn.textContent='Up to '+MAX_FILES+' files per submission — the first '+room+' were added. For more, attach a spreadsheet or reply to our email with the rest.';warn.style.display='block';incoming=incoming.slice(0,Math.max(0,room));}
+      omitted=incoming.slice(Math.max(0,room)).map(function(f){return f.name;});
+      incoming=incoming.slice(0,Math.max(0,room));
+      if(!incoming.length){render();return;}
       info.textContent='Preparing files…';
       Promise.all(incoming.map(compress)).then(function(done){
-        chosen=chosen.concat(done);
-        slots.forEach(function(s,i){setFiles(s,chosen[i]||null);});
-        var ok=render();
-        track('file_attach',{file_count:chosen.length,file_bytes:total(),over_limit:!ok,form_name:form.getAttribute('name')||''});
+        chosen=chosen.concat(done);sync();var ok=render();
+        track('file_attach',{file_count:chosen.length,file_bytes:total(),over_limit:!ok,omitted:omitted.length,form_name:form.getAttribute('name')||''});
       });
-    });
+    }
+    picker.addEventListener('change',function(){var inc=Array.prototype.slice.call(picker.files||[]);picker.value='';if(inc.length)add(inc);});
+    one.addEventListener('change',function(){var f=one.files&&one.files[0];one.value='';var at=replaceAt;replaceAt=-1;if(!f||at<0)return;
+      info.textContent='Preparing file…';compress(f).then(function(c){chosen[at]=c;sync();render();track('file_replace',{file_count:chosen.length,form_name:form.getAttribute('name')||''});});});
+    btn.addEventListener('click',function(){picker.click();});
+    // older buttons and scripts that open a slot directly are routed to the managed picker
+    form.querySelectorAll('.attach-btn,#lot-attach-btn').forEach(function(b){b.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
+    slots.forEach(function(s){s.addEventListener('click',function(ev){ev.preventDefault();picker.click();});});
+    render();
     form.addEventListener('submit',function(e){
-      if(total()>MAX_TOTAL){e.preventDefault();btn.scrollIntoView({behavior:'smooth',block:'center'});track('form_error',{reason:'files_over_limit',form_name:form.getAttribute('name')||''});}
+      if(total()>MAX_TOTAL){e.preventDefault();render();warn.scrollIntoView({behavior:'smooth',block:'center'});track('form_error',{reason:'files_over_limit',form_name:form.getAttribute('name')||''});}
     });
   });
 })();
@@ -1228,6 +1340,18 @@ window.addEventListener('resize',function(){if(window.innerWidth>=760)set(false)
   var marks={25:0,50:0,75:0};
   window.addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-window.innerHeight;if(h<=0)return;var pct=Math.round(window.scrollY/h*100);[25,50,75].forEach(function(m){if(!marks[m]&&pct>=m){marks[m]=1;ev('scroll_depth',{percent:m});}});},{passive:true});
 })();
+</script>
+<script>
+/* quick-offer form needs something to price: a description or a file (2026-10-08) */
+(function(){document.querySelectorAll('form[name="quick-quote"]').forEach(function(f){var d=f.querySelector('[name=details]');if(!d)return;
+var msg=document.createElement('div');msg.setAttribute('role','alert');msg.style.cssText='display:none;margin-top:12px;font-size:13.5px;color:#c0392b;font-weight:600;text-align:left;';
+msg.textContent='Tell us a little about what you have \u2014 an approximate count is fine (e.g. "about 200 x 32GB DDR4") \u2014 or attach a list or a photo of a label.';
+var sub=f.querySelector('button[type=submit]');if(sub)sub.parentNode.insertBefore(msg,sub);
+function hasFiles(){return Array.prototype.some.call(f.querySelectorAll('input[type=file][name]'),function(i){return i.files&&i.files.length;});}
+document.addEventListener('submit',function(e){if(e.target!==f)return;if(d.value.trim()||hasFiles()){msg.style.display='none';return;}
+ e.preventDefault();e.stopImmediatePropagation();msg.style.display='block';d.focus();
+ try{if(window.gtag)gtag('event','form_error',{reason:'nothing_to_price',form_name:'quick-quote'});}catch(err){}},true);
+d.addEventListener('input',function(){if(d.value.trim())msg.style.display='none';});});})();
 </script>
 </body>
 </html>
