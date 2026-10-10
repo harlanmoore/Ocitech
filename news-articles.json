@@ -1,5 +1,12 @@
 [
   {
+    "slug": "correctable-memory-errors-when-to-replace-server-ram",
+    "title": "Correctable Memory Errors: When Should You Replace Server RAM?",
+    "summary": "A correctable ECC alert does not automatically require replacement RAM. Preserve the logs, check platform-specific guidance and track the outcome before returning removed modules to inventory.",
+    "category": "Guides",
+    "date": "2026-10-09"
+  },
+  {
     "slug": "ddr5-on-die-ecc-vs-server-ecc",
     "title": "DDR5 On-Die ECC vs System ECC: What Server Memory Buyers Should Know",
     "summary": "On-die ECC corrects errors inside DDR5 chips; it does not replace system ECC. Buyers should verify the module type, full part number and platform support before accepting a server-memory substitute.",
