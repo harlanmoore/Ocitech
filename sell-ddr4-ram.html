@@ -783,6 +783,50 @@ ab.addEventListener('click',function(){f.hidden=false;if(msg)msg.textContent='At
 
 
 
+<!-- RECENT-DEALS:START -->
+<style>
+.rd{background:var(--bg);padding:28px 0 30px;border-top:1px solid var(--line);}
+.rd-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap;}
+.rd-head h2{font-size:clamp(18px,2.2vw,22px);margin:0;letter-spacing:-0.01em;}
+.rd-head h2 .rd-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:9px;vertical-align:middle;position:relative;top:-2px;}
+.rd-head p{margin:0;color:var(--text-secondary);font-size:14px;}
+.rd-row{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(250px,1fr);gap:0;overflow-x:auto;scroll-snap-type:x mandatory;border:1px solid var(--line);border-radius:var(--radius-md);-webkit-overflow-scrolling:touch;scrollbar-width:thin;}
+.rd-card{scroll-snap-align:start;padding:16px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:5px;min-width:0;text-decoration:none;color:inherit;}
+.rd-card:last-child{border-right:0;}
+a.rd-card:hover{background:var(--bg-alt);}
+.rd-when{font-size:12px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;}
+.rd-what{font-size:16px;font-weight:600;line-height:1.3;}
+.rd-qty{color:var(--accent);}
+.rd-pn{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;color:var(--text-secondary);overflow-wrap:anywhere;}
+.rd-meta{font-size:13px;color:var(--text-secondary);}
+.rd-paid{margin-top:auto;padding-top:8px;font-size:14px;}
+.rd-paid b{color:var(--green);font-weight:600;}
+.rd-sample{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.06em;color:var(--text-secondary);border:1px solid var(--line);border-radius:4px;padding:0 5px;margin-left:6px;vertical-align:middle;}
+.rd-note{margin:10px 0 0;font-size:12px;color:var(--text-tertiary);}
+@media (max-width:640px){.rd-row{grid-auto-columns:82%;}}
+</style>
+<section class="rd" id="recent-deals" aria-labelledby="rd-title">
+  <div class="wrap-wide">
+    <div class="rd-head">
+      <h2 id="rd-title"><span class="rd-dot" aria-hidden="true"></span>Recently bought</h2>
+      <p>Real lots we&rsquo;ve purchased. Seller names kept private.</p>
+    </div>
+    <div class="rd-row" id="rd-row">
+<!-- RD-CARDS:START -->
+<div class="rd-card"><span class="rd-when">Oct 2026<span class="rd-sample">Agreed</span></span><span class="rd-what"><span class="rd-qty">64 &times;</span> 64GB DDR5-4800 EC8 RDIMM</span><span class="rd-meta">Seller in California</span></div>
+<div class="rd-card"><span class="rd-when">Oct 2026<span class="rd-sample">Agreed</span></span><span class="rd-what"><span class="rd-qty">45 &times;</span> 32GB DDR4-2666 RDIMM</span><span class="rd-pn">M393A4K40CB2-CTD7Q</span><span class="rd-meta"></span></div>
+<div class="rd-card"><span class="rd-when">Oct 2026<span class="rd-sample">Agreed</span></span><span class="rd-what">Lenovo ThinkSystem SR650 V3 server</span><span class="rd-pn">2× Xeon Gold 6526Y · 1 TB DDR5 (16 × 64GB MTC40F2046S1RC56BD2)</span><span class="rd-meta">New, factory configuration · Seller in Michigan</span><span class="rd-paid"><b>$32,000</b> lot</span></div>
+<div class="rd-card"><span class="rd-when">Oct 2026<span class="rd-sample">Agreed</span></span><span class="rd-what"><span class="rd-qty">34 &times;</span> 8GB DDR4-2133 memory module</span><span class="rd-meta">Seller in Illinois</span></div>
+<div class="rd-card"><span class="rd-when">Oct 2026<span class="rd-sample">Agreed</span></span><span class="rd-what"><span class="rd-qty">12 &times;</span> 16GB DDR4-2933 RDIMM</span><span class="rd-pn">HMA82GR7CJR8N-WM</span><span class="rd-meta">Seller in Missouri</span></div>
+<div class="rd-card"><span class="rd-when">Oct 2026<span class="rd-sample">Agreed</span></span><span class="rd-what"><span class="rd-qty">36 &times;</span> mixed DDR4 memory modules</span><span class="rd-pn">6 part numbers incl. HMAA8GL7CPR4N-VK</span><span class="rd-meta">Seller in Washington</span><span class="rd-paid"><b>$2,250</b> lot</span></div>
+<div class="rd-card"><span class="rd-when">2026</span><span class="rd-what"><span class="rd-qty">150 &times;</span> 32GB DDR4-2666 RDIMM</span><span class="rd-pn">UCS-MR-X32G2RS-H (Cisco)</span><span class="rd-meta">Mixed Micron / SK hynix / Samsung pulls</span><span class="rd-paid"><b>$17,000</b> paid</span></div>
+<!-- RD-CARDS:END -->
+</div>
+    <p class="rd-note">&ldquo;Agreed&rdquo; means the purchase is agreed and delivery is under way. Past purchases aren&rsquo;t current offers &mdash; today&rsquo;s price depends on the part, quantity, condition and market.</p>
+  </div>
+</section>
+<!-- RECENT-DEALS:END -->
+
 <section style="padding:36px 0 0;">
   <div class="wrap">
     <div class="reveal" style="display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:center;align-items:center;padding:16px 22px;border:1px solid var(--line);border-radius:var(--radius-md);background:var(--bg-alt);font-size:14px;color:var(--text-secondary);text-align:center;">
