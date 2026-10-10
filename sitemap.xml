@@ -1082,4 +1082,16 @@
   </url>
   <url><loc>https://ocitech.com/ddr5-on-die-ecc-vs-server-ecc</loc></url>
   <url><loc>https://ocitech.com/correctable-memory-errors-when-to-replace-server-ram</loc></url>
+  <url>
+    <loc>https://ocitech.com/international-sellers</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ocitech.com/de/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
